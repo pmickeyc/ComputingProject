@@ -1,0 +1,342 @@
+[{
+  "_id": {
+    "$oid": "65aa55042fd8452206f27ea4"
+  },
+  "sender": "johndoe@email.com",
+  "snippet": "this is important",
+  "subject": "Hello there",
+  "fake": false
+},
+{
+  "_id": {
+    "$oid": "65aa586a2fd8452206f27ea5"
+  },
+  "sender": "johndoe@real-email.com",
+  "snippet": "this is a real email",
+  "subject": "Greetings",
+  "fake": false
+},
+{
+  "_id": {
+    "$oid": "65aa5bcf2fd8452206f27ea6"
+  },
+  "sender": "jane.smith@emailprovider.com",
+  "snippet": "urgent message",
+  "subject": "Important Update",
+  "fake": false
+},
+{
+  "_id": {
+    "$oid": "65aa5be22fd8452206f27ea7"
+  },
+  "sender": "support@legitcompany.com",
+  "snippet": "your order confirmation",
+  "subject": "Order #123456",
+  "fake": false
+},
+{
+  "_id": {
+    "$oid": "65aa5be72fd8452206f27ea8"
+  },
+  "sender": "marketing@realestcompanyever.com",
+  "snippet": "special offer inside",
+  "subject": "Exclusive Deal",
+  "fake": false
+},
+{
+  "_id": {
+    "$oid": "65aa5bec2fd8452206f27ea9"
+  },
+  "sender": "notification@yourbank.com",
+  "snippet": "account activity alert",
+  "subject": "Account Security",
+  "fake": false
+},
+{
+  "_id": {
+    "$oid": "65aa5bfd2fd8452206f27eaa"
+  },
+  "sender": "johndoe@fake-email.com",
+  "snippet": "important information",
+  "subject": "Please Read",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c032fd8452206f27eab"
+  },
+  "sender": "suspicious@notlegitcompany.net",
+  "snippet": "survey for a chance to win",
+  "subject": "Your Opinion Matters",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c132fd8452206f27eac"
+  },
+  "sender": "johndoe@scam-email.org",
+  "snippet": "important update on your account",
+  "subject": "Account Maintenance",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ead"
+  },
+  "sender": "phishing@malicious-site.com",
+  "snippet": "security alert for your account",
+  "subject": "Immediate Action Required",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eae"
+  },
+  "sender": "johndoe@notreal-email.com",
+  "snippet": "your account has been suspended",
+  "subject": "Account Suspension Notice",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eaf"
+  },
+  "sender": "johndoe@phishingscam.net",
+  "snippet": "claim your prize now",
+  "subject": "Prize Winner Notification",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb0"
+  },
+  "sender": "johndoe@totallynotascam.org",
+  "snippet": "we need your help urgently",
+  "subject": "Urgent Assistance Required",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb1"
+  },
+  "sender": "johndoe@harmlessphishing.com",
+  "snippet": "you've won a lottery!",
+  "subject": "Congratulations, You're a Winner!",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb2"
+  },
+  "sender": "johndoe@scamartist.biz",
+  "snippet": "update your account information",
+  "subject": "Account Verification Required",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb3"
+  },
+  "sender": "johndoe@obviousphishing.org",
+  "snippet": "verify your identity now",
+  "subject": "Identity Verification Needed",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb4"
+  },
+  "sender": "johndoe@clearlynotreal.com",
+  "snippet": "click to claim your reward",
+  "subject": "Claim Your Reward Now!",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb5"
+  },
+  "sender": "johndoe@obviouslyfake.net",
+  "snippet": "urgent message from the bank",
+  "subject": "Bank Account Update Required",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb6"
+  },
+  "sender": "johndoe@clearlyaspam.org",
+  "snippet": "one-time offer inside",
+  "subject": "Limited-Time Deal",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb7"
+  },
+  "sender": "johndoe@nigerianprince.net",
+  "snippet": "your assistance needed urgently",
+  "subject": "Urgent Business Proposal",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb8"
+  },
+  "sender": "johndoe@definitelynotascam.com",
+  "snippet": "free gift just for you",
+  "subject": "Exclusive Offer",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eb9"
+  },
+  "sender": "johndoe@legitlookingphishing.net",
+  "snippet": "click to verify your account",
+  "subject": "Account Verification Request",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27eba"
+  },
+  "sender": "johndoe@trustusitsnotascam.org",
+  "snippet": "you're our lucky winner",
+  "subject": "Lucky Winner Announcement",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ebb"
+  },
+  "sender": "johndoe@yourbankisreal.com",
+  "snippet": "your account has been locked",
+  "subject": "Account Lockout Notification",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ebc"
+  },
+  "sender": "johndoe@seemslegit.org",
+  "snippet": "claim your prize immediately",
+  "subject": "Prize Claim Required",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ebd"
+  },
+  "sender": "johndoe@suspiciouslookingemail.net",
+  "snippet": "your Amazon order confirmation",
+  "subject": "Amazon Order Confirmation",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ebe"
+  },
+  "sender": "johndoe@officialbankverification.com",
+  "snippet": "verify your account now",
+  "subject": "Account Verification Required",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ebf"
+  },
+  "sender": "johndoe@notascamreally.net",
+  "snippet": "congratulations, you've won!",
+  "subject": "You're Our Lucky Winner",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec0"
+  },
+  "sender": "johndoe@clearlynotfake.org",
+  "snippet": "claim your prize now",
+  "subject": "Prize Claim Instructions",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec1"
+  },
+  "sender": "johndoe@lookslegit.biz",
+  "snippet": "you're a winner, don't miss out",
+  "subject": "Winner Announcement",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec2"
+  },
+  "sender": "johndoe@officialbanknotice.com",
+  "snippet": "account verification required",
+  "subject": "Account Security Alert",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec3"
+  },
+  "sender": "johndoe@notatallascam.net",
+  "snippet": "you've won a prize",
+  "subject": "Prize Winner Notification",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec4"
+  },
+  "sender": "johndoe@totallylegitlookingemail.org",
+  "snippet": "click to verify your account",
+  "subject": "Account Verification Request",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec5"
+  },
+  "sender": "johndoe@trustusitsreal.com",
+  "snippet": "your bank account is locked",
+  "subject": "Important Account Notice",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec6"
+  },
+  "sender": "johndoe@realbankverification.net",
+  "snippet": "verify your account immediately",
+  "subject": "Account Verification Required",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec7"
+  },
+  "sender": "johndoe@definitelylegitbank.biz",
+  "snippet": "you've won a grand prize",
+  "subject": "Grand Prize Winner Notification",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec8"
+  },
+  "sender": "johndoe@yourbankisntfake.org",
+  "snippet": "claim your reward now",
+  "subject": "Reward Claim Instructions",
+  "fake": true
+},
+{
+  "_id": {
+    "$oid": "65aa5c1d2fd8452206f27ec9"
+  },
+  "sender": "johndoe@trustworthybank.biz",
+  "snippet": "account verification process",
+  "subject": "Account Security Verification",
+  "fake": true
+}]

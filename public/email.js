@@ -2,17 +2,48 @@ document.addEventListener('DOMContentLoaded', function () {
     let deliveredEmails = []; // Array to store emails to be delivered
     let fakeEmailCount = 0;
     let realEmailCount = 0;
-    let maxFakeEmails = 3;
-    let maxRealEmails = 2;
     let deliveryCount = 0; // Counter for delivered emails
     let correctGuesses = 0;
     let incorrectGuesses = 0;
     let totalGuesses = 0;
     const maxGuesses = 5;
+    let maxFakeEmails = 0;
+    let maxRealEmails = 0;
+    let maxEmailsDelivered = 10;
+
+    // Levels (the index) of real to fake emails 
+    const levelRatios = [
+        { real: 9, fake: 1 },
+        { real: 8, fake: 2 },
+        { real: 7, fake: 3 },
+        { real: 6, fake: 4 },
+        { real: 5, fake: 5 },
+        { real: 5, fake: 5 },
+        { real: 4, fake: 6 },
+        { real: 7, fake: 3 },
+        { real: 1, fake: 9 },
+        { real: 5, fake: 5 }
+    ];
+
+    function calculateEmailLimits(userLevel) {
+        if (userLevel >= 1 && userLevel <= 10) {
+            maxRealEmails = levelRatios[userLevel - 1].real;
+            maxFakeEmails = levelRatios[userLevel - 1].fake;
+        } else {
+            // Default values 
+            maxRealEmails = 2;
+            maxFakeEmails = 3;
+        }
+    }
+
+    // Example usage:
+    let userLevel = 3; // You can change this to the user's actual level
+    calculateEmailLimits(userLevel);
 
     // Function to add event listener to an email item
     function addEmailClickListener(emailItem) {
         emailItem.addEventListener('click', function () {
+            //console.log('Email clicked:', this.dataset.id); // Log the email ID
             document.querySelector('.email-list').innerHTML = `<div class="email-full">${this.querySelector('.email-snippet').innerHTML}</div>`;
         });
     }
@@ -45,15 +76,16 @@ document.addEventListener('DOMContentLoaded', function () {
         // Using a closure to ensure the correct emailId is used
         btnFake.addEventListener('click', function (event) {
             event.stopPropagation();
+            //console.log('Fake guess clicked for email:', emailId); // Log the email ID
             submitGuess(emailId, 'fake');
         });
 
         btnReal.addEventListener('click', function (event) {
             event.stopPropagation();
+            //console.log('Real guess clicked for email:', emailId); // Log the email ID
             submitGuess(emailId, 'real');
         });
     }
-
 
     function submitGuess(emailId, guess) {
         const emailElement = document.querySelector(`.email-item[data-id="${emailId}"]`);
@@ -89,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function shuffleArray(array) {
+        //console.log(array)
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]]; // Swap elements
@@ -98,8 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to deliver emails at intervals
     function startEmailDelivery() {
         let emailDeliveryInterval = setInterval(function () {
-            if (deliveredEmails.length > 0 && deliveryCount < 5) {
+            if (deliveredEmails.length > 0 && deliveryCount < maxEmailsDelivered) {
                 let emailToDeliver = deliveredEmails.shift(); // Get the next email to deliver
+                //console.log('Delivering email:', emailToDeliver.dataset.id); // Log the email ID
                 document.querySelector('.email-list').prepend(emailToDeliver);
                 deliveryCount++;
             } else {
@@ -115,18 +149,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             let emailData = await response.json();
-
             // Sort and count fake and real emails from the fetched data
             emailData.forEach(email => {
-                if (email.fake === "true" && fakeEmailCount < maxFakeEmails) {
+                //console.log(email.fake + " - " + fakeEmailCount +" - "+ maxFakeEmails)
+                if (email.fake === true && fakeEmailCount < maxFakeEmails) {
                     deliveredEmails.push(createEmail(email));
                     fakeEmailCount++;
-                } else if (email.fake === "false" && realEmailCount < maxRealEmails) {
+                } else if (email.fake === false && realEmailCount < maxRealEmails) {
                     deliveredEmails.push(createEmail(email));
                     realEmailCount++;
                 }
+                
             });
 
+            //console.log(deliveredEmails)
             // Shuffle the emails to randomize the order of delivery
             shuffleArray(deliveredEmails);
 
@@ -156,7 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Hide the email list
         emailListView.style.display = 'none';
     }
-
 
     // Function to add event listener to an email item
     function addEmailClickListener(emailItem) {
