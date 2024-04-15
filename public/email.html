@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mock Email Portal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="email.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button class="compose-button">Compose</button>
+            <ul class="nav-items">
+                <li class="active" id="inbox-title">Inbox</li>
+                <!--Ascetics only-->
+                <li>Starred</li>
+                <li>Snoozed</li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="tabs">
+                <div class="tab active">Primary</div>
+                <!--Ascetics only-->
+                <div class="tab">Promotions</div>
+                <div class="tab">Social</div>
+            </div>
+            <!-- Email full view container, initially hidden -->
+            <div class="email-full" style="display: none;"></div>
+            <!-- Email list container where email items will be dynamically added -->
+            <div class="email-list">
+                <!-- Email items will be dynamically added here by email.js -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

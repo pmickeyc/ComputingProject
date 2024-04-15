@@ -1,0 +1,276 @@
+{"level":"error","message":"Error occurred during registration: Cannot destructure property 'firstName' of 'req.body' as it is undefined.","stack":"TypeError: Cannot destructure property 'firstName' of 'req.body' as it is undefined.\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\server.js:91:17\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at expressInit (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\middleware\\init.js:40:5)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)"}
+{"level":"error","message":"Error occurred during registration: Cannot destructure property 'firstName' of 'req.body' as it is undefined.","stack":"TypeError: Cannot destructure property 'firstName' of 'req.body' as it is undefined.\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\server.js:91:17\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at expressInit (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\middleware\\init.js:40:5)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)"}
+{"level":"error","message":"Error occurred during registration: Cannot destructure property 'firstName' of 'req.body' as it is undefined.","stack":"TypeError: Cannot destructure property 'firstName' of 'req.body' as it is undefined.\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\server.js:91:17\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at expressInit (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\middleware\\init.js:40:5)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)"}
+{"class":16,"code":"EREQUEST","level":"error","lineNumber":7,"message":"Error occurred during registration: Invalid object name 'BiggerPhish.Users'.","name":"RequestError","number":208,"originalError":{"info":{"class":16,"handlerName":"onErrorMessage","lineNumber":7,"message":"Invalid object name 'BiggerPhish.Users'.","name":"ERROR","number":208,"procName":"sp_InsertUser","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","state":1}},"precedingErrors":[],"procName":"sp_InsertUser","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","stack":"RequestError: Invalid object name 'BiggerPhish.Users'.\n    at handleError (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\mssql\\lib\\tedious\\request.js:738:15)\n    at Connection.emit (node:events:518:28)\n    at Connection.emit (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\tedious\\lib\\connection.js:959:18)\n    at RequestTokenHandler.onErrorMessage (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\tedious\\lib\\token\\handler.js:285:21)\n    at Readable.<anonymous> (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\tedious\\lib\\token\\token-stream-parser.js:18:33)\n    at Readable.emit (node:events:518:28)\n    at addChunk (node:internal/streams/readable:559:12)\n    at readableAddChunkPushObjectMode (node:internal/streams/readable:536:3)\n    at Readable.push (node:internal/streams/readable:391:5)\n    at nextAsync (node:internal/streams/from:194:22)","state":1}
+{"email":"p@test.ie","firstName":"test","level":"info","message":"User registered successfully:"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"ip":"::1","level":"info","message":"Serving register.html"}
+{"ip":"::1","level":"info","message":"Serving register.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Cw6FTO8MBw4YEjTMnCGxHkDXme7TTHUS"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"PhzccZTu7-WXtPDZlywhera_GKDGtCRk"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"V-ff-9PQWLIt-EAxmdEnz62VSSN9fFMT"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"bZTt1MzcJaQn9NY1qdbUu3sHE6Ii-RmG"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"q7T0yg4IIQ4i8_PUh56EZiicq_FtPS6M"}
+{"level":"info","message":"User logout","sessionId":"q7T0yg4IIQ4i8_PUh56EZiicq_FtPS6M"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"YEClbJxZt8ns2cwJ9GHKe6MmO3-w2uKI"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"guLzCvncRalFqCPl3gUcU6l-25ut93VH"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"Fe2qr3hiB7QL66rp1tcdk0JHE_iMyq4E"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"pqhY6gWQXzKIgptzJLgMn5r-wBJD35No"}
+{"level":"info","message":"User logged out successfully","sessionId":"pqhY6gWQXzKIgptzJLgMn5r-wBJD35No"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"SUjL2Yy6BculfV78DDBCdYyuOvzWnw95"}
+{"level":"info","message":"Logout attempt","sessionId":"SUjL2Yy6BculfV78DDBCdYyuOvzWnw95"}
+{"level":"info","message":"Attempting to destroy session","sessionId":"SUjL2Yy6BculfV78DDBCdYyuOvzWnw95"}
+{"level":"info","message":"Session cookie cleared","sessionId":"SUjL2Yy6BculfV78DDBCdYyuOvzWnw95"}
+{"level":"info","message":"User logged out successfully","sessionId":"SUjL2Yy6BculfV78DDBCdYyuOvzWnw95"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is not authenticated, serving index.html"}
+{"ip":"::1","level":"info","message":"Serving login.html"}
+{"email":"p@test.ie","level":"info","message":"Received login request"}
+{"email":"p@test.ie","level":"info","message":"Login successful"}
+{"level":"info","message":"Received request for root route."}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"OIdVMmAMPr6zCW19X3LNOSvzWG8QBU9J"}
+{"ip":"::1","level":"info","message":"Serving email.html"}
+{"ip":"::1","level":"info","message":"Serving email.html"}
+{"ip":"::1","level":"info","message":"Serving email.html"}
+{"ip":"::1","level":"info","message":"Serving email.html"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:25:20"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 19:25:20"}
+{"ip":"::1","level":"info","message":"Serving login.html","timestamp":"2024-04-15 19:25:28"}
+{"email":"p@test.ie","level":"info","message":"Received login request","timestamp":"2024-04-15 19:25:34"}
+{"email":"p@test.ie","level":"info","message":"Login successful","timestamp":"2024-04-15 19:25:34"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:25:34"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"W7cbc7npc06EnQuzeiwJM4YJBJDZLqdS","timestamp":"2024-04-15 19:25:34"}
+{"level":"info","message":"Logout attempt","sessionId":"W7cbc7npc06EnQuzeiwJM4YJBJDZLqdS","timestamp":"2024-04-15 19:25:37"}
+{"level":"info","message":"Attempting to destroy session","sessionId":"W7cbc7npc06EnQuzeiwJM4YJBJDZLqdS","timestamp":"2024-04-15 19:25:37"}
+{"level":"info","message":"Session cookie cleared","sessionId":"W7cbc7npc06EnQuzeiwJM4YJBJDZLqdS","timestamp":"2024-04-15 19:25:37"}
+{"level":"info","message":"User logged out successfully","sessionId":"W7cbc7npc06EnQuzeiwJM4YJBJDZLqdS","timestamp":"2024-04-15 19:25:37"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:25:37"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 19:25:37"}
+{"ip":"::1","level":"info","message":"Serving login.html","timestamp":"2024-04-15 19:25:39"}
+{"email":"p@test.ie","level":"info","message":"Received login request","timestamp":"2024-04-15 19:25:42"}
+{"email":"p@test.ie","level":"info","message":"Login successful","timestamp":"2024-04-15 19:25:42"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:25:42"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"v1JLjzb5NoekGtkdDv4madXpjB0zj3h5","timestamp":"2024-04-15 19:25:42"}
+{"level":"info","message":"Logout attempt","sessionId":"v1JLjzb5NoekGtkdDv4madXpjB0zj3h5","timestamp":"2024-04-15 19:25:50"}
+{"level":"info","message":"Attempting to destroy session","sessionId":"v1JLjzb5NoekGtkdDv4madXpjB0zj3h5","timestamp":"2024-04-15 19:25:50"}
+{"level":"info","message":"Session cookie cleared","sessionId":"v1JLjzb5NoekGtkdDv4madXpjB0zj3h5","timestamp":"2024-04-15 19:25:50"}
+{"level":"info","message":"User logged out successfully","sessionId":"v1JLjzb5NoekGtkdDv4madXpjB0zj3h5","timestamp":"2024-04-15 19:25:50"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:25:50"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 19:25:50"}
+{"ip":"::1","level":"info","message":"Serving login.html","timestamp":"2024-04-15 19:25:51"}
+{"email":"p@juhgfds","level":"info","message":"Received login request","timestamp":"2024-04-15 19:25:58"}
+{"email":"p@juhgfds","level":"info","message":"Login successful","timestamp":"2024-04-15 19:25:58"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:25:58"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"UINpmtG7rrZf83pbRCBJngklt39H7pXc","timestamp":"2024-04-15 19:25:58"}
+{"level":"info","message":"Logout attempt","sessionId":"UINpmtG7rrZf83pbRCBJngklt39H7pXc","timestamp":"2024-04-15 19:26:05"}
+{"level":"info","message":"Attempting to destroy session","sessionId":"UINpmtG7rrZf83pbRCBJngklt39H7pXc","timestamp":"2024-04-15 19:26:05"}
+{"level":"info","message":"Session cookie cleared","sessionId":"UINpmtG7rrZf83pbRCBJngklt39H7pXc","timestamp":"2024-04-15 19:26:05"}
+{"level":"info","message":"User logged out successfully","sessionId":"UINpmtG7rrZf83pbRCBJngklt39H7pXc","timestamp":"2024-04-15 19:26:05"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:26:05"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 19:26:05"}
+{"ip":"::1","level":"info","message":"Serving login.html","timestamp":"2024-04-15 19:26:06"}
+{"email":"1@1","level":"info","message":"Received login request","timestamp":"2024-04-15 19:26:13"}
+{"email":"1@1","level":"info","message":"Login successful","timestamp":"2024-04-15 19:26:13"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:26:13"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"tix3F1K1QffwighzbRdgpXWaMEaDTzbY","timestamp":"2024-04-15 19:26:13"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:31:53"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 19:31:53"}
+{"ip":"::1","level":"info","message":"Serving login.html","timestamp":"2024-04-15 19:31:54"}
+{"email":"4567@dfg","level":"info","message":"Received login request","timestamp":"2024-04-15 19:32:02"}
+{"email":"4567@dfg","level":"warn","message":"Login failed - invalid credentials","timestamp":"2024-04-15 19:32:02"}
+{"email":"p@test.ie","level":"info","message":"Received login request","timestamp":"2024-04-15 19:32:10"}
+{"email":"p@test.ie","level":"info","message":"Login successful","timestamp":"2024-04-15 19:32:10"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:32:10"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"InQR8kjrUZv2vqOaQB27G7xlw05GK0bC","timestamp":"2024-04-15 19:32:10"}
+{"level":"info","message":"Logout attempt","sessionId":"InQR8kjrUZv2vqOaQB27G7xlw05GK0bC","timestamp":"2024-04-15 19:32:26"}
+{"level":"info","message":"Attempting to destroy session","sessionId":"InQR8kjrUZv2vqOaQB27G7xlw05GK0bC","timestamp":"2024-04-15 19:32:26"}
+{"level":"info","message":"Session cookie cleared","sessionId":"InQR8kjrUZv2vqOaQB27G7xlw05GK0bC","timestamp":"2024-04-15 19:32:26"}
+{"level":"info","message":"User logged out successfully","sessionId":"InQR8kjrUZv2vqOaQB27G7xlw05GK0bC","timestamp":"2024-04-15 19:32:26"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:32:26"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 19:32:26"}
+{"ip":"::1","level":"info","message":"Serving login.html","timestamp":"2024-04-15 19:32:33"}
+{"email":"p@test.ie","level":"info","message":"Received login request","timestamp":"2024-04-15 19:32:35"}
+{"email":"p@test.ie","level":"info","message":"Login successful","timestamp":"2024-04-15 19:32:35"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:32:35"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"p0yjOPz6JGvEcChfHckPvqldMdd0MLLz","timestamp":"2024-04-15 19:32:35"}
+{"level":"info","message":"Logout attempt","sessionId":"9XRsol4n5z1dX44xyEK8c4dC13UbWP3g","timestamp":"2024-04-15 19:43:52"}
+{"level":"info","message":"Attempting to destroy session","sessionId":"9XRsol4n5z1dX44xyEK8c4dC13UbWP3g","timestamp":"2024-04-15 19:43:52"}
+{"level":"info","message":"Session cookie cleared","sessionId":"9XRsol4n5z1dX44xyEK8c4dC13UbWP3g","timestamp":"2024-04-15 19:43:52"}
+{"level":"info","message":"User logged out successfully","sessionId":"9XRsol4n5z1dX44xyEK8c4dC13UbWP3g","timestamp":"2024-04-15 19:43:52"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 19:43:52"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 19:43:52"}
+{"ip":"::1","level":"info","message":"Serving register.html","timestamp":"2024-04-15 19:43:54"}
+{"email":"p@test.ie","firstName":"gfd","level":"info","message":"User registered successfully:","timestamp":"2024-04-15 19:44:07"}
+{"email":"a@a","firstName":"gfd","level":"info","message":"User registered successfully:","timestamp":"2024-04-15 19:45:02"}
+{"ip":"::1","level":"info","message":"Serving register.html","timestamp":"2024-04-15 19:47:19"}
+{"level":"info","message":"MSSQL return value: ","timestamp":"2024-04-15 19:47:24"}
+{"email":"p@test.ie","firstName":"gfds","level":"info","message":"User registered successfully:","timestamp":"2024-04-15 19:47:24"}
+{"level":"info","message":"MSSQL return value: ","timestamp":"2024-04-15 19:52:15"}
+{"email":"p@test.ie","firstName":"gfds","level":"info","message":"User registered successfully:","timestamp":"2024-04-15 19:52:15"}
+{"level":"info","message":"MSSQL return value: ","timestamp":"2024-04-15 19:54:45"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 20:13:35"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 20:13:35"}
+{"ip":"::1","level":"info","message":"Serving register.html","timestamp":"2024-04-15 20:13:36"}
+{"level":"error","message":"Error occurred during registration: Incomplete form data","stack":"Error: Incomplete form data\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\server.js:150:19\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Immediate._onImmediate (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express-session\\index.js:514:7)\n    at process.processImmediate (node:internal/timers:480:21)","timestamp":"2024-04-15 20:13:38"}
+{"level":"info","message":"MSSQL return output: ","timestamp":"2024-04-15 20:13:58"}
+{"email":"p@test.ie","level":"warn","message":"User registration failed: Email already in use","timestamp":"2024-04-15 20:17:32"}
+{"email":"a@a","firstName":"test","level":"info","message":"User registered successfully:","timestamp":"2024-04-15 20:17:42"}
+{"email":"p@test.ie","level":"info","message":"Received login request","timestamp":"2024-04-15 20:18:00"}
+{"email":"p@test.ie","level":"info","message":"Login successful","timestamp":"2024-04-15 20:18:00"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 20:18:00"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"m4tSvXlGA_CPXingTHaQ-wiMMtAYcchT","timestamp":"2024-04-15 20:18:00"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-15 20:27:50"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 20:27:50"}
+{"ip":"::1","level":"info","message":"Serving register.html","timestamp":"2024-04-15 20:27:52"}
+{"email":"a@a.123","firstName":"test","level":"info","message":"User registered successfully:","timestamp":"2024-04-15 20:28:11"}
