@@ -274,3 +274,551 @@
 {"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-15 20:27:50"}
 {"ip":"::1","level":"info","message":"Serving register.html","timestamp":"2024-04-15 20:27:52"}
 {"email":"a@a.123","firstName":"test","level":"info","message":"User registered successfully:","timestamp":"2024-04-15 20:28:11"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-16 19:05:04"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-16 19:05:04"}
+{"ip":"::1","level":"info","message":"Serving login.html","timestamp":"2024-04-16 19:05:08"}
+{"email":"p@test.ie","level":"info","message":"Received login request","timestamp":"2024-04-16 19:05:09"}
+{"email":"p@test.ie","level":"info","message":"Login successful","timestamp":"2024-04-16 19:05:09"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-16 19:05:09"}
+{"level":"info","message":"User is authenticated, serving user.html","sessionId":"XB7SRk_aonohsU_AJf_JcUlfP5EuEg_k","timestamp":"2024-04-16 19:05:09"}
+{"level":"info","message":"Logout attempt","sessionId":"XB7SRk_aonohsU_AJf_JcUlfP5EuEg_k","timestamp":"2024-04-16 19:05:11"}
+{"level":"info","message":"Attempting to destroy session","sessionId":"XB7SRk_aonohsU_AJf_JcUlfP5EuEg_k","timestamp":"2024-04-16 19:05:11"}
+{"level":"info","message":"Session cookie cleared","sessionId":"XB7SRk_aonohsU_AJf_JcUlfP5EuEg_k","timestamp":"2024-04-16 19:05:11"}
+{"level":"info","message":"User logged out successfully","sessionId":"XB7SRk_aonohsU_AJf_JcUlfP5EuEg_k","timestamp":"2024-04-16 19:05:11"}
+{"level":"info","message":"Received request for root route.","timestamp":"2024-04-16 19:05:11"}
+{"level":"info","message":"User is not authenticated, serving index.html","timestamp":"2024-04-16 19:05:11"}
+2024-04-16 19:06:34 info: Received request for root route. 
+2024-04-16 19:06:34 info: User is not authenticated, serving index.html 
+2024-04-16 19:06:37 info: Serving login.html 
+2024-04-16 19:06:38 info: Received login request 
+2024-04-16 19:06:38 info: Login successful 
+2024-04-16 19:06:38 info: Received request for root route. 
+2024-04-16 19:06:38 info: User is authenticated, serving user.html 
+2024-04-16 19:06:41 info: Logout attempt 
+2024-04-16 19:06:41 info: Attempting to destroy session 
+2024-04-16 19:06:41 info: Session cookie cleared 
+2024-04-16 19:06:41 info: User logged out successfully 
+2024-04-16 19:06:41 info: Received request for root route. 
+2024-04-16 19:06:41 info: User is not authenticated, serving index.html 
+2024-04-16 19:13:31 info: Serving login.html 
+2024-04-16 19:13:32 info: Received login request 
+2024-04-16 19:13:32 info: Login successful 
+2024-04-16 19:13:32 info: Received request for root route. 
+2024-04-16 19:13:32 info: User is authenticated, serving user.html 
+2024-04-16 19:13:32 info: Checking if request is authenticated 
+2024-04-16 19:13:32 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:16:01 info: Received request for root route. 
+2024-04-16 19:16:01 info: User is not authenticated, serving index.html 
+2024-04-16 19:16:02 info: Serving login.html 
+2024-04-16 19:16:03 info: Received login request 
+2024-04-16 19:16:03 info: Login successful 
+2024-04-16 19:16:03 info: Received request for root route. 
+2024-04-16 19:16:03 info: User is authenticated, serving user.html 
+2024-04-16 19:16:03 info: Checking if request is authenticated 
+2024-04-16 19:16:03 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:18:08 info: Received request for root route. 
+2024-04-16 19:18:08 info: User is not authenticated, serving index.html 
+2024-04-16 19:18:09 info: Serving login.html 
+2024-04-16 19:18:11 info: Received login request 
+2024-04-16 19:18:11 info: Login successful 
+2024-04-16 19:18:11 info: Received request for root route. 
+2024-04-16 19:18:11 info: User is authenticated, serving user.html 
+2024-04-16 19:18:11 info: Checking if request is authenticated 
+2024-04-16 19:18:11 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:18:11 info: p@test.ie 
+2024-04-16 19:22:09 info: Received request for root route. 
+2024-04-16 19:22:09 info: User is not authenticated, serving index.html 
+2024-04-16 19:22:11 info: Serving login.html 
+2024-04-16 19:22:12 info: Received login request 
+2024-04-16 19:22:12 info: Login successful 
+2024-04-16 19:22:12 info: Received request for root route. 
+2024-04-16 19:22:12 info: User is authenticated, serving user.html 
+2024-04-16 19:22:12 info: Checking if request is authenticated 
+2024-04-16 19:22:12 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:22:23 info: Logout attempt 
+2024-04-16 19:22:23 info: Attempting to destroy session 
+2024-04-16 19:22:23 info: Session cookie cleared 
+2024-04-16 19:22:23 info: User logged out successfully 
+2024-04-16 19:22:23 info: Received request for root route. 
+2024-04-16 19:22:23 info: User is not authenticated, serving index.html 
+2024-04-16 19:22:25 info: Serving login.html 
+2024-04-16 19:22:26 info: Received login request 
+2024-04-16 19:22:26 info: Login successful 
+2024-04-16 19:22:26 info: Received request for root route. 
+2024-04-16 19:22:26 info: User is authenticated, serving user.html 
+2024-04-16 19:22:26 info: Checking if request is authenticated 
+2024-04-16 19:22:26 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:24:57 info: Received request for root route. 
+2024-04-16 19:24:57 info: User is not authenticated, serving index.html 
+2024-04-16 19:24:58 info: Serving login.html 
+2024-04-16 19:24:59 info: Received login request 
+2024-04-16 19:24:59 info: Login successful 
+2024-04-16 19:24:59 info: Received request for root route. 
+2024-04-16 19:24:59 info: User is authenticated, serving user.html 
+2024-04-16 19:24:59 info: Checking if request is authenticated 
+2024-04-16 19:24:59 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:27:29 info: Received request for root route. 
+2024-04-16 19:27:29 info: User is not authenticated, serving index.html 
+2024-04-16 19:27:30 info: Serving login.html 
+2024-04-16 19:27:31 info: Received login request 
+2024-04-16 19:27:31 info: Login successful 
+2024-04-16 19:27:31 info: Received request for root route. 
+2024-04-16 19:27:31 info: User is authenticated, serving user.html 
+2024-04-16 19:27:31 info: Checking if request is authenticated 
+2024-04-16 19:27:31 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:27:31 info: User data retrieved successfully 
+2024-04-16 19:29:51 info: Received request for root route. 
+2024-04-16 19:29:51 info: User is not authenticated, serving index.html 
+2024-04-16 19:29:52 info: Serving login.html 
+2024-04-16 19:29:53 info: Received login request 
+2024-04-16 19:29:53 info: Login successful 
+2024-04-16 19:29:53 info: Received request for root route. 
+2024-04-16 19:29:53 info: User is authenticated, serving user.html 
+2024-04-16 19:29:53 info: Checking if request is authenticated 
+2024-04-16 19:29:53 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:29:53 info: User data retrieved successfully 
+2024-04-16 19:31:56 info: Received request for root route. 
+2024-04-16 19:31:56 info: User is not authenticated, serving index.html 
+2024-04-16 19:31:57 info: Serving login.html 
+2024-04-16 19:31:59 info: Received login request 
+2024-04-16 19:31:59 info: Login successful 
+2024-04-16 19:31:59 info: Received request for root route. 
+2024-04-16 19:31:59 info: User is authenticated, serving user.html 
+2024-04-16 19:31:59 info: Checking if request is authenticated 
+2024-04-16 19:31:59 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:31:59 info: User data retrieved successfully 
+2024-04-16 19:32:31 info: Received request for root route. 
+2024-04-16 19:32:31 info: User is not authenticated, serving index.html 
+2024-04-16 19:32:31 info: Serving login.html 
+2024-04-16 19:32:32 info: Received login request 
+2024-04-16 19:32:32 info: Login successful 
+2024-04-16 19:32:32 info: Received request for root route. 
+2024-04-16 19:32:32 info: User is authenticated, serving user.html 
+2024-04-16 19:32:32 info: Checking if request is authenticated 
+2024-04-16 19:32:32 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:32:32 info: User data retrieved successfully 
+2024-04-16 19:32:48 info: Logout attempt 
+2024-04-16 19:32:48 info: Attempting to destroy session 
+2024-04-16 19:32:48 info: Session cookie cleared 
+2024-04-16 19:32:48 info: User logged out successfully 
+2024-04-16 19:32:48 info: Received request for root route. 
+2024-04-16 19:32:48 info: User is not authenticated, serving index.html 
+2024-04-16 19:32:50 info: Serving login.html 
+2024-04-16 19:32:51 info: Received login request 
+2024-04-16 19:32:51 info: Login successful 
+2024-04-16 19:32:51 info: Received request for root route. 
+2024-04-16 19:32:51 info: User is authenticated, serving user.html 
+2024-04-16 19:32:51 info: Checking if request is authenticated 
+2024-04-16 19:32:51 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:32:51 info: User data retrieved successfully 
+2024-04-16 19:32:53 info: Logout attempt 
+2024-04-16 19:32:53 info: Attempting to destroy session 
+2024-04-16 19:32:53 info: Session cookie cleared 
+2024-04-16 19:32:53 info: User logged out successfully 
+2024-04-16 19:32:53 info: Received request for root route. 
+2024-04-16 19:32:53 info: User is not authenticated, serving index.html 
+2024-04-16 19:34:47 info: Serving login.html 
+2024-04-16 19:34:48 info: Received login request 
+2024-04-16 19:34:48 info: Login successful 
+2024-04-16 19:34:48 info: Received request for root route. 
+2024-04-16 19:34:48 info: User is authenticated, serving user.html 
+2024-04-16 19:34:48 info: Checking if request is authenticated 
+2024-04-16 19:34:48 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:34:48 error: Error fetching user data 
+2024-04-16 19:35:54 info: Received request for root route. 
+2024-04-16 19:35:54 info: User is not authenticated, serving index.html 
+2024-04-16 19:35:55 info: Serving login.html 
+2024-04-16 19:35:56 info: Received login request 
+2024-04-16 19:35:56 info: Login successful 
+2024-04-16 19:35:56 info: Received request for root route. 
+2024-04-16 19:35:56 info: User is authenticated, serving user.html 
+2024-04-16 19:35:56 info: Checking if request is authenticated 
+2024-04-16 19:35:56 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:35:56 info: User data retrieved successfully 
+2024-04-16 19:37:56 info: Received request for root route. 
+2024-04-16 19:37:56 info: User is not authenticated, serving index.html 
+2024-04-16 19:38:00 info: Serving login.html 
+2024-04-16 19:38:01 info: Received login request 
+2024-04-16 19:38:01 info: Login successful 
+2024-04-16 19:38:01 info: Received request for root route. 
+2024-04-16 19:38:01 info: User is authenticated, serving user.html 
+2024-04-16 19:38:01 info: Checking if request is authenticated 
+2024-04-16 19:38:01 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:38:01 info: User data retrieved successfully and has content 
+2024-04-16 19:40:44 info: Received request for root route. 
+2024-04-16 19:40:44 info: User is not authenticated, serving index.html 
+2024-04-16 19:40:45 info: Serving login.html 
+2024-04-16 19:40:46 info: Received login request 
+2024-04-16 19:40:46 info: Login successful 
+2024-04-16 19:40:46 info: Received request for root route. 
+2024-04-16 19:40:46 info: User is authenticated, serving user.html 
+2024-04-16 19:40:46 info: Checking if request is authenticated 
+2024-04-16 19:40:46 info: Request is authenticated, proceeding to next middleware 
+2024-04-16 19:40:46 info: User data retrieved successfully and has content 
+2024-04-16 19:43:30 info: Received request for root route.
+2024-04-16 19:43:30 info: User is not authenticated, serving index.html
+2024-04-16 19:43:31 info: Serving login.html
+2024-04-16 19:43:33 info: Received login request
+2024-04-16 19:43:33 info: Login successful
+2024-04-16 19:43:33 info: Received request for root route.
+2024-04-16 19:43:33 info: User is authenticated, serving user.html
+2024-04-16 19:43:33 info: Checking if request is authenticated
+2024-04-16 19:43:33 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:43:33 info: User data retrieved successfully and has content userDataFields: 6 userDataIsObject: true
+2024-04-16 19:45:08 info: Received request for root route.
+2024-04-16 19:45:08 info: User is not authenticated, serving index.html
+2024-04-16 19:45:09 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:45:10 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:45:10 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:45:11 info: Received request for root route.
+2024-04-16 19:45:11 info: User is authenticated, serving user.html {"sessionId":"heDSaMk_1Hlem2el8REElCBl6EdBVKD-"}
+2024-04-16 19:45:11 info: Checking if request is authenticated
+2024-04-16 19:45:11 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:45:11 info: User data retrieved successfully and has content {"userEmail":"p@test.ie","userDataFields":6,"userDataIsObject":true}
+2024-04-16 19:45:35 info: Received request for root route.
+2024-04-16 19:45:35 info: User is not authenticated, serving index.html
+2024-04-16 19:45:36 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:45:36 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:45:36 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:45:36 info: Received request for root route.
+2024-04-16 19:45:36 info: User is authenticated, serving user.html {"sessionId":"LAd11nUcuaOhpH-XnHqdOAklQGFwtw3n"}
+2024-04-16 19:45:37 info: Checking if request is authenticated
+2024-04-16 19:45:37 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:45:37 info: [object Object]
+2024-04-16 19:47:46 info: Received request for root route.
+2024-04-16 19:47:46 info: User is not authenticated, serving index.html
+2024-04-16 19:47:47 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:47:48 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:47:48 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:47:48 info: Received request for root route.
+2024-04-16 19:47:48 info: User is authenticated, serving user.html {"sessionId":"vxf4-8TlLEViqDVq_J_yjlN-7WxuM71w"}
+2024-04-16 19:47:48 info: Checking if request is authenticated
+2024-04-16 19:47:48 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:47:48 info: User data retrieved successfully and has content {"userEmail":"p@test.ie","userDataFields":6,"userDataIsObject":true,"additionalData":"{\"userDataFields\":6,\"userDataIsObject\":true}"}
+2024-04-16 19:48:04 info: Received request for root route.
+2024-04-16 19:48:04 info: User is not authenticated, serving index.html
+2024-04-16 19:48:05 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:48:07 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:48:07 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:48:07 info: Received request for root route.
+2024-04-16 19:48:07 info: User is authenticated, serving user.html {"sessionId":"t1rIOmZ5xUC3VV1UVM3GZvYYo65NEP4P"}
+2024-04-16 19:48:07 info: Checking if request is authenticated
+2024-04-16 19:48:07 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:48:07 info: [object Object]
+2024-04-16 19:49:27 info: Received request for root route.
+2024-04-16 19:49:27 info: User is not authenticated, serving index.html
+2024-04-16 19:49:28 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:49:29 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:49:29 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:49:29 info: Received request for root route.
+2024-04-16 19:49:29 info: User is authenticated, serving user.html {"sessionId":"ECUpdOVE72Dv7vDLEBIb9kFltcGGl2Vp"}
+2024-04-16 19:49:29 info: Checking if request is authenticated
+2024-04-16 19:49:29 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:49:29 info: [object Object]
+2024-04-16 19:49:41 info: Received request for root route.
+2024-04-16 19:49:41 info: User is not authenticated, serving index.html
+2024-04-16 19:49:42 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:49:43 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:49:43 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:49:43 info: Received request for root route.
+2024-04-16 19:49:43 info: User is authenticated, serving user.html {"sessionId":"hRKlhYmEdjOrnNaFMMQcuRSv1DCRy1VO"}
+2024-04-16 19:49:43 info: Checking if request is authenticated
+2024-04-16 19:49:43 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:49:43 info: [object Object]
+2024-04-16 19:52:07 info: Received request for root route.
+2024-04-16 19:52:07 info: User is not authenticated, serving index.html
+2024-04-16 19:52:08 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:52:09 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:52:09 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:52:09 info: Received request for root route.
+2024-04-16 19:52:09 info: User is authenticated, serving user.html {"sessionId":"1apdaZiN5KznvDrU2kFmuDSRgnRWfBW_"}
+2024-04-16 19:52:09 info: Checking if request is authenticated
+2024-04-16 19:52:09 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:52:09 info: User data retrieved successfully and has content {"userEmail":"p@test.ie","userDataJSON":"{\"User-ID\":2,\"User-FName\":\"test\",\"User-Email\":\"p@test.ie\",\"User-Password\":\"1234\",\"Creation-Date\":\"2024-04-15T15:22:33.517Z\",\"Modified-Date\":\"2024-04-15T15:22:33.517Z\"}"}
+2024-04-16 19:52:28 info: Received request for root route.
+2024-04-16 19:52:28 info: User is not authenticated, serving index.html
+2024-04-16 19:52:29 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:52:30 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:52:30 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:52:30 info: Received request for root route.
+2024-04-16 19:52:30 info: User is authenticated, serving user.html {"sessionId":"yEz_o6yFyNI4uGFld4mxLf8wPUZiPzZR"}
+2024-04-16 19:52:30 info: Checking if request is authenticated
+2024-04-16 19:52:30 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:52:30 info: [object Object]
+2024-04-16 19:52:58 info: Received request for root route.
+2024-04-16 19:52:58 info: User is not authenticated, serving index.html
+2024-04-16 19:52:59 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:53:00 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:53:00 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:53:00 info: Received request for root route.
+2024-04-16 19:53:00 info: User is authenticated, serving user.html {"sessionId":"GWzwfm52Id6J9e_zXk_A5RjMsiOIA_iB"}
+2024-04-16 19:53:00 info: Checking if request is authenticated
+2024-04-16 19:53:00 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:53:00 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 19:54:32 info: Received request for root route.
+2024-04-16 19:54:32 info: User is not authenticated, serving index.html
+2024-04-16 19:54:33 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:54:34 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:54:34 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:54:34 info: Received request for root route.
+2024-04-16 19:54:34 info: User is authenticated, serving user.html {"sessionId":"_TYbKwVGz-bHqHYhqJSg5Chc6dEHl8vG"}
+2024-04-16 19:54:35 info: Checking if request is authenticated
+2024-04-16 19:54:35 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:54:35 error: Error fetching user data {"userEmail":"p@test.ie","error":"Id is not defined"}
+2024-04-16 19:56:11 info: Received request for root route.
+2024-04-16 19:56:11 info: User is not authenticated, serving index.html
+2024-04-16 19:56:12 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:56:12 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:56:12 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:56:13 info: Received request for root route.
+2024-04-16 19:56:13 info: User is authenticated, serving user.html {"sessionId":"KydNk7uRJZFOABeqZt5f68my1Ayg3MOj"}
+2024-04-16 19:56:13 info: Checking if request is authenticated
+2024-04-16 19:56:13 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:56:13 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 19:56:13 info: Specific value extracted: test
+2024-04-16 19:57:14 info: Received request for root route.
+2024-04-16 19:57:14 info: User is not authenticated, serving index.html
+2024-04-16 19:57:15 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:57:16 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:57:16 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:57:16 info: Received request for root route.
+2024-04-16 19:57:16 info: User is authenticated, serving user.html {"sessionId":"9l-MBu5dq-zLQCFzpXIjCy7AUhcrxOT6"}
+2024-04-16 19:57:16 info: Checking if request is authenticated
+2024-04-16 19:57:16 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:57:16 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 19:57:16 info: Specific value extracted: test
+2024-04-16 19:57:59 info: Received request for root route.
+2024-04-16 19:57:59 info: User is not authenticated, serving index.html
+2024-04-16 19:58:00 info: Serving login.html {"ip":"::1"}
+2024-04-16 19:58:01 info: Received login request {"email":"p@test.ie"}
+2024-04-16 19:58:01 info: Login successful {"email":"p@test.ie"}
+2024-04-16 19:58:01 info: Received request for root route.
+2024-04-16 19:58:01 info: User is authenticated, serving user.html {"sessionId":"BGqgrm4qlCI_VM2rsZI0zcVmMPiwwmaP"}
+2024-04-16 19:58:01 info: Checking if request is authenticated
+2024-04-16 19:58:01 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:58:01 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 19:58:01 info: Specific value extracted: test
+2024-04-16 19:58:37 info: Received request for root route.
+2024-04-16 19:58:37 info: User is authenticated, serving user.html {"sessionId":"BGqgrm4qlCI_VM2rsZI0zcVmMPiwwmaP"}
+2024-04-16 19:58:37 info: Checking if request is authenticated
+2024-04-16 19:58:37 info: Request is authenticated, proceeding to next middleware
+2024-04-16 19:58:37 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 19:58:37 info: Specific value extracted: test
+2024-04-16 20:01:25 info: Received request for root route.
+2024-04-16 20:01:25 info: User is authenticated, serving user.html {"sessionId":"BGqgrm4qlCI_VM2rsZI0zcVmMPiwwmaP"}
+2024-04-16 20:01:25 info: Checking if request is authenticated
+2024-04-16 20:01:25 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:01:25 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 20:01:25 info: Specific value extracted: test
+2024-04-16 20:01:56 info: Received request for root route.
+2024-04-16 20:01:56 info: User is not authenticated, serving index.html
+2024-04-16 20:01:57 info: Serving login.html {"ip":"::1"}
+2024-04-16 20:01:58 info: Received login request {"email":"p@test.ie"}
+2024-04-16 20:01:58 info: Login successful {"email":"p@test.ie"}
+2024-04-16 20:01:58 info: Received request for root route.
+2024-04-16 20:01:58 info: User is authenticated, serving user.html {"sessionId":"GkM6daT5OSP4UBYMH67nscQQ64iJKq5v"}
+2024-04-16 20:01:58 info: Checking if request is authenticated
+2024-04-16 20:01:58 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:01:58 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 20:01:58 info: Specific value extracted: test
+2024-04-16 20:06:31 info: Received request for root route.
+2024-04-16 20:06:31 info: User is authenticated, serving user.html {"sessionId":"GkM6daT5OSP4UBYMH67nscQQ64iJKq5v"}
+2024-04-16 20:06:31 info: Checking if request is authenticated
+2024-04-16 20:06:31 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:06:31 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-16 20:06:31 info: Specific value extracted: test
+2024-04-16 20:11:26 info: Received request for root route.
+2024-04-16 20:11:26 info: User is not authenticated, serving index.html
+2024-04-16 20:11:28 info: Serving login.html {"ip":"::1"}
+2024-04-16 20:11:28 info: Received login request {"email":"p@test.ie"}
+2024-04-16 20:11:28 info: Login successful {"email":"p@test.ie"}
+2024-04-16 20:11:28 info: Received request for root route.
+2024-04-16 20:11:28 info: User is authenticated, serving user.html {"sessionId":"L5vuK4VzFqUyCd4AqoaZ2ENvB8gIteKN"}
+2024-04-16 20:11:28 info: Checking if request is authenticated
+2024-04-16 20:11:28 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:11:28 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:12:17 info: Serving email.html {"ip":"::1"}
+2024-04-16 20:12:17 info: Checking if request is authenticated
+2024-04-16 20:12:17 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:12:54 info: Serving email.html {"ip":"::1"}
+2024-04-16 20:12:54 info: Checking if request is authenticated
+2024-04-16 20:12:54 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:13:38 info: Serving email.html {"ip":"::1"}
+2024-04-16 20:13:38 info: Checking if request is authenticated
+2024-04-16 20:13:38 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:07 info: Checking if request is authenticated
+2024-04-16 20:14:07 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:08 info: Checking if request is authenticated
+2024-04-16 20:14:08 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:09 info: Checking if request is authenticated
+2024-04-16 20:14:09 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:10 info: Checking if request is authenticated
+2024-04-16 20:14:10 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:11 info: Checking if request is authenticated
+2024-04-16 20:14:11 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:12 info: Checking if request is authenticated
+2024-04-16 20:14:12 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:12 info: Checking if request is authenticated
+2024-04-16 20:14:12 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:17 info: Checking if request is authenticated
+2024-04-16 20:14:17 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:29 info: Checking if request is authenticated
+2024-04-16 20:14:29 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:30 info: Checking if request is authenticated
+2024-04-16 20:14:30 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:30 info: Checking if request is authenticated
+2024-04-16 20:14:30 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:31 info: Checking if request is authenticated
+2024-04-16 20:14:31 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:14:55 info: Checking if request is authenticated
+2024-04-16 20:14:55 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:15:03 info: Checking if request is authenticated
+2024-04-16 20:15:03 warn: Request is not authenticated, redirecting to login page {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ","path":"/user-data"}
+2024-04-16 20:15:04 info: Received request for root route.
+2024-04-16 20:15:04 info: User is not authenticated, serving index.html
+2024-04-16 20:15:05 info: Received request for root route.
+2024-04-16 20:15:05 info: User is not authenticated, serving index.html
+2024-04-16 20:15:07 info: Serving login.html {"ip":"::1"}
+2024-04-16 20:15:08 info: Received login request {"email":"p@test.ie"}
+2024-04-16 20:15:08 info: Login successful {"email":"p@test.ie"}
+2024-04-16 20:15:08 info: Received request for root route.
+2024-04-16 20:15:08 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:08 info: Checking if request is authenticated
+2024-04-16 20:15:08 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:08 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:10 info: Received request for root route.
+2024-04-16 20:15:10 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:10 info: Checking if request is authenticated
+2024-04-16 20:15:10 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:10 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:11 info: Received request for root route.
+2024-04-16 20:15:11 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:11 info: Checking if request is authenticated
+2024-04-16 20:15:11 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:11 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:12 info: Received request for root route.
+2024-04-16 20:15:12 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:12 info: Checking if request is authenticated
+2024-04-16 20:15:12 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:12 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:13 info: Received request for root route.
+2024-04-16 20:15:13 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:13 info: Checking if request is authenticated
+2024-04-16 20:15:13 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:13 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:13 info: Received request for root route.
+2024-04-16 20:15:13 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:13 info: Checking if request is authenticated
+2024-04-16 20:15:13 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:13 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:14 info: Received request for root route.
+2024-04-16 20:15:14 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:14 info: Checking if request is authenticated
+2024-04-16 20:15:14 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:14 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:14 info: Received request for root route.
+2024-04-16 20:15:14 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:14 info: Checking if request is authenticated
+2024-04-16 20:15:14 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:14 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:15 info: Received request for root route.
+2024-04-16 20:15:15 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:15 info: Checking if request is authenticated
+2024-04-16 20:15:15 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:15 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:15 info: Received request for root route.
+2024-04-16 20:15:15 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:16 info: Checking if request is authenticated
+2024-04-16 20:15:16 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:16 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:16 info: Received request for root route.
+2024-04-16 20:15:16 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:16 info: Checking if request is authenticated
+2024-04-16 20:15:16 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:16 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:17 info: Received request for root route.
+2024-04-16 20:15:17 info: User is authenticated, serving user.html {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:17 info: Checking if request is authenticated
+2024-04-16 20:15:17 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:17 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:17 info: Logout attempt {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:17 info: Attempting to destroy session {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:17 info: Session cookie cleared {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:17 info: User logged out successfully {"sessionId":"0IElgi_YyKA03c3eHpbj936Tl5eI8XyJ"}
+2024-04-16 20:15:17 info: Received request for root route.
+2024-04-16 20:15:17 info: User is not authenticated, serving index.html
+2024-04-16 20:15:19 info: Serving login.html {"ip":"::1"}
+2024-04-16 20:15:20 info: Received login request {"email":"p@test.ie"}
+2024-04-16 20:15:20 info: Login successful {"email":"p@test.ie"}
+2024-04-16 20:15:20 info: Received request for root route.
+2024-04-16 20:15:20 info: User is authenticated, serving user.html {"sessionId":"UEsCYz0IN70aEvDM-67RQlp4z3TUYeDr"}
+2024-04-16 20:15:20 info: Checking if request is authenticated
+2024-04-16 20:15:20 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:20 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:23 info: Logout attempt {"sessionId":"UEsCYz0IN70aEvDM-67RQlp4z3TUYeDr"}
+2024-04-16 20:15:23 info: Attempting to destroy session {"sessionId":"UEsCYz0IN70aEvDM-67RQlp4z3TUYeDr"}
+2024-04-16 20:15:23 info: Session cookie cleared {"sessionId":"UEsCYz0IN70aEvDM-67RQlp4z3TUYeDr"}
+2024-04-16 20:15:23 info: User logged out successfully {"sessionId":"UEsCYz0IN70aEvDM-67RQlp4z3TUYeDr"}
+2024-04-16 20:15:23 info: Received request for root route.
+2024-04-16 20:15:23 info: User is not authenticated, serving index.html
+2024-04-16 20:15:24 info: Serving login.html {"ip":"::1"}
+2024-04-16 20:15:26 info: Received login request {"email":"p@test.ie"}
+2024-04-16 20:15:26 info: Login successful {"email":"p@test.ie"}
+2024-04-16 20:15:26 info: Received request for root route.
+2024-04-16 20:15:26 info: User is authenticated, serving user.html {"sessionId":"RfGAo74TizKC7Tx5LIQT-5AnYhdztfx1"}
+2024-04-16 20:15:26 info: Checking if request is authenticated
+2024-04-16 20:15:26 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:15:26 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:23 info: Received request for root route.
+2024-04-16 20:16:23 info: User is authenticated, serving user.html {"sessionId":"RfGAo74TizKC7Tx5LIQT-5AnYhdztfx1"}
+2024-04-16 20:16:23 info: Checking if request is authenticated
+2024-04-16 20:16:23 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:16:23 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:24 info: Serving email.html {"ip":"::1"}
+2024-04-16 20:16:24 info: Checking if request is authenticated
+2024-04-16 20:16:24 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:16:24 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:26 info: Checking if request is authenticated
+2024-04-16 20:16:26 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:16:26 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:27 info: Serving email.html {"ip":"::1"}
+2024-04-16 20:16:27 info: Checking if request is authenticated
+2024-04-16 20:16:27 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:16:27 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:29 info: Checking if request is authenticated
+2024-04-16 20:16:29 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:16:29 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:18:32 info: Serving email.html {"ip":"::1"}
+2024-04-16 20:18:32 info: Checking if request is authenticated
+2024-04-16 20:18:32 info: Request is authenticated, proceeding to next middleware
+2024-04-16 20:18:32 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:20:32 info: Checking if request is authenticated
+2024-04-16 20:20:32 warn: Request is not authenticated, redirecting to login page {"sessionId":"fGspqcBMj3GocgpmK59TUotAJYaPtD9s","path":"/courses"}
+2024-04-16 20:21:01 info: Checking if request is authenticated
+2024-04-16 20:21:01 warn: Request is not authenticated, redirecting to login page {"sessionId":"Kk_O1lbbK5La2O7P7UAxdQaQ9Zc6teNM","path":"/courses"}
+2024-04-16 20:21:06 info: Checking if request is authenticated
+2024-04-16 20:21:06 warn: Request is not authenticated, redirecting to login page {"sessionId":"Kk_O1lbbK5La2O7P7UAxdQaQ9Zc6teNM","path":"/courses"}
+2024-04-16 20:21:27 info: Checking if request is authenticated
+2024-04-16 20:21:27 warn: Request is not authenticated, redirecting to login page {"sessionId":"ZCaqcxF-iKw1Lv3rcK_HfOtrCAUmqlrW","path":"/courses"}
+2024-04-16 20:21:28 info: Checking if request is authenticated
+2024-04-16 20:21:28 warn: Request is not authenticated, redirecting to login page {"sessionId":"ZCaqcxF-iKw1Lv3rcK_HfOtrCAUmqlrW","path":"/courses"}
+2024-04-16 20:21:29 info: Checking if request is authenticated
+2024-04-16 20:21:29 warn: Request is not authenticated, redirecting to login page {"sessionId":"ZCaqcxF-iKw1Lv3rcK_HfOtrCAUmqlrW","path":"/courses"}
+2024-04-16 20:21:30 info: Checking if request is authenticated
+2024-04-16 20:21:30 warn: Request is not authenticated, redirecting to login page {"sessionId":"ZCaqcxF-iKw1Lv3rcK_HfOtrCAUmqlrW","path":"/courses"}
+2024-04-16 20:21:30 info: Checking if request is authenticated
+2024-04-16 20:21:30 warn: Request is not authenticated, redirecting to login page {"sessionId":"ZCaqcxF-iKw1Lv3rcK_HfOtrCAUmqlrW","path":"/courses"}
+2024-04-16 20:21:47 info: Checking if request is authenticated
+2024-04-16 20:21:47 warn: Request is not authenticated, redirecting to login page {"sessionId":"ZCaqcxF-iKw1Lv3rcK_HfOtrCAUmqlrW","path":"/courses"}
+2024-04-16 20:21:54 info: Received request for root route.
+2024-04-16 20:21:54 info: User is not authenticated, serving index.html
+2024-04-16 20:21:57 info: Checking if request is authenticated
+2024-04-16 20:21:57 warn: Request is not authenticated, redirecting to login page {"sessionId":"ZCaqcxF-iKw1Lv3rcK_HfOtrCAUmqlrW","path":"/courses"}
+2024-04-16 20:23:51 info: Checking if request is authenticated
+2024-04-16 20:23:51 warn: Request is not authenticated, redirecting to root {"sessionId":"otHWbMEL8shNax_tB51rSKMD8r84ZePw","path":"/courses"}
+2024-04-16 20:23:51 info: Received request for root route.
+2024-04-16 20:23:51 info: User is not authenticated, serving index.html
+2024-04-16 20:25:35 info: Checking if request is authenticated
+2024-04-16 20:25:35 warn: Request is not authenticated, redirecting to root {"sessionId":"9FX-6jSwGB5MqbBZBkY1HcEMyJdYH1-O","path":"/email"}
+2024-04-16 20:25:35 info: Received request for root route.
+2024-04-16 20:25:35 info: User is not authenticated, serving index.html

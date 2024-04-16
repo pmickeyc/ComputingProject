@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard - BiggerPhish</title>
+    <title>Courses - Educational Platform</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,11 +13,10 @@
 
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
             <div class="col-md-3 sidebar">
                 <!-- Logo or Branding -->
                 <div class="sidebar-header text-center py-4">
-                    <a href="/" class="navbar-brand">
+                    <a href="/index.html" class="navbar-brand">
                         <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid"
                             style="max-height: 50px;">
                     </a>
@@ -25,7 +24,7 @@
                 <div id="user-nav-menu">
                     <ul class="nav-items">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/">
+                            <a class="nav-link" href="/user.html">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
@@ -54,15 +53,35 @@
                 </div>
             </div>
 
-            <!-- Main Content -->
-            <div class="col-md-9">
+            <!-- Main Content for Courses Page -->
+            <div class="col-md-9 d-flex flex-column">
                 <div class="main-content">
-                    <div class="user-welcome">
-                        <h2>Welcome, <span id="user-name"></span>!</h2>
-                        <p>This is your dashboard. From here, you can access all of your courses, calendar events, and
-                            more.</p>
+                    <div class="my-auto text-center">
+                        <h2>My Courses</h2>
+                        <p>Select a course to continue learning.</p>
                     </div>
-                    <!-- TDC -->
+                    <!-- Placeholder tiles for courses -->
+                    <div class="row">
+                        <!-- Course Tile Placeholder 1 -->
+                        <div class="col-md-4">
+                            <div class="course-tile">
+                                <h4>Course Title 1</h4>
+                                <p>Course description...</p>
+
+                                <a href="#" class="btn btn-primary">Go to Course</a>
+                            </div>
+                        </div>
+                        <!-- Course Tile Placeholder 2 -->
+                        <div class="col-md-4">
+                            <div class="course-tile">
+                                <h4>Course Title 2</h4>
+                                <p>Course description...</p>
+
+                                <a href="#" class="btn btn-primary">Go to Course</a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

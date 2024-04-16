@@ -47,21 +47,40 @@ const mssqlConfig = {
     }
 };
 
-//Logging
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
         winston.format.timestamp({
-            format: 'YYYY-MM-DD HH:mm:ss' 
+            format: 'YYYY-MM-DD HH:mm:ss'
         }),
-        winston.format.errors({ stack: true }), 
-        winston.format.json()
+        winston.format.errors({ stack: true }),
+        winston.format.printf((info) => {
+            // Start with the standard log message format
+            let msg = `${info.timestamp} ${info.level}: ${info.message}`;
+
+            // Serialize and append any additional metadata objects to the log message
+            const additionalInfo = Object.assign({}, info);
+            // Remove standard fields to avoid duplicating them in the output
+            delete additionalInfo.message;
+            delete additionalInfo.level;
+            delete additionalInfo.timestamp;
+            delete additionalInfo.stack;
+
+            // Append the serialized metadata, if any, to the message
+            if (Object.keys(additionalInfo).length > 0) {
+                msg += ` ${JSON.stringify(additionalInfo)}`;
+            }
+
+            return msg;
+        })
     ),
     transports: [
         new winston.transports.Console({
             format: winston.format.combine(
-                winston.format.colorize(), 
-                winston.format.simple() 
+                winston.format.colorize(),
+                winston.format.printf(info => {
+                    return `${info.timestamp} ${info.level}: ${info.message}`;
+                })
             )
         }),
         new winston.transports.File({
@@ -73,7 +92,6 @@ const logger = winston.createLogger({
         })
     ]
 });
-
 
 // Middleware Functions
 function isAuthenticated(req, res, next) {
@@ -88,14 +106,15 @@ function isAuthenticated(req, res, next) {
         logger.info('Request is authenticated, proceeding to next middleware');
         return next();
     } else {
-        logger.warn('Request is not authenticated, redirecting to login page', {
+        logger.warn('Request is not authenticated, redirecting to root', {
             sessionId: req.session.id,
             path: req.path 
         });
 
-        res.status(401).sendFile(path.join(__dirname, './public/login.html'));
+        res.redirect('/'); // This will redirect the user to the root path
     }
 }
+
 
 // Server Initialization
 async function initializeDatabases() {
@@ -129,6 +148,49 @@ app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, './public/index.html'));
     }
 });
+
+app.get('/user-data', isAuthenticated, async (req, res) => {
+    const userEmail = req.session.user.email; 
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        logger.debug('Connected to MSSQL for /user-data endpoint', { userEmail });
+
+        const request = pool.request();
+        request.input('UserEmail', sql.NVarChar(100), userEmail); 
+
+        const result = await request.execute('sp_UserSearch');
+        logger.debug('Executed sp_UserSearch stored procedure', { userEmail });
+
+        if (result.recordset.length > 0) {
+            const userData = result.recordset[0];
+        
+            // Check if userData is not empty and log the fact that it has data
+            if (userData) {
+                //const userDataJSON = JSON.stringify(userData); // You already have this from your serialization step
+                logger.info(`User data retrieved successfully: ${userDataJSON}`);
+                //const userDataObject = JSON.parse(userDataJSON);
+                //const specificValue = userDataObject['User-FName']; // Replace 'Your-Desired-Property' with the actual property name
+                //logger.info(`Specific value extracted: ${specificValue}`);    
+                res.json(userData);
+            } else {
+                // Log that userData is empty
+                logger.warn('User data object is empty', { userEmail });
+                res.status(404).send('User not found');
+            }
+        } else {
+            logger.warn('User not found in /user-data endpoint', { userEmail });
+            res.status(404).send('User not found');
+        }
+        
+        
+    } catch (err) {
+        logger.error('Error fetching user data', { userEmail, error: err.message });
+        res.status(500).send("Error fetching user data");
+    }
+});
+
+
 
 //TBC
 app.get("/users", (request, response) => {
@@ -203,6 +265,7 @@ app.post('/login-user', async (req, res) => {
 
             // Set session and save it
             req.session.isAuthenticated = true;
+            req.session.user = { email: req.body.email };
             req.session.save(err => {
                 if (err) {
                     logger.error('Error saving session after successful login', { email, error: err });
@@ -230,11 +293,18 @@ app.get('/user', isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, './public/user.html'));
 });
 
-app.get('/email', (req, res) => {
+app.get('/email', isAuthenticated,(req, res) => {
     logger.info('Serving email.html', {
         ip: req.ip
     });
     res.sendFile(path.join(__dirname, './public/email.html'));
+});
+
+app.get('/courses', isAuthenticated, (req, res) => {
+    logger.info('Serving courses.html for authenticated user', {
+        sessionId: req.session.id
+    });
+    res.sendFile(path.join(__dirname, './public/courses.html'));
 });
 
 app.get('/login', (req, res) => {
@@ -251,13 +321,8 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, './public/register.html'));
 });
 
-//TDBD
-app.get('/user-data', (req, res) => {
-    // Your code to fetch user data and send it as JSON
-    res.json({ /* ... user data ... */ });
-  });
-  
-app.post('/logout', (req, res) => {
+
+app.post('/logout', isAuthenticated,(req, res) => {
     // Log the logout attempt
     logger.info('Logout attempt', { sessionId: req.session?.id, userId: req.session?.userId });
 

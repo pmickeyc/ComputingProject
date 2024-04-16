@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetch user-specific data from the server
-    fetch('/user-data')
-    .then(response => response.json())
-    .then(data => {
-        // Populate user data on the page TDC
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+  fetch('/user-data')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+      document.getElementById('user-name').textContent = data['User-FName']; // Assuming FirstName is a field in your data
+      // Populate other user-specific data as needed
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
 
     document.getElementById('logout-link').addEventListener('click', function(e) {
         e.preventDefault();

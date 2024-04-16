@@ -5,3 +5,26 @@
 {"level":"error","message":"User registration failed: Unknown error occurred","timestamp":"2024-04-15 19:54:45"}
 {"level":"error","message":"Error occurred during registration: Incomplete form data","stack":"Error: Incomplete form data\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\server.js:150:19\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Immediate._onImmediate (C:\\Users\\Padraig\\OneDrive - National College of Ireland\\College\\Year 4\\Computing Project\\ComputingProject\\node_modules\\express-session\\index.js:514:7)\n    at process.processImmediate (node:internal/timers:480:21)","timestamp":"2024-04-15 20:13:38"}
 {"level":"error","message":"User registration failed: Unknown error occurred","timestamp":"2024-04-15 20:13:58"}
+2024-04-16 19:34:48 error: Error fetching user data 
+2024-04-16 19:54:35 error: Error fetching user data {"userEmail":"p@test.ie","error":"Id is not defined"}
+2024-04-16 20:11:28 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:08 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:10 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:11 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:12 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:13 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:13 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:14 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:14 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:15 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:16 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:16 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:17 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:20 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:15:26 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:23 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:24 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:26 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:27 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:16:29 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-16 20:18:32 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
