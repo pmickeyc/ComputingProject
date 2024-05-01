@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
@@ -18,8 +17,7 @@
                 <!-- Logo or Branding -->
                 <div class="sidebar-header text-center py-4">
                     <a href="/" class="navbar-brand">
-                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid"
-                            style="max-height: 50px;">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
                     </a>
                 </div>
                 <div id="user-nav-menu">
@@ -54,23 +52,59 @@
                 </div>
             </div>
 
-            <!-- Main Content -->
+            <!-- Main Content for Settings -->
             <div class="col-md-9">
-                <div class="main-content">
-                    <div class="user-welcome">
-                        <h2>Welcome, <span id="user-name"></span>!</h2>
-                        <p>This is your dashboard. From here, you can access all of your courses, progress, and more.</p>
-                    </div>
-                    <!-- TDC -->
+                <div class="main-content p-3">
+                    <h1>User Settings</h1>
+
+                    <form id="settings-form">
+                        <!-- Toggle Edit -->
+                        <div class="form-group">
+                            <button type="button" class="btn btn-secondary" id="edit-details-btn">Update
+                                Details</button>
+                        </div>
+
+                        <!-- Email Update -->
+                        <div class="form-group">
+                            <label for="user-email">Email Address</label>
+                            <input type="email" class="form-control" id="user-email" readonly>
+                            <button type="submit" class="btn btn-primary mt-2 update-button" id="update-email-btn" disabled>Update
+                                Email</button>
+                        </div>
+
+                        <!-- Name Update -->
+                        <div class="form-group">
+                            <label for="user-name">Name</label>
+                            <input type="text" class="form-control" id="user-name" readonly>
+                            <button type="button" class="btn btn-primary mt-2 update-button" id="update-name-btn"
+                                disabled>Update Name</button>
+                        </div>
+
+
+                        <!-- Password Update -->
+                        <div class="form-group">
+                            <label for="user-password">Password</label>
+                            <input type="password" class="form-control" id="user-password" readonly>
+                            <button type="submit" class="btn btn-primary mt-2 update-button" id="update-password-btn" disabled>Update
+                                Password</button>
+                        </div>
+
+                        <!-- Account Deletion Request -->
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger" id="delete-account-btn">Request Account
+                                Deletion</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+            </script>
         </div>
     </div>
-
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="user.js"></script>
+    <script src="settings.js"></script>
     <script src="common.js" defer></script>
 </body>
 

@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-
         const email = document.getElementById('inputEmail').value;
         const password = document.getElementById('inputPassword').value;
-
         if (!email || !password) {
             console.error("Error: Email or password is missing.");
             return;
@@ -38,15 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log("Server response:", data);
             if (data.success) {
-                // Handle successful login 
                 window.location.href = '/';
             } else {
-                // Handle login errors 
                 alert('Login failed: ' + data.message);
             }
         })
         .catch(error => {
-            // Handle errors in sending request
             console.error('Error:', error);
             alert('Error: Failed to login. Please try again later.');
         });

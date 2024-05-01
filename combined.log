@@ -822,3 +822,1953 @@
 2024-04-16 20:25:35 warn: Request is not authenticated, redirecting to root {"sessionId":"9FX-6jSwGB5MqbBZBkY1HcEMyJdYH1-O","path":"/email"}
 2024-04-16 20:25:35 info: Received request for root route.
 2024-04-16 20:25:35 info: User is not authenticated, serving index.html
+2024-04-20 22:57:45 info: Received request for root route.
+2024-04-20 22:57:45 info: User is not authenticated, serving index.html
+2024-04-20 22:57:57 info: Serving login.html {"ip":"::1"}
+2024-04-20 22:58:28 info: Serving register.html {"ip":"::1"}
+2024-04-20 22:58:42 info: User registered successfully: {"firstName":"clara","email":"c@c.c"}
+2024-04-20 22:58:47 info: Received login request {"email":"c@c.c"}
+2024-04-20 22:58:47 info: Login successful {"email":"c@c.c"}
+2024-04-20 22:58:47 info: Received request for root route.
+2024-04-20 22:58:47 info: User is authenticated, serving user.html {"sessionId":"vgZU5jwd0gIV3Ge3DCzQRLUcppNX4ZNn"}
+2024-04-20 22:58:47 info: Checking if request is authenticated
+2024-04-20 22:58:47 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:58:48 error: Error fetching user data {"userEmail":"c@c.c","error":"userDataJSON is not defined"}
+2024-04-20 22:59:28 info: Checking if request is authenticated
+2024-04-20 22:59:28 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:59:28 info: Serving courses.html for authenticated user {"sessionId":"vgZU5jwd0gIV3Ge3DCzQRLUcppNX4ZNn"}
+2024-04-20 22:59:28 info: Checking if request is authenticated
+2024-04-20 22:59:28 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:59:28 error: Error fetching user data {"userEmail":"c@c.c","error":"userDataJSON is not defined"}
+2024-04-20 22:59:34 info: Checking if request is authenticated
+2024-04-20 22:59:34 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:59:35 error: Error fetching user data {"userEmail":"c@c.c","error":"userDataJSON is not defined"}
+2024-04-20 22:59:36 info: Received request for root route.
+2024-04-20 22:59:36 info: User is authenticated, serving user.html {"sessionId":"vgZU5jwd0gIV3Ge3DCzQRLUcppNX4ZNn"}
+2024-04-20 22:59:36 info: Checking if request is authenticated
+2024-04-20 22:59:36 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:59:36 error: Error fetching user data {"userEmail":"c@c.c","error":"userDataJSON is not defined"}
+2024-04-20 22:59:37 info: Checking if request is authenticated
+2024-04-20 22:59:37 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:59:37 info: Logout attempt {"sessionId":"vgZU5jwd0gIV3Ge3DCzQRLUcppNX4ZNn"}
+2024-04-20 22:59:37 info: Attempting to destroy session {"sessionId":"vgZU5jwd0gIV3Ge3DCzQRLUcppNX4ZNn"}
+2024-04-20 22:59:37 info: Session cookie cleared {"sessionId":"vgZU5jwd0gIV3Ge3DCzQRLUcppNX4ZNn"}
+2024-04-20 22:59:37 info: User logged out successfully {"sessionId":"vgZU5jwd0gIV3Ge3DCzQRLUcppNX4ZNn"}
+2024-04-20 22:59:37 info: Received request for root route.
+2024-04-20 22:59:37 info: User is not authenticated, serving index.html
+2024-04-20 22:59:40 info: Serving login.html {"ip":"::1"}
+2024-04-20 22:59:41 info: Received login request {"email":"c@c.c"}
+2024-04-20 22:59:41 info: Login successful {"email":"c@c.c"}
+2024-04-20 22:59:41 info: Received request for root route.
+2024-04-20 22:59:41 info: User is authenticated, serving user.html {"sessionId":"c-Wa_X3m4PbrLyZYcKyJ_cgKNxXl7mhd"}
+2024-04-20 22:59:41 info: Checking if request is authenticated
+2024-04-20 22:59:41 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:59:41 error: Error fetching user data {"userEmail":"c@c.c","error":"userDataJSON is not defined"}
+2024-04-20 22:59:52 info: Checking if request is authenticated
+2024-04-20 22:59:52 info: Request is authenticated, proceeding to next middleware
+2024-04-20 22:59:52 info: Serving email.html {"ip":"::1"}
+2024-04-20 23:03:02 info: Received request for root route.
+2024-04-20 23:03:02 info: User is authenticated, serving user.html {"sessionId":"c-Wa_X3m4PbrLyZYcKyJ_cgKNxXl7mhd"}
+2024-04-20 23:03:02 info: Checking if request is authenticated
+2024-04-20 23:03:02 info: Request is authenticated, proceeding to next middleware
+2024-04-20 23:03:02 error: Error fetching user data {"userEmail":"c@c.c","error":"userDataJSON is not defined"}
+2024-04-20 23:03:47 info: Checking if request is authenticated
+2024-04-20 23:03:47 info: Request is authenticated, proceeding to next middleware
+2024-04-20 23:03:47 info: Logout attempt {"sessionId":"c-Wa_X3m4PbrLyZYcKyJ_cgKNxXl7mhd"}
+2024-04-20 23:03:47 info: Attempting to destroy session {"sessionId":"c-Wa_X3m4PbrLyZYcKyJ_cgKNxXl7mhd"}
+2024-04-20 23:03:47 info: Session cookie cleared {"sessionId":"c-Wa_X3m4PbrLyZYcKyJ_cgKNxXl7mhd"}
+2024-04-20 23:03:47 info: User logged out successfully {"sessionId":"c-Wa_X3m4PbrLyZYcKyJ_cgKNxXl7mhd"}
+2024-04-20 23:03:47 info: Received request for root route.
+2024-04-20 23:03:47 info: User is not authenticated, serving index.html
+2024-04-20 23:03:48 info: Serving login.html {"ip":"::1"}
+2024-04-20 23:03:51 info: Received login request {"email":"p@test.ie"}
+2024-04-20 23:03:51 info: Login successful {"email":"p@test.ie"}
+2024-04-20 23:03:51 info: Received request for root route.
+2024-04-20 23:03:51 info: User is authenticated, serving user.html {"sessionId":"zK20rpn_8YuZcqYD3jF7MGWETMSTcpSR"}
+2024-04-20 23:03:51 info: Checking if request is authenticated
+2024-04-20 23:03:51 info: Request is authenticated, proceeding to next middleware
+2024-04-20 23:03:51 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-22 20:49:27 info: Received request for root route.
+2024-04-22 20:49:27 info: User is not authenticated, serving index.html
+2024-04-22 20:51:13 info: Serving login.html {"ip":"::1"}
+2024-04-22 20:51:16 info: Received login request {"email":"p@test.ie"}
+2024-04-22 20:51:16 info: Login successful {"email":"p@test.ie"}
+2024-04-22 20:51:16 info: Received request for root route.
+2024-04-22 20:51:16 info: User is authenticated, serving user.html {"sessionId":"s4PpQWlTddbzPpSCPl_llexYJseVEF5W"}
+2024-04-22 20:51:16 info: Checking if request is authenticated
+2024-04-22 20:51:16 info: Request is authenticated, proceeding to next middleware
+2024-04-22 20:51:16 error: Error fetching user data {"userEmail":"p@test.ie","error":"userDataJSON is not defined"}
+2024-04-22 20:52:55 info: Received request for root route.
+2024-04-22 20:52:55 info: User is not authenticated, serving index.html
+2024-04-22 20:52:56 info: Serving login.html {"ip":"::1"}
+2024-04-22 20:52:59 info: Received login request {"email":"p@test.ie"}
+2024-04-22 20:52:59 info: Login successful {"email":"p@test.ie"}
+2024-04-22 20:52:59 info: Received request for root route.
+2024-04-22 20:52:59 info: User is authenticated, serving user.html {"sessionId":"SSqWHmNtnYPZ74Tylsf1VqHeR5BVKBjk"}
+2024-04-22 20:52:59 info: Checking if request is authenticated
+2024-04-22 20:52:59 info: Request is authenticated, proceeding to next middleware
+2024-04-22 20:52:59 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 20:53:42 info: Checking if request is authenticated
+2024-04-22 20:53:42 info: Request is authenticated, proceeding to next middleware
+2024-04-22 20:53:42 info: Serving courses.html for authenticated user {"sessionId":"SSqWHmNtnYPZ74Tylsf1VqHeR5BVKBjk"}
+2024-04-22 20:53:42 info: Checking if request is authenticated
+2024-04-22 20:53:42 info: Request is authenticated, proceeding to next middleware
+2024-04-22 20:53:42 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 20:54:00 info: Checking if request is authenticated
+2024-04-22 20:54:00 info: Request is authenticated, proceeding to next middleware
+2024-04-22 20:54:00 info: Serving courses.html for authenticated user {"sessionId":"SSqWHmNtnYPZ74Tylsf1VqHeR5BVKBjk"}
+2024-04-22 20:54:00 info: Checking if request is authenticated
+2024-04-22 20:54:00 info: Request is authenticated, proceeding to next middleware
+2024-04-22 20:54:00 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:02:02 info: Received request for root route.
+2024-04-22 21:02:03 info: User is not authenticated, serving index.html
+2024-04-22 21:02:04 info: Serving login.html {"ip":"::1"}
+2024-04-22 21:02:06 info: Received login request {"email":"p@test.ie"}
+2024-04-22 21:02:06 info: Login successful {"email":"p@test.ie"}
+2024-04-22 21:02:06 info: Received request for root route.
+2024-04-22 21:02:06 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:02:06 info: Checking if request is authenticated
+2024-04-22 21:02:06 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:02:06 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:02:09 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:02:46 info: Checking if request is authenticated
+2024-04-22 21:02:46 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:02:46 info: Serving courses.html for authenticated user {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:02:46 info: Checking if request is authenticated
+2024-04-22 21:02:46 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:02:46 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:02:47 info: Checking if request is authenticated
+2024-04-22 21:02:47 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:02:47 info: Serving courses.html for authenticated user {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:02:48 info: Checking if request is authenticated
+2024-04-22 21:02:48 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:02:48 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:02:49 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:02:53 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:04:58 info: Received request for root route.
+2024-04-22 21:04:58 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:04:59 info: Checking if request is authenticated
+2024-04-22 21:04:59 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:04:59 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:05:00 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:05:01 info: Received request for root route.
+2024-04-22 21:05:01 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:05:01 info: Checking if request is authenticated
+2024-04-22 21:05:01 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:05:01 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:05:03 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:05:06 info: Received request for root route.
+2024-04-22 21:05:06 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:05:06 info: Checking if request is authenticated
+2024-04-22 21:05:06 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:05:06 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:05:49 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:07:43 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:07:44 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:07:45 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:07:46 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:08:29 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:08:30 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:08:31 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:08:31 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:08:39 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:08:56 info: Received request for root route.
+2024-04-22 21:08:56 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:08:56 info: Checking if request is authenticated
+2024-04-22 21:08:56 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:08:56 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:08:58 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:08:59 info: Received request for root route.
+2024-04-22 21:08:59 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:08:59 info: Checking if request is authenticated
+2024-04-22 21:08:59 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:08:59 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:09:00 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:09:01 info: Received request for root route.
+2024-04-22 21:09:01 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:09:01 info: Checking if request is authenticated
+2024-04-22 21:09:01 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:09:01 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:09:21 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:09:23 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:09:24 info: Received request for root route.
+2024-04-22 21:09:24 info: User is authenticated, serving user.html {"sessionId":"w8Qfb8wcgf3rzyhMyau43opkDDMpWT4J"}
+2024-04-22 21:09:24 info: Checking if request is authenticated
+2024-04-22 21:09:24 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:09:24 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:09:25 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:11:45 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:11:45 info: Checking if request is authenticated
+2024-04-22 21:11:45 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:11:45 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:12:35 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:12:35 info: Checking if request is authenticated
+2024-04-22 21:12:35 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:12:35 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:19:22 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:19:22 info: Checking if request is authenticated
+2024-04-22 21:19:22 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:19:22 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:20:05 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:20:05 info: Checking if request is authenticated
+2024-04-22 21:20:05 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:20:05 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:27:11 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:27:39 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:31:23 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:31:24 info: Checking if request is authenticated
+2024-04-22 21:31:24 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:31:24 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:31:48 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:31:48 info: Checking if request is authenticated
+2024-04-22 21:31:48 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:31:48 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:51:55 info: Serving register.html {"ip":"::1"}
+2024-04-22 21:51:55 info: Checking if request is authenticated
+2024-04-22 21:51:55 warn: Request is not authenticated, redirecting to root {"sessionId":"uHZz1D8pe2L5I_IUvyqpbo87jfbKlPHh","path":"/user-data"}
+2024-04-22 21:51:55 info: Received request for root route.
+2024-04-22 21:51:55 info: User is not authenticated, serving index.html
+2024-04-22 21:52:51 info: Checking if request is authenticated
+2024-04-22 21:52:51 warn: Request is not authenticated, redirecting to root {"sessionId":"Bv4CJc5tRHHcHguZDhxm8wudZ3SnVYEC","path":"/settings"}
+2024-04-22 21:52:51 info: Received request for root route.
+2024-04-22 21:52:51 info: User is not authenticated, serving index.html
+2024-04-22 21:52:53 info: Serving login.html {"ip":"::1"}
+2024-04-22 21:52:54 info: Received login request {"email":"p@test.ie"}
+2024-04-22 21:52:54 info: Login successful {"email":"p@test.ie"}
+2024-04-22 21:52:54 info: Received request for root route.
+2024-04-22 21:52:54 info: User is authenticated, serving user.html {"sessionId":"Bv4CJc5tRHHcHguZDhxm8wudZ3SnVYEC"}
+2024-04-22 21:52:54 info: Checking if request is authenticated
+2024-04-22 21:52:54 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:52:54 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:52:57 info: Checking if request is authenticated
+2024-04-22 21:52:57 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:52:57 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:52:57 info: Checking if request is authenticated
+2024-04-22 21:52:57 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:52:57 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:54:27 info: Checking if request is authenticated
+2024-04-22 21:54:27 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:54:27 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:54:31 info: Checking if request is authenticated
+2024-04-22 21:54:31 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:54:31 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:54:39 info: Received request for root route.
+2024-04-22 21:54:39 info: User is authenticated, serving user.html {"sessionId":"Bv4CJc5tRHHcHguZDhxm8wudZ3SnVYEC"}
+2024-04-22 21:54:39 info: Checking if request is authenticated
+2024-04-22 21:54:39 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:54:39 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:54:41 info: Checking if request is authenticated
+2024-04-22 21:54:41 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:54:41 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:55:36 info: Checking if request is authenticated
+2024-04-22 21:55:36 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:55:36 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:55:37 info: Checking if request is authenticated
+2024-04-22 21:55:37 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:55:37 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:55:58 info: Checking if request is authenticated
+2024-04-22 21:55:58 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:55:58 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:55:59 info: Checking if request is authenticated
+2024-04-22 21:55:59 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:55:59 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:56:17 info: Checking if request is authenticated
+2024-04-22 21:56:17 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:56:17 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:56:17 info: Checking if request is authenticated
+2024-04-22 21:56:17 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:56:17 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:56:18 info: Checking if request is authenticated
+2024-04-22 21:56:18 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:56:18 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:56:18 info: Checking if request is authenticated
+2024-04-22 21:56:18 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:56:18 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 21:56:19 info: Checking if request is authenticated
+2024-04-22 21:56:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:56:19 info: Serving settings.html {"ip":"::1"}
+2024-04-22 21:56:19 info: Checking if request is authenticated
+2024-04-22 21:56:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 21:56:19 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:01:50 info: Checking if request is authenticated
+2024-04-22 22:01:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:01:50 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:01:50 info: Checking if request is authenticated
+2024-04-22 22:01:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:01:50 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:01:52 info: Checking if request is authenticated
+2024-04-22 22:01:52 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:01:52 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:01:52 info: Checking if request is authenticated
+2024-04-22 22:01:52 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:01:52 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:03:28 info: Checking if request is authenticated
+2024-04-22 22:03:28 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:28 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:03:28 info: Checking if request is authenticated
+2024-04-22 22:03:28 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:28 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:03:31 info: Checking if request is authenticated
+2024-04-22 22:03:31 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:31 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:03:31 info: Checking if request is authenticated
+2024-04-22 22:03:31 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:31 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:03:31 info: Checking if request is authenticated
+2024-04-22 22:03:31 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:31 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:03:31 info: Checking if request is authenticated
+2024-04-22 22:03:31 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:31 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:03:32 info: Checking if request is authenticated
+2024-04-22 22:03:32 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:32 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:03:32 info: Checking if request is authenticated
+2024-04-22 22:03:32 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:32 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:03:32 info: Checking if request is authenticated
+2024-04-22 22:03:32 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:32 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:03:33 info: Checking if request is authenticated
+2024-04-22 22:03:33 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:03:33 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:04:46 info: Checking if request is authenticated
+2024-04-22 22:04:46 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:04:46 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:04:46 info: Checking if request is authenticated
+2024-04-22 22:04:46 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:04:46 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:04:51 info: Checking if request is authenticated
+2024-04-22 22:04:51 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:04:51 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:04:51 info: Checking if request is authenticated
+2024-04-22 22:04:51 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:04:51 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:06:12 info: Checking if request is authenticated
+2024-04-22 22:06:12 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:06:12 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:06:12 info: Checking if request is authenticated
+2024-04-22 22:06:12 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:06:12 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:06:24 info: Checking if request is authenticated
+2024-04-22 22:06:24 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:06:24 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:06:24 info: Checking if request is authenticated
+2024-04-22 22:06:24 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:06:24 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:06:47 info: Checking if request is authenticated
+2024-04-22 22:06:47 warn: Request is not authenticated, redirecting to root {"sessionId":"BQqRVVPb34bmmHdG7LGYfIxwetNsqfQL","path":"/settings"}
+2024-04-22 22:06:47 info: Received request for root route.
+2024-04-22 22:06:47 info: User is not authenticated, serving index.html
+2024-04-22 22:06:48 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:06:49 info: Received login request {"email":"p@test.ie"}
+2024-04-22 22:06:49 info: Login successful {"email":"p@test.ie"}
+2024-04-22 22:06:49 info: Received request for root route.
+2024-04-22 22:06:49 info: User is authenticated, serving user.html {"sessionId":"BQqRVVPb34bmmHdG7LGYfIxwetNsqfQL"}
+2024-04-22 22:06:50 info: Checking if request is authenticated
+2024-04-22 22:06:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:06:50 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:06:52 info: Checking if request is authenticated
+2024-04-22 22:06:52 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:06:52 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:06:52 info: Checking if request is authenticated
+2024-04-22 22:06:52 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:06:52 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:07:00 info: Checking if request is authenticated
+2024-04-22 22:07:00 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:07:00 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:07:00 info: Checking if request is authenticated
+2024-04-22 22:07:00 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:07:00 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:17:38 info: Checking if request is authenticated
+2024-04-22 22:17:38 warn: Request is not authenticated, redirecting to root {"sessionId":"7Wv5UHFMw3vgCzjanZ_ocFboTawn0mkc","path":"/settings"}
+2024-04-22 22:17:38 info: Received request for root route.
+2024-04-22 22:17:38 info: User is not authenticated, serving index.html
+2024-04-22 22:17:39 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:17:40 info: Received login request {"email":"p@test.ie"}
+2024-04-22 22:17:40 info: Login successful {"email":"p@test.ie"}
+2024-04-22 22:17:40 info: Received request for root route.
+2024-04-22 22:17:40 info: User is authenticated, serving user.html {"sessionId":"7Wv5UHFMw3vgCzjanZ_ocFboTawn0mkc"}
+2024-04-22 22:17:40 info: Checking if request is authenticated
+2024-04-22 22:17:40 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:17:40 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:17:43 info: Checking if request is authenticated
+2024-04-22 22:17:43 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:17:43 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:17:43 info: Checking if request is authenticated
+2024-04-22 22:17:43 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:17:43 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:17:49 info: Checking if request is authenticated
+2024-04-22 22:17:49 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:17:49 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:17:49 info: Checking if request is authenticated
+2024-04-22 22:17:49 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:17:49 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:18:43 info: Checking if request is authenticated
+2024-04-22 22:18:43 warn: Request is not authenticated, redirecting to root {"sessionId":"b3pLkbUNql2QvQSiiDWGtHel_Hs01ZUE","path":"/settings"}
+2024-04-22 22:18:43 info: Received request for root route.
+2024-04-22 22:18:43 info: User is not authenticated, serving index.html
+2024-04-22 22:18:44 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:18:45 info: Received login request {"email":"p@test.ie"}
+2024-04-22 22:18:45 info: Login successful {"email":"p@test.ie"}
+2024-04-22 22:18:45 info: Received request for root route.
+2024-04-22 22:18:45 info: User is authenticated, serving user.html {"sessionId":"b3pLkbUNql2QvQSiiDWGtHel_Hs01ZUE"}
+2024-04-22 22:18:45 info: Checking if request is authenticated
+2024-04-22 22:18:45 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:18:45 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:18:48 info: Checking if request is authenticated
+2024-04-22 22:18:48 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:18:48 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:18:48 info: Checking if request is authenticated
+2024-04-22 22:18:48 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:18:48 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:18:53 info: Checking if request is authenticated
+2024-04-22 22:18:53 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:18:53 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:18:53 info: Checking if request is authenticated
+2024-04-22 22:18:53 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:18:53 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:22:05 info: Checking if request is authenticated
+2024-04-22 22:22:05 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:22:05 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:22:05 info: Checking if request is authenticated
+2024-04-22 22:22:05 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:22:05 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:22:09 info: Checking if request is authenticated
+2024-04-22 22:22:09 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:22:09 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:22:09 info: Checking if request is authenticated
+2024-04-22 22:22:09 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:22:09 info: User data retrieved successfully: {"User-ID":2,"User-FName":"test","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-15T15:22:33.517Z"}
+2024-04-22 22:24:15 info: Checking if request is authenticated
+2024-04-22 22:24:15 warn: Request is not authenticated, redirecting to root {"sessionId":"7KT_q9KJy2Uw0UpYEgG8KT8GoyFZE97b","path":"/settings"}
+2024-04-22 22:24:15 info: Received request for root route.
+2024-04-22 22:24:15 info: User is not authenticated, serving index.html
+2024-04-22 22:24:16 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:24:17 info: Received login request {"email":"p@test.ie"}
+2024-04-22 22:24:17 info: Login successful {"email":"p@test.ie"}
+2024-04-22 22:24:17 info: Received request for root route.
+2024-04-22 22:24:17 info: User is authenticated, serving user.html {"sessionId":"7KT_q9KJy2Uw0UpYEgG8KT8GoyFZE97b"}
+2024-04-22 22:24:17 info: Checking if request is authenticated
+2024-04-22 22:24:17 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:24:17 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:24:21 info: Checking if request is authenticated
+2024-04-22 22:24:21 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:24:21 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:24:21 info: Checking if request is authenticated
+2024-04-22 22:24:21 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:24:21 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:24:27 info: Checking if request is authenticated
+2024-04-22 22:24:27 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:24:27 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:24:27 info: Checking if request is authenticated
+2024-04-22 22:24:27 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:24:27 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:29:45 info: Checking if request is authenticated
+2024-04-22 22:29:45 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:29:45 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:29:45 info: Checking if request is authenticated
+2024-04-22 22:29:45 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:29:45 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:29:49 info: Checking if request is authenticated
+2024-04-22 22:29:49 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:29:49 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:29:49 info: Checking if request is authenticated
+2024-04-22 22:29:49 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:29:49 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:30:13 info: Checking if request is authenticated
+2024-04-22 22:30:13 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:30:13 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:30:13 info: Checking if request is authenticated
+2024-04-22 22:30:13 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:30:13 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:30:37 info: Checking if request is authenticated
+2024-04-22 22:30:37 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:30:37 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:30:37 info: Checking if request is authenticated
+2024-04-22 22:30:37 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:30:37 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:32:51 info: Checking if request is authenticated
+2024-04-22 22:32:51 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:32:51 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:32:51 info: Checking if request is authenticated
+2024-04-22 22:32:51 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:32:51 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:32:54 info: [object Object]
+2024-04-22 22:32:54 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified."}
+2024-04-22 22:33:19 info: Checking if request is authenticated
+2024-04-22 22:33:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:33:19 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:33:19 info: Checking if request is authenticated
+2024-04-22 22:33:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:33:19 info: User data retrieved successfully: {"User-ID":2,"User-FName":"Padraig","User-Email":"p@test.ie","User-Password":"1234","Creation-Date":"2024-04-15T15:22:33.517Z","Modified-Date":"2024-04-22T22:23:32.180Z"}
+2024-04-22 22:33:23 info: [object Object]
+2024-04-22 22:33:23 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified."}
+2024-04-22 22:36:21 info: [object Object]
+2024-04-22 22:36:21 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified."}
+2024-04-22 22:37:11 info: [object Object]
+2024-04-22 22:37:11 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified."}
+2024-04-22 22:39:35 info: Checking if request is authenticated
+2024-04-22 22:39:35 warn: Request is not authenticated, redirecting to root {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS","path":"/settings"}
+2024-04-22 22:39:35 info: Received request for root route.
+2024-04-22 22:39:35 info: User is not authenticated, serving index.html
+2024-04-22 22:39:36 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:39:37 info: Received login request {"email":"p@test.ie"}
+2024-04-22 22:39:37 info: Login successful {"email":"p@test.ie"}
+2024-04-22 22:39:37 info: Received request for root route.
+2024-04-22 22:39:37 info: User is authenticated, serving user.html {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:39:37 info: Checking if request is authenticated
+2024-04-22 22:39:37 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:39:37 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:39:48 info: Received request for root route.
+2024-04-22 22:39:48 info: User is authenticated, serving user.html {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:39:49 info: Checking if request is authenticated
+2024-04-22 22:39:49 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:39:49 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:39:49 info: Received request for root route.
+2024-04-22 22:39:49 info: User is authenticated, serving user.html {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:39:50 info: Checking if request is authenticated
+2024-04-22 22:39:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:39:50 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:40:02 info: Received request for root route.
+2024-04-22 22:40:02 info: User is authenticated, serving user.html {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:40:02 info: Checking if request is authenticated
+2024-04-22 22:40:02 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:02 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:40:43 info: Checking if request is authenticated
+2024-04-22 22:40:43 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:43 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:40:43 info: Checking if request is authenticated
+2024-04-22 22:40:43 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:43 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:40:44 info: Received request for root route.
+2024-04-22 22:40:44 info: User is authenticated, serving user.html {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:40:44 info: Checking if request is authenticated
+2024-04-22 22:40:44 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:44 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:40:46 info: Received request for root route.
+2024-04-22 22:40:46 info: User is authenticated, serving user.html {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:40:46 info: Checking if request is authenticated
+2024-04-22 22:40:46 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:46 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:40:52 info: Checking if request is authenticated
+2024-04-22 22:40:52 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:52 info: Logout attempt {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:40:52 info: Attempting to destroy session {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:40:52 info: Session cookie cleared {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:40:52 info: User logged out successfully {"sessionId":"3p-WCF4Nsj8M62GqyAm3BtJNAw9IGXhS"}
+2024-04-22 22:40:52 info: Received request for root route.
+2024-04-22 22:40:52 info: User is not authenticated, serving index.html
+2024-04-22 22:40:52 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:40:53 info: Received login request {"email":"p@test.ie"}
+2024-04-22 22:40:53 info: Login successful {"email":"p@test.ie"}
+2024-04-22 22:40:53 info: Received request for root route.
+2024-04-22 22:40:53 info: User is authenticated, serving user.html {"sessionId":"44Et3lZc6db2556N8Qt9nN6E3eoEYm-w"}
+2024-04-22 22:40:54 info: Checking if request is authenticated
+2024-04-22 22:40:54 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:54 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:40:58 info: Checking if request is authenticated
+2024-04-22 22:40:58 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:58 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:40:58 info: Checking if request is authenticated
+2024-04-22 22:40:58 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:40:58 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:41:02 info: Received request for root route.
+2024-04-22 22:41:02 info: User is authenticated, serving user.html {"sessionId":"44Et3lZc6db2556N8Qt9nN6E3eoEYm-w"}
+2024-04-22 22:41:02 info: Checking if request is authenticated
+2024-04-22 22:41:02 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:41:02 error: Error fetching user data {"userEmail":"p@test.ie","error":"n is not defined"}
+2024-04-22 22:41:04 info: Checking if request is authenticated
+2024-04-22 22:41:04 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:41:04 info: Logout attempt {"sessionId":"44Et3lZc6db2556N8Qt9nN6E3eoEYm-w"}
+2024-04-22 22:41:04 info: Attempting to destroy session {"sessionId":"44Et3lZc6db2556N8Qt9nN6E3eoEYm-w"}
+2024-04-22 22:41:04 info: Session cookie cleared {"sessionId":"44Et3lZc6db2556N8Qt9nN6E3eoEYm-w"}
+2024-04-22 22:41:04 info: User logged out successfully {"sessionId":"44Et3lZc6db2556N8Qt9nN6E3eoEYm-w"}
+2024-04-22 22:41:04 info: Received request for root route.
+2024-04-22 22:41:04 info: User is not authenticated, serving index.html
+2024-04-22 22:41:06 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:41:10 info: Received login request {"email":"c@c.c"}
+2024-04-22 22:41:10 info: Login successful {"email":"c@c.c"}
+2024-04-22 22:41:10 info: Received request for root route.
+2024-04-22 22:41:10 info: User is authenticated, serving user.html {"sessionId":"cjTtKJKTkxCwMw9PoshkKzlhuFJdBVO5"}
+2024-04-22 22:41:10 info: Checking if request is authenticated
+2024-04-22 22:41:10 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:41:10 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:42:19 info: Checking if request is authenticated
+2024-04-22 22:42:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:42:19 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:42:19 info: Checking if request is authenticated
+2024-04-22 22:42:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:42:19 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:42:23 info: Checking if request is authenticated
+2024-04-22 22:42:23 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:42:23 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:42:23 info: Checking if request is authenticated
+2024-04-22 22:42:23 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:42:23 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:43:04 info: Received request for root route.
+2024-04-22 22:43:04 info: User is authenticated, serving user.html {"sessionId":"cjTtKJKTkxCwMw9PoshkKzlhuFJdBVO5"}
+2024-04-22 22:43:05 info: Checking if request is authenticated
+2024-04-22 22:43:05 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:43:05 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:43:05 info: Received request for root route.
+2024-04-22 22:43:05 info: User is authenticated, serving user.html {"sessionId":"cjTtKJKTkxCwMw9PoshkKzlhuFJdBVO5"}
+2024-04-22 22:43:05 info: Checking if request is authenticated
+2024-04-22 22:43:05 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:43:05 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:43:06 info: Received request for root route.
+2024-04-22 22:43:06 info: User is authenticated, serving user.html {"sessionId":"cjTtKJKTkxCwMw9PoshkKzlhuFJdBVO5"}
+2024-04-22 22:43:06 info: Checking if request is authenticated
+2024-04-22 22:43:06 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:43:06 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:43:06 info: Received request for root route.
+2024-04-22 22:43:06 info: User is authenticated, serving user.html {"sessionId":"cjTtKJKTkxCwMw9PoshkKzlhuFJdBVO5"}
+2024-04-22 22:43:06 info: Checking if request is authenticated
+2024-04-22 22:43:06 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:43:07 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:43:07 info: Received request for root route.
+2024-04-22 22:43:07 info: User is authenticated, serving user.html {"sessionId":"cjTtKJKTkxCwMw9PoshkKzlhuFJdBVO5"}
+2024-04-22 22:43:07 info: Checking if request is authenticated
+2024-04-22 22:43:07 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:43:07 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:43:08 info: Received request for root route.
+2024-04-22 22:43:08 info: User is authenticated, serving user.html {"sessionId":"cjTtKJKTkxCwMw9PoshkKzlhuFJdBVO5"}
+2024-04-22 22:43:08 info: Checking if request is authenticated
+2024-04-22 22:43:08 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:43:08 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:43:20 info: Received request for root route.
+2024-04-22 22:43:20 info: User is not authenticated, serving index.html
+2024-04-22 22:43:21 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:43:22 info: Received login request {"email":"c@c.c"}
+2024-04-22 22:43:22 info: Login successful {"email":"c@c.c"}
+2024-04-22 22:43:22 info: Received request for root route.
+2024-04-22 22:43:22 info: User is authenticated, serving user.html {"sessionId":"EVKb1BIP0vSnwl04BAxk9lV4HrThlaIj"}
+2024-04-22 22:43:22 info: Checking if request is authenticated
+2024-04-22 22:43:22 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:43:22 error: Error fetching user data {"userEmail":"c@c.c","error":"n is not defined"}
+2024-04-22 22:45:58 info: Received request for root route.
+2024-04-22 22:45:58 info: User is not authenticated, serving index.html
+2024-04-22 22:45:59 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:46:00 info: Received login request {"email":"c@c.c"}
+2024-04-22 22:46:00 info: Login successful {"email":"c@c.c"}
+2024-04-22 22:46:00 info: Received request for root route.
+2024-04-22 22:46:00 info: User is authenticated, serving user.html {"sessionId":"1u5VS50-7l76hGvKZbAVhrn-bAm1kXVk"}
+2024-04-22 22:46:00 info: Checking if request is authenticated
+2024-04-22 22:46:00 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:46:00 info: User data retrieved successfully: {"User-ID":6,"User-FName":"clara","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-20T22:58:42.707Z"}
+2024-04-22 22:46:03 info: Checking if request is authenticated
+2024-04-22 22:46:03 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:46:03 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:46:03 info: Checking if request is authenticated
+2024-04-22 22:46:03 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:46:03 info: User data retrieved successfully: {"User-ID":6,"User-FName":"clara","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-20T22:58:42.707Z"}
+2024-04-22 22:46:06 info: Received request to update user name {"email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:46:06 info: Attempting database connection
+2024-04-22 22:46:06 info: Database connection successful
+2024-04-22 22:46:06 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:46:06 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:48:32 info: Received request to update user name {"email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:48:32 info: Attempting database connection
+2024-04-22 22:48:32 info: Database connection successful
+2024-04-22 22:48:32 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:48:32 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:48:52 info: Received request to update user name {"email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:48:52 info: Attempting database connection
+2024-04-22 22:48:52 info: Database connection successful
+2024-04-22 22:48:52 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:48:52 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:49:02 info: Received request to update user name {"email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:49:02 info: Attempting database connection
+2024-04-22 22:49:02 info: Database connection successful
+2024-04-22 22:49:02 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:49:02 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:49:03 info: Received request to update user name {"email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:49:03 info: Attempting database connection
+2024-04-22 22:49:03 info: Database connection successful
+2024-04-22 22:49:03 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:49:03 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:49:38 info: Received request to update user name {"email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:49:38 info: Attempting database connection
+2024-04-22 22:49:38 info: Database connection successful
+2024-04-22 22:49:38 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:49:38 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"clara1"}
+2024-04-22 22:53:00 info: Checking if request is authenticated
+2024-04-22 22:53:00 warn: Request is not authenticated, redirecting to root {"sessionId":"GaU8NN2OQC4qhEpY6siOdSh4A3G6zl6s","path":"/settings"}
+2024-04-22 22:53:00 info: Received request for root route.
+2024-04-22 22:53:00 info: User is not authenticated, serving index.html
+2024-04-22 22:53:01 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:53:01 info: Received login request {"email":"c@c.c"}
+2024-04-22 22:53:01 info: Login successful {"email":"c@c.c"}
+2024-04-22 22:53:02 info: Received request for root route.
+2024-04-22 22:53:02 info: User is authenticated, serving user.html {"sessionId":"GaU8NN2OQC4qhEpY6siOdSh4A3G6zl6s"}
+2024-04-22 22:53:02 info: Checking if request is authenticated
+2024-04-22 22:53:02 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:02 info: User data retrieved successfully: {"User-ID":6,"User-FName":"clara1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:52:12.343Z"}
+2024-04-22 22:53:06 info: Checking if request is authenticated
+2024-04-22 22:53:06 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:06 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:53:06 info: Checking if request is authenticated
+2024-04-22 22:53:06 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:06 info: User data retrieved successfully: {"User-ID":6,"User-FName":"clara1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:52:12.343Z"}
+2024-04-22 22:53:10 info: Received request to update user name {"email":"c@c.c","newFName":"clara"}
+2024-04-22 22:53:10 info: Attempting database connection
+2024-04-22 22:53:10 info: Database connection successful
+2024-04-22 22:53:10 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:53:10 info: Stored procedure executed {}
+2024-04-22 22:53:21 info: Received request for root route.
+2024-04-22 22:53:21 info: User is authenticated, serving user.html {"sessionId":"GaU8NN2OQC4qhEpY6siOdSh4A3G6zl6s"}
+2024-04-22 22:53:22 info: Checking if request is authenticated
+2024-04-22 22:53:22 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:22 info: User data retrieved successfully: {"User-ID":6,"User-FName":"clara","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:53:10.497Z"}
+2024-04-22 22:53:26 info: Checking if request is authenticated
+2024-04-22 22:53:26 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:26 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:53:26 info: Checking if request is authenticated
+2024-04-22 22:53:26 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:26 info: User data retrieved successfully: {"User-ID":6,"User-FName":"clara","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:53:10.497Z"}
+2024-04-22 22:53:34 info: Received request to update user name {"email":"c@c.c","newFName":"Clara Connolly"}
+2024-04-22 22:53:34 info: Attempting database connection
+2024-04-22 22:53:34 info: Database connection successful
+2024-04-22 22:53:34 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:53:34 info: Stored procedure executed {}
+2024-04-22 22:53:50 info: Checking if request is authenticated
+2024-04-22 22:53:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:50 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:53:50 info: Checking if request is authenticated
+2024-04-22 22:53:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:50 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:53:34.870Z"}
+2024-04-22 22:53:53 info: Received request for root route.
+2024-04-22 22:53:53 info: User is authenticated, serving user.html {"sessionId":"GaU8NN2OQC4qhEpY6siOdSh4A3G6zl6s"}
+2024-04-22 22:53:53 info: Checking if request is authenticated
+2024-04-22 22:53:53 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:53 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:53:34.870Z"}
+2024-04-22 22:53:56 info: Checking if request is authenticated
+2024-04-22 22:53:56 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:56 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:53:56 info: Checking if request is authenticated
+2024-04-22 22:53:56 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:53:56 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:53:34.870Z"}
+2024-04-22 22:54:02 info: Checking if request is authenticated
+2024-04-22 22:54:02 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:54:02 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:54:02 info: Checking if request is authenticated
+2024-04-22 22:54:02 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:54:02 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:53:34.870Z"}
+2024-04-22 22:54:07 info: Received request to update user name {"email":"c@c.c","newFName":"Clara Connolly1"}
+2024-04-22 22:54:07 info: Attempting database connection
+2024-04-22 22:54:07 info: Database connection successful
+2024-04-22 22:54:07 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:54:07 info: Stored procedure executed {}
+2024-04-22 22:57:03 info: Checking if request is authenticated
+2024-04-22 22:57:03 warn: Request is not authenticated, redirecting to root {"sessionId":"xKF_dEkPuaAiEmQS1ZE7rrJYZNqH8m7f","path":"/settings"}
+2024-04-22 22:57:03 info: Received request for root route.
+2024-04-22 22:57:03 info: User is not authenticated, serving index.html
+2024-04-22 22:57:05 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:57:06 info: Received login request {"email":"c@c.c"}
+2024-04-22 22:57:06 info: Login successful {"email":"c@c.c"}
+2024-04-22 22:57:06 info: Received request for root route.
+2024-04-22 22:57:06 info: User is authenticated, serving user.html {"sessionId":"xKF_dEkPuaAiEmQS1ZE7rrJYZNqH8m7f"}
+2024-04-22 22:57:06 info: Checking if request is authenticated
+2024-04-22 22:57:06 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:57:06 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:54:07.063Z"}
+2024-04-22 22:57:09 info: Checking if request is authenticated
+2024-04-22 22:57:09 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:57:09 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:57:09 info: Checking if request is authenticated
+2024-04-22 22:57:09 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:57:09 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:54:07.063Z"}
+2024-04-22 22:57:14 info: Received request to update user name {"email":"c@c.c","newFName":"Clara Connolly"}
+2024-04-22 22:57:14 info: Attempting database connection
+2024-04-22 22:57:14 info: Database connection successful
+2024-04-22 22:57:14 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:57:14 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"Clara Connolly"}
+2024-04-22 22:58:57 info: Checking if request is authenticated
+2024-04-22 22:58:57 warn: Request is not authenticated, redirecting to root {"sessionId":"Q0bWGaPtepVa4Q570nlMcqEUHze4PB6_","path":"/settings"}
+2024-04-22 22:58:57 info: Received request for root route.
+2024-04-22 22:58:57 info: User is not authenticated, serving index.html
+2024-04-22 22:58:59 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:59:00 info: Received login request {"email":"c@c.c"}
+2024-04-22 22:59:00 info: Login successful {"email":"c@c.c"}
+2024-04-22 22:59:00 info: Received request for root route.
+2024-04-22 22:59:00 info: User is authenticated, serving user.html {"sessionId":"Q0bWGaPtepVa4Q570nlMcqEUHze4PB6_"}
+2024-04-22 22:59:00 info: Checking if request is authenticated
+2024-04-22 22:59:00 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:00 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:54:07.063Z"}
+2024-04-22 22:59:02 info: Checking if request is authenticated
+2024-04-22 22:59:02 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:02 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:59:02 info: Checking if request is authenticated
+2024-04-22 22:59:02 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:02 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:54:07.063Z"}
+2024-04-22 22:59:06 info: Received request to update user name {"email":"c@c.c","newFName":"Clara Connolly"}
+2024-04-22 22:59:06 info: Attempting database connection
+2024-04-22 22:59:06 info: Database connection successful
+2024-04-22 22:59:06 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:59:06 error: Error occurred during updating user name {"error":"Procedure or function sp_UpdateUserName has too many arguments specified.","email":"c@c.c","newFName":"Clara Connolly"}
+2024-04-22 22:59:12 info: Checking if request is authenticated
+2024-04-22 22:59:12 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:12 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:59:12 info: Checking if request is authenticated
+2024-04-22 22:59:12 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:12 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:54:07.063Z"}
+2024-04-22 22:59:30 info: Checking if request is authenticated
+2024-04-22 22:59:30 warn: Request is not authenticated, redirecting to root {"sessionId":"Y-3151qTKI4bDeDwuLncAKFhoodHRn8z","path":"/settings"}
+2024-04-22 22:59:30 info: Received request for root route.
+2024-04-22 22:59:30 info: User is not authenticated, serving index.html
+2024-04-22 22:59:31 info: Serving login.html {"ip":"::1"}
+2024-04-22 22:59:31 info: Received login request {"email":"c@c.c"}
+2024-04-22 22:59:31 info: Login successful {"email":"c@c.c"}
+2024-04-22 22:59:31 info: Received request for root route.
+2024-04-22 22:59:31 info: User is authenticated, serving user.html {"sessionId":"Y-3151qTKI4bDeDwuLncAKFhoodHRn8z"}
+2024-04-22 22:59:32 info: Checking if request is authenticated
+2024-04-22 22:59:32 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:32 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:54:07.063Z"}
+2024-04-22 22:59:34 info: Checking if request is authenticated
+2024-04-22 22:59:34 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:34 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:59:34 info: Checking if request is authenticated
+2024-04-22 22:59:34 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:34 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:54:07.063Z"}
+2024-04-22 22:59:37 info: Received request to update user name {"email":"c@c.c","newFName":"Clara Connolly"}
+2024-04-22 22:59:37 info: Attempting database connection
+2024-04-22 22:59:37 info: Database connection successful
+2024-04-22 22:59:37 info: Executing stored procedure sp_UpdateUserName
+2024-04-22 22:59:37 info: Stored procedure executed {"returnValue":0}
+2024-04-22 22:59:37 info: User name updated successfully {"email":"c@c.c","newFName":"Clara Connolly"}
+2024-04-22 22:59:50 info: Checking if request is authenticated
+2024-04-22 22:59:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:50 info: Serving settings.html {"ip":"::1"}
+2024-04-22 22:59:50 info: Checking if request is authenticated
+2024-04-22 22:59:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:50 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:59:37.267Z"}
+2024-04-22 22:59:51 info: Received request for root route.
+2024-04-22 22:59:51 info: User is authenticated, serving user.html {"sessionId":"Y-3151qTKI4bDeDwuLncAKFhoodHRn8z"}
+2024-04-22 22:59:51 info: Checking if request is authenticated
+2024-04-22 22:59:51 info: Request is authenticated, proceeding to next middleware
+2024-04-22 22:59:51 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:59:37.267Z"}
+2024-04-22 23:04:21 info: Received request for root route.
+2024-04-22 23:04:21 info: User is not authenticated, serving index.html
+2024-04-22 23:04:22 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:04:23 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:04:23 info: Login successful {"email":"c@c.c"}
+2024-04-22 23:04:23 info: Received request for root route.
+2024-04-22 23:04:23 info: User is authenticated, serving user.html {"sessionId":"gVHnbJl5k489rmGORJwqPDZZwDf89_W3"}
+2024-04-22 23:04:23 info: Checking if request is authenticated
+2024-04-22 23:04:23 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:04:23 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:59:37.267Z"}
+2024-04-22 23:04:26 info: Checking if request is authenticated
+2024-04-22 23:04:26 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:04:26 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:04:26 info: Checking if request is authenticated
+2024-04-22 23:04:26 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:04:26 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:59:37.267Z"}
+2024-04-22 23:05:31 info: Checking if request is authenticated
+2024-04-22 23:05:31 warn: Request is not authenticated, redirecting to root {"sessionId":"QAa1U2lQgNohK4leqgrLLlLzpRc_s4vd","path":"/settings"}
+2024-04-22 23:05:31 info: Received request for root route.
+2024-04-22 23:05:31 info: User is not authenticated, serving index.html
+2024-04-22 23:05:32 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:05:33 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:05:33 info: Login successful {"email":"c@c.c"}
+2024-04-22 23:05:33 info: Received request for root route.
+2024-04-22 23:05:33 info: User is authenticated, serving user.html {"sessionId":"QAa1U2lQgNohK4leqgrLLlLzpRc_s4vd"}
+2024-04-22 23:05:33 info: Checking if request is authenticated
+2024-04-22 23:05:33 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:05:33 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:59:37.267Z"}
+2024-04-22 23:05:35 info: Checking if request is authenticated
+2024-04-22 23:05:35 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:05:35 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:05:35 info: Checking if request is authenticated
+2024-04-22 23:05:35 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:05:35 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:59:37.267Z"}
+2024-04-22 23:06:18 info: Checking if request is authenticated
+2024-04-22 23:06:18 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:06:18 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:06:18 info: Checking if request is authenticated
+2024-04-22 23:06:18 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:06:18 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T22:59:37.267Z"}
+2024-04-22 23:06:23 info: c@c.c
+2024-04-22 23:06:23 info: User password updated successfully {"email":"c@c.c"}
+2024-04-22 23:09:10 info: Checking if request is authenticated
+2024-04-22 23:09:10 warn: Request is not authenticated, redirecting to root {"sessionId":"Yq1RMxNmpoMSd0JP4uwaP2-G5MgZ-S4u","path":"/settings"}
+2024-04-22 23:09:10 info: Received request for root route.
+2024-04-22 23:09:10 info: User is not authenticated, serving index.html
+2024-04-22 23:09:11 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:09:12 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:09:12 warn: Login failed - invalid credentials {"email":"c@c.c"}
+2024-04-22 23:09:20 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:09:21 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:09:21 warn: Login failed - invalid credentials {"email":"c@c.c"}
+2024-04-22 23:09:26 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:09:26 info: Login successful {"email":"c@c.c"}
+2024-04-22 23:09:26 info: Received request for root route.
+2024-04-22 23:09:26 info: User is authenticated, serving user.html {"sessionId":"Yq1RMxNmpoMSd0JP4uwaP2-G5MgZ-S4u"}
+2024-04-22 23:09:26 info: Checking if request is authenticated
+2024-04-22 23:09:26 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:09:26 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:09:29 info: Checking if request is authenticated
+2024-04-22 23:09:29 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:09:29 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:09:29 info: Checking if request is authenticated
+2024-04-22 23:09:29 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:09:29 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:11:58 info: Checking if request is authenticated
+2024-04-22 23:11:58 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:11:58 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:11:58 info: Checking if request is authenticated
+2024-04-22 23:11:58 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:11:58 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:12:07 error: Update user email attempt with incomplete form data {"newEmail":"clara@test.test"}
+2024-04-22 23:13:26 info: Checking if request is authenticated
+2024-04-22 23:13:26 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:13:26 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:13:26 info: Checking if request is authenticated
+2024-04-22 23:13:26 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:13:26 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:13:31 info: Checking if request is authenticated
+2024-04-22 23:13:31 warn: Request is not authenticated, redirecting to root {"sessionId":"lBMnlhC0cWzZlHik7O3CXuRIga-CGh7S","path":"/settings"}
+2024-04-22 23:13:31 info: Received request for root route.
+2024-04-22 23:13:31 info: User is not authenticated, serving index.html
+2024-04-22 23:13:32 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:13:33 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:13:33 info: Login successful {"email":"c@c.c"}
+2024-04-22 23:13:33 info: Received request for root route.
+2024-04-22 23:13:33 info: User is authenticated, serving user.html {"sessionId":"lBMnlhC0cWzZlHik7O3CXuRIga-CGh7S"}
+2024-04-22 23:13:33 info: Checking if request is authenticated
+2024-04-22 23:13:33 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:13:33 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:13:38 info: Checking if request is authenticated
+2024-04-22 23:13:38 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:13:38 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:13:38 info: Checking if request is authenticated
+2024-04-22 23:13:38 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:13:38 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:13:47 error: Update user email attempt with incomplete form data {"newEmail":"clara@c.c"}
+2024-04-22 23:15:19 info: Checking if request is authenticated
+2024-04-22 23:15:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:15:19 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:15:19 info: Checking if request is authenticated
+2024-04-22 23:15:19 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:15:19 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:15:23 error: Update user email attempt with incomplete form data {"newEmail":"ca@c.c"}
+2024-04-22 23:16:24 info: Checking if request is authenticated
+2024-04-22 23:16:24 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:16:24 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:16:24 info: Checking if request is authenticated
+2024-04-22 23:16:24 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:16:24 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:16:28 error: Update user email attempt with incomplete form data {"newEmail":"css@c.c"}
+2024-04-22 23:17:42 info: Checking if request is authenticated
+2024-04-22 23:17:42 warn: Request is not authenticated, redirecting to root {"sessionId":"KjnRMEi5jkuWtf7ObhMr47nHljlXkYLZ","path":"/settings"}
+2024-04-22 23:17:42 info: Received request for root route.
+2024-04-22 23:17:42 info: User is not authenticated, serving index.html
+2024-04-22 23:17:42 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:17:43 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:17:43 info: Login successful {"email":"c@c.c"}
+2024-04-22 23:17:43 info: Received request for root route.
+2024-04-22 23:17:43 info: User is authenticated, serving user.html {"sessionId":"KjnRMEi5jkuWtf7ObhMr47nHljlXkYLZ"}
+2024-04-22 23:17:43 info: Checking if request is authenticated
+2024-04-22 23:17:43 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:17:43 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:17:45 info: Checking if request is authenticated
+2024-04-22 23:17:45 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:17:45 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:17:46 info: Checking if request is authenticated
+2024-04-22 23:17:46 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:17:46 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:17:48 info: Email undefined
+2024-04-22 23:17:48 error: Update user email attempt with incomplete form data {"newEmail":"css@c.c"}
+2024-04-22 23:21:47 info: Checking if request is authenticated
+2024-04-22 23:21:47 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:21:47 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:21:47 info: Checking if request is authenticated
+2024-04-22 23:21:47 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:21:47 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:22:08 info: Checking if request is authenticated
+2024-04-22 23:22:08 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:22:08 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:22:08 info: Checking if request is authenticated
+2024-04-22 23:22:08 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:22:08 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:22:12 info: Email undefined
+2024-04-22 23:22:12 error: Update user email attempt with incomplete form data {"newEmail":"css@c.c"}
+2024-04-22 23:24:10 info: Checking if request is authenticated
+2024-04-22 23:24:10 warn: Request is not authenticated, redirecting to root {"sessionId":"7lij4FUR1oHnIb8urQGfjzdlr-Sf60JQ","path":"/settings"}
+2024-04-22 23:24:10 info: Received request for root route.
+2024-04-22 23:24:10 info: User is not authenticated, serving index.html
+2024-04-22 23:24:11 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:24:11 info: Received login request {"email":"c@c.c"}
+2024-04-22 23:24:11 info: Login successful {"email":"c@c.c"}
+2024-04-22 23:24:11 info: Received request for root route.
+2024-04-22 23:24:11 info: User is authenticated, serving user.html {"sessionId":"7lij4FUR1oHnIb8urQGfjzdlr-Sf60JQ"}
+2024-04-22 23:24:12 info: Checking if request is authenticated
+2024-04-22 23:24:12 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:24:12 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:24:14 info: Checking if request is authenticated
+2024-04-22 23:24:14 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:24:14 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:24:14 info: Checking if request is authenticated
+2024-04-22 23:24:14 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:24:14 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:24:17 error: Update user email attempt with incomplete form data {"newEmail":"css@c.c"}
+2024-04-22 23:27:48 info: Checking if request is authenticated
+2024-04-22 23:27:48 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:27:48 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:27:48 info: Checking if request is authenticated
+2024-04-22 23:27:48 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:27:49 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:27:49 info: Checking if request is authenticated
+2024-04-22 23:27:49 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:27:49 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:27:50 info: Checking if request is authenticated
+2024-04-22 23:27:50 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:27:50 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:28:13 info: Checking if request is authenticated
+2024-04-22 23:28:13 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:28:13 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:28:13 info: Checking if request is authenticated
+2024-04-22 23:28:13 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:28:13 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:28:38 info: Checking if request is authenticated
+2024-04-22 23:28:38 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:28:38 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:28:38 info: Checking if request is authenticated
+2024-04-22 23:28:38 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:28:38 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"c@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:06:23.317Z"}
+2024-04-22 23:28:41 info: User email updated successfully {"oldEmail":"c@c.c","newEmail":"css@c.c"}
+2024-04-22 23:29:00 info: Received request for root route.
+2024-04-22 23:29:00 info: User is authenticated, serving user.html {"sessionId":"7lij4FUR1oHnIb8urQGfjzdlr-Sf60JQ"}
+2024-04-22 23:29:00 info: Checking if request is authenticated
+2024-04-22 23:29:00 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:29:00 warn: No user data found in recordset for /user-data endpoint {"userEmail":"c@c.c"}
+2024-04-22 23:29:01 info: Checking if request is authenticated
+2024-04-22 23:29:01 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:29:01 info: Logout attempt {"sessionId":"7lij4FUR1oHnIb8urQGfjzdlr-Sf60JQ"}
+2024-04-22 23:29:01 info: Attempting to destroy session {"sessionId":"7lij4FUR1oHnIb8urQGfjzdlr-Sf60JQ"}
+2024-04-22 23:29:01 info: Session cookie cleared {"sessionId":"7lij4FUR1oHnIb8urQGfjzdlr-Sf60JQ"}
+2024-04-22 23:29:01 info: User logged out successfully {"sessionId":"7lij4FUR1oHnIb8urQGfjzdlr-Sf60JQ"}
+2024-04-22 23:29:01 info: Received request for root route.
+2024-04-22 23:29:01 info: User is not authenticated, serving index.html
+2024-04-22 23:29:02 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:29:05 info: Received login request {"email":"css@c.c"}
+2024-04-22 23:29:05 info: Login successful {"email":"css@c.c"}
+2024-04-22 23:29:05 info: Received request for root route.
+2024-04-22 23:29:05 info: User is authenticated, serving user.html {"sessionId":"RcdPZJ4D_66o7Ez7El5z664qO2wehDIf"}
+2024-04-22 23:29:05 info: Checking if request is authenticated
+2024-04-22 23:29:05 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:29:05 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-04-22 23:29:09 info: Checking if request is authenticated
+2024-04-22 23:29:09 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:29:09 info: Logout attempt {"sessionId":"RcdPZJ4D_66o7Ez7El5z664qO2wehDIf"}
+2024-04-22 23:29:09 info: Attempting to destroy session {"sessionId":"RcdPZJ4D_66o7Ez7El5z664qO2wehDIf"}
+2024-04-22 23:29:09 info: Session cookie cleared {"sessionId":"RcdPZJ4D_66o7Ez7El5z664qO2wehDIf"}
+2024-04-22 23:29:09 info: User logged out successfully {"sessionId":"RcdPZJ4D_66o7Ez7El5z664qO2wehDIf"}
+2024-04-22 23:29:09 info: Received request for root route.
+2024-04-22 23:29:09 info: User is not authenticated, serving index.html
+2024-04-22 23:29:13 info: Serving login.html {"ip":"::1"}
+2024-04-22 23:29:14 info: Received login request {"email":"css@c.c"}
+2024-04-22 23:29:14 info: Login successful {"email":"css@c.c"}
+2024-04-22 23:29:14 info: Received request for root route.
+2024-04-22 23:29:14 info: User is authenticated, serving user.html {"sessionId":"DZXzOduh1zBA2bVENxrFlfojozOvYIht"}
+2024-04-22 23:29:15 info: Checking if request is authenticated
+2024-04-22 23:29:15 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:29:15 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-04-22 23:29:17 info: Checking if request is authenticated
+2024-04-22 23:29:17 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:29:17 info: Serving settings.html {"ip":"::1"}
+2024-04-22 23:29:17 info: Checking if request is authenticated
+2024-04-22 23:29:17 info: Request is authenticated, proceeding to next middleware
+2024-04-22 23:29:17 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:44:06 info: Received request for root route.
+2024-05-01 18:44:06 info: User is not authenticated, serving index.html
+2024-05-01 18:44:09 info: Serving login.html {"ip":"::1"}
+2024-05-01 18:44:10 info: Received login request {"email":"css@c.c"}
+2024-05-01 18:44:10 info: Login successful {"email":"css@c.c"}
+2024-05-01 18:44:10 info: Received request for root route.
+2024-05-01 18:44:10 info: User is authenticated, serving user.html {"sessionId":"2KaThWMgSTEZH5kH-EMADMGafgaEusQw"}
+2024-05-01 18:44:10 info: Checking if request is authenticated
+2024-05-01 18:44:10 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:44:10 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:44:13 info: Checking if request is authenticated
+2024-05-01 18:44:13 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:44:13 info: Serving courses.html for authenticated user {"sessionId":"2KaThWMgSTEZH5kH-EMADMGafgaEusQw"}
+2024-05-01 18:44:13 info: Checking if request is authenticated
+2024-05-01 18:44:13 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:44:13 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:44:43 info: Checking if request is authenticated
+2024-05-01 18:44:43 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:49:38 info: Checking if request is authenticated
+2024-05-01 18:49:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:50:17 info: Checking if request is authenticated
+2024-05-01 18:50:17 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:53:01 info: Checking if request is authenticated
+2024-05-01 18:53:01 warn: Request is not authenticated, redirecting to root {"sessionId":"6rPhRmMBYWfsk2B96EheoP9c5L2kO5ov","path":"/course/1"}
+2024-05-01 18:53:01 info: Received request for root route.
+2024-05-01 18:53:01 info: User is not authenticated, serving index.html
+2024-05-01 18:53:03 info: Serving login.html {"ip":"::1"}
+2024-05-01 18:53:04 info: Received login request {"email":"css@c.c"}
+2024-05-01 18:53:04 info: Login successful {"email":"css@c.c"}
+2024-05-01 18:53:04 info: Received request for root route.
+2024-05-01 18:53:04 info: User is authenticated, serving user.html {"sessionId":"6rPhRmMBYWfsk2B96EheoP9c5L2kO5ov"}
+2024-05-01 18:53:04 info: Checking if request is authenticated
+2024-05-01 18:53:04 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:53:04 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:53:10 info: Checking if request is authenticated
+2024-05-01 18:53:10 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:53:33 info: Checking if request is authenticated
+2024-05-01 18:53:33 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:56:43 info: Checking if request is authenticated
+2024-05-01 18:56:43 warn: Request is not authenticated, redirecting to root {"sessionId":"StImihbqoTb-xQOswfgqI7mblZRhrb3C","path":"/course/1"}
+2024-05-01 18:56:43 info: Received request for root route.
+2024-05-01 18:56:43 info: User is not authenticated, serving index.html
+2024-05-01 18:56:44 info: Serving login.html {"ip":"::1"}
+2024-05-01 18:56:45 info: Received login request {"email":"css@c.c"}
+2024-05-01 18:56:45 info: Login successful {"email":"css@c.c"}
+2024-05-01 18:56:45 info: Received request for root route.
+2024-05-01 18:56:45 info: User is authenticated, serving user.html {"sessionId":"StImihbqoTb-xQOswfgqI7mblZRhrb3C"}
+2024-05-01 18:56:45 info: Checking if request is authenticated
+2024-05-01 18:56:45 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:56:45 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:56:51 info: Checking if request is authenticated
+2024-05-01 18:56:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:57:43 info: Checking if request is authenticated
+2024-05-01 18:57:43 warn: Request is not authenticated, redirecting to root {"sessionId":"f81IWNHkB8WQhP0I5tEiL3lTdfiz49XG","path":"/course/1"}
+2024-05-01 18:57:43 info: Received request for root route.
+2024-05-01 18:57:43 info: User is not authenticated, serving index.html
+2024-05-01 18:57:45 info: Serving login.html {"ip":"::1"}
+2024-05-01 18:57:45 info: Received login request {"email":"css@c.c"}
+2024-05-01 18:57:45 info: Login successful {"email":"css@c.c"}
+2024-05-01 18:57:45 info: Received request for root route.
+2024-05-01 18:57:45 info: User is authenticated, serving user.html {"sessionId":"f81IWNHkB8WQhP0I5tEiL3lTdfiz49XG"}
+2024-05-01 18:57:45 info: Checking if request is authenticated
+2024-05-01 18:57:45 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:57:45 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:57:49 info: Checking if request is authenticated
+2024-05-01 18:57:49 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:57:50 info: Checking if request is authenticated
+2024-05-01 18:57:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:57:50 info: Checking if request is authenticated
+2024-05-01 18:57:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:23 info: Checking if request is authenticated
+2024-05-01 18:58:23 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:23 info: Checking if request is authenticated
+2024-05-01 18:58:23 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:23 info: Checking if request is authenticated
+2024-05-01 18:58:23 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:24 info: Checking if request is authenticated
+2024-05-01 18:58:24 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:24 info: Checking if request is authenticated
+2024-05-01 18:58:24 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:24 info: Checking if request is authenticated
+2024-05-01 18:58:24 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:28 info: Checking if request is authenticated
+2024-05-01 18:58:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:28 info: Checking if request is authenticated
+2024-05-01 18:58:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:28 info: Checking if request is authenticated
+2024-05-01 18:58:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:43 info: Checking if request is authenticated
+2024-05-01 18:58:43 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:43 info: Checking if request is authenticated
+2024-05-01 18:58:43 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:43 info: Checking if request is authenticated
+2024-05-01 18:58:43 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:52 info: Checking if request is authenticated
+2024-05-01 18:58:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:52 info: Checking if request is authenticated
+2024-05-01 18:58:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:58:52 info: Checking if request is authenticated
+2024-05-01 18:58:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:05 info: Checking if request is authenticated
+2024-05-01 18:59:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:05 info: Checking if request is authenticated
+2024-05-01 18:59:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:05 info: Checking if request is authenticated
+2024-05-01 18:59:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:13 info: Checking if request is authenticated
+2024-05-01 18:59:13 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:13 info: Checking if request is authenticated
+2024-05-01 18:59:13 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:13 info: Checking if request is authenticated
+2024-05-01 18:59:13 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:28 info: Checking if request is authenticated
+2024-05-01 18:59:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:28 info: Serving courses.html for authenticated user {"sessionId":"f81IWNHkB8WQhP0I5tEiL3lTdfiz49XG"}
+2024-05-01 18:59:28 info: Checking if request is authenticated
+2024-05-01 18:59:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:28 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:59:46 info: Checking if request is authenticated
+2024-05-01 18:59:46 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:46 info: Checking if request is authenticated
+2024-05-01 18:59:46 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:46 info: Checking if request is authenticated
+2024-05-01 18:59:46 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:52 info: Checking if request is authenticated
+2024-05-01 18:59:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:52 info: Serving settings.html {"ip":"::1"}
+2024-05-01 18:59:53 info: Checking if request is authenticated
+2024-05-01 18:59:53 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:53 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 18:59:55 info: Checking if request is authenticated
+2024-05-01 18:59:55 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:55 info: Serving settings.html {"ip":"::1"}
+2024-05-01 18:59:55 info: Checking if request is authenticated
+2024-05-01 18:59:55 info: Request is authenticated, proceeding to next middleware
+2024-05-01 18:59:55 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:03:17 info: Checking if request is authenticated
+2024-05-01 19:03:17 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:50 info: Checking if request is authenticated
+2024-05-01 19:07:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:50 info: Checking if request is authenticated
+2024-05-01 19:07:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:50 info: Checking if request is authenticated
+2024-05-01 19:07:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:51 info: Checking if request is authenticated
+2024-05-01 19:07:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:51 info: Checking if request is authenticated
+2024-05-01 19:07:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:51 info: Checking if request is authenticated
+2024-05-01 19:07:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:57 info: Checking if request is authenticated
+2024-05-01 19:07:57 warn: Request is not authenticated, redirecting to root {"sessionId":"g-yj9Gh9tyklijj4u64ypiebd0xOtYLs","path":"/course/1"}
+2024-05-01 19:07:57 info: Received request for root route.
+2024-05-01 19:07:57 info: User is not authenticated, serving index.html
+2024-05-01 19:07:58 info: Serving login.html {"ip":"::1"}
+2024-05-01 19:07:59 info: Received login request {"email":"css@c.c"}
+2024-05-01 19:07:59 info: Login successful {"email":"css@c.c"}
+2024-05-01 19:07:59 info: Received request for root route.
+2024-05-01 19:07:59 info: User is authenticated, serving user.html {"sessionId":"g-yj9Gh9tyklijj4u64ypiebd0xOtYLs"}
+2024-05-01 19:07:59 info: Checking if request is authenticated
+2024-05-01 19:07:59 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:07:59 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:08:06 info: Checking if request is authenticated
+2024-05-01 19:08:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:08:06 info: Checking if request is authenticated
+2024-05-01 19:08:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:08:06 info: Checking if request is authenticated
+2024-05-01 19:08:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:11:12 info: Checking if request is authenticated
+2024-05-01 19:11:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:11:12 info: Checking if request is authenticated
+2024-05-01 19:11:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:11:12 info: Checking if request is authenticated
+2024-05-01 19:11:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:37 info: Checking if request is authenticated
+2024-05-01 19:12:37 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:37 info: Checking if request is authenticated
+2024-05-01 19:12:37 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:37 info: Checking if request is authenticated
+2024-05-01 19:12:37 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:38 info: Checking if request is authenticated
+2024-05-01 19:12:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:38 info: Checking if request is authenticated
+2024-05-01 19:12:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:38 info: Checking if request is authenticated
+2024-05-01 19:12:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:38 info: Checking if request is authenticated
+2024-05-01 19:12:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:39 info: Checking if request is authenticated
+2024-05-01 19:12:39 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:39 info: Checking if request is authenticated
+2024-05-01 19:12:39 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:39 info: Checking if request is authenticated
+2024-05-01 19:12:39 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:39 info: Checking if request is authenticated
+2024-05-01 19:12:39 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:39 info: Checking if request is authenticated
+2024-05-01 19:12:39 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:49 info: Checking if request is authenticated
+2024-05-01 19:12:49 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:49 info: Checking if request is authenticated
+2024-05-01 19:12:49 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:49 info: Checking if request is authenticated
+2024-05-01 19:12:49 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:50 info: Checking if request is authenticated
+2024-05-01 19:12:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:50 info: Checking if request is authenticated
+2024-05-01 19:12:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:50 info: Checking if request is authenticated
+2024-05-01 19:12:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:50 info: Checking if request is authenticated
+2024-05-01 19:12:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:50 info: Checking if request is authenticated
+2024-05-01 19:12:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:50 info: Checking if request is authenticated
+2024-05-01 19:12:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:56 info: Checking if request is authenticated
+2024-05-01 19:12:56 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:56 info: Serving courses.html for authenticated user {"sessionId":"g-yj9Gh9tyklijj4u64ypiebd0xOtYLs"}
+2024-05-01 19:12:56 info: Checking if request is authenticated
+2024-05-01 19:12:56 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:12:56 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:14:29 info: Checking if request is authenticated
+2024-05-01 19:14:29 warn: Request is not authenticated, redirecting to root {"sessionId":"dIC0SrnkMvkUmVIlOQwl3A3qN3gwOgOc","path":"/courses"}
+2024-05-01 19:14:29 info: Received request for root route.
+2024-05-01 19:14:29 info: User is not authenticated, serving index.html
+2024-05-01 19:14:32 info: Serving login.html {"ip":"::1"}
+2024-05-01 19:14:33 info: Received login request {"email":"css@c.c"}
+2024-05-01 19:14:33 info: Login successful {"email":"css@c.c"}
+2024-05-01 19:14:33 info: Received request for root route.
+2024-05-01 19:14:33 info: User is authenticated, serving user.html {"sessionId":"dIC0SrnkMvkUmVIlOQwl3A3qN3gwOgOc"}
+2024-05-01 19:14:33 info: Checking if request is authenticated
+2024-05-01 19:14:33 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:14:33 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:14:35 info: Checking if request is authenticated
+2024-05-01 19:14:35 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:14:35 info: Serving courses.html for authenticated user {"sessionId":"dIC0SrnkMvkUmVIlOQwl3A3qN3gwOgOc"}
+2024-05-01 19:14:35 info: Checking if request is authenticated
+2024-05-01 19:14:35 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:14:35 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:14:40 info: Checking if request is authenticated
+2024-05-01 19:14:40 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:12 info: Checking if request is authenticated
+2024-05-01 19:15:12 warn: Request is not authenticated, redirecting to root {"sessionId":"8qbM_PoGhjbqNUJxaqE0Y1xUh9Zbu1I8","path":"/course"}
+2024-05-01 19:15:12 info: Received request for root route.
+2024-05-01 19:15:12 info: User is not authenticated, serving index.html
+2024-05-01 19:15:13 info: Serving login.html {"ip":"::1"}
+2024-05-01 19:15:14 info: Received login request {"email":"css@c.c"}
+2024-05-01 19:15:14 info: Login successful {"email":"css@c.c"}
+2024-05-01 19:15:14 info: Received request for root route.
+2024-05-01 19:15:14 info: User is authenticated, serving user.html {"sessionId":"8qbM_PoGhjbqNUJxaqE0Y1xUh9Zbu1I8"}
+2024-05-01 19:15:14 info: Checking if request is authenticated
+2024-05-01 19:15:14 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:14 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:15:17 info: Checking if request is authenticated
+2024-05-01 19:15:17 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:17 info: Serving courses.html for authenticated user {"sessionId":"8qbM_PoGhjbqNUJxaqE0Y1xUh9Zbu1I8"}
+2024-05-01 19:15:17 info: Checking if request is authenticated
+2024-05-01 19:15:17 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:17 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:15:19 info: Checking if request is authenticated
+2024-05-01 19:15:19 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:21 info: Checking if request is authenticated
+2024-05-01 19:15:21 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:21 info: Checking if request is authenticated
+2024-05-01 19:15:21 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:22 info: Checking if request is authenticated
+2024-05-01 19:15:22 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:22 info: Checking if request is authenticated
+2024-05-01 19:15:22 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:15:23 info: Checking if request is authenticated
+2024-05-01 19:15:23 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:18:30 info: Checking if request is authenticated
+2024-05-01 19:18:30 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:18:31 info: Checking if request is authenticated
+2024-05-01 19:18:31 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:18:32 info: Checking if request is authenticated
+2024-05-01 19:18:32 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:18:51 info: Checking if request is authenticated
+2024-05-01 19:18:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:19:15 info: Checking if request is authenticated
+2024-05-01 19:19:15 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:19:16 info: Checking if request is authenticated
+2024-05-01 19:19:16 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:20:01 info: Checking if request is authenticated
+2024-05-01 19:20:01 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:20:04 info: Checking if request is authenticated
+2024-05-01 19:20:04 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:21:31 info: Checking if request is authenticated
+2024-05-01 19:21:31 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:21:43 info: Checking if request is authenticated
+2024-05-01 19:21:43 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:21:48 info: Checking if request is authenticated
+2024-05-01 19:21:48 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:21:58 info: Checking if request is authenticated
+2024-05-01 19:21:58 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:22:32 info: Checking if request is authenticated
+2024-05-01 19:22:32 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:23:38 info: Checking if request is authenticated
+2024-05-01 19:23:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:23:38 info: Checking if request is authenticated
+2024-05-01 19:23:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:25:32 info: Checking if request is authenticated
+2024-05-01 19:25:32 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:31:33 info: Checking if request is authenticated
+2024-05-01 19:31:33 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:31:33 info: Checking if request is authenticated
+2024-05-01 19:31:33 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:31:56 info: Checking if request is authenticated
+2024-05-01 19:31:56 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:31:57 info: Checking if request is authenticated
+2024-05-01 19:31:57 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:32:06 info: Checking if request is authenticated
+2024-05-01 19:32:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:32:19 info: Checking if request is authenticated
+2024-05-01 19:32:19 warn: Request is not authenticated, redirecting to root {"sessionId":"EL5QLEg9JPxV-eMNyEnGg5W9Tx0dRjBe","path":"/files/pdf/1"}
+2024-05-01 19:32:19 info: Received request for root route.
+2024-05-01 19:32:19 info: User is not authenticated, serving index.html
+2024-05-01 19:32:21 info: Serving login.html {"ip":"::1"}
+2024-05-01 19:32:22 info: Received login request {"email":"css@c.c"}
+2024-05-01 19:32:22 info: Login successful {"email":"css@c.c"}
+2024-05-01 19:32:22 info: Received request for root route.
+2024-05-01 19:32:22 info: User is authenticated, serving user.html {"sessionId":"EL5QLEg9JPxV-eMNyEnGg5W9Tx0dRjBe"}
+2024-05-01 19:32:22 info: Checking if request is authenticated
+2024-05-01 19:32:22 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:32:22 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:32:38 info: Checking if request is authenticated
+2024-05-01 19:32:38 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:33:10 info: Checking if request is authenticated
+2024-05-01 19:33:10 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:33:10 info: Checking if request is authenticated
+2024-05-01 19:33:10 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:33:11 info: Checking if request is authenticated
+2024-05-01 19:33:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:33:11 info: Checking if request is authenticated
+2024-05-01 19:33:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:33:11 info: Checking if request is authenticated
+2024-05-01 19:33:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:33:12 info: Checking if request is authenticated
+2024-05-01 19:33:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:33:21 info: Checking if request is authenticated
+2024-05-01 19:33:21 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:34:07 info: Checking if request is authenticated
+2024-05-01 19:34:07 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:34:09 info: Checking if request is authenticated
+2024-05-01 19:34:09 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:34:28 info: Checking if request is authenticated
+2024-05-01 19:34:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:35:08 info: Checking if request is authenticated
+2024-05-01 19:35:08 warn: Request is not authenticated, redirecting to root {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5","path":"/course"}
+2024-05-01 19:35:08 info: Received request for root route.
+2024-05-01 19:35:08 info: User is not authenticated, serving index.html
+2024-05-01 19:35:09 info: Serving login.html {"ip":"::1"}
+2024-05-01 19:35:12 info: Received login request {"email":"css@c.c"}
+2024-05-01 19:35:12 info: Login successful {"email":"css@c.c"}
+2024-05-01 19:35:12 info: Received request for root route.
+2024-05-01 19:35:12 info: User is authenticated, serving user.html {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 19:35:12 info: Checking if request is authenticated
+2024-05-01 19:35:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:35:12 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 19:35:18 info: Checking if request is authenticated
+2024-05-01 19:35:18 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:35:30 info: Checking if request is authenticated
+2024-05-01 19:35:30 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:35:31 info: Checking if request is authenticated
+2024-05-01 19:35:31 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:40:39 info: Checking if request is authenticated
+2024-05-01 19:40:39 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:40:39 info: Checking if request is authenticated
+2024-05-01 19:40:39 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:41:41 info: Checking if request is authenticated
+2024-05-01 19:41:41 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:41:41 info: Checking if request is authenticated
+2024-05-01 19:41:41 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:45:27 info: Checking if request is authenticated
+2024-05-01 19:45:27 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:45:27 info: Checking if request is authenticated
+2024-05-01 19:45:27 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:46:16 info: Checking if request is authenticated
+2024-05-01 19:46:16 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:46:16 info: Checking if request is authenticated
+2024-05-01 19:46:16 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:46:44 info: Checking if request is authenticated
+2024-05-01 19:46:44 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:46:44 info: Checking if request is authenticated
+2024-05-01 19:46:44 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:49:08 info: Checking if request is authenticated
+2024-05-01 19:49:08 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:49:08 info: Checking if request is authenticated
+2024-05-01 19:49:08 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:49:28 info: Checking if request is authenticated
+2024-05-01 19:49:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:49:55 info: Checking if request is authenticated
+2024-05-01 19:49:55 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:50:00 info: Checking if request is authenticated
+2024-05-01 19:50:00 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:50:00 info: Checking if request is authenticated
+2024-05-01 19:50:00 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:53:06 info: Checking if request is authenticated
+2024-05-01 19:53:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:53:06 info: Checking if request is authenticated
+2024-05-01 19:53:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:53:07 info: Checking if request is authenticated
+2024-05-01 19:53:07 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:53:07 info: Checking if request is authenticated
+2024-05-01 19:53:07 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:53:33 info: Checking if request is authenticated
+2024-05-01 19:53:33 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:53:34 info: Checking if request is authenticated
+2024-05-01 19:53:34 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:56:06 info: Checking if request is authenticated
+2024-05-01 19:56:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:56:06 info: Checking if request is authenticated
+2024-05-01 19:56:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:56:58 info: Checking if request is authenticated
+2024-05-01 19:56:58 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:56:58 info: Checking if request is authenticated
+2024-05-01 19:56:58 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:57:44 info: Checking if request is authenticated
+2024-05-01 19:57:44 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:57:44 info: Checking if request is authenticated
+2024-05-01 19:57:44 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:59:29 info: Checking if request is authenticated
+2024-05-01 19:59:29 info: Request is authenticated, proceeding to next middleware
+2024-05-01 19:59:30 info: Checking if request is authenticated
+2024-05-01 19:59:30 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:01:06 info: Checking if request is authenticated
+2024-05-01 20:01:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:01:06 info: Checking if request is authenticated
+2024-05-01 20:01:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:01:16 info: Checking if request is authenticated
+2024-05-01 20:01:16 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:01:17 info: Checking if request is authenticated
+2024-05-01 20:01:17 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:03:05 info: Checking if request is authenticated
+2024-05-01 20:03:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:03:05 info: Checking if request is authenticated
+2024-05-01 20:03:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:01 info: Checking if request is authenticated
+2024-05-01 20:06:01 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:01 info: Serving courses.html for authenticated user {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:06:01 info: Checking if request is authenticated
+2024-05-01 20:06:01 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:01 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 20:06:06 info: Received login request {"email":"css@c.c"}
+2024-05-01 20:06:06 info: Login successful {"email":"css@c.c"}
+2024-05-01 20:06:06 info: Received request for root route.
+2024-05-01 20:06:06 info: User is authenticated, serving user.html {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:06:06 info: Checking if request is authenticated
+2024-05-01 20:06:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:06 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 20:06:12 info: Checking if request is authenticated
+2024-05-01 20:06:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:12 info: Checking if request is authenticated
+2024-05-01 20:06:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:29 info: Checking if request is authenticated
+2024-05-01 20:06:29 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:29 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 20:06:31 info: Checking if request is authenticated
+2024-05-01 20:06:31 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:31 info: Serving courses.html for authenticated user {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:06:31 info: Checking if request is authenticated
+2024-05-01 20:06:31 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:31 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 20:06:50 info: Checking if request is authenticated
+2024-05-01 20:06:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:06:50 info: Checking if request is authenticated
+2024-05-01 20:06:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:08:59 info: Checking if request is authenticated
+2024-05-01 20:08:59 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:11:31 info: Checking if request is authenticated
+2024-05-01 20:11:31 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:11:31 info: Checking if request is authenticated
+2024-05-01 20:11:31 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:12:22 info: Checking if request is authenticated
+2024-05-01 20:12:22 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:12:22 info: Checking if request is authenticated
+2024-05-01 20:12:22 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:17:49 info: Checking if request is authenticated
+2024-05-01 20:17:49 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:17:50 info: Checking if request is authenticated
+2024-05-01 20:17:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:18:09 info: Checking if request is authenticated
+2024-05-01 20:18:09 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:18:09 info: Checking if request is authenticated
+2024-05-01 20:18:09 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:21:52 info: Checking if request is authenticated
+2024-05-01 20:21:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:21:52 info: Checking if request is authenticated
+2024-05-01 20:21:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:22:15 info: Checking if request is authenticated
+2024-05-01 20:22:15 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:22:15 info: Checking if request is authenticated
+2024-05-01 20:22:15 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:23:28 info: Checking if request is authenticated
+2024-05-01 20:23:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:23:28 info: Checking if request is authenticated
+2024-05-01 20:23:28 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:24:24 info: Checking if request is authenticated
+2024-05-01 20:24:24 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:24:24 info: Checking if request is authenticated
+2024-05-01 20:24:24 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:25:37 info: Checking if request is authenticated
+2024-05-01 20:25:37 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:25:37 info: Checking if request is authenticated
+2024-05-01 20:25:37 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:29:52 info: Checking if request is authenticated
+2024-05-01 20:29:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:29:52 info: Checking if request is authenticated
+2024-05-01 20:29:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:41:18 info: Checking if request is authenticated
+2024-05-01 20:41:18 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:41:18 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 20:50:21 info: Checking if request is authenticated
+2024-05-01 20:50:21 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:50:21 info: Checking if request is authenticated
+2024-05-01 20:50:21 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:51:35 info: Checking if request is authenticated
+2024-05-01 20:51:35 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:51:35 info: Checking if request is authenticated
+2024-05-01 20:51:35 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:51:37 info: Checking if request is authenticated
+2024-05-01 20:51:37 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:51:37 info: Checking if request is authenticated
+2024-05-01 20:51:37 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:51:45 info: Checking if request is authenticated
+2024-05-01 20:51:45 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:51:45 info: Checking if request is authenticated
+2024-05-01 20:51:45 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:55:51 info: Checking if request is authenticated
+2024-05-01 20:55:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:55:51 info: Serving settings.html {"ip":"::1"}
+2024-05-01 20:55:52 info: Checking if request is authenticated
+2024-05-01 20:55:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:55:52 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.c","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-04-22T23:28:41.203Z"}
+2024-05-01 20:56:00 info: User email updated successfully {"oldEmail":"css@c.c","newEmail":"css@c.cc"}
+2024-05-01 20:57:49 info: Checking if request is authenticated
+2024-05-01 20:57:49 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:57:49 info: Serving settings.html {"ip":"::1"}
+2024-05-01 20:57:49 info: Checking if request is authenticated
+2024-05-01 20:57:49 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:57:49 warn: No user data found in recordset for /user-data endpoint {"userEmail":"css@c.c"}
+2024-05-01 20:57:52 info: Received request for root route.
+2024-05-01 20:57:52 info: User is authenticated, serving user.html {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:57:52 info: Checking if request is authenticated
+2024-05-01 20:57:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:57:52 warn: No user data found in recordset for /user-data endpoint {"userEmail":"css@c.c"}
+2024-05-01 20:57:52 info: Checking if request is authenticated
+2024-05-01 20:57:52 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:57:52 info: Serving courses.html for authenticated user {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:57:53 info: Checking if request is authenticated
+2024-05-01 20:57:53 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:57:53 warn: No user data found in recordset for /user-data endpoint {"userEmail":"css@c.c"}
+2024-05-01 20:57:54 info: Checking if request is authenticated
+2024-05-01 20:57:54 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:57:54 info: Serving settings.html {"ip":"::1"}
+2024-05-01 20:57:54 info: Checking if request is authenticated
+2024-05-01 20:57:54 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:57:54 warn: No user data found in recordset for /user-data endpoint {"userEmail":"css@c.c"}
+2024-05-01 20:58:05 info: Checking if request is authenticated
+2024-05-01 20:58:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:05 info: Serving settings.html {"ip":"::1"}
+2024-05-01 20:58:05 info: Checking if request is authenticated
+2024-05-01 20:58:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:05 warn: No user data found in recordset for /user-data endpoint {"userEmail":"css@c.c"}
+2024-05-01 20:58:10 info: Checking if request is authenticated
+2024-05-01 20:58:10 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:10 info: Serving courses.html for authenticated user {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:58:10 info: Checking if request is authenticated
+2024-05-01 20:58:10 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:10 warn: No user data found in recordset for /user-data endpoint {"userEmail":"css@c.c"}
+2024-05-01 20:58:11 info: Checking if request is authenticated
+2024-05-01 20:58:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:11 info: Logout attempt {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:58:11 info: Attempting to destroy session {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:58:11 info: Session cookie cleared {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:58:11 info: User logged out successfully {"sessionId":"ysY199pDq5wGQcjjwvo-GDsSFtElF5d5"}
+2024-05-01 20:58:11 info: Received request for root route.
+2024-05-01 20:58:11 info: User is not authenticated, serving index.html
+2024-05-01 20:58:13 info: Serving login.html {"ip":"::1"}
+2024-05-01 20:58:18 info: Received login request {"email":"css@c.cc"}
+2024-05-01 20:58:18 info: Login successful {"email":"css@c.cc"}
+2024-05-01 20:58:18 info: Received request for root route.
+2024-05-01 20:58:18 info: User is authenticated, serving user.html {"sessionId":"NysPLqTaDz5HCskuo5BAQag1APGzST7E"}
+2024-05-01 20:58:18 info: Checking if request is authenticated
+2024-05-01 20:58:18 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:18 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T20:56:00.567Z"}
+2024-05-01 20:58:22 info: Checking if request is authenticated
+2024-05-01 20:58:22 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:22 info: Serving settings.html {"ip":"::1"}
+2024-05-01 20:58:22 info: Checking if request is authenticated
+2024-05-01 20:58:22 info: Request is authenticated, proceeding to next middleware
+2024-05-01 20:58:22 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T20:56:00.567Z"}
+2024-05-01 20:58:26 info: User email updated successfully {"oldEmail":"css@c.cc","newEmail":"css@c.cca"}
+2024-05-01 21:01:44 info: Checking if request is authenticated
+2024-05-01 21:01:44 warn: Request is not authenticated, redirecting to root {"sessionId":"VzZnSml8iCvyy7p88r7Qk7BtNRaYjNGo","path":"/settings"}
+2024-05-01 21:01:44 info: Received request for root route.
+2024-05-01 21:01:44 info: User is not authenticated, serving index.html
+2024-05-01 21:01:45 info: Serving login.html {"ip":"::1"}
+2024-05-01 21:01:46 info: Received login request {"email":"css@c.cc"}
+2024-05-01 21:01:46 warn: Login failed - invalid credentials {"email":"css@c.cc"}
+2024-05-01 21:01:50 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:01:50 info: Login successful {"email":"css@c.cca"}
+2024-05-01 21:01:50 info: Received request for root route.
+2024-05-01 21:01:50 info: User is authenticated, serving user.html {"sessionId":"VzZnSml8iCvyy7p88r7Qk7BtNRaYjNGo"}
+2024-05-01 21:01:50 info: Checking if request is authenticated
+2024-05-01 21:01:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:01:50 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T20:58:26.073Z"}
+2024-05-01 21:01:57 info: Checking if request is authenticated
+2024-05-01 21:01:57 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:01:57 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:01:57 info: Checking if request is authenticated
+2024-05-01 21:01:57 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:01:57 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T20:58:26.073Z"}
+2024-05-01 21:02:00 info: User email updated successfully {"oldEmail":"css@c.cca","newEmail":"css@c.cc"}
+2024-05-01 21:02:05 info: Checking if request is authenticated
+2024-05-01 21:02:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:02:05 info: Serving courses.html for authenticated user {"sessionId":"VzZnSml8iCvyy7p88r7Qk7BtNRaYjNGo"}
+2024-05-01 21:02:05 info: Checking if request is authenticated
+2024-05-01 21:02:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:02:05 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:02:00.817Z"}
+2024-05-01 21:02:07 info: Checking if request is authenticated
+2024-05-01 21:02:07 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:02:07 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:02:00.817Z"}
+2024-05-01 21:02:11 info: Checking if request is authenticated
+2024-05-01 21:02:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:02:11 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:02:11 info: Checking if request is authenticated
+2024-05-01 21:02:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:02:11 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:02:00.817Z"}
+2024-05-01 21:05:00 info: Checking if request is authenticated
+2024-05-01 21:05:00 warn: Request is not authenticated, redirecting to root {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr","path":"/settings"}
+2024-05-01 21:05:00 info: Received request for root route.
+2024-05-01 21:05:00 info: User is not authenticated, serving index.html
+2024-05-01 21:05:01 info: Serving login.html {"ip":"::1"}
+2024-05-01 21:05:03 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:05:03 warn: Login failed - invalid credentials {"email":"css@c.cca"}
+2024-05-01 21:05:05 info: Received login request {"email":"css@c.cc"}
+2024-05-01 21:05:05 info: Login successful {"email":"css@c.cc"}
+2024-05-01 21:05:06 info: Received request for root route.
+2024-05-01 21:05:06 info: User is authenticated, serving user.html {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:05:06 info: Checking if request is authenticated
+2024-05-01 21:05:06 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:05:06 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:02:00.817Z"}
+2024-05-01 21:05:11 info: Checking if request is authenticated
+2024-05-01 21:05:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:05:11 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:05:11 info: Checking if request is authenticated
+2024-05-01 21:05:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:05:11 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:02:00.817Z"}
+2024-05-01 21:05:12 info: Received request for root route.
+2024-05-01 21:05:12 info: User is authenticated, serving user.html {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:05:12 info: Checking if request is authenticated
+2024-05-01 21:05:12 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:05:12 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:02:00.817Z"}
+2024-05-01 21:07:43 info: Checking if request is authenticated
+2024-05-01 21:07:43 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:07:43 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:07:43 info: Checking if request is authenticated
+2024-05-01 21:07:43 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:07:43 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:02:00.817Z"}
+2024-05-01 21:07:49 info: Received request to update user name {"email":"css@c.cc","newFName":"Clara Connolly1"}
+2024-05-01 21:07:49 info: Attempting database connection
+2024-05-01 21:07:49 info: Database connection successful
+2024-05-01 21:07:49 info: Executing stored procedure sp_UpdateUserName
+2024-05-01 21:07:49 info: Stored procedure executed {"returnValue":0}
+2024-05-01 21:07:49 info: User name updated successfully {"email":"css@c.cc","newFName":"Clara Connolly1"}
+2024-05-01 21:07:50 info: Checking if request is authenticated
+2024-05-01 21:07:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:07:50 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:07:50 info: Checking if request is authenticated
+2024-05-01 21:07:50 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:07:50 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly1","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:07:49.570Z"}
+2024-05-01 21:07:56 info: Received request to update user name {"email":"css@c.cc","newFName":"Clara Connolly"}
+2024-05-01 21:07:56 info: Attempting database connection
+2024-05-01 21:07:56 info: Database connection successful
+2024-05-01 21:07:56 info: Executing stored procedure sp_UpdateUserName
+2024-05-01 21:07:56 info: Stored procedure executed {"returnValue":0}
+2024-05-01 21:07:56 info: User name updated successfully {"email":"css@c.cc","newFName":"Clara Connolly"}
+2024-05-01 21:07:57 info: Checking if request is authenticated
+2024-05-01 21:07:57 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:07:57 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:07:57 info: Checking if request is authenticated
+2024-05-01 21:07:57 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:07:57 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:07:56.130Z"}
+2024-05-01 21:08:01 info: User email updated successfully {"oldEmail":"css@c.cc","newEmail":"css@c.cca"}
+2024-05-01 21:08:02 info: Checking if request is authenticated
+2024-05-01 21:08:02 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:08:02 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:08:02 info: Checking if request is authenticated
+2024-05-01 21:08:02 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:08:02 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:08:01.430Z"}
+2024-05-01 21:08:06 info: User email updated successfully {"oldEmail":"css@c.cca","newEmail":"css@c.cc"}
+2024-05-01 21:08:07 info: Checking if request is authenticated
+2024-05-01 21:08:07 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:08:07 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:08:07 info: Checking if request is authenticated
+2024-05-01 21:08:07 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:08:07 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:08:06.780Z"}
+2024-05-01 21:17:00 info: Checking if request is authenticated
+2024-05-01 21:17:00 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:17:00 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:17:00 info: Checking if request is authenticated
+2024-05-01 21:17:00 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:17:00 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:08:06.780Z"}
+2024-05-01 21:17:04 info: Received request for root route.
+2024-05-01 21:17:04 info: User is authenticated, serving user.html {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:17:04 info: Checking if request is authenticated
+2024-05-01 21:17:04 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:17:04 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:08:06.780Z"}
+2024-05-01 21:18:51 info: Checking if request is authenticated
+2024-05-01 21:18:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:18:51 info: Serving courses.html for authenticated user {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:18:51 info: Checking if request is authenticated
+2024-05-01 21:18:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:18:51 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:08:06.780Z"}
+2024-05-01 21:19:05 info: Checking if request is authenticated
+2024-05-01 21:19:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:19:05 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:19:05 info: Checking if request is authenticated
+2024-05-01 21:19:05 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:19:05 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"test","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:08:06.780Z"}
+2024-05-01 21:19:15 info: css@c.cc
+2024-05-01 21:19:15 info: User password updated successfully {"email":"css@c.cc"}
+2024-05-01 21:19:18 info: Checking if request is authenticated
+2024-05-01 21:19:18 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:19:18 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:19:18 info: Checking if request is authenticated
+2024-05-01 21:19:18 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:19:18 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:19:15.630Z"}
+2024-05-01 21:21:29 info: Checking if request is authenticated
+2024-05-01 21:21:29 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:29 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:21:29 info: Checking if request is authenticated
+2024-05-01 21:21:29 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:29 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cc","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:19:15.630Z"}
+2024-05-01 21:21:32 error: Error occurred during updating user email: {"error":"The new email is already in use.","oldEmail":"css@c.cc","newEmail":"css@c.cc"}
+2024-05-01 21:21:37 error: Error occurred during updating user email: {"error":"The new email is already in use.","oldEmail":"css@c.cc","newEmail":"css@c.cc"}
+2024-05-01 21:21:42 info: User email updated successfully {"oldEmail":"css@c.cc","newEmail":"css@c.cca"}
+2024-05-01 21:21:44 info: Checking if request is authenticated
+2024-05-01 21:21:44 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:44 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:21:44 info: Checking if request is authenticated
+2024-05-01 21:21:44 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:44 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:21:48 info: Checking if request is authenticated
+2024-05-01 21:21:48 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:48 info: Serving courses.html for authenticated user {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:21:48 info: Checking if request is authenticated
+2024-05-01 21:21:48 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:48 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:21:51 info: Checking if request is authenticated
+2024-05-01 21:21:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:51 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:21:51 info: Checking if request is authenticated
+2024-05-01 21:21:51 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:21:51 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:22:26 info: Checking if request is authenticated
+2024-05-01 21:22:26 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:22:26 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:22:26 info: Checking if request is authenticated
+2024-05-01 21:22:26 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:22:26 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:23:01 info: Received request for root route.
+2024-05-01 21:23:01 info: User is authenticated, serving user.html {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:23:01 info: Checking if request is authenticated
+2024-05-01 21:23:01 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:23:01 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:23:02 info: Checking if request is authenticated
+2024-05-01 21:23:02 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:23:02 info: Logout attempt {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:23:02 info: Attempting to destroy session {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:23:02 info: Session cookie cleared {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:23:02 info: User logged out successfully {"sessionId":"78qH60l7pkD-AcPwNwGFaYyuOAxNVVdr"}
+2024-05-01 21:23:02 info: Received request for root route.
+2024-05-01 21:23:02 info: User is not authenticated, serving index.html
+2024-05-01 21:23:34 info: Checking if request is authenticated
+2024-05-01 21:23:34 warn: Request is not authenticated, redirecting to root {"sessionId":"82V28Kklz28aiaBsyDLHT2F5CcWmd755","path":"/settings"}
+2024-05-01 21:23:34 info: Received request for root route.
+2024-05-01 21:23:34 info: User is not authenticated, serving index.html
+2024-05-01 21:23:35 info: Serving login.html {"ip":"::1"}
+2024-05-01 21:23:36 info: Received login request {"email":"css@c.cc"}
+2024-05-01 21:23:36 warn: Login failed - invalid credentials {"email":"css@c.cc"}
+2024-05-01 21:23:42 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:23:42 warn: Login failed - invalid credentials {"email":"css@c.cca"}
+2024-05-01 21:23:49 info: Received login request {"email":"css@c.cc"}
+2024-05-01 21:23:49 warn: Login failed - invalid credentials {"email":"css@c.cc"}
+2024-05-01 21:23:53 info: Received login request {"email":"css@c.cc"}
+2024-05-01 21:23:53 warn: Login failed - invalid credentials {"email":"css@c.cc"}
+2024-05-01 21:24:17 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:24:17 info: Login successful {"email":"css@c.cca"}
+2024-05-01 21:24:17 info: Received request for root route.
+2024-05-01 21:24:17 info: User is authenticated, serving user.html {"sessionId":"82V28Kklz28aiaBsyDLHT2F5CcWmd755"}
+2024-05-01 21:24:17 info: Checking if request is authenticated
+2024-05-01 21:24:17 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:24:17 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:24:23 info: Checking if request is authenticated
+2024-05-01 21:24:23 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:24:23 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:24:23 info: Checking if request is authenticated
+2024-05-01 21:24:23 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:24:23 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:24:26 info: Checking if request is authenticated
+2024-05-01 21:24:26 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:24:26 info: Serving courses.html for authenticated user {"sessionId":"82V28Kklz28aiaBsyDLHT2F5CcWmd755"}
+2024-05-01 21:24:26 info: Checking if request is authenticated
+2024-05-01 21:24:26 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:24:26 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:24:27 info: Checking if request is authenticated
+2024-05-01 21:24:27 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:24:27 info: Logout attempt {"sessionId":"82V28Kklz28aiaBsyDLHT2F5CcWmd755"}
+2024-05-01 21:24:27 info: Attempting to destroy session {"sessionId":"82V28Kklz28aiaBsyDLHT2F5CcWmd755"}
+2024-05-01 21:24:27 info: Session cookie cleared {"sessionId":"82V28Kklz28aiaBsyDLHT2F5CcWmd755"}
+2024-05-01 21:24:27 info: User logged out successfully {"sessionId":"82V28Kklz28aiaBsyDLHT2F5CcWmd755"}
+2024-05-01 21:24:27 info: Received request for root route.
+2024-05-01 21:24:27 info: User is not authenticated, serving index.html
+2024-05-01 21:27:52 info: Checking if request is authenticated
+2024-05-01 21:27:52 warn: Request is not authenticated, redirecting to root {"sessionId":"0naJjy67j1utvtoSeTykaCqziM5filIH","path":"/courses"}
+2024-05-01 21:27:52 info: Received request for root route.
+2024-05-01 21:27:52 info: User is not authenticated, serving index.html
+2024-05-01 21:27:53 info: Serving login.html {"ip":"::1"}
+2024-05-01 21:27:54 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:27:54 info: Login successful {"email":"css@c.cca"}
+2024-05-01 21:27:54 info: Received request for root route.
+2024-05-01 21:27:54 info: User is authenticated, serving user.html {"sessionId":"0naJjy67j1utvtoSeTykaCqziM5filIH"}
+2024-05-01 21:27:54 info: Checking if request is authenticated
+2024-05-01 21:27:54 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:27:54 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:27:57 info: Checking if request is authenticated
+2024-05-01 21:27:57 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:27:57 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:27:57 info: Checking if request is authenticated
+2024-05-01 21:27:57 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:27:57 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:27:58 info: Checking if request is authenticated
+2024-05-01 21:27:58 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:27:58 info: Logout attempt {"sessionId":"0naJjy67j1utvtoSeTykaCqziM5filIH"}
+2024-05-01 21:27:58 info: Attempting to destroy session {"sessionId":"0naJjy67j1utvtoSeTykaCqziM5filIH"}
+2024-05-01 21:27:58 info: Session cookie cleared {"sessionId":"0naJjy67j1utvtoSeTykaCqziM5filIH"}
+2024-05-01 21:27:58 info: User logged out successfully {"sessionId":"0naJjy67j1utvtoSeTykaCqziM5filIH"}
+2024-05-01 21:27:58 info: Received request for root route.
+2024-05-01 21:27:58 info: User is not authenticated, serving index.html
+2024-05-01 21:27:59 info: Serving login.html {"ip":"::1"}
+2024-05-01 21:27:59 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:27:59 info: Login successful {"email":"css@c.cca"}
+2024-05-01 21:27:59 info: Received request for root route.
+2024-05-01 21:27:59 info: User is authenticated, serving user.html {"sessionId":"Lz42eBQqTF5X50fIj3udq1NuFQFdAxDq"}
+2024-05-01 21:28:00 info: Checking if request is authenticated
+2024-05-01 21:28:00 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:00 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:28:02 info: Checking if request is authenticated
+2024-05-01 21:28:02 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:02 info: Serving courses.html for authenticated user {"sessionId":"Lz42eBQqTF5X50fIj3udq1NuFQFdAxDq"}
+2024-05-01 21:28:02 info: Checking if request is authenticated
+2024-05-01 21:28:02 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:02 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:28:03 info: Checking if request is authenticated
+2024-05-01 21:28:03 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:03 info: Logout attempt {"sessionId":"Lz42eBQqTF5X50fIj3udq1NuFQFdAxDq"}
+2024-05-01 21:28:03 info: Attempting to destroy session {"sessionId":"Lz42eBQqTF5X50fIj3udq1NuFQFdAxDq"}
+2024-05-01 21:28:03 info: Session cookie cleared {"sessionId":"Lz42eBQqTF5X50fIj3udq1NuFQFdAxDq"}
+2024-05-01 21:28:03 info: User logged out successfully {"sessionId":"Lz42eBQqTF5X50fIj3udq1NuFQFdAxDq"}
+2024-05-01 21:28:03 info: Received request for root route.
+2024-05-01 21:28:03 info: User is not authenticated, serving index.html
+2024-05-01 21:28:04 info: Serving login.html {"ip":"::1"}
+2024-05-01 21:28:04 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:28:04 info: Login successful {"email":"css@c.cca"}
+2024-05-01 21:28:04 info: Received request for root route.
+2024-05-01 21:28:04 info: User is authenticated, serving user.html {"sessionId":"Qd1lN1R781WGrWz2WV7gqPucWvDBreDd"}
+2024-05-01 21:28:04 info: Checking if request is authenticated
+2024-05-01 21:28:04 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:04 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:28:08 info: Checking if request is authenticated
+2024-05-01 21:28:08 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:08 info: Serving settings.html {"ip":"::1"}
+2024-05-01 21:28:08 info: Checking if request is authenticated
+2024-05-01 21:28:08 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:08 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}
+2024-05-01 21:28:09 info: Checking if request is authenticated
+2024-05-01 21:28:09 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:09 info: Logout attempt {"sessionId":"Qd1lN1R781WGrWz2WV7gqPucWvDBreDd"}
+2024-05-01 21:28:09 info: Attempting to destroy session {"sessionId":"Qd1lN1R781WGrWz2WV7gqPucWvDBreDd"}
+2024-05-01 21:28:09 info: Session cookie cleared {"sessionId":"Qd1lN1R781WGrWz2WV7gqPucWvDBreDd"}
+2024-05-01 21:28:09 info: User logged out successfully {"sessionId":"Qd1lN1R781WGrWz2WV7gqPucWvDBreDd"}
+2024-05-01 21:28:09 info: Received request for root route.
+2024-05-01 21:28:09 info: User is not authenticated, serving index.html
+2024-05-01 21:28:10 info: Serving login.html {"ip":"::1"}
+2024-05-01 21:28:11 info: Received login request {"email":"css@c.cca"}
+2024-05-01 21:28:11 info: Login successful {"email":"css@c.cca"}
+2024-05-01 21:28:11 info: Received request for root route.
+2024-05-01 21:28:11 info: User is authenticated, serving user.html {"sessionId":"11kZuaxhBfypbb386d3GZjy1rrGfCIT8"}
+2024-05-01 21:28:11 info: Checking if request is authenticated
+2024-05-01 21:28:11 info: Request is authenticated, proceeding to next middleware
+2024-05-01 21:28:11 info: User data retrieved successfully: {"User-ID":6,"User-FName":"Clara Connolly","User-Email":"css@c.cca","User-Password":"1234","Creation-Date":"2024-04-20T22:58:42.707Z","Modified-Date":"2024-05-01T21:21:42.760Z"}

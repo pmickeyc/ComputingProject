@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard - BiggerPhish</title>
+    <title>Courses - Educational Platform</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- movd to the top beacuse it wasn't loading the the external .js without first loading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
 </head>
 
 <body>
 
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
             <div class="col-md-3 sidebar">
                 <!-- Logo or Branding -->
                 <div class="sidebar-header text-center py-4">
-                    <a href="/" class="navbar-brand">
-                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid"
-                            style="max-height: 50px;">
+                    <a href="/index.html" class="navbar-brand">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
                     </a>
                 </div>
                 <div id="user-nav-menu">
                     <ul class="nav-items">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/">
+                            <a class="nav-link" href="/user.html">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
@@ -53,15 +53,16 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Main Content -->
+            <!-- PDF contents -->
             <div class="col-md-9">
-                <div class="main-content">
-                    <div class="user-welcome">
-                        <h2>Welcome, <span id="user-name"></span>!</h2>
-                        <p>This is your dashboard. From here, you can access all of your courses, progress, and more.</p>
+                <div id="course-content">
+                    <h3>Course Material</h3>
+                    <div>
+                        <button id="prev">Previous</button>
+                        <span>Page: <span id="page_num">1</span> / <span id="page_count">?</span></span>
+                        <button id="next">Next</button>
                     </div>
-                    <!-- TDC -->
+                    <div id="pdf-viewer" style="position: relative; height: 100vh;"></div>
                 </div>
             </div>
         </div>
@@ -70,8 +71,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="user.js"></script>
-    <script src="common.js" defer></script>
+    <script src="course.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
 </body>
 
 </html>

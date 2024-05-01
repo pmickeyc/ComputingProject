@@ -58,15 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log("Server response:", data);
             if (data.success) {
-                // Handle successful registration 
                 window.location.href = '/login.html';
             } else {
-                // Handle registration errors 
                 alert('Registration failed: ' + data.message);
             }
         })
         .catch(error => {
-            // Handle errors in sending request
             console.error('Error:', error);
             alert('Error: Failed to register. Please try again later.');
         });

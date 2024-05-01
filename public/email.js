@@ -1,3 +1,13 @@
+/*
+Author: Padraig McCauley - 20123744
+BiggerPhish Educational Platform
+
+
+TODO:
+Refine this functinoality and link to the coursecontent table in the MSSQL DB
+*/
+
+
 document.addEventListener('DOMContentLoaded', function () {
     let deliveredEmails = []; // Array to store emails to be delivered
     let fakeEmailCount = 0;
@@ -36,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Example usage:
+    // Example usage ie.HardCoded (will read from DB for this):
     let userLevel = 3; // You can change this to the user's actual level
     calculateEmailLimits(userLevel);
 
@@ -64,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     `;
         addEmailClickListener(newEmail);
-        addGuessingListeners(newEmail, emailContent._id); // Assume each email has a unique _id
+        addGuessingListeners(newEmail, emailContent._id); 
         return newEmail;
     }
 
@@ -139,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 clearInterval(emailDeliveryInterval); // Stop the interval after 5 emails
             }
-        }, 500); // 10 seconds interval
+        }, 500); // time interval setting
     }
 
     async function fetchEmails() {

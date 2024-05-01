@@ -17,7 +17,13 @@ body, html {
     box-shadow: 0 2px 2px -2px gray;
 }
 
-
+#pdf-viewer {
+    width: 100%; /* Full width of the column */
+    height: 800px; 
+    overflow: auto; /* Adds scrollbars  */
+    background-color: #fff;
+    border: 1px solid #ccc; /* adds a border around the PDF viewer */
+}
 
 .compose-button {
     background-color: #1a73e8;
@@ -112,4 +118,15 @@ body, html {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        max-width: 100%;
+    }
+    #pdf-viewer {
+        height: 600px; /* Smaller height on smaller devices */
+    }
 }
