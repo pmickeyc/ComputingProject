@@ -2,18 +2,14 @@
 Author: Padraig McCauley - 20123744
 BiggerPhish Educational Platform
 
-
 TODO:
 Make this dynamic to each individual course rather than hardcoded
 */
 
-
-
-const courseId = '1'; // TODO: Make this set dynamically
-
-//Based on code found here: https://mozilla.github.io/pdf.js/examples/
-
 $(document).ready(function () {
+    const urlPath = window.location.pathname;
+    const courseId = urlPath.substring(urlPath.lastIndexOf('/') + 1); // Extract courseId from URL
+
     let pdfDoc = null,
         pageNum = 1,
         scale = 1.0;
@@ -28,12 +24,8 @@ $(document).ready(function () {
             viewerContainer.appendChild(canvas);
 
             // Calculate scale based on the container width and the width of the PDF page
-            const scale = viewerContainer.offsetWidth / page.getViewport({
-                scale: 1
-            }).width;
-            const viewport = page.getViewport({
-                scale: scale
-            });
+            const scale = viewerContainer.offsetWidth / page.getViewport({ scale: 1 }).width;
+            const viewport = page.getViewport({ scale: scale });
 
             canvas.width = viewport.width;
             canvas.height = viewport.height;
@@ -54,7 +46,6 @@ $(document).ready(function () {
         // Update page counters
         document.getElementById('page_num').textContent = num;
     }
-
 
     function queueRenderPage(num) {
         if (pdfDoc !== null) {
@@ -83,10 +74,10 @@ $(document).ready(function () {
 
     // Load PDF
     $.ajax({
-        url: `/files/pdf/${courseId}`,
+        url: `/files/pdf/${courseId}`, // Fetch PDF using dynamic courseId
         method: 'GET',
         xhrFields: {
-            responseType: 'blob' //Set response type as blob
+            responseType: 'blob' // Set response type as blob
         },
         success: function (blob) {
             const pdfUrl = URL.createObjectURL(blob);

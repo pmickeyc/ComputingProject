@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Educational Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="sidebar-header text-center py-4">
+                    <a href="/" class="navbar-brand">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
+                    </a>
+                </div>
+                <div id="user-nav-menu">
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/admin-courses.html">
+                                <i class="fas fa-book-open"></i> Course Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin-users.html">
+                                <i class="fas fa-users"></i> User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings.html">
+                                <i class="fas fa-cog"></i> User Settings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logout-link" href="#" class="nav-link">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content for Admin Courses Page -->
+
+            <div class="col-md-9">
+                <div class="admin-courses-section pt-5">
+                    <h2>Admin Course Management</h2>
+                    <button class="btn btn-primary mb-3" id="create-course-btn">Create Course</button>
+                    <!-- Create Course Modal -->
+                    <div id="createCourseModal"
+                        style="display:none; position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
+                        <div style="background:white; width:300px; padding:20px; margin:50px auto; border-radius:5px;">
+                            <h2>Create New Course</h2>
+                            <label>Course Name:</label>
+                            <input type="text" id="course-name" required><br><br>
+                            <label>Course Description:</label>
+                            <textarea id="course-description" required></textarea><br><br>
+                            <!-- Placeholder for file uploads -->
+                            <label>PDF File:</label>
+                            <input type="file" id="pdf-file" disabled><br><br>
+                            <label>XLSX File:</label>
+                            <input type="file" id="xlsx-file" disabled><br><br>
+                            <button onclick="submitCourse()">Create</button>
+                            <button onclick="closeCreateCourseModal()">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="row" id="admin-courses-container">
+                        <!-- Admin Courses will be populated here dynamically -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Separate scripts for admin courses and users to manage their specific pages -->
+    <script src="admin-courses.js"></script>
+    <script src="common.js" defer></script>
+</body>
+
+</html>

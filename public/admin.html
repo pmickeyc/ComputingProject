@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses - Educational Platform</title>
+    <title>Admin Dashboard - BiggerPhish</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div class="container-fluid">
         <div class="row">
+            <!-- Sidebar -->
             <div class="col-md-3 sidebar">
                 <!-- Logo or Branding -->
                 <div class="sidebar-header text-center py-4">
-                    <a href="/index.html" class="navbar-brand">
-                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
+                    <a href="/" class="navbar-brand">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid"
+                            style="max-height: 50px;">
                     </a>
                 </div>
                 <div id="user-nav-menu">
                     <ul class="nav-items">
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="/">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/courses.html">
-                                <i class="fas fa-book-open"></i> Courses
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin-courses">
+                                <i class="fas fa-book-open"></i> Course Management
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/grades.html">
-                                <i class="fas fa-chart-bar"></i> Progress
+                            <a class="nav-link" href="/admin-users">
+                                <i class="fas fa-chart-bar"></i> User Management
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/settings.html">
+                            <a class="nav-link" href="/settings">
                                 <i class="fas fa-cog"></i> User Settings
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a id="logout-link" href="#" class="nav-link">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -48,21 +54,14 @@
                 </div>
             </div>
 
-            <!-- Main Content for Courses Page -->
+            <!-- Main Content -->
             <div class="col-md-9">
-                <!-- My Courses Section -->
-                <div class="my-courses-section pt-5">
-                    <h2>My Courses</h2>
-                    <div class="row" id="my-courses">
-                        <!-- My Courses will be populated here dynamically -->
+                <div class="main-content">
+                    <div class="user-welcome">
+                        <h2>Welcome, <span id="user-name"></span>!</h2>
+                        <p>This is the admin portal. Manage courses, users and your profile here.</p>
                     </div>
-                </div>
-                <!-- All Courses Section -->
-                <div class="all-courses-section pt-5">
-                    <h2>All Courses</h2>
-                    <div class="row" id="all-courses">
-                        <!-- All Courses will be populated here dynamically -->
-                    </div>
+                    <!-- TDC -->
                 </div>
             </div>
         </div>
@@ -71,7 +70,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="courses.js"></script>
+    <script src="user.js"></script>
     <script src="common.js" defer></script>
 </body>
+
 </html>

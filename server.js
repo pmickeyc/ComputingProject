@@ -4,19 +4,23 @@ BiggerPhish Educational Platform
 
 
 TODO:
-Add credentials to enviroment variables/dont have them hardcoded
-Encrypt passwords (bcrypt)
-Connect courses to email portal
-Add an Admin flow
-Add a content upload mechanism (for teachers/admin) - shoudl eb at least a PDF and a set of emails for the email tracker
-Add a course progress tracker
-Optional: video content?
-Security review of all endpoints/protect against unauthorized access to DB endpoints
-Migrate to cloud servers
-Add a CI/CD pipeline
-Enhance logging serverSide - Perhaps add a DB table that could be logged into
-Password reset added protection
-Add email function for 'forget password'
+
+    Security:
+        Encrypt passwords (bcrypt)
+        Security review of all endpoints/protect against unauthorized access to DB endpoints
+        Enhance logging serverSide - Perhaps add a DB table that could be logged into
+
+    Functional:
+        Connect courses to email portal
+        CRUD operations for Admin
+        Add a content upload mechanism (for teachers/admin) - shoudl eb at least a PDF and a set of emails for the email tracker
+        Add a course progress tracker
+        Add email function for 'forget password'
+
+    Enviroment:
+        Migrate to cloud servers
+        Add a CI/CD pipeline
+        Add credentials to enviroment variables/dont have them hardcoded
 */
 
 
@@ -31,6 +35,8 @@ const {
 const session = require('express-session');
 const winston = require('winston');
 const bodyParser = require('body-parser');
+const { stringify } = require('querystring');
+const { log } = require('console');
 
 
 
@@ -151,6 +157,28 @@ function isAuthenticated(req, res, next) {
     }
 }
 
+// Admin check middleware
+function isAdmin(req, res, next) {
+    logger.info('Checking if request is from an admin');
+
+    // Log session details for debugging
+    logger.debug('Session details:', {
+        session: req.session
+    });
+
+    // Check if user is admin
+    if (req.session.user && req.session.user.isAdmin) {
+        logger.info('Admin verified, proceeding to next middleware');
+        next();  // User is admin, continue with the request
+    } else {
+        logger.warn('Admin not verified, redirecting to login page', {
+            sessionId: req.session.id,
+            path: req.path
+        });
+        res.redirect('/login');  // Not admin, redirect to login or error page
+    }
+}
+
 
 
 
@@ -167,76 +195,71 @@ async function initializeDatabases() {
     }
 }
 
+//function to get user data
+async function fetchUserData(email) {
+    let pool = await sql.connect(mssqlConfig);
+    logger.debug('SQL connection established for fetching user data');
+
+    const request = pool.request();
+    request.input('UserEmail', sql.NVarChar(100), email);
+
+    const result = await request.execute('sp_UserSearch');
+    logger.debug('Stored procedure executed for fetching user data', {
+        userEmail: email
+    });
+
+    return result.recordset.length > 0 ? result.recordset[0] : null;
+}
 
 
 
 // API Routes - root
 app.get('/', (req, res) => {
     logger.info('Received request for root route.');
-
-    // Log session details if necessary, this can be commented out in production for security
     logger.debug('Session details at root:', {
-        session: req.session
+        session: req.session,
+        sessionId: req.sessionID  // Logging the session ID for better traceability
     });
-
-    if (req.session.isAuthenticated) {
-        logger.info('User is authenticated, serving user.html', {
-            sessionId: req.session.id
+    if(req.session.user){
+    logger.info('admin = ' + JSON.stringify(req.session.user.isAdmin));
+    }
+    if (req.session.user && JSON.stringify(req.session.user.isAdmin) == 'true') {
+        logger.info('Admin check passed, serving admin.html', {
+            sessionId: req.session.id,
+            email: req.session.user.email
         });
-        return res.sendFile(path.join(__dirname, './public/user.html'));
+        res.sendFile(path.join(__dirname, './public/admin.html'));
+    } else if (req.session.isAuthenticated) {
+        logger.info('Admin check failed, but user is authenticated, serving user.html', {
+            sessionId: req.session.id,
+            email: req.session.user ? req.session.user.email : 'Email not set'
+        });
+        res.sendFile(path.join(__dirname, './public/user.html'));
     } else {
         logger.info('User is not authenticated, serving index.html');
         res.sendFile(path.join(__dirname, './public/index.html'));
     }
 });
 
-// API Routes - user-Data for loggged in user(API)
+
+
+
+
+
+// API Routes - user-Data for logged-in user(API)
 app.get('/user-data', isAuthenticated, async (req, res) => {
     const userEmail = req.session.user.email;
+    const userData = await fetchUserData(userEmail);
 
-    try {
-        let pool = await sql.connect(mssqlConfig);
-        logger.debug('Connected to MSSQL for /user-data endpoint', {
-            userEmail
-        });
-
-        const request = pool.request();
-        request.input('UserEmail', sql.NVarChar(100), userEmail);
-
-        const result = await request.execute('sp_UserSearch');
-        logger.debug('Executed sp_UserSearch stored procedure', {
-            userEmail
-        });
-
-        if (result.recordset.length > 0) {
-            const userData = result.recordset[0];
-
-            // Check if userData is not empty and log the fact that it has data
-            if (userData && Object.keys(userData).length > 0) { // Ensure userData is not an empty object
-                const userDataJSON = JSON.stringify(userData);
-                logger.info(`User data retrieved successfully: ${userDataJSON}`);
-                res.json(userData);
-            } else {
-                // Log that userData is empty
-                logger.warn('User data object is empty', {
-                    userEmail
-                });
-                res.status(404).send('User not found');
-            }
-        } else {
-            logger.warn('No user data found in recordset for /user-data endpoint', {
-                userEmail
-            });
-            res.status(404).send('User not found');
-        }
-    } catch (err) {
-        logger.error('Error fetching user data', {
-            userEmail,
-            error: err.message
-        });
-        res.status(500).send("Error fetching user data");
+    if (userData) {
+        logger.info('User data retrieved successfully:', JSON.stringify(userData));
+        res.json(userData);
+    } else {
+        logger.warn('No user data found for email', { userEmail });
+        res.status(404).send('User not found');
     }
 });
+
 
 
 
@@ -252,6 +275,7 @@ app.get("/users", (request, response) => {
         }
     });
 });
+
 
 // API Routes - register user(API)
 app.post('/register-user', async (req, res) => {
@@ -303,6 +327,54 @@ app.post('/register-user', async (req, res) => {
         });
     }
 });
+
+// API Routes - create course
+app.post('/api/create-course', async (req, res) => {
+    const { title, description } = req.body;
+
+    if (!title || !description) {
+        logger.error('Course creation attempt with incomplete form data');
+        return res.status(400).json({
+            success: false,
+            message: 'Incomplete form data'
+        });
+    }
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('Title', sql.NVarChar(255), title)
+            .input('Description', sql.NVarChar(500), description)
+            // You can also pass NULL or specific values if needed
+            .input('Category', sql.NVarChar(50), null)
+            .input('Level', sql.NVarChar(50), null)
+            .input('Status', sql.NVarChar(50), null);
+
+        const result = await request.execute('sp_InsertCourse');
+
+        if (result.recordset.length > 0 && result.recordset[0].NewCourseID) {
+            logger.info('Course created successfully', {
+                courseCode: result.recordset[0].CourseCode,
+                title: title,
+                newCourseId: result.recordset[0].NewCourseID
+            });
+            res.json({
+                success: true,
+                courseCode: result.recordset[0].CourseCode,
+                newCourseId: result.recordset[0].NewCourseID
+            });
+        } else {
+            throw new Error('Failed to create course.');
+        }
+    } catch (err) {
+        logger.error('Error occurred during course creation:', err);
+        res.status(500).json({
+            success: false,
+            message: 'Server error'
+        });
+    }
+});
+
 
 // API Routes - update user email(API)
 app.post('/update-user-email', async (req, res) => {
@@ -560,10 +632,7 @@ app.post('/login-user', async (req, res) => {
     });
 
     try {
-        const {
-            email,
-            password
-        } = req.body;
+        const { email, password } = req.body;
 
         if (!email || !password) {
             logger.warn('Login attempt with incomplete form data', {
@@ -575,7 +644,6 @@ app.post('/login-user', async (req, res) => {
             });
         }
 
-        // Attempt to connect to MSSQL and execute the login procedure
         let pool = await sql.connect(mssqlConfig);
         logger.debug('SQL connection established for login attempt');
 
@@ -583,27 +651,29 @@ app.post('/login-user', async (req, res) => {
             .input('UserEmail', sql.NVarChar(100), email)
             .input('UserPassword', sql.NVarChar(100), password);
 
-        const result = await request.execute('sp_ValidateUser');
-        logger.debug('Stored procedure executed', {
+        const loginResult = await request.execute('sp_ValidateUser');
+        logger.debug('Stored procedure executed for login', {
             procedureName: 'sp_ValidateUser'
         });
 
-        // Check the outcome of the stored procedure
-        if (result.recordset.length > 0 && result.recordset[0].IsValid) {
-            logger.info('Login successful', {
-                email
-            });
+        if (loginResult.recordset.length > 0 && loginResult.recordset[0].IsValid) {
+            const userData = await fetchUserData(email);
+            if (!userData) {
+                logger.warn('User data not found after login', { email });
+                return res.status(404).send('User not found');
+            }
 
-            // Set session and save it
+            
             req.session.isAuthenticated = true;
             req.session.user = {
-                email: req.body.email
+                email: email,
+                isAdmin: userData.Admin
             };
+            logger.info(req.session.user.isAdmin)
             req.session.save(err => {
                 if (err) {
                     logger.error('Error saving session after successful login', {
-                        email,
-                        error: err
+                        email, error: err
                     });
                     return res.status(500).json({
                         success: false,
@@ -611,13 +681,12 @@ app.post('/login-user', async (req, res) => {
                     });
                 }
                 res.json({
-                    success: true
+                    success: true,
+                    user: userData
                 });
             });
         } else {
-            logger.warn('Login failed - invalid credentials', {
-                email
-            });
+            logger.warn('Login failed - invalid credentials', { email });
             res.status(401).json({
                 success: false,
                 message: 'Invalid email or password'
@@ -625,8 +694,7 @@ app.post('/login-user', async (req, res) => {
         }
     } catch (err) {
         logger.error('Exception occurred during login attempt', {
-            email,
-            error: err
+            email, error: err
         });
         res.status(500).json({
             success: false,
@@ -637,6 +705,8 @@ app.post('/login-user', async (req, res) => {
 
 
 
+
+
 // API Routes - user home(PATH)
 app.get('/user', isAuthenticated, (req, res) => {
     logger.info('Serving user.html for authenticated user', {
@@ -644,6 +714,23 @@ app.get('/user', isAuthenticated, (req, res) => {
     });
     res.sendFile(path.join(__dirname, './public/user.html'));
 });
+
+// Route for admin-specific page
+app.get('/admin', isAuthenticated, isAdmin, (req, res) => {
+    res.sendFile(path.join(__dirname, './public/admin.html'));
+});
+
+// Admin-specific courses page
+app.get('/admin-courses', isAuthenticated, isAdmin, (req, res) => {
+    res.sendFile(path.join(__dirname, './public/admin-courses.html'));
+});
+
+// Admin-specific users management page
+app.get('/admin-users', isAuthenticated, isAdmin, (req, res) => {
+    res.sendFile(path.join(__dirname, './public/admin-users.html'));
+});
+
+
 
 // API Routes - email(PATH)
 app.get('/email', isAuthenticated, (req, res) => {
@@ -660,6 +747,7 @@ app.get('/courses', isAuthenticated, (req, res) => {
     });
     res.sendFile(path.join(__dirname, './public/courses.html'));
 });
+
 
 // API Routes - course(PATH)
 app.get('/login', (req, res) => {
@@ -679,11 +767,17 @@ app.get('/register', (req, res) => {
 
 // API Routes - course(PATH)
 app.get('/settings', isAuthenticated, (req, res) => {
-    logger.info('Serving settings.html', {
+    if(isAdmin){
+        logger.info('Serving admin-settings.html');
+            ip: req.ip;
+        res.sendFile(path.join(__dirname, './public/admin-settings.html'));
+    }
+    else{
+        logger.info('Serving settings.html', {
         ip: req.ip
     });
     res.sendFile(path.join(__dirname, './public/settings.html'));
-});
+}});
 
 // API Routes - course(PATH)
 app.post('/logout', isAuthenticated, (req, res) => {
@@ -740,11 +834,19 @@ app.post('/logout', isAuthenticated, (req, res) => {
 });
 
 // API Routes - course content(PATH)
-// Need to update to make it look for individual courses
-app.get('/course', isAuthenticated, (req, res) => {
-    const courseId = req.params.courseId;
+// API Route to serve a specific course by courseId
+app.get('/course/:courseId', isAuthenticated, (req, res) => {
+    const courseId = req.params.courseId;  // Capture courseId from URL parameter
+    
+    if (!courseId || isNaN(Number(courseId))) {
+        logger.error('Invalid courseId provided', { courseId });
+        return res.status(400).send('Invalid course identifier');
+    }
+
+    logger.info('Serving course.html for course', { courseId });
     res.sendFile(path.join(__dirname, './public/course.html'));
 });
+
 
 // API Routes - retrieve course content from DB(API)
 app.get('/files/pdf/:courseId', isAuthenticated, async (req, res) => {
@@ -774,6 +876,135 @@ app.get('/files/pdf/:courseId', isAuthenticated, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+
+// API Route to get courses the user is enrolled in
+app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
+    logger.info('Fetching enrolled courses', { userEmail: req.session.user?.email });
+    
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        logger.info('MSSQL connection established for fetching enrolled courses.');
+
+        const request = pool.request();
+        request.input('UserEmail', sql.NVarChar(100), req.session.user.email);
+        const result = await request.query(`
+            SELECT c.CourseID, c.Title, c.Description 
+            FROM Courses c
+            JOIN UserCourses uc ON uc.CourseID = c.CourseID
+            JOIN Users u ON uc.UserID = u.[User-ID]
+            WHERE u.[User-Email] = @UserEmail
+        `);
+
+        logger.debug('SQL query executed for enrolled courses', { query: request.query });
+
+        if (result.recordset.length > 0) {
+            logger.info('Enrolled courses retrieved successfully.', { count: result.recordset.length });
+            res.json(result.recordset);
+        } else {
+            logger.warn('No courses found for user', { userEmail: req.session.user.email });
+            res.status(404).send('No courses found for this user.');
+        }
+    } catch (err) {
+        logger.error('Error retrieving enrolled courses', {
+            userEmail: req.session.user?.email,
+            error: err.message
+        });
+        res.status(500).send("Error fetching user's courses");
+    }
+});
+
+
+// API Route to get all courses
+app.get('/api/all-courses', async (req, res) => {
+    logger.info('Fetching all available courses.');
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        logger.info('MSSQL connection established for fetching all courses.');
+
+        const result = await pool.request().query(`
+            SELECT CourseID, Title, Description
+            FROM Courses
+        `);
+
+        logger.debug('SQL query executed for all courses', { query: result.command });
+
+        if (result.recordset.length > 0) {
+            logger.info('All courses retrieved successfully.', { count: result.recordset.length });
+            res.json(result.recordset);
+        } else {
+            logger.warn('No courses available in the database.');
+            res.status(404).send('No courses available.');
+        }
+    } catch (err) {
+        logger.error('Error retrieving all courses', {
+            error: err.message
+        });
+        res.status(500).send("Error fetching courses");
+    }
+});
+
+// API Route to get all courses for admin
+app.get('/api/admin/all-courses', isAuthenticated, isAdmin, async (req, res) => {
+    logger.info('Admin fetching all available courses.');
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        logger.info('MSSQL connection established for admin fetching all courses.');
+
+        const result = await pool.request().query(`
+            SELECT *
+            FROM Courses
+        `);
+
+        logger.debug('SQL query executed for all admin courses', { query: result.command });
+
+        if (result.recordset.length > 0) {
+            logger.info('All courses retrieved successfully by admin.', { count: result.recordset.length });
+            res.json(result.recordset);
+        } else {
+            logger.warn('No courses available in the database for admin.');
+            res.status(404).send('No courses available.');
+        }
+    } catch (err) {
+        logger.error('Error retrieving all courses by admin', {
+            error: err.message
+        });
+        res.status(500).send("Error fetching courses for admin");
+    }
+});
+
+// API Route to get all users for admin
+app.get('/api/admin/all-users', isAuthenticated, isAdmin, async (req, res) => {
+    logger.info('Admin fetching all users.');
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        logger.info('MSSQL connection established for admin fetching all users.');
+
+        const result = await pool.request().query(`
+            SELECT *
+            FROM Users
+        `);
+
+        logger.debug('SQL query executed for all admin users', { query: result.command });
+
+        if (result.recordset.length > 0) {
+            logger.info('All users retrieved successfully by admin.', { count: result.recordset.length });
+            res.json(result.recordset);
+        } else {
+            logger.warn('No users found in the database for admin.');
+            res.status(404).send('No users found.');
+        }
+    } catch (err) {
+        logger.error('Error retrieving all users by admin', {
+            error: err.message
+        });
+        res.status(500).send("Error fetching users for admin");
+    }
+});
+
+
 
 // API Routes - retriev emails from DB(API)
 app.get('/emails', async (req, res) => {

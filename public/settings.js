@@ -4,13 +4,8 @@ BiggerPhish Educational Platform
 
 
 TODO:
-Add more protection for the password reset button
 Add the delete user funtion - this will need to remove all course infoirmation/any mention of the user/GDPR 'Right to Dissapear' function
 */
-
-
-
-
 
 var email = null;
 
@@ -19,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             document.getElementById('user-email').value = data['User-Email'];
-            document.getElementById('user-password').value = '';
             document.getElementById('user-name').value = data['User-FName'];
             email = data['User-Email'];
         })
@@ -80,36 +74,60 @@ document.addEventListener('DOMContentLoaded', function () {
     if (updatePasswordBtn) {
         updatePasswordBtn.addEventListener('click', function (event) {
             event.preventDefault();
-            var password = document.getElementById('user-password').value;
-            fetch('/update-user-password', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        newPassword: password
-                    })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.statusText}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.success) {
-                        alert('Password updated successfully');
-                        location.reload(); // Reload the page
-                    } else {
-                        alert('Failed to update password: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error updating password:', error);
-                });
+            document.getElementById('passwordModal').style.display = 'block';
         });
     }
+
+    function closeModal() {
+        document.getElementById('passwordModal').style.display = 'none';
+    }
+
+    function updatePassword() {
+        var currentPassword = document.getElementById('current-password').value;
+        var newPassword = document.getElementById('new-password').value;
+        var confirmNewPassword = document.getElementById('confirm-new-password').value;
+
+        if (!currentPassword || !newPassword || !confirmNewPassword) {
+            alert("All fields are required.");
+            return;
+        }
+
+        if (newPassword !== confirmNewPassword) {
+            alert("The new passwords do not match.");
+            return;
+        }
+
+        fetch('/update-user-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    currentPassword: currentPassword,
+                    newPassword: newPassword
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Password updated successfully');
+                    location.reload(); // Optionally reload the page or close the modal
+                    closeModal();
+                } else {
+                    alert('Failed to update password: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating password:', error);
+            });
+
+    }
+
 
     var updateNameBtn = document.getElementById('update-name-btn');
     if (updateNameBtn) {
