@@ -9488,3 +9488,610 @@
 2024-06-01 15:58:47 info: MSSQL connection established for fetching all courses.
 2024-06-01 15:58:47 warn: No courses found for user {"userEmail":"pEncrypted@email.com"}
 2024-06-01 15:58:47 info: All courses retrieved successfully. {"count":8}
+2024-06-01 16:04:16 info: Checking if request is authenticated
+2024-06-01 16:04:16 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:16 info: Serving courses.html for authenticated user {"sessionId":"8VlCfd521s_UGGPIuilyWmZc0-0FFF6K"}
+2024-06-01 16:04:16 info: Checking if request is authenticated
+2024-06-01 16:04:16 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:16 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:16 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:04:16 info: Fetching all available courses.
+2024-06-01 16:04:16 info: MSSQL connection established for fetching all courses.
+2024-06-01 16:04:16 warn: No courses found for user {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:16 info: All courses retrieved successfully. {"count":8}
+2024-06-01 16:04:16 info: Checking if request is authenticated
+2024-06-01 16:04:16 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:16 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:16 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:04:16 warn: No courses found for user {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:33 info: Checking if request is authenticated
+2024-06-01 16:04:33 warn: Request is not authenticated, redirecting to root {"sessionId":"GaUUHuPiGlkFeX62dJf65s1yhOrlpLgs","path":"/courses"}
+2024-06-01 16:04:33 info: Received request for root route.
+2024-06-01 16:04:33 info: User is not authenticated, serving index.html
+2024-06-01 16:04:34 info: Serving login.html {"ip":"::1"}
+2024-06-01 16:04:36 info: Received login request for email: pEncrypted@email.com
+2024-06-01 16:04:36 info: User isAdmin status: false
+2024-06-01 16:04:36 info: Received request for root route.
+2024-06-01 16:04:36 info: admin = false
+2024-06-01 16:04:36 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"GaUUHuPiGlkFeX62dJf65s1yhOrlpLgs","email":"pEncrypted@email.com"}
+2024-06-01 16:04:36 info: Checking if request is authenticated
+2024-06-01 16:04:36 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:36 info: User data retrieved successfully:
+2024-06-01 16:04:37 info: Checking if request is authenticated
+2024-06-01 16:04:37 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:37 info: Serving courses.html for authenticated user {"sessionId":"GaUUHuPiGlkFeX62dJf65s1yhOrlpLgs"}
+2024-06-01 16:04:37 info: Checking if request is authenticated
+2024-06-01 16:04:37 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:37 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:37 info: Fetching all available courses.
+2024-06-01 16:04:37 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:04:37 info: MSSQL connection established for fetching all courses.
+2024-06-01 16:04:37 warn: No courses found for user {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:37 info: All courses retrieved successfully. {"count":8}
+2024-06-01 16:04:37 info: Checking if request is authenticated
+2024-06-01 16:04:37 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:37 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:37 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:04:37 warn: No courses found for user {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:38 info: Checking if request is authenticated
+2024-06-01 16:04:38 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:39 info: Checking if request is authenticated
+2024-06-01 16:04:39 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:39 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:39 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:04:39 info: Fetching all available courses.
+2024-06-01 16:04:39 info: MSSQL connection established for fetching all courses.
+2024-06-01 16:04:39 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:04:39 info: All courses retrieved successfully. {"count":8}
+2024-06-01 16:04:39 info: Checking if request is authenticated
+2024-06-01 16:04:39 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:39 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:39 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:04:39 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:04:40 info: Checking if request is authenticated
+2024-06-01 16:04:40 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:40 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:04:40 info: userId: 7, courseId: 1
+2024-06-01 16:04:40 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:04:40 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:04:40 info: Checking if request is authenticated
+2024-06-01 16:04:40 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:46 info: Checking if request is authenticated
+2024-06-01 16:04:46 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:46 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:04:46 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:04:46 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:04:47 info: Checking if request is authenticated
+2024-06-01 16:04:47 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:04:47 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:04:47 info: userId: 7, courseId: 1
+2024-06-01 16:04:47 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:04:47 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:04:47 info: Checking if request is authenticated
+2024-06-01 16:04:47 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:05:31 info: Checking if request is authenticated
+2024-06-01 16:05:31 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:05:31 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:05:31 info: userId: 7, courseId: 1
+2024-06-01 16:05:31 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:05:31 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:05:31 info: Checking if request is authenticated
+2024-06-01 16:05:31 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:06:20 info: Checking if request is authenticated
+2024-06-01 16:06:20 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:06:20 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:06:20 info: userId: 7, courseId: 1
+2024-06-01 16:06:20 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:06:20 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:06:20 info: Checking if request is authenticated
+2024-06-01 16:06:20 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:06:26 info: Checking if request is authenticated
+2024-06-01 16:06:26 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:06:26 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:06:26 info: userId: 7, courseId: 1
+2024-06-01 16:06:26 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:06:26 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:06:26 info: Checking if request is authenticated
+2024-06-01 16:06:26 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:06:53 info: Checking if request is authenticated
+2024-06-01 16:06:53 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:06:53 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:06:53 info: userId: 7, courseId: 1
+2024-06-01 16:06:53 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:06:53 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:06:53 info: Checking if request is authenticated
+2024-06-01 16:06:53 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:07:02 info: Checking if request is authenticated
+2024-06-01 16:07:02 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:07:02 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:07:02 info: userId: 7, courseId: 1
+2024-06-01 16:07:02 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:07:02 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:07:03 info: Checking if request is authenticated
+2024-06-01 16:07:03 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:09:41 info: Checking if request is authenticated
+2024-06-01 16:09:41 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:09:41 info: Serving email.html {"ip":"::1","id":"1_26"}
+2024-06-01 16:13:21 info: Checking if request is authenticated
+2024-06-01 16:13:21 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:13:21 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:13:21 info: userId: 7, courseId: 1
+2024-06-01 16:13:21 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:13:21 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:13:21 info: Checking if request is authenticated
+2024-06-01 16:13:21 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:15:16 info: Checking if request is authenticated
+2024-06-01 16:15:16 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:15:16 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:15:16 info: userId: 7, courseId: 1
+2024-06-01 16:15:16 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:15:16 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:15:16 info: Checking if request is authenticated
+2024-06-01 16:15:16 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:15:23 info: Checking if request is authenticated
+2024-06-01 16:15:23 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:15:23 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:15:23 info: userId: 7, courseId: 1
+2024-06-01 16:15:23 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:15:23 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:15:23 info: Checking if request is authenticated
+2024-06-01 16:15:23 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:15:28 info: Checking if request is authenticated
+2024-06-01 16:15:28 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:15:28 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:15:28 info: userId: 7, courseId: 1
+2024-06-01 16:15:28 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:15:28 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:15:28 info: Checking if request is authenticated
+2024-06-01 16:15:28 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:16:59 info: Checking if request is authenticated
+2024-06-01 16:16:59 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:16:59 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:16:59 info: userId: 7, courseId: 1
+2024-06-01 16:16:59 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:16:59 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:16:59 info: Checking if request is authenticated
+2024-06-01 16:16:59 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:17:32 info: Checking if request is authenticated
+2024-06-01 16:17:32 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:17:32 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:17:32 info: userId: 7, courseId: 1
+2024-06-01 16:17:32 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:17:32 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:17:32 info: Checking if request is authenticated
+2024-06-01 16:17:32 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:17:55 info: Checking if request is authenticated
+2024-06-01 16:17:55 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:17:55 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:17:55 info: userId: 7, courseId: 1
+2024-06-01 16:17:55 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:17:55 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:17:55 info: Checking if request is authenticated
+2024-06-01 16:17:55 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:18:07 info: Checking if request is authenticated
+2024-06-01 16:18:07 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:18:07 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:18:07 info: userId: 7, courseId: 1
+2024-06-01 16:18:07 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:18:07 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:18:07 info: Checking if request is authenticated
+2024-06-01 16:18:07 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:18:40 info: Checking if request is authenticated
+2024-06-01 16:18:40 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:18:40 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:18:40 info: userId: 7, courseId: 1
+2024-06-01 16:18:40 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:18:40 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:18:40 info: Checking if request is authenticated
+2024-06-01 16:18:40 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:21:03 info: Checking if request is authenticated
+2024-06-01 16:21:03 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:21:03 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:21:03 info: userId: 7, courseId: 1
+2024-06-01 16:21:03 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:21:03 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:21:03 info: Checking if request is authenticated
+2024-06-01 16:21:03 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:22:15 info: Checking if request is authenticated
+2024-06-01 16:22:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:22:15 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:22:15 info: userId: 7, courseId: 1
+2024-06-01 16:22:15 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:22:15 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:22:15 info: Checking if request is authenticated
+2024-06-01 16:22:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:22:38 info: Checking if request is authenticated
+2024-06-01 16:22:38 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:22:38 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:22:38 info: userId: 7, courseId: 1
+2024-06-01 16:22:38 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:22:38 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:22:39 info: Checking if request is authenticated
+2024-06-01 16:22:39 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:23:56 info: Checking if request is authenticated
+2024-06-01 16:23:56 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:23:56 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:23:56 info: userId: 7, courseId: 1
+2024-06-01 16:23:56 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:23:56 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:23:56 info: Checking if request is authenticated
+2024-06-01 16:23:56 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:26:22 info: Checking if request is authenticated
+2024-06-01 16:26:22 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:26:22 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:26:22 info: userId: 7, courseId: 1
+2024-06-01 16:26:22 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:26:22 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:26:22 info: Checking if request is authenticated
+2024-06-01 16:26:22 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:28:25 info: Checking if request is authenticated
+2024-06-01 16:28:25 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:28:25 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:28:25 info: userId: 7, courseId: 1
+2024-06-01 16:28:25 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:28:25 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:28:25 info: Checking if request is authenticated
+2024-06-01 16:28:25 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:29:01 info: Checking if request is authenticated
+2024-06-01 16:29:01 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:29:01 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:29:01 info: userId: 7, courseId: 1
+2024-06-01 16:29:01 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:29:01 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:29:01 info: Checking if request is authenticated
+2024-06-01 16:29:01 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:29:39 info: Checking if request is authenticated
+2024-06-01 16:29:39 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:29:39 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:29:39 info: userId: 7, courseId: 1
+2024-06-01 16:29:39 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:29:39 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:29:39 info: Checking if request is authenticated
+2024-06-01 16:29:39 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:29:42 info: Checking if request is authenticated
+2024-06-01 16:29:42 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:29:42 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:29:42 info: userId: 7, courseId: 1
+2024-06-01 16:29:42 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:29:42 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:29:42 info: Checking if request is authenticated
+2024-06-01 16:29:42 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:18 info: Checking if request is authenticated
+2024-06-01 16:30:18 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:18 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:30:18 info: userId: 7, courseId: 1
+2024-06-01 16:30:18 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:30:18 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:30:18 info: Checking if request is authenticated
+2024-06-01 16:30:18 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:23 info: Checking if request is authenticated
+2024-06-01 16:30:23 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:23 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:30:23 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:30:23 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:30:25 info: Checking if request is authenticated
+2024-06-01 16:30:25 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:25 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:30:25 info: userId: 7, courseId: 1
+2024-06-01 16:30:25 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:30:25 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:30:25 info: Checking if request is authenticated
+2024-06-01 16:30:25 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:28 info: Checking if request is authenticated
+2024-06-01 16:30:28 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:28 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:30:28 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:30:28 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:30:29 info: Checking if request is authenticated
+2024-06-01 16:30:29 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:29 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:30:29 info: userId: 7, courseId: 1
+2024-06-01 16:30:29 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:30:29 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:30:29 info: Checking if request is authenticated
+2024-06-01 16:30:29 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:31 info: Checking if request is authenticated
+2024-06-01 16:30:31 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:30:31 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:30:31 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:30:31 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:31:09 info: Checking if request is authenticated
+2024-06-01 16:31:09 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:31:09 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:31:09 info: userId: 7, courseId: 1
+2024-06-01 16:31:09 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:31:09 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:31:09 info: Checking if request is authenticated
+2024-06-01 16:31:09 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:36:48 info: Checking if request is authenticated
+2024-06-01 16:36:48 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:36:48 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:36:48 info: userId: 7, courseId: 1
+2024-06-01 16:36:48 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:36:48 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:36:48 info: Checking if request is authenticated
+2024-06-01 16:36:48 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:36:52 info: Checking if request is authenticated
+2024-06-01 16:36:52 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:36:52 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:36:52 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:36:52 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:36:54 info: Checking if request is authenticated
+2024-06-01 16:36:54 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:36:54 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:36:54 info: userId: 7, courseId: 1
+2024-06-01 16:36:55 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:36:55 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:36:55 info: Checking if request is authenticated
+2024-06-01 16:36:55 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:12 info: Checking if request is authenticated
+2024-06-01 16:37:12 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:12 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:37:12 info: userId: 7, courseId: 1
+2024-06-01 16:37:12 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:37:12 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:37:12 info: Checking if request is authenticated
+2024-06-01 16:37:12 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:15 info: Checking if request is authenticated
+2024-06-01 16:37:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:15 info: Serving courses.html for authenticated user {"sessionId":"GaUUHuPiGlkFeX62dJf65s1yhOrlpLgs"}
+2024-06-01 16:37:15 info: Checking if request is authenticated
+2024-06-01 16:37:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:15 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:37:15 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:37:15 info: Fetching all available courses.
+2024-06-01 16:37:15 info: MSSQL connection established for fetching all courses.
+2024-06-01 16:37:15 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:37:15 info: All courses retrieved successfully. {"count":8}
+2024-06-01 16:37:15 info: Checking if request is authenticated
+2024-06-01 16:37:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:15 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:37:15 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:37:15 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:37:15 info: Checking if request is authenticated
+2024-06-01 16:37:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:15 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:37:15 info: userId: 7, courseId: 1
+2024-06-01 16:37:15 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:37:15 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:37:15 info: Checking if request is authenticated
+2024-06-01 16:37:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:20 info: Checking if request is authenticated
+2024-06-01 16:37:20 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:20 info: Serving email.html {"ip":"::1","id":"1_26"}
+2024-06-01 16:37:23 info: Checking if request is authenticated
+2024-06-01 16:37:23 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:37:23 info: Serving email.html {"ip":"::1","id":"1_26"}
+2024-06-01 16:40:25 info: Checking if request is authenticated
+2024-06-01 16:40:25 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:40:25 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:40:25 info: userId: 7, courseId: 1
+2024-06-01 16:40:25 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:40:25 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:40:25 info: Checking if request is authenticated
+2024-06-01 16:40:25 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:41:47 info: Checking if request is authenticated
+2024-06-01 16:41:47 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:41:47 info: Serving courses.html for authenticated user {"sessionId":"GaUUHuPiGlkFeX62dJf65s1yhOrlpLgs"}
+2024-06-01 16:41:47 info: Checking if request is authenticated
+2024-06-01 16:41:47 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:41:47 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:41:47 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:41:47 info: Fetching all available courses.
+2024-06-01 16:41:47 info: MSSQL connection established for fetching all courses.
+2024-06-01 16:41:47 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:41:47 info: All courses retrieved successfully. {"count":8}
+2024-06-01 16:41:47 info: Checking if request is authenticated
+2024-06-01 16:41:47 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:41:47 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:41:47 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:41:47 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:41:50 info: Checking if request is authenticated
+2024-06-01 16:41:50 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:41:50 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:41:50 info: userId: 7, courseId: 1
+2024-06-01 16:41:50 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:41:50 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:41:50 info: Checking if request is authenticated
+2024-06-01 16:41:50 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:44:00 info: Checking if request is authenticated
+2024-06-01 16:44:00 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:44:00 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:44:00 info: userId: 7, courseId: 1
+2024-06-01 16:44:00 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:44:00 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:44:00 info: Checking if request is authenticated
+2024-06-01 16:44:00 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:44:13 info: Checking if request is authenticated
+2024-06-01 16:44:13 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:44:13 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:44:13 info: userId: 7, courseId: 1
+2024-06-01 16:44:13 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:44:13 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:44:13 info: Checking if request is authenticated
+2024-06-01 16:44:13 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:52:47 info: Checking if request is authenticated
+2024-06-01 16:52:47 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:52:47 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:52:47 info: userId: 7, courseId: 1
+2024-06-01 16:52:47 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:52:47 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:54:21 info: Checking if request is authenticated
+2024-06-01 16:54:21 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:54:21 info: Serving courses.html for authenticated user {"sessionId":"GaUUHuPiGlkFeX62dJf65s1yhOrlpLgs"}
+2024-06-01 16:54:21 info: Checking if request is authenticated
+2024-06-01 16:54:21 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:54:21 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:54:21 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:54:21 info: Fetching all available courses.
+2024-06-01 16:54:21 info: MSSQL connection established for fetching all courses.
+2024-06-01 16:54:21 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:54:21 info: All courses retrieved successfully. {"count":8}
+2024-06-01 16:54:21 info: Checking if request is authenticated
+2024-06-01 16:54:21 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:54:21 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 16:54:21 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 16:54:21 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 16:54:23 info: Checking if request is authenticated
+2024-06-01 16:54:23 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:54:23 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:54:23 info: userId: 7, courseId: 1
+2024-06-01 16:54:23 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:54:23 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:54:26 info: Checking if request is authenticated
+2024-06-01 16:54:26 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:54:26 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:54:26 info: userId: 7, courseId: 1
+2024-06-01 16:54:26 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:54:26 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:54:49 info: Checking if request is authenticated
+2024-06-01 16:54:49 info: Request is authenticated, proceeding to next middleware
+2024-06-01 16:54:49 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 16:54:49 info: userId: 7, courseId: 1
+2024-06-01 16:54:49 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 16:54:49 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 16:54:50 info: Checking if request is authenticated
+2024-06-01 16:54:50 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:02:00 info: Checking if request is authenticated
+2024-06-01 17:02:00 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:02:00 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:02:00 info: userId: 7, courseId: 1
+2024-06-01 17:02:00 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:02:00 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:02:00 info: Checking if request is authenticated
+2024-06-01 17:02:00 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:02:33 info: Checking if request is authenticated
+2024-06-01 17:02:33 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:02:33 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:02:33 info: userId: 7, courseId: 1
+2024-06-01 17:02:33 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:02:33 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:02:34 info: Checking if request is authenticated
+2024-06-01 17:02:34 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:03:21 info: Checking if request is authenticated
+2024-06-01 17:03:21 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:03:21 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:03:21 info: userId: 7, courseId: 1
+2024-06-01 17:03:21 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:03:21 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:03:21 info: Checking if request is authenticated
+2024-06-01 17:03:21 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:07:42 info: Checking if request is authenticated
+2024-06-01 17:07:42 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:07:42 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:07:42 info: userId: 7, courseId: 1
+2024-06-01 17:07:42 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:07:42 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:07:42 info: Checking if request is authenticated
+2024-06-01 17:07:42 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:07:49 info: Checking if request is authenticated
+2024-06-01 17:07:49 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:07:49 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:07:49 info: userId: 7, courseId: 1
+2024-06-01 17:07:49 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:07:49 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:07:49 info: Checking if request is authenticated
+2024-06-01 17:07:49 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:08:49 info: Checking if request is authenticated
+2024-06-01 17:08:49 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:08:49 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:08:49 info: userId: 7, courseId: 1
+2024-06-01 17:08:49 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:08:49 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:08:49 info: Checking if request is authenticated
+2024-06-01 17:08:49 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:09:11 info: Checking if request is authenticated
+2024-06-01 17:09:11 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:09:11 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:09:11 info: userId: 7, courseId: 1
+2024-06-01 17:09:11 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:09:11 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:09:11 info: Checking if request is authenticated
+2024-06-01 17:09:11 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:09:19 info: Checking if request is authenticated
+2024-06-01 17:09:19 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:09:19 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:09:19 info: userId: 7, courseId: 1
+2024-06-01 17:09:19 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:09:19 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:09:19 info: Checking if request is authenticated
+2024-06-01 17:09:19 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:09:58 info: Checking if request is authenticated
+2024-06-01 17:09:58 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:09:58 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:09:58 info: userId: 7, courseId: 1
+2024-06-01 17:09:58 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:09:58 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:09:58 info: Checking if request is authenticated
+2024-06-01 17:09:58 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:10:04 info: Checking if request is authenticated
+2024-06-01 17:10:04 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:10:04 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:10:04 info: userId: 7, courseId: 1
+2024-06-01 17:10:04 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:10:04 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:10:05 info: Checking if request is authenticated
+2024-06-01 17:10:05 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:13:29 info: Checking if request is authenticated
+2024-06-01 17:13:29 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:13:29 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:13:29 info: userId: 7, courseId: 1
+2024-06-01 17:13:29 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:13:29 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:13:29 info: Checking if request is authenticated
+2024-06-01 17:13:29 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:15:15 info: Checking if request is authenticated
+2024-06-01 17:15:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:15:15 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:15:15 info: userId: 7, courseId: 1
+2024-06-01 17:15:15 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:15:15 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:15:15 info: Checking if request is authenticated
+2024-06-01 17:15:15 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:29 info: Checking if request is authenticated
+2024-06-01 17:17:29 warn: Request is not authenticated, redirecting to root {"sessionId":"HrwONPc6PD2bvYmKGaFuv1XOm60yfljQ","path":"/course/1"}
+2024-06-01 17:17:29 info: Received request for root route.
+2024-06-01 17:17:29 info: User is not authenticated, serving index.html
+2024-06-01 17:17:30 info: Serving login.html {"ip":"::1"}
+2024-06-01 17:17:30 info: Received login request for email: pEncrypted@email.com
+2024-06-01 17:17:31 info: User isAdmin status: false
+2024-06-01 17:17:31 info: Received request for root route.
+2024-06-01 17:17:31 info: admin = false
+2024-06-01 17:17:31 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"HrwONPc6PD2bvYmKGaFuv1XOm60yfljQ","email":"pEncrypted@email.com"}
+2024-06-01 17:17:31 info: Checking if request is authenticated
+2024-06-01 17:17:31 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:31 info: User data retrieved successfully:
+2024-06-01 17:17:31 info: Checking if request is authenticated
+2024-06-01 17:17:31 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:31 info: Serving courses.html for authenticated user {"sessionId":"HrwONPc6PD2bvYmKGaFuv1XOm60yfljQ"}
+2024-06-01 17:17:31 info: Checking if request is authenticated
+2024-06-01 17:17:31 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:31 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 17:17:31 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 17:17:31 info: Fetching all available courses.
+2024-06-01 17:17:31 info: MSSQL connection established for fetching all courses.
+2024-06-01 17:17:31 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 17:17:31 info: All courses retrieved successfully. {"count":8}
+2024-06-01 17:17:32 info: Checking if request is authenticated
+2024-06-01 17:17:32 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:32 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-06-01 17:17:32 info: MSSQL connection established for fetching enrolled courses.
+2024-06-01 17:17:32 info: Enrolled courses retrieved successfully. {"count":1}
+2024-06-01 17:17:33 info: Checking if request is authenticated
+2024-06-01 17:17:33 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:33 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:17:33 info: userId: 7, courseId: 1
+2024-06-01 17:17:33 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:17:33 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:17:33 info: Checking if request is authenticated
+2024-06-01 17:17:33 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:35 info: Checking if request is authenticated
+2024-06-01 17:17:35 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:35 info: Checking if request is authenticated
+2024-06-01 17:17:35 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:17:35 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-06-01 17:17:35 info: userId: 7, courseId: 1
+2024-06-01 17:17:35 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-06-01 17:17:35 info: Serving course.html for course {"courseId":"1"}
+2024-06-01 17:17:35 info: Checking if request is authenticated
+2024-06-01 17:17:35 info: Request is authenticated, proceeding to next middleware

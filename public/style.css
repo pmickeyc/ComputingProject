@@ -18,11 +18,34 @@ body, html {
 }
 
 #pdf-viewer {
-    width: 100%; /* Full width of the column */
-    height: 800px; 
-    overflow: auto; /* Adds scrollbars  */
+    width: 100%;
+    height: calc(100vh - 60px); /* Full height minus control height */
+    overflow: auto;
     background-color: #fff;
-    border: 1px solid #ccc; /* adds a border around the PDF viewer */
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+#pdf-controls {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#pdf-canvas-container {
+    margin-top: 60px; /* Adjust the margin-top to ensure it doesn't overlap with the controls */
+    text-align: center;
+}
+
+#pdf-canvas {
+    width: 100%;
+    height: auto;
 }
 
 .compose-button {
@@ -119,7 +142,6 @@ body, html {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

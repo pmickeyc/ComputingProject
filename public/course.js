@@ -3,7 +3,23 @@ $(document).ready(function () {
     const courseId = urlPath.substring(urlPath.lastIndexOf('/') + 1); // Extract courseId from URL
     console.log(`Course ID: ${courseId}`); // Log course ID
 
+    let selectedContentId = null; // Variable to store the selected ContentID
+
     fetchCourseContents(courseId);
+
+    // Event listener for the Back button
+    document.getElementById('back-button').addEventListener('click', function () {
+        location.reload();
+    });
+
+    // Event listener for the Complete button
+    document.getElementById('complete-button').addEventListener('click', function () {
+        if (selectedContentId) {
+            markContentComplete(selectedContentId, courseId);
+        } else {
+            alert('Please select content to complete.');
+        }
+    });
 
     function fetchCourseContents(courseId) {
         $.ajax({
@@ -43,11 +59,12 @@ $(document).ready(function () {
 
         document.querySelectorAll('.view-content').forEach(button => {
             button.addEventListener('click', function () {
-                const contentId = this.getAttribute('data-id');
+                selectedContentId = this.getAttribute('data-id');
+                console.log(`Selected Content ID: ${selectedContentId}`);
                 const contentType = this.getAttribute('data-type');
                 const pdfPath = this.getAttribute('data-pdf') ? this.getAttribute('data-pdf').replace('./public/', '/') : null; // Correcting the path
                 const emailId = this.getAttribute('data-email-id');
-                console.log(`Button clicked: Content ID: ${contentId}, Content Type: ${contentType}, PDF Path: ${pdfPath}, Email ID: ${emailId}`); // Log button click event
+                console.log(`Button clicked: Content ID: ${selectedContentId}, Content Type: ${contentType}, PDF Path: ${pdfPath}, Email ID: ${emailId}`); // Log button click event
                 if (contentType === 'PDF') {
                     // Load PDF content
                     console.log(`Loading PDF: ${pdfPath}`); // Log the PDF path
@@ -91,14 +108,9 @@ $(document).ready(function () {
 
         function renderPage(num) {
             pdfDoc.getPage(num).then(function (page) {
-                const viewerContainer = document.getElementById('pdf-viewer');
-                viewerContainer.innerHTML = ''; // Clear existing content
-
-                const canvas = document.createElement('canvas');
+                const canvas = document.getElementById('pdf-canvas');
                 const context = canvas.getContext('2d');
-                viewerContainer.appendChild(canvas);
-
-                const scale = viewerContainer.offsetWidth / page.getViewport({ scale: 1 }).width;
+                const scale = canvas.parentElement.offsetWidth / page.getViewport({ scale: 1 }).width;
                 const viewport = page.getViewport({ scale: scale });
 
                 canvas.width = viewport.width;
@@ -151,6 +163,24 @@ $(document).ready(function () {
         }).catch(function (error) {
             console.error('Error loading PDF:', error);
             alert('Failed to load PDF.');
+        });
+    }
+
+    function markContentComplete(contentId, courseId) {
+        $.ajax({
+            url: `/api/complete-content/${contentId}`,
+            method: 'POST',
+            data: {
+                courseId: courseId
+            },
+            success: function (data) {
+                console.log('Content marked as complete:', data); // Log success response
+                location.reload(); // Refresh the page
+            },
+            error: function (xhr, status, error) {
+                console.error("Failed to mark content as complete:", status, error);
+                alert('Failed to mark content as complete.');
+            }
         });
     }
 });

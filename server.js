@@ -1045,6 +1045,51 @@ app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
     }
 });
 
+//api: enroll student
+app.post('/api/enroll-course/:courseId', isAuthenticated, async (req, res) => {
+    const userId = req.session.user.id;
+    const courseId = req.params.courseId;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('UserID', sql.Int, userId)
+            .input('CourseID', sql.Int, courseId);
+
+        await request.execute('EnrollStudent'); // Call the stored procedure
+
+        res.json({ success: true });
+    } catch (err) {
+        logger.error('Error enrolling in course:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// API Route to mark content as complete
+app.post('/api/complete-content/:contentId', isAuthenticated, async (req, res) => {
+    const contentId = req.params.contentId;
+    const userId = req.session.user.id; // Assuming user ID is stored in session
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('ContentID', sql.Int, contentId)
+            .input('UserID', sql.Int, userId);
+
+        await request.query(`
+            UPDATE UserCourseContents
+            SET IsCompleted = 1
+            WHERE ContentID = @ContentID AND UserCourseID = (SELECT UserCourseID FROM UserCourses WHERE UserID = @UserID)
+        `);
+
+        res.json({ success: true });
+    } catch (err) {
+        logger.error('Error marking content as complete:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
 
 // Admin-specific users management page
 app.get('/admin-users', isAuthenticated, isAdmin, (req, res) => {

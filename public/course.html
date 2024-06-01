@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <base href="/">
     <meta charset="UTF-8">
@@ -10,12 +9,46 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
 </head>
-
 <body>
     <div class="container-fluid">
         <div class="row">
+            <!-- Sidebar -->
             <div class="col-md-3 sidebar">
-                <!-- Sidebar content -->
+                <!-- Logo or Branding -->
+                <div class="sidebar-header text-center py-4">
+                    <a href="/" class="navbar-brand">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
+                    </a>
+                </div>
+                <div id="user-nav-menu">
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/courses">
+                                <i class="fas fa-book-open"></i>Courses
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/grades">
+                                <i class="fas fa-chart-bar"></i> Progress
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">
+                                <i class="fas fa-cog"></i> User Settings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="logout-link" href="#" class="nav-link">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="col-md-9">
@@ -25,10 +58,9 @@
                         <thead>
                             <tr>
                                 <th>Content ID</th>
-                                <th>Content Name</th>
-                                <th>Content Description</th>
                                 <th>PDF</th>
-                                <th>Email ID</th>
+                                <th>Video</th>
+                                <th>Email Level</th>
                                 <th>Type</th>
                                 <th>Actions</th>
                             </tr>
@@ -40,12 +72,16 @@
                 </div>
 
                 <div id="pdf-viewer" style="display: none; position: relative; height: 100vh;">
-                    <div>
-                        <button id="prev">Previous</button>
+                    <div id="pdf-controls">
+                        <button id="prev" class="btn btn-primary">Previous</button>
                         <span>Page: <span id="page_num">1</span> / <span id="page_count">?</span></span>
-                        <button id="next">Next</button>
+                        <button id="next" class="btn btn-primary">Next</button>
+                        <button id="back-button" class="btn btn-secondary">Return</button>
+                        <button id="complete-button" class="btn btn-success">Mark as Complete</button>
                     </div>
-                    <canvas></canvas>
+                    <div id="pdf-canvas-container">
+                        <canvas id="pdf-canvas"></canvas>
+                    </div>
                 </div>
 
                 <div id="email-content" style="display: none;">
@@ -61,5 +97,4 @@
     <script src="course.js"></script>
     <script src="common.js" defer></script>
 </body>
-
 </html>
