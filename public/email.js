@@ -1,13 +1,3 @@
-/*
-Author: Padraig McCauley - 20123744
-BiggerPhish Educational Platform
-
-
-TODO:
-Refine this functinoality and link to the coursecontent table in the MSSQL DB
-*/
-
-
 document.addEventListener('DOMContentLoaded', function () {
     let deliveredEmails = []; // Array to store emails to be delivered
     let fakeEmailCount = 0;
@@ -53,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to add event listener to an email item
     function addEmailClickListener(emailItem) {
         emailItem.addEventListener('click', function () {
-            //console.log('Email clicked:', this.dataset.id); // Log the email ID
             document.querySelector('.email-list').innerHTML = `<div class="email-full">${this.querySelector('.email-snippet').innerHTML}</div>`;
         });
     }
@@ -86,13 +75,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Using a closure to ensure the correct emailId is used
         btnFake.addEventListener('click', function (event) {
             event.stopPropagation();
-            //console.log('Fake guess clicked for email:', emailId); // Log the email ID
             submitGuess(emailId, 'fake');
         });
 
         btnReal.addEventListener('click', function (event) {
             event.stopPropagation();
-            //console.log('Real guess clicked for email:', emailId); // Log the email ID
             submitGuess(emailId, 'real');
         });
     }
@@ -131,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function shuffleArray(array) {
-        //console.log(array)
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]]; // Swap elements
@@ -143,25 +129,23 @@ document.addEventListener('DOMContentLoaded', function () {
         let emailDeliveryInterval = setInterval(function () {
             if (deliveredEmails.length > 0 && deliveryCount < maxEmailsDelivered) {
                 let emailToDeliver = deliveredEmails.shift(); // Get the next email to deliver
-                //console.log('Delivering email:', emailToDeliver.dataset.id); // Log the email ID
                 document.querySelector('.email-list').prepend(emailToDeliver);
                 deliveryCount++;
             } else {
-                clearInterval(emailDeliveryInterval); // Stop the interval after 5 emails
+                clearInterval(emailDeliveryInterval); // Stop the interval after maxEmailsDelivered emails
             }
         }, 500); // time interval setting
     }
 
-    async function fetchEmails() {
+    async function fetchEmails(id) {
         try {
-            const response = await fetch('/emails');
+            const response = await fetch(`/emails/${id}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             let emailData = await response.json();
             // Sort and count fake and real emails from the fetched data
             emailData.forEach(email => {
-                //console.log(email.fake + " - " + fakeEmailCount +" - "+ maxFakeEmails)
                 if (email.fake === true && fakeEmailCount < maxFakeEmails) {
                     deliveredEmails.push(createEmail(email));
                     fakeEmailCount++;
@@ -169,10 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     deliveredEmails.push(createEmail(email));
                     realEmailCount++;
                 }
-                
             });
 
-            //console.log(deliveredEmails)
             // Shuffle the emails to randomize the order of delivery
             shuffleArray(deliveredEmails);
 
@@ -183,30 +165,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Fetch emails immediately and set them up for delivery
-    fetchEmails();
+    // Extract the collection ID from the URL path and fetch emails
+    const pathParts = window.location.pathname.split('/');
+    const collectionId = pathParts[pathParts.length - 1];
+    if (collectionId) {
+        fetchEmails(collectionId);
+    } else {
+        console.error('No collection ID found in the URL path');
+    }
 
     // Function to show the full email content
     function showEmailContent(emailContentHTML) {
-        // Reference the email full view and email list containers
         const emailFullView = document.querySelector('.email-full');
         const emailListView = document.querySelector('.email-list');
-
-        // Remove the guess buttons from the email content HTML
         const emailContentWithoutButtons = emailContentHTML.replace(/<div class="email-guess-buttons">[\s\S]*?<\/div>/, '');
-
-        // Set the full email content without the buttons and display it
         emailFullView.innerHTML = emailContentWithoutButtons;
         emailFullView.style.display = 'block';
-
-        // Hide the email list
         emailListView.style.display = 'none';
     }
 
     // Function to add event listener to an email item
     function addEmailClickListener(emailItem) {
         emailItem.addEventListener('click', function (event) {
-            // Ensure this runs only for clicks directly on the email item
             if (event.target === emailItem || event.target.className === 'email-snippet') {
                 const emailContentHTML = this.innerHTML;
                 showEmailContent(emailContentHTML);
@@ -216,11 +196,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Event listener for the Inbox title click, using the ID
     document.querySelector('#inbox-title').addEventListener('click', function () {
-        // Reference the email full view and email list containers
         const emailFullView = document.querySelector('.email-full');
         const emailListView = document.querySelector('.email-list');
-
-        // Hide the full email view and show the email list again
         emailFullView.style.display = 'none';
         emailListView.style.display = 'block';
     });

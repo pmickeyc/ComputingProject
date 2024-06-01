@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course - BiggerPhish Educational Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <!-- Logo or Branding -->
+                <div class="sidebar-header text-center py-4">
+                    <a href="/" class="navbar-brand">
+                        <img src="/assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
+                    </a>
+                </div>
+                <div id="user-nav-menu">
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/admin-courses">
+                                <i class="fas fa-book-open"></i> Course Management
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/admin-users">
+                                <i class="fas fa-chart-bar"></i> User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">
+                                <i class="fas fa-cog"></i> User Settings
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a id="logout-link" href="#" class="nav-link">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content for Edit Course Page -->
+            <div class="col-md-9">
+                <div class="pt-5">
+                    <h1>Edit Course</h1>
+
+                    <h2>Course Information</h2>
+                    <form id="edit-course-form">
+                        <div class="form-group row">
+                            <label for="course-title" class="col-sm-2 col-form-label">Course Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="course-title" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="course-description" class="col-sm-2 col-form-label">Course Description</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="course-description" rows="3" required></textarea>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="submitEditCourse()">Save Changes</button>
+                    </form>
+
+                    <h2 class="mt-5">Course Content</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Content ID</th>
+                                <th>Content Name</th>
+                                <th>Content Description</th>
+                                <th>PDF</th>
+                                <th>Email ID</th>
+                                <th>Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="course-content-table">
+                            <!-- Content rows will be populated here -->
+                        </tbody>
+                    </table>
+
+                    <form id="upload-course-content-form">
+                        <div class="form-group">
+                            <label for="content-name">Content Name</label>
+                            <input type="text" class="form-control" id="content-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content-description">Content Description</label>
+                            <textarea class="form-control" id="content-description" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="pdf-file">PDF File</label>
+                            <input type="file" class="form-control-file" id="pdf-file">
+                        </div>
+                        <div class="form-group">
+                            <label for="xlsx-file">XLSX File</label>
+                            <input type="file" class="form-control-file" id="xlsx-file">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="submitCourseContent()">Upload
+                            Content</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="/admin-course-edit.js"></script>
+    <script src="/common.js" defer></script>
+</body>
+
+</html>

@@ -68,5 +68,3 @@ function populateCourses(courses, containerSelector) {
 
     });
 }
-
-

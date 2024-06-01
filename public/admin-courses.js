@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('createCourseModal').style.display = 'block';
         });
     }
-    // Additional event listeners for admin actions can be added here
 });
 
 function fetchAllCourses() {
@@ -42,7 +41,7 @@ function populateCourses(courses, containerSelector) {
 
 function editCourse(courseId) {
     console.log('Editing course', courseId);
-    // Implementation for editing a course
+    window.location.href = `/admin-courses/${courseId}`;
 }
 
 function deleteCourse(courseId) {
@@ -57,6 +56,7 @@ function closeCreateCourseModal() {
 function submitCourse() {
     const title = document.getElementById('course-name').value;
     const description = document.getElementById('course-description').value;
+    const xlsxFile = document.getElementById('xlsx-file').files[0];
 
     // Simple validation
     if (!title || !description) {
@@ -64,11 +64,40 @@ function submitCourse() {
         return;
     }
 
-    const courseData = {
-        title: title,
-        description: description
-    };
+    // Check if an XLSX file is uploaded
+    if (xlsxFile) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const data = new Uint8Array(event.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const sheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[sheetName];
+            const json = XLSX.utils.sheet_to_json(worksheet);
 
+            // Create course data with parsed JSON
+            const courseData = {
+                title: title,
+                description: description,
+                emails: json
+            };
+
+            sendCourseData(courseData);
+            console.log(courseData);
+        };
+        reader.readAsArrayBuffer(xlsxFile);
+    } else {
+        // If no XLSX file, just send the course title and description
+        const courseData = {
+            title: title,
+            description: description
+        };
+
+        sendCourseData(courseData);
+        console.log(courseData);
+    }
+}
+
+function sendCourseData(courseData) {
     fetch('/api/create-course', {
         method: 'POST',
         headers: {

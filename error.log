@@ -88,3 +88,47 @@
 2024-05-05 20:13:31 error: Course creation attempt with incomplete form data
 2024-05-05 20:16:55 error: Error occurred during course creation: Cannot insert the value NULL into column 'CourseCode', table 'BiggerPhish.dbo.Courses'; column does not allow nulls. INSERT fails. {"code":"EREQUEST","originalError":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":515,"state":2,"class":16,"message":"Cannot insert the value NULL into column 'CourseCode', table 'BiggerPhish.dbo.Courses'; column does not allow nulls. INSERT fails.","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourse","lineNumber":10}},"name":"RequestError","number":515,"lineNumber":10,"state":2,"class":16,"serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourse","precedingErrors":[]}
 2024-05-05 20:17:07 error: Error occurred during course creation: Cannot insert the value NULL into column 'CourseCode', table 'BiggerPhish.dbo.Courses'; column does not allow nulls. INSERT fails. {"code":"EREQUEST","originalError":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":515,"state":2,"class":16,"message":"Cannot insert the value NULL into column 'CourseCode', table 'BiggerPhish.dbo.Courses'; column does not allow nulls. INSERT fails.","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourse","lineNumber":10}},"name":"RequestError","number":515,"lineNumber":10,"state":2,"class":16,"serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourse","precedingErrors":[]}
+2024-05-14 18:49:02 error: Exception occurred during login attempt {"email":"pEncrypted@email.com","error":{"code":"EREQUEST","originalError":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":207,"state":1,"class":16,"message":"Invalid column name 'Password'.","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"","lineNumber":2}},"name":"RequestError","number":207,"lineNumber":2,"state":1,"class":16,"serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"","precedingErrors":[{"code":"EREQUEST","originalError":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":207,"state":1,"class":16,"message":"Invalid column name 'Email'.","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"","lineNumber":2}},"name":"RequestError","number":207,"lineNumber":2,"state":1,"class":16,"serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":""}]}}
+2024-05-14 18:50:31 error: Exception occurred during login attempt {"email":"pEncrypted@email.com","error":"Invalid column name 'Password'."}
+2024-05-14 18:52:37 error: Exception occurred during login attempt for email: pEncrypted@email.com {"error":"Invalid column name 'Password'."}
+2024-05-14 18:55:05 error: Exception occurred during login attempt for email: pEncrypted@email.com {"error":"Invalid column name 'Password'."}
+2024-05-14 18:59:18 error: Exception occurred during login attempt for email: pEncrypted@email.com {"error":"Invalid column name 'Password'."}
+2024-05-14 19:24:58 error: Error occurred during password reset request {"error":"Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-3502bbbbf9esm14180219f8f.91 - gsmtp","email":"p@test.ie"}
+2024-05-15 22:53:53 error: Error occurred during course creation: newCourseId is not defined
+2024-05-15 23:04:10 error: Error occurred during course content creation: Procedure or function 'sp_InsertCourseContent' expects parameter '@ContentType', which was not supplied. {"code":"EREQUEST","originalError":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":201,"state":4,"class":16,"message":"Procedure or function 'sp_InsertCourseContent' expects parameter '@ContentType', which was not supplied.","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourseContent","lineNumber":0}},"name":"RequestError","number":201,"lineNumber":0,"state":4,"class":16,"serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourseContent","precedingErrors":[]}
+2024-05-15 23:04:10 error: Error occurred during course content creation or email upload: Procedure or function 'sp_InsertCourseContent' expects parameter '@ContentType', which was not supplied. {"code":"EREQUEST","originalError":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":201,"state":4,"class":16,"message":"Procedure or function 'sp_InsertCourseContent' expects parameter '@ContentType', which was not supplied.","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourseContent","lineNumber":0}},"name":"RequestError","number":201,"lineNumber":0,"state":4,"class":16,"serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"sp_InsertCourseContent","precedingErrors":[]}
+2024-06-01 11:35:53 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:35:53 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:39:19 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:39:19 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:39:48 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:39:48 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:40:05 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:40:05 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:47:58 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:47:58 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:48:32 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:49:59 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:49:59 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:57:40 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:57:57 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:57:57 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:57:58 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:57:58 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 11:58:11 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:58:35 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 11:58:40 error: Invalid courseId provided {"courseId":"style.css"}
+2024-06-01 12:19:48 error: Error deleting course content: The DELETE statement conflicted with the REFERENCE constraint "FK__UserCours__Conte__534D60F1". The conflict occurred in database "BiggerPhish", table "dbo.UserCourseContents", column 'ContentID'. {"code":"EREQUEST","originalError":{"info":{"name":"ERROR","handlerName":"onErrorMessage","number":547,"state":0,"class":16,"message":"The DELETE statement conflicted with the REFERENCE constraint \"FK__UserCours__Conte__534D60F1\". The conflict occurred in database \"BiggerPhish\", table \"dbo.UserCourseContents\", column 'ContentID'.","serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"","lineNumber":1}},"name":"RequestError","number":547,"lineNumber":1,"class":16,"serverName":"DESKTOP-8KIOO2V\\SQLEXPRESS","procName":"","precedingErrors":[]}
+2024-06-01 12:29:30 error: Course content upload attempt with no files
+2024-06-01 12:37:42 error: Course content upload attempt with no files
+2024-06-01 12:41:29 error: Course content upload attempt with no files
+2024-06-01 12:41:33 error: Course content upload attempt with no files
+2024-06-01 12:41:34 error: Course content upload attempt with no files
+2024-06-01 13:08:35 error: Error fetching course contents: Validation failed for parameter 'CourseID'. Invalid number. {"code":"EPARAM","originalError":{"code":"EPARAM"},"name":"RequestError","number":"EPARAM","precedingErrors":[]}
+2024-06-01 13:08:56 error: Error fetching course contents: Validation failed for parameter 'CourseID'. Invalid number. {"code":"EPARAM","originalError":{"code":"EPARAM"},"name":"RequestError","number":"EPARAM","precedingErrors":[]}
+2024-06-01 13:09:16 error: Error fetching course contents: Validation failed for parameter 'CourseID'. Invalid number. {"code":"EPARAM","originalError":{"code":"EPARAM"},"name":"RequestError","number":"EPARAM","precedingErrors":[]}
+2024-06-01 14:46:06 error: Invalid courseId provided {"courseId":"admin-course-edit.js"}
+2024-06-01 15:19:21 error: Error occurred during course content upload: courseType is not defined
+2024-06-01 15:38:16 error: Invalid courseId provided {"courseId":"common.js"}
+2024-06-01 15:38:23 error: Invalid courseId provided {"courseId":"common.js"}
+2024-06-01 15:39:03 error: Invalid courseId provided {"courseId":"common.js"}

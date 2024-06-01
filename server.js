@@ -2,27 +2,21 @@
 Author: Padraig McCauley - 20123744
 BiggerPhish Educational Platform
 
-
 TODO:
-
     Security:
-        Encrypt passwords (bcrypt)
         Security review of all endpoints/protect against unauthorized access to DB endpoints
         Enhance logging serverSide - Perhaps add a DB table that could be logged into
 
     Functional:
         Connect courses to email portal
         CRUD operations for Admin
-        Add a content upload mechanism (for teachers/admin) - shoudl eb at least a PDF and a set of emails for the email tracker
+        Add a content upload mechanism (for teachers/admin) - should be at least a PDF and a set of emails for the email tracker
         Add a course progress tracker
-        Add email function for 'forget password'
 
     Enviroment:
         Migrate to cloud servers
         Add a CI/CD pipeline
-        Add credentials to enviroment variables/dont have them hardcoded
 */
-
 
 // Environment and Package Declarations
 const express = require('express');
@@ -37,8 +31,10 @@ const winston = require('winston');
 const bodyParser = require('body-parser');
 const { stringify } = require('querystring');
 const { log } = require('console');
-
-
+const bcrypt = require('bcrypt');
+const nodemailer = require('nodemailer');
+const { v4: uuidv4 } = require('uuid');
+require('dotenv').config();
 
 
 // App Instance and Middleware Setup
@@ -52,18 +48,15 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 app.use(session({
-    secret: 'tempSecret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }));
 
 
 
-
-
-
 // MongoDB Connection
-const uri = "mongodb://localhost:27017";
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
@@ -73,13 +66,12 @@ const client = new MongoClient(uri, {
 });
 
 
-
 // MSSQL Connection Configuration
 const mssqlConfig = {
-    user: "phishUser",
-    password: "password",
-    server: "localhost\\SQLEXPRESS",
-    database: "BiggerPhish",
+    user: process.env.MSSQL_DB_USERNAME,
+    password: process.env.MSSQL_DB_PASSWORD,
+    server: process.env.MSSQL_SERVER,
+    database: process.env.MSSQL_DATABASE,
     options: {
         encrypt: false
     }
@@ -156,6 +148,44 @@ function isAuthenticated(req, res, next) {
         res.redirect('/'); // This will redirect the user to the root path
     }
 }
+
+//Enrolled check
+async function isEnrolled(req, res, next) {
+    const userId = req.session.user ? req.session.user.id : null; // Assuming session stores user ID
+    const courseId = req.params.courseId;
+    logger.info(JSON.stringify(req.session));
+    logger.info(`userId: ${userId}, courseId: ${courseId}`);
+
+    if (!userId || !courseId) {
+
+        logger.warn('User ID or Course ID not provided');
+        return res.status(400).json({ message: 'User ID or Course ID not provided' });
+    }
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('UserID', sql.Int, userId)
+            .input('CourseID', sql.Int, courseId);
+
+        const result = await request.query(`
+            SELECT 1 FROM UserCourses WHERE UserID = @UserID AND CourseID = @CourseID
+        `);
+
+        if (result.recordset.length > 0) {
+            logger.info('User is enrolled in the course', { userId, courseId });
+            next(); // User is enrolled, proceed to the next middleware or route handler
+        } else {
+            logger.info('User is not enrolled in the course', { userId, courseId });
+            res.redirect('/courses'); // Redirect to the courses page
+        }
+    } catch (err) {
+        logger.error('Error checking enrollment:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+}
+
+
 
 // Admin check middleware
 function isAdmin(req, res, next) {
@@ -294,11 +324,15 @@ app.post('/register-user', async (req, res) => {
     }
 
     try {
+        // Hash the password
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
         let pool = await sql.connect(mssqlConfig);
         const request = pool.request()
             .input('UserFName', sql.NVarChar(100), firstName)
             .input('UserEmail', sql.NVarChar(100), email)
-            .input('UserPassword', sql.NVarChar(100), password);
+            .input('UserPassword', sql.NVarChar(100), hashedPassword); // Store the hashed password
 
         const result = await request.execute('sp_InsertUser');
 
@@ -344,24 +378,21 @@ app.post('/api/create-course', async (req, res) => {
         let pool = await sql.connect(mssqlConfig);
         const request = pool.request()
             .input('Title', sql.NVarChar(255), title)
-            .input('Description', sql.NVarChar(500), description)
-            // You can also pass NULL or specific values if needed
-            .input('Category', sql.NVarChar(50), null)
-            .input('Level', sql.NVarChar(50), null)
-            .input('Status', sql.NVarChar(50), null);
+            .input('Description', sql.NVarChar(500), description);
 
         const result = await request.execute('sp_InsertCourse');
 
         if (result.recordset.length > 0 && result.recordset[0].NewCourseID) {
+            const newCourseId = result.recordset[0].NewCourseID;
+
             logger.info('Course created successfully', {
-                courseCode: result.recordset[0].CourseCode,
                 title: title,
-                newCourseId: result.recordset[0].NewCourseID
+                newCourseId: newCourseId
             });
+
             res.json({
                 success: true,
-                courseCode: result.recordset[0].CourseCode,
-                newCourseId: result.recordset[0].NewCourseID
+                newCourseId: newCourseId
             });
         } else {
             throw new Error('Failed to create course.');
@@ -374,6 +405,127 @@ app.post('/api/create-course', async (req, res) => {
         });
     }
 });
+
+//update course info
+app.put('/api/course/:courseId', isAuthenticated, isAdmin, async (req, res) => {
+    const courseId = req.params.courseId;
+    const { title, description } = req.body;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('CourseID', sql.Int, courseId)
+            .input('Title', sql.NVarChar(255), title)
+            .input('Description', sql.NVarChar(500), description)
+            .query('UPDATE Courses SET Title = @Title, Description = @Description WHERE CourseID = @CourseID');
+
+        if (result.rowsAffected[0] > 0) {
+            res.json({ success: true });
+        } else {
+            res.status(404).json({ message: 'Course not found' });
+        }
+    } catch (err) {
+        logger.error('Error updating course:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// API Routes - create course content
+app.post('/api/course/:courseId/content', isAuthenticated, isAdmin, async (req, res) => {
+    const courseId = req.params.courseId;
+
+    // Log the raw request
+    logger.info(req.headers);
+    logger.info(req.body);
+
+    const pdfFile = req.body.pdfFile;
+    const xlsxData = req.body.xlsxData ? JSON.parse(req.body.xlsxData) : null;
+    const contentType = req.body.contentType;
+    const contentName = req.body.contentName;
+    const contentDescription = req.body.contentDescription;
+
+    // Log the parsed request body
+    logger.info(`Received request: ${JSON.stringify(req.body, null, 2)}`);
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+
+        const contentData = {
+            coursePDF: pdfFile ? `/path/to/pdf/${pdfFile}` : null,
+            contentName: contentName,
+            contentDescription: contentDescription,
+            contentType: contentType,
+            emailID: null // This will be updated after emails are uploaded
+        };
+
+        logger.info(`Received content upload request: CourseID: ${courseId}, ContentData: ${JSON.stringify(contentData)}, ContentType: ${contentType}`);
+
+        const result = await createCourseContent(courseId, contentData);
+
+        if (xlsxData) {
+            logger.info('Uploading emails', `CollectionName: ${result.collectionName}`, `xlsxData: ${JSON.stringify(xlsxData)}`);
+            await uploadEmails(result.collectionName, xlsxData);
+        }
+
+        res.json({ success: true, contentId: result.contentId });
+    } catch (err) {
+        logger.error('Error occurred during course content upload:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
+
+// Helper function to create course content
+async function createCourseContent(courseId, content) {
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('CourseID', sql.Int, courseId)
+            .input('CoursePDF', sql.NVarChar(sql.MAX), content.coursePDF || null)
+            .input('ContentName', sql.NVarChar(255), content.contentName || null)
+            .input('ContentDescription', sql.NVarChar(sql.MAX), content.contentDescription || null)
+            .input('ContentType', sql.NVarChar(50), content.contentType || null)
+            .input('EmailID', sql.NVarChar(255), content.emailID || null);
+
+        const result = await request.execute('sp_InsertCourseContent');
+
+        if (result.recordset.length > 0 && result.recordset[0].ContentID) {
+            const contentId = result.recordset[0].ContentID;
+            const collectionName = `${courseId}_${contentId}`;
+
+            logger.info(`Course content created successfully: CourseID: ${courseId}, ContentID: ${contentId}`);
+
+            return { courseId, contentId, collectionName };
+        } else {
+            throw new Error('Failed to create course content.');
+        }
+    } catch (err) {
+        logger.error(`Error occurred during course content creation: ${err.message}`);
+        throw err;
+    }
+}
+
+// Helper function to upload emails
+async function uploadEmails(collectionName, emailData) {
+    try {
+        const collection = client.db("emailDB").collection(collectionName);
+        const result = await collection.insertMany(emailData);
+
+        logger.info(`Emails uploaded successfully: CollectionName: ${collectionName}, InsertedCount: ${result.insertedCount}`);
+
+        return {
+            success: true,
+            insertedCount: result.insertedCount,
+            insertedIds: result.insertedIds
+        };
+    } catch (err) {
+        logger.error(`Failed to insert emails: ${err.message}, CollectionName: ${collectionName}`);
+        throw err;
+    }
+}
+
+
 
 
 // API Routes - update user email(API)
@@ -404,7 +556,7 @@ app.post('/update-user-email', async (req, res) => {
 
         // Execute the stored procedure
         const result = await request.execute('sp_UpdateUserEmail');
-        const returnValue = result.returnValue; // Capture the return value from the stored procedure
+        const returnValue = result.returnValue; 
 
         // Check if the stored procedure completed successfully
         if (returnValue === 0) {
@@ -490,38 +642,33 @@ function handleEmailUpdateErrors(returnValue, newEmail, res) {
 
 // API Routes - update password(API)
 app.post('/update-user-password', async (req, res) => {
-    const {
-        email,
-        newPassword
-    } = req.body;
+    const { email, newPassword } = req.body;
 
     if (!email || !newPassword) {
-        logger.error('Update user password attempt with incomplete form data', {
-            email
-        });
+        logger.error('Update user password attempt with incomplete form data', { email });
         return res.status(400).json({
             success: false,
             message: 'Incomplete form data'
         });
     }
 
-    // Hash to be added
-    const hashedPassword = newPassword;
-
     try {
+        // Hash the new password
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+
         let pool = await sql.connect(mssqlConfig);
         const request = pool.request()
             .input('UserEmail', sql.NVarChar(100), email)
             .input('NewPassword', sql.NVarChar(100), hashedPassword);
+        
         logger.info(email);
         const result = await request.execute('sp_UpdateUserPassword');
-        const returnValue = result.returnValue; // Access the return value from the stored procedure if necessary
+        const returnValue = result.returnValue;
 
-        // Check if the stored procedure returned an expected value -'0' means success
+        // Check if the stored procedure returned an expected value - '0' means success
         if (returnValue === 0) {
-            logger.info('User password updated successfully', {
-                email
-            });
+            logger.info('User password updated successfully', { email });
             res.json({
                 success: true,
                 message: 'Password updated successfully'
@@ -531,14 +678,10 @@ app.post('/update-user-password', async (req, res) => {
             let errorMessage = 'Unknown error occurred';
             if (returnValue === 1) {
                 errorMessage = 'User not found';
-                logger.warn('Failed to update password - User not found', {
-                    email
-                });
+                logger.warn('Failed to update password - User not found', { email });
             } else if (returnValue === 2) {
                 errorMessage = 'No update occurred';
-                logger.warn('No update occurred', {
-                    email
-                });
+                logger.warn('No update occurred', { email });
             }
             res.status(400).json({
                 success: false,
@@ -556,7 +699,6 @@ app.post('/update-user-password', async (req, res) => {
         });
     }
 });
-
 
 // API Routes - update user name(API)
 app.post('/update-user-name', async (req, res) => {
@@ -622,22 +764,18 @@ app.post('/update-user-name', async (req, res) => {
     }
 });
 
-
-
-
 // API Routes - login user(API)
 app.post('/login-user', async (req, res) => {
-    logger.info('Received login request', {
-        email: req.body.email
-    });
+    let email;
 
     try {
-        const { email, password } = req.body;
+        const { email: reqEmail, password } = req.body;
+        email = reqEmail;
+
+        logger.info(`Received login request for email: ${email}`);
 
         if (!email || !password) {
-            logger.warn('Login attempt with incomplete form data', {
-                email
-            });
+            logger.warn(`Login attempt with incomplete form data for email: ${email}`);
             return res.status(400).json({
                 success: false,
                 message: 'Incomplete form data'
@@ -648,57 +786,87 @@ app.post('/login-user', async (req, res) => {
         logger.debug('SQL connection established for login attempt');
 
         const request = pool.request()
-            .input('UserEmail', sql.NVarChar(100), email)
-            .input('UserPassword', sql.NVarChar(100), password);
+            .input('UserEmail', sql.NVarChar(100), email);
 
-        const loginResult = await request.execute('sp_ValidateUser');
-        logger.debug('Stored procedure executed for login', {
-            procedureName: 'sp_ValidateUser'
-        });
+        // Fetch the hashed password from the database
+        const passwordResult = await request.query(`
+            SELECT [User-Password] as Password, [User-ID] as UserId FROM dbo.Users WHERE [User-Email] = @UserEmail
+        `);
 
-        if (loginResult.recordset.length > 0 && loginResult.recordset[0].IsValid) {
-            const userData = await fetchUserData(email);
-            if (!userData) {
-                logger.warn('User data not found after login', { email });
-                return res.status(404).send('User not found');
-            }
+        logger.debug(`Query executed for fetching hashed password with email: ${email}`);
 
-            
-            req.session.isAuthenticated = true;
-            req.session.user = {
-                email: email,
-                isAdmin: userData.Admin
-            };
-            logger.info(req.session.user.isAdmin)
-            req.session.save(err => {
-                if (err) {
-                    logger.error('Error saving session after successful login', {
-                        email, error: err
+        if (passwordResult.recordset.length > 0) {
+            const hashedPassword = passwordResult.recordset[0].Password;
+            const userId = passwordResult.recordset[0].UserId;
+
+            // Compare the provided password with the hashed password
+            const passwordMatch = await bcrypt.compare(password, hashedPassword);
+
+            if (passwordMatch) {
+                // Call the stored procedure to validate the user
+                const validateRequest = pool.request()
+                    .input('UserEmail', sql.NVarChar(100), email)
+                    .input('UserPassword', sql.NVarChar(100), hashedPassword);
+
+                const validateResult = await validateRequest.execute('sp_ValidateUser');
+                logger.debug(`Stored procedure executed for login validation with email: ${email}`);
+
+                const isValid = validateResult.recordset[0].IsValid;
+
+                if (isValid) {
+                    const userData = await fetchUserData(email);
+                    if (!userData) {
+                        logger.warn(`User data not found after login for email: ${email}`);
+                        return res.status(404).send('User not found');
+                    }
+
+                    req.session.isAuthenticated = true;
+                    req.session.user = {
+                        id: userId,  // Ensure the user ID is stored in the session
+                        email: email,
+                        isAdmin: userData.Admin
+                    };
+                    logger.info(`User isAdmin status: ${req.session.user.isAdmin}`);
+                    req.session.save(err => {
+                        if (err) {
+                            logger.error(`Error saving session after successful login for email: ${email}`, { error: err });
+                            return res.status(500).json({
+                                success: false,
+                                message: 'Failed to create session.'
+                            });
+                        }
+                        res.json({
+                            success: true,
+                            user: userData
+                        });
                     });
-                    return res.status(500).json({
+                } else {
+                    logger.warn(`Login failed - invalid credentials for email: ${email}`);
+                    res.status(401).json({
                         success: false,
-                        message: 'Failed to create session.'
+                        message: 'Invalid email or password'
                     });
                 }
-                res.json({
-                    success: true,
-                    user: userData
+            } else {
+                logger.warn(`Login failed - invalid password for email: ${email}`);
+                res.status(401).json({
+                    success: false,
+                    message: 'Invalid email or password'
                 });
-            });
+            }
         } else {
-            logger.warn('Login failed - invalid credentials', { email });
+            logger.warn(`Login failed - user not found for email: ${email}`);
             res.status(401).json({
                 success: false,
                 message: 'Invalid email or password'
             });
         }
     } catch (err) {
-        logger.error('Exception occurred during login attempt', {
-            email, error: err
-        });
+        logger.error(`Exception occurred during login attempt for email: ${email}`, { error: err.message, stack: err.stack });
         res.status(500).json({
             success: false,
-            message: err.message
+            message: 'Server error occurred during login attempt',
+            error: err.message
         });
     }
 });
@@ -725,6 +893,159 @@ app.get('/admin-courses', isAuthenticated, isAdmin, (req, res) => {
     res.sendFile(path.join(__dirname, './public/admin-courses.html'));
 });
 
+app.get('/admin-courses/:courseId', isAuthenticated, isAdmin, async (req, res) => {
+    const courseId = req.params.courseId;
+    
+    // Validate the courseId
+    if (!courseId || isNaN(Number(courseId))) {
+        logger.error('Invalid courseId provided', { courseId });
+        return res.status(400).send('Invalid course identifier');
+    }
+
+    logger.info('Serving admin-course-edit.html for course', { courseId });
+    res.sendFile(path.join(__dirname, './public/admin-course-edit.html'));
+});
+
+//fetch course info
+app.get('/api/course/:courseId', isAuthenticated, isAdmin, async (req, res) => {
+    const courseId = req.params.courseId;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        
+        // Fetch course details
+        const courseResult = await pool.request()
+            .input('CourseID', sql.Int, courseId)
+            .query('SELECT * FROM Courses WHERE CourseID = @CourseID');
+
+        if (courseResult.recordset.length === 0) {
+            return res.status(404).json({ message: 'Course not found' });
+        }
+
+        // Fetch course content
+        const contentResult = await pool.request()
+            .input('CourseID', sql.Int, courseId)
+            .query('SELECT * FROM CourseContent WHERE CourseID = @CourseID');
+
+        res.json({
+            course: courseResult.recordset[0],
+            content: contentResult.recordset
+        });
+    } catch (err) {
+        logger.error('Error fetching course details and content:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
+//api for deleteing course content
+app.delete('/api/course/content/:contentId', isAuthenticated, async (req, res) => {
+    const contentId = req.params.contentId;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        await pool.request()
+            .input('ContentID', sql.Int, contentId)
+            .query('DELETE FROM CourseContent WHERE ContentID = @ContentID');
+
+        res.json({ success: true });
+    } catch (err) {
+        logger.error('Error deleting course content:', err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+
+app.post('/api/course/:courseId/content', isAuthenticated, isAdmin, async (req, res) => {
+    const courseId = req.params.courseId;
+    const { contentType } = req.body;
+
+    const pdfFile = req.files ? req.files.pdfFile : null;
+    const xlsxData = req.body.xlsxData ? JSON.parse(req.body.xlsxData) : null;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+
+        const contentData = {
+            coursePDF: pdfFile ? `/path/to/pdf/${pdfFile.name}` : null,
+            courseVideo: null,
+            emailLevel: null,
+            contentType: contentType
+        };
+
+        const result = await createCourseContent(courseId, contentData);
+
+        if (xlsxData) {
+            await uploadEmails(result.collectionName, xlsxData);
+        }
+
+        res.json({ success: true, contentId: result.contentId });
+    } catch (err) {
+        logger.error('Error occurred during course content upload:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// API Routes - retrieve course contents
+app.get('/api/course/:courseId/contents', isAuthenticated, async (req, res) => {
+    const courseId = req.params.courseId;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('CourseID', sql.Int, courseId)
+            .query('SELECT * FROM CourseContent WHERE CourseID = @CourseID');
+
+        if (result.recordset.length > 0) {
+            res.json(result.recordset);
+        } else {
+            res.status(404).json({ message: 'No content found for this course' });
+        }
+    } catch (err) {
+        logger.error('Error fetching course contents:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Define your routes after the session and JSON middleware
+app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
+    const userEmail = req.session.user?.email;
+
+    logger.info('Fetching enrolled courses', { userEmail: userEmail });
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        logger.info('MSSQL connection established for fetching enrolled courses.');
+
+        const request = pool.request();
+        request.input('UserEmail', sql.NVarChar(100), userEmail);
+        const result = await request.query(`
+            SELECT c.CourseID, c.Title, c.Description 
+            FROM Courses c
+            JOIN UserCourses uc ON uc.CourseID = c.CourseID
+            JOIN Users u ON uc.UserID = u.[User-ID]
+            WHERE u.[User-Email] = @UserEmail
+        `);
+
+        logger.debug('SQL query executed for enrolled courses', { query: request.query });
+
+        if (result.recordset.length > 0) {
+            logger.info('Enrolled courses retrieved successfully.', { count: result.recordset.length });
+            res.json(result.recordset);
+        } else {
+            logger.warn('No courses found for user', { userEmail: userEmail });
+            res.json([]);  // Return an empty array if no courses are found
+        }
+    } catch (err) {
+        logger.error('Error retrieving enrolled courses', {
+            userEmail: userEmail,
+            error: err.message
+        });
+        res.status(500).send("Error fetching user's courses");
+    }
+});
+
+
 // Admin-specific users management page
 app.get('/admin-users', isAuthenticated, isAdmin, (req, res) => {
     res.sendFile(path.join(__dirname, './public/admin-users.html'));
@@ -733,9 +1054,11 @@ app.get('/admin-users', isAuthenticated, isAdmin, (req, res) => {
 
 
 // API Routes - email(PATH)
-app.get('/email', isAuthenticated, (req, res) => {
+app.get('/email/:id', isAuthenticated, (req, res) => {
+    const id = req.params.id;
     logger.info('Serving email.html', {
-        ip: req.ip
+        ip: req.ip,
+        id: id
     });
     res.sendFile(path.join(__dirname, './public/email.html'));
 });
@@ -764,6 +1087,161 @@ app.get('/register', (req, res) => {
     });
     res.sendFile(path.join(__dirname, './public/register.html'));
 });
+
+
+// Serve the forgotten password page
+app.get('/forgottenPassword', (req, res) => {
+    logger.info('Serving forgottenPassword.html', {
+        ip: req.ip
+    });
+    res.sendFile(path.join(__dirname, './public/forgottenPassword.html'));
+});
+
+//Handle the PW reset and the mailing of the PW
+app.post('/send-reset-link', async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        logger.error('Password reset attempt with incomplete form data', { email });
+        return res.status(400).json({
+            success: false,
+            message: 'Incomplete form data'
+        });
+    }
+
+    try {
+        // Generate a temporary password
+        const tempPassword = uuidv4().slice(0, 8); // Generate a simple temporary password
+        const saltRounds = 10;
+        const hashedTempPassword = await bcrypt.hash(tempPassword, saltRounds);
+
+        // Update the password in the database
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('UserEmail', sql.NVarChar(100), email)
+            .input('NewPassword', sql.NVarChar(100), hashedTempPassword);
+
+        const result = await request.execute('sp_UpdateUserPassword');
+
+        // Check if the stored procedure returned an expected value - '0' means success
+        if (result.returnValue !== 0) {
+            let errorMessage = 'Unknown error occurred';
+            if (result.returnValue === 1) {
+                errorMessage = 'User not found';
+                logger.warn('Failed to update password - User not found', { email });
+            } else if (result.returnValue === 2) {
+                errorMessage = 'No update occurred';
+                logger.warn('No update occurred', { email });
+            }
+            return res.status(400).json({
+                success: false,
+                message: errorMessage
+            });
+        }
+
+        // Fetch email credentials from the database
+        const mailerRequest = pool.request();
+        const mailerResult = await mailerRequest.query('SELECT Username, Password FROM MailerDetails');
+        const { Username: gmailUser, Password: gmailPass } = mailerResult.recordset[0];
+
+        // Send the temporary password via email
+        const emailer = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+                user: gmailUser,
+                pass: gmailPass
+            }
+        });
+
+        const mailContent = {
+            to: email,
+            from: gmailUser,
+            subject: 'BiggerPhish Temporary Password',
+            text: `You are receiving this because you (or someone else) have requested a temporary password for your account.\n\n
+                   Your temporary password is: ${tempPassword}\n\n
+                   Please use this password to log in and change your password immediately.\n\n
+                   If you did not request this, please ignore this email and your password will remain unchanged.\n`
+        };
+
+        await emailer.sendMail(mailContent);
+
+        logger.info('Temporary password sent successfully', { email });
+        res.json({
+            success: true,
+            message: 'A temporary password has been sent to your email address.'
+        });
+    } catch (err) {
+        logger.error('Error occurred during password reset request', {
+            error: err.message,
+            email
+        });
+        res.status(500).json({
+            success: false,
+            message: 'Server error'
+        });
+    }
+});
+
+
+// Handle password reset form submission
+app.post('/reset-password', async (req, res) => {
+    const { email, newPassword } = req.body;
+
+    if (!email || !newPassword) {
+        logger.error('Password reset attempt with incomplete form data');
+        return res.status(400).json({
+            success: false,
+            message: 'Incomplete form data'
+        });
+    }
+
+    try {
+        // Hash the new password
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+
+        // Update the password in the database
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('UserEmail', sql.NVarChar(100), email)
+            .input('NewPassword', sql.NVarChar(100), hashedPassword);
+
+        const result = await request.execute('sp_UpdateUserPassword');
+
+        // Check if the stored procedure returned an expected value - '0' means success
+        if (result.returnValue === 0) {
+            logger.info('User password updated successfully', { email });
+            res.json({
+                success: true,
+                message: 'Password updated successfully'
+            });
+        } else {
+            // Handle specific errors if the stored procedure returns specific error codes
+            let errorMessage = 'Unknown error occurred';
+            if (result.returnValue === 1) {
+                errorMessage = 'User not found';
+                logger.warn('Failed to update password - User not found', { email });
+            } else if (result.returnValue === 2) {
+                errorMessage = 'No update occurred';
+                logger.warn('No update occurred', { email });
+            }
+            res.status(400).json({
+                success: false,
+                message: errorMessage
+            });
+        }
+    } catch (err) {
+        logger.error('Error occurred during updating user password', {
+            error: err.message,
+            email
+        });
+        res.status(500).json({
+            success: false,
+            message: 'Server error'
+        });
+    }
+});
+
 
 // API Routes - course(PATH)
 app.get('/settings', isAuthenticated, (req, res) => {
@@ -835,7 +1313,7 @@ app.post('/logout', isAuthenticated, (req, res) => {
 
 // API Routes - course content(PATH)
 // API Route to serve a specific course by courseId
-app.get('/course/:courseId', isAuthenticated, (req, res) => {
+app.get('/course/:courseId', isAuthenticated, isEnrolled,(req, res) => {
     const courseId = req.params.courseId;  // Capture courseId from URL parameter
     
     if (!courseId || isNaN(Number(courseId))) {
@@ -851,6 +1329,8 @@ app.get('/course/:courseId', isAuthenticated, (req, res) => {
 // API Routes - retrieve course content from DB(API)
 app.get('/files/pdf/:courseId', isAuthenticated, async (req, res) => {
     const courseId = req.params.courseId;
+    console.log("Received request for course ID:", courseId); // Log the course ID
+
     try {
         let pool = await sql.connect(mssqlConfig);
         const request = pool.request();
@@ -863,10 +1343,11 @@ app.get('/files/pdf/:courseId', isAuthenticated, async (req, res) => {
 
         if (result.recordset.length > 0) {
             const filePath = result.recordset[0].CoursePDF;
-            res.sendFile(filePath, {
-                root: path.join(__dirname, '/')
-            });
+            const fullFilePath = path.join(__dirname, filePath);
+            console.log("Serving PDF from:", fullFilePath); // Log the full file path
+            res.sendFile(fullFilePath);
         } else {
+            console.log('PDF file not found for course ID:', courseId); // Log if PDF not found
             res.status(404).send('PDF file not found');
         }
     } catch (err) {
@@ -877,16 +1358,20 @@ app.get('/files/pdf/:courseId', isAuthenticated, async (req, res) => {
     }
 });
 
+
+
 // API Route to get courses the user is enrolled in
 app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
-    logger.info('Fetching enrolled courses', { userEmail: req.session.user?.email });
-    
+    const userEmail = req.session.user?.email;
+
+    logger.info('Fetching enrolled courses', { userEmail: userEmail });
+
     try {
         let pool = await sql.connect(mssqlConfig);
         logger.info('MSSQL connection established for fetching enrolled courses.');
 
         const request = pool.request();
-        request.input('UserEmail', sql.NVarChar(100), req.session.user.email);
+        request.input('UserEmail', sql.NVarChar(100), userEmail);
         const result = await request.query(`
             SELECT c.CourseID, c.Title, c.Description 
             FROM Courses c
@@ -901,17 +1386,18 @@ app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
             logger.info('Enrolled courses retrieved successfully.', { count: result.recordset.length });
             res.json(result.recordset);
         } else {
-            logger.warn('No courses found for user', { userEmail: req.session.user.email });
-            res.status(404).send('No courses found for this user.');
+            logger.warn('No courses found for user', { userEmail: userEmail });
+            res.json([]);  // Return an empty array if no courses are found
         }
     } catch (err) {
         logger.error('Error retrieving enrolled courses', {
-            userEmail: req.session.user?.email,
+            userEmail: userEmail,
             error: err.message
         });
         res.status(500).send("Error fetching user's courses");
     }
 });
+
 
 
 // API Route to get all courses
@@ -1004,8 +1490,6 @@ app.get('/api/admin/all-users', isAuthenticated, isAdmin, async (req, res) => {
     }
 });
 
-
-
 // API Routes - retriev emails from DB(API)
 app.get('/emails', async (req, res) => {
     try {
@@ -1016,6 +1500,54 @@ app.get('/emails', async (req, res) => {
         res.status(500).send(e);
     }
 });
+
+// API Routes - retrieve emails from specified collection (API)
+app.get('/emails/:id', async (req, res) => {
+    const collectionName = req.params.id;
+    
+    try {
+        const collection = client.db("emailDB").collection(collectionName);
+        const emails = await collection.find({}).toArray();
+        res.json(emails);
+    } catch (e) {
+        logger.error('Failed to retrieve emails', { error: e.message, collectionName });
+        res.status(500).send(e);
+    }
+});
+
+
+/*
+TODO: XLSX parse and post into Mongo and MSSQL
+Need to post into the MSSQL Db first to create the revelant Ids, then I'll post the IDs (course+ContentID) 
+as a collection into the emails DB with the parsed xlsx file as JSON in my desired format
+*/
+
+
+// API Route - create a new collection and add entries to it
+app.post('/emails/:collectionName', async (req, res) => {
+    const collectionName = req.params.collectionName;
+    const emailData = req.body;
+
+    if (!Array.isArray(emailData)) {
+        return res.status(400).send('Data must be an array of email entries.');
+    }
+
+    try {
+        const collection = client.db("emailDB").collection(collectionName);
+        const result = await collection.insertMany(emailData);
+
+        res.json({
+            success: true,
+            insertedCount: result.insertedCount,
+            insertedIds: result.insertedIds
+        });
+    } catch (e) {
+        logger.error('Failed to insert emails', { error: e.message, collectionName });
+        res.status(500).send(e);
+    }
+});
+
+
 
 initializeDatabases().then(() => {
     app.listen(port, () => {
