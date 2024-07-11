@@ -12,7 +12,6 @@ TODO:
         Add a mark as completed button to email portal 
         Add a home/back button to email portal 
         Add a timer mechanism to email portal
-        Refine course edit functionality
 
     Enviroment:
         Migrate to cloud servers
@@ -974,6 +973,30 @@ app.get('/api/course/:courseId', isAuthenticated, isAdmin, async (req, res) => {
     }
 });
 
+// Update course content
+app.put('/api/course/content/:contentId', isAuthenticated, isAdmin, async (req, res) => {
+    const contentId = req.params.contentId;
+    const { contentName, contentDescription } = req.body;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('ContentID', sql.Int, contentId)
+            .input('ContentName', sql.NVarChar(255), contentName)
+            .input('ContentDescription', sql.NVarChar(500), contentDescription)
+            .query('UPDATE CourseContent SET ContentName = @ContentName, ContentDescription = @ContentDescription WHERE ContentID = @ContentID');
+
+        if (result.rowsAffected[0] > 0) {
+            res.json({ success: true });
+        } else {
+            res.status(404).json({ message: 'Content not found' });
+        }
+    } catch (err) {
+        logger.error('Error updating course content:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 
 //api for deleteing course content
 app.delete('/api/course/content/:contentId', isAuthenticated, async (req, res) => {
@@ -1099,6 +1122,27 @@ app.post('/api/enroll-course/:courseId', isAuthenticated, async (req, res) => {
     } catch (err) {
         logger.error('Error enrolling in course:', err);
         res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// API Route to get specific course content by contentId
+app.get('/api/course/content/:contentId', isAuthenticated, isAdmin, async (req, res) => {
+    const contentId = req.params.contentId;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('ContentID', sql.Int, contentId)
+            .query('SELECT * FROM CourseContent WHERE ContentID = @ContentID');
+
+        if (result.recordset.length > 0) {
+            res.json({ success: true, content: result.recordset[0] });
+        } else {
+            res.status(404).json({ success: false, message: 'Content not found' });
+        }
+    } catch (err) {
+        logger.error('Error fetching content details:', err);
+        res.status(500).json({ success: false, message: 'Server error' });
     }
 });
 

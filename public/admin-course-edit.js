@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const courseId = window.location.pathname.split('/').pop();
     fetchCourseDetails(courseId);
+    let currentContentId = null;
 });
 
 function fetchCourseDetails(courseId) {
@@ -108,11 +109,102 @@ function sendCourseContent(courseId, contentData) {
     });
 }
 
-
-
-
 function editContent(contentId) {
-    // Implementation for editing content
+    currentContentId = contentId;
+    
+    fetch(`/api/course/content/${contentId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('edit-content-name').value = data.content.ContentName || '';
+            document.getElementById('edit-content-description').value = data.content.ContentDescription || '';
+            $('#editContentModal').modal('show');
+        })
+        .catch(error => {
+            console.error('Error fetching content details:', error);
+        });
+}
+
+function submitEditContent() {
+    const contentName = document.getElementById('edit-content-name').value;
+    const contentDescription = document.getElementById('edit-content-description').value;
+    
+    const contentData = {
+        contentName: contentName,
+        contentDescription: contentDescription
+    };
+
+    fetch(`/api/course/content/${currentContentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(contentData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            alert('Content updated successfully');
+            $('#editContentModal').modal('hide');
+            fetchCourseDetails(window.location.pathname.split('/').pop());  // Refresh the content table
+        } else {
+            alert('Failed to update content: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error updating content:', error);
+    });
+}
+
+function submitEditCourse() {
+    const courseId = window.location.pathname.split('/').pop();
+    const title = document.getElementById('course-title').value;
+    const description = document.getElementById('course-description').value;
+
+    // Validation (if necessary)
+    if (!title || !description) {
+        alert('Both title and description are required.');
+        return;
+    }
+
+    const courseData = {
+        title: title,
+        description: description
+    };
+
+    fetch(`/api/course/${courseId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(courseData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            alert('Course updated successfully');
+            window.location.href = '/admin-courses'; // Redirect to courses list
+        } else {
+            alert('Failed to update course: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error updating course:', error);
+    });
 }
 
 function deleteContent(contentId) {

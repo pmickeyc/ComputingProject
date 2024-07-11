@@ -91,6 +91,36 @@
                             <!-- Content rows will be populated here -->
                         </tbody>
                     </table>
+                    <!-- Edit Content Modal -->
+                    <div class="modal fade" id="editContentModal" tabindex="-1" aria-labelledby="editContentModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editContentModalLabel">Edit Content</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="edit-content-form">
+                                        <div class="form-group">
+                                            <label for="edit-content-name">Content Name</label>
+                                            <input type="text" class="form-control" id="edit-content-name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit-content-description">Content Description</label>
+                                            <textarea class="form-control" id="edit-content-description" rows="3"
+                                                required></textarea>
+                                        </div>
+                                        <button type="button" class="btn btn-primary" onclick="submitEditContent()">Save
+                                            Changes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <form id="upload-course-content-form">
                         <div class="form-group">
