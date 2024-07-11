@@ -10095,3 +10095,295 @@
 2024-06-01 17:17:35 info: Serving course.html for course {"courseId":"1"}
 2024-06-01 17:17:35 info: Checking if request is authenticated
 2024-06-01 17:17:35 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:24:43 info: Received request for root route.
+2024-06-01 17:24:43 info: admin = false
+2024-06-01 17:24:43 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"HrwONPc6PD2bvYmKGaFuv1XOm60yfljQ","email":"pEncrypted@email.com"}
+2024-06-01 17:24:43 info: Checking if request is authenticated
+2024-06-01 17:24:43 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:24:43 info: User data retrieved successfully:
+2024-06-01 17:24:47 info: Checking if request is authenticated
+2024-06-01 17:24:47 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:24:47 info: Serving admin-settings.html
+2024-06-01 17:24:48 info: Checking if request is authenticated
+2024-06-01 17:24:48 info: Request is authenticated, proceeding to next middleware
+2024-06-01 17:24:48 info: User data retrieved successfully:
+2024-07-10 15:48:04 info: Received request for root route.
+2024-07-10 15:48:04 info: User is not authenticated, serving index.html
+2024-07-10 15:52:14 info: Received request for root route.
+2024-07-10 15:52:14 info: User is not authenticated, serving index.html
+2024-07-10 15:52:25 info: Received request for root route.
+2024-07-10 15:52:25 info: User is not authenticated, serving index.html
+2024-07-10 15:52:36 info: Received request for root route.
+2024-07-10 15:52:36 info: User is not authenticated, serving index.html
+2024-07-10 15:52:40 info: Serving login.html {"ip":"::1"}
+2024-07-10 15:52:42 info: Received login request for email: pEncrypted@email.com
+2024-07-10 15:52:42 info: User isAdmin status: false
+2024-07-10 15:52:42 info: Received request for root route.
+2024-07-10 15:52:42 info: admin = false
+2024-07-10 15:52:42 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"sDOGVtteRSvOYGBzZcP-8LobJN__aXth","email":"pEncrypted@email.com"}
+2024-07-10 15:52:42 info: Checking if request is authenticated
+2024-07-10 15:52:42 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:52:42 info: User data retrieved successfully:
+2024-07-10 15:52:50 info: Checking if request is authenticated
+2024-07-10 15:52:50 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:52:50 info: Serving courses.html for authenticated user {"sessionId":"sDOGVtteRSvOYGBzZcP-8LobJN__aXth"}
+2024-07-10 15:52:50 info: Checking if request is authenticated
+2024-07-10 15:52:50 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:52:50 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-10 15:52:50 info: MSSQL connection established for fetching enrolled courses.
+2024-07-10 15:52:50 info: Fetching all available courses.
+2024-07-10 15:52:50 info: MSSQL connection established for fetching all courses.
+2024-07-10 15:52:51 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-10 15:52:51 info: All courses retrieved successfully. {"count":8}
+2024-07-10 15:52:51 info: Checking if request is authenticated
+2024-07-10 15:52:51 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:52:51 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-10 15:52:51 info: MSSQL connection established for fetching enrolled courses.
+2024-07-10 15:52:51 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-10 15:52:54 info: Checking if request is authenticated
+2024-07-10 15:52:54 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:52:54 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-10 15:52:54 info: MSSQL connection established for fetching enrolled courses.
+2024-07-10 15:52:54 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-10 15:52:55 info: Checking if request is authenticated
+2024-07-10 15:52:55 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:52:55 info: User data retrieved successfully:
+2024-07-10 15:52:56 info: Checking if request is authenticated
+2024-07-10 15:52:56 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:52:56 info: Logout attempt {"sessionId":"sDOGVtteRSvOYGBzZcP-8LobJN__aXth"}
+2024-07-10 15:52:56 info: Attempting to destroy session {"sessionId":"sDOGVtteRSvOYGBzZcP-8LobJN__aXth"}
+2024-07-10 15:52:56 info: Session cookie cleared {"sessionId":"sDOGVtteRSvOYGBzZcP-8LobJN__aXth"}
+2024-07-10 15:52:56 info: User logged out successfully {"sessionId":"sDOGVtteRSvOYGBzZcP-8LobJN__aXth"}
+2024-07-10 15:52:56 info: Received request for root route.
+2024-07-10 15:52:56 info: User is not authenticated, serving index.html
+2024-07-10 15:53:29 info: Received request for root route.
+2024-07-10 15:53:29 info: User is not authenticated, serving index.html
+2024-07-10 15:54:05 info: Serving login.html {"ip":"::1"}
+2024-07-10 15:54:05 info: Received login request for email: pEncrypted@email.com
+2024-07-10 15:54:06 info: User isAdmin status: false
+2024-07-10 15:54:06 info: Received request for root route.
+2024-07-10 15:54:06 info: admin = false
+2024-07-10 15:54:06 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4","email":"pEncrypted@email.com"}
+2024-07-10 15:54:06 info: Checking if request is authenticated
+2024-07-10 15:54:06 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:54:06 info: User data retrieved successfully:
+2024-07-10 15:54:51 info: Received request for root route.
+2024-07-10 15:54:51 info: admin = false
+2024-07-10 15:54:51 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4","email":"pEncrypted@email.com"}
+2024-07-10 15:54:51 info: Checking if request is authenticated
+2024-07-10 15:54:51 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:54:51 info: User data retrieved successfully:
+2024-07-10 15:54:52 info: Received request for root route.
+2024-07-10 15:54:52 info: admin = false
+2024-07-10 15:54:52 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4","email":"pEncrypted@email.com"}
+2024-07-10 15:54:52 info: Checking if request is authenticated
+2024-07-10 15:54:52 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:54:52 info: User data retrieved successfully:
+2024-07-10 15:55:22 info: Received request for root route.
+2024-07-10 15:55:22 info: admin = false
+2024-07-10 15:55:22 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4","email":"pEncrypted@email.com"}
+2024-07-10 15:55:22 info: Checking if request is authenticated
+2024-07-10 15:55:22 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:55:22 info: User data retrieved successfully:
+2024-07-10 15:55:23 info: Received request for root route.
+2024-07-10 15:55:23 info: admin = false
+2024-07-10 15:55:23 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4","email":"pEncrypted@email.com"}
+2024-07-10 15:55:23 info: Checking if request is authenticated
+2024-07-10 15:55:23 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:55:23 info: User data retrieved successfully:
+2024-07-10 15:55:24 info: Received request for root route.
+2024-07-10 15:55:24 info: admin = false
+2024-07-10 15:55:24 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4","email":"pEncrypted@email.com"}
+2024-07-10 15:55:24 info: Checking if request is authenticated
+2024-07-10 15:55:24 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:55:24 info: User data retrieved successfully:
+2024-07-10 15:55:49 info: Received request for root route.
+2024-07-10 15:55:49 info: admin = false
+2024-07-10 15:55:49 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4","email":"pEncrypted@email.com"}
+2024-07-10 15:55:49 info: Checking if request is authenticated
+2024-07-10 15:55:49 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:55:49 info: User data retrieved successfully:
+2024-07-10 15:55:56 info: Checking if request is authenticated
+2024-07-10 15:55:56 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:55:56 info: Logout attempt {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4"}
+2024-07-10 15:55:56 info: Attempting to destroy session {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4"}
+2024-07-10 15:55:56 info: Session cookie cleared {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4"}
+2024-07-10 15:55:56 info: User logged out successfully {"sessionId":"4z8a1RuziXVOnTZcOeK4OYUHMEfiU9Q4"}
+2024-07-10 15:55:56 info: Received request for root route.
+2024-07-10 15:55:56 info: User is not authenticated, serving index.html
+2024-07-10 15:58:59 info: Serving login.html {"ip":"::1"}
+2024-07-10 15:58:59 info: Received login request for email: pEncrypted@email.com
+2024-07-10 15:59:00 info: User isAdmin status: false
+2024-07-10 15:59:00 info: Received request for root route.
+2024-07-10 15:59:00 info: admin = false
+2024-07-10 15:59:00 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D","email":"pEncrypted@email.com"}
+2024-07-10 15:59:00 info: Checking if request is authenticated
+2024-07-10 15:59:00 info: Request is authenticated, proceeding to next middleware
+2024-07-10 15:59:00 info: User data retrieved successfully:
+2024-07-11 11:56:22 info: Received request for root route.
+2024-07-11 11:56:22 info: admin = false
+2024-07-11 11:56:22 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D","email":"pEncrypted@email.com"}
+2024-07-11 11:56:22 info: Checking if request is authenticated
+2024-07-11 11:56:22 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:22 info: User data retrieved successfully:
+2024-07-11 11:56:23 info: Received request for root route.
+2024-07-11 11:56:23 info: admin = false
+2024-07-11 11:56:23 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D","email":"pEncrypted@email.com"}
+2024-07-11 11:56:23 info: Checking if request is authenticated
+2024-07-11 11:56:23 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:23 info: User data retrieved successfully:
+2024-07-11 11:56:24 info: Received request for root route.
+2024-07-11 11:56:24 info: admin = false
+2024-07-11 11:56:24 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D","email":"pEncrypted@email.com"}
+2024-07-11 11:56:24 info: Checking if request is authenticated
+2024-07-11 11:56:24 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:24 info: User data retrieved successfully:
+2024-07-11 11:56:26 info: Checking if request is authenticated
+2024-07-11 11:56:26 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:26 info: Serving courses.html for authenticated user {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D"}
+2024-07-11 11:56:26 info: Checking if request is authenticated
+2024-07-11 11:56:26 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:26 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:56:26 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:56:26 info: Fetching all available courses.
+2024-07-11 11:56:26 info: MSSQL connection established for fetching all courses.
+2024-07-11 11:56:26 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:56:26 info: All courses retrieved successfully. {"count":8}
+2024-07-11 11:56:26 info: Checking if request is authenticated
+2024-07-11 11:56:26 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:26 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:56:26 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:56:26 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:56:28 info: Received request for root route.
+2024-07-11 11:56:28 info: admin = false
+2024-07-11 11:56:28 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D","email":"pEncrypted@email.com"}
+2024-07-11 11:56:28 info: Checking if request is authenticated
+2024-07-11 11:56:28 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:28 info: User data retrieved successfully:
+2024-07-11 11:56:29 info: Checking if request is authenticated
+2024-07-11 11:56:29 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:29 info: Serving courses.html for authenticated user {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D"}
+2024-07-11 11:56:29 info: Checking if request is authenticated
+2024-07-11 11:56:29 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:29 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:56:29 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:56:29 info: Fetching all available courses.
+2024-07-11 11:56:29 info: MSSQL connection established for fetching all courses.
+2024-07-11 11:56:29 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:56:29 info: All courses retrieved successfully. {"count":8}
+2024-07-11 11:56:29 info: Checking if request is authenticated
+2024-07-11 11:56:29 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:29 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:56:29 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:56:29 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:56:31 info: Checking if request is authenticated
+2024-07-11 11:56:31 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:31 info: User data retrieved successfully:
+2024-07-11 11:56:33 info: Checking if request is authenticated
+2024-07-11 11:56:33 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:33 info: Serving courses.html for authenticated user {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D"}
+2024-07-11 11:56:33 info: Checking if request is authenticated
+2024-07-11 11:56:33 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:33 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:56:33 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:56:33 info: Fetching all available courses.
+2024-07-11 11:56:33 info: MSSQL connection established for fetching all courses.
+2024-07-11 11:56:33 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:56:33 info: All courses retrieved successfully. {"count":8}
+2024-07-11 11:56:33 info: Checking if request is authenticated
+2024-07-11 11:56:33 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:33 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:56:33 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:56:33 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:56:40 info: Received request for root route.
+2024-07-11 11:56:40 info: admin = false
+2024-07-11 11:56:40 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D","email":"pEncrypted@email.com"}
+2024-07-11 11:56:40 info: Checking if request is authenticated
+2024-07-11 11:56:40 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:56:40 info: User data retrieved successfully:
+2024-07-11 11:57:48 info: Checking if request is authenticated
+2024-07-11 11:57:48 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:57:48 info: Serving courses.html for authenticated user {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D"}
+2024-07-11 11:57:48 info: Checking if request is authenticated
+2024-07-11 11:57:48 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:57:48 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:57:48 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:57:48 info: Fetching all available courses.
+2024-07-11 11:57:48 info: MSSQL connection established for fetching all courses.
+2024-07-11 11:57:48 info: All courses retrieved successfully. {"count":8}
+2024-07-11 11:57:48 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:57:48 info: Checking if request is authenticated
+2024-07-11 11:57:48 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:57:48 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:57:48 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:57:48 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:57:49 info: Checking if request is authenticated
+2024-07-11 11:57:49 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:57:49 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-07-11 11:57:49 info: userId: 7, courseId: 1
+2024-07-11 11:57:49 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-07-11 11:57:49 info: Serving course.html for course {"courseId":"1"}
+2024-07-11 11:57:50 info: Checking if request is authenticated
+2024-07-11 11:57:50 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:58:15 info: Checking if request is authenticated
+2024-07-11 11:58:15 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:58:15 info: Checking if request is authenticated
+2024-07-11 11:58:15 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:58:15 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-07-11 11:58:15 info: userId: 7, courseId: 1
+2024-07-11 11:58:15 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-07-11 11:58:15 info: Serving course.html for course {"courseId":"1"}
+2024-07-11 11:58:15 info: Checking if request is authenticated
+2024-07-11 11:58:15 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:58:18 info: Checking if request is authenticated
+2024-07-11 11:58:18 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:58:18 info: Serving email.html {"ip":"::1","id":"1_26"}
+2024-07-11 11:59:29 info: Checking if request is authenticated
+2024-07-11 11:59:29 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:59:29 info: Serving admin-settings.html
+2024-07-11 11:59:30 info: Checking if request is authenticated
+2024-07-11 11:59:30 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:59:30 info: User data retrieved successfully:
+2024-07-11 11:59:34 info: Received request for root route.
+2024-07-11 11:59:34 info: admin = false
+2024-07-11 11:59:34 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D","email":"pEncrypted@email.com"}
+2024-07-11 11:59:34 info: Checking if request is authenticated
+2024-07-11 11:59:34 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:59:34 info: User data retrieved successfully:
+2024-07-11 11:59:35 info: Checking if request is authenticated
+2024-07-11 11:59:35 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:59:35 info: Serving courses.html for authenticated user {"sessionId":"egszdN1cqTYkN_ubSKNEtYkrakC_Z4-D"}
+2024-07-11 11:59:35 info: Checking if request is authenticated
+2024-07-11 11:59:35 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:59:35 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:59:35 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:59:35 info: Fetching all available courses.
+2024-07-11 11:59:35 info: MSSQL connection established for fetching all courses.
+2024-07-11 11:59:35 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:59:35 info: All courses retrieved successfully. {"count":8}
+2024-07-11 11:59:35 info: Checking if request is authenticated
+2024-07-11 11:59:35 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:59:35 info: Fetching enrolled courses {"userEmail":"pEncrypted@email.com"}
+2024-07-11 11:59:35 info: MSSQL connection established for fetching enrolled courses.
+2024-07-11 11:59:35 info: Enrolled courses retrieved successfully. {"count":1}
+2024-07-11 11:59:36 info: Checking if request is authenticated
+2024-07-11 11:59:36 info: Request is authenticated, proceeding to next middleware
+2024-07-11 11:59:36 info: {"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"isAuthenticated":true,"user":{"id":7,"email":"pEncrypted@email.com","isAdmin":false}}
+2024-07-11 11:59:36 info: userId: 7, courseId: 1
+2024-07-11 11:59:36 info: User is enrolled in the course {"userId":7,"courseId":"1"}
+2024-07-11 11:59:36 info: Serving course.html for course {"courseId":"1"}
+2024-07-11 11:59:37 info: Checking if request is authenticated
+2024-07-11 11:59:37 info: Request is authenticated, proceeding to next middleware
+2024-07-11 12:17:56 info: Checking if request is authenticated {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:17:56 warn: Request is not authenticated, redirecting to root {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ","path":"/course/1"}
+2024-07-11 12:17:56 info: Received request for root route. {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:17:56 info: User is not authenticated, serving index.html {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:18:09 info: Serving login.html {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ","ip":"::1"}
+2024-07-11 12:18:12 info: Received login request for email: pEncrypted@email.com {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:18:12 info: User isAdmin status: false {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:18:12 info: Received request for root route. {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:18:12 info: admin = false {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:18:12 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ","email":"pEncrypted@email.com"}
+2024-07-11 12:18:12 info: Checking if request is authenticated {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:18:12 info: Request is authenticated, proceeding to next middleware {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:18:12 info: User data retrieved successfully: {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}

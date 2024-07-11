@@ -6,35 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BiggerPhish</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <div class="container-fluid h-100">
         <div class="row h-100">
             <!-- Sidebar -->
-            <div class="col-md-3 sidebar">
+            <div class="col-md-3 sidebar d-flex flex-column align-items-center justify-content-center">
                 <div class="sidebar-header text-center py-4">
                     <a href="/" class="navbar-brand">
-                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid"
-                            style="max-height: 50px;">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
                     </a>
                 </div>
-
+                <ul class="nav-items">
+                    <li class="active"><i class="fas fa-home"></i> Home</li>
+                    <li><i class="fas fa-user"></i> Profile</li>
+                    <li><i class="fas fa-cog"></i> Settings</li>
+                    <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+                </ul>
             </div>
 
             <!-- Main Content -->
             <div class="col-md-9 d-flex flex-column">
                 <!-- Empty spacer div  -->
-                <div style="height: 50px;"> </div>
+                <div style="height: 50px;"></div>
                 <div class="my-auto text-center">
                     <!-- Main landing page content -->
-                    <h1>Welcome to BiggerPhish</h1>
+                    <h1 class="animated fadeIn">Welcome to BiggerPhish</h1>
                     <p class="lead">Your central hub for cyber security education.</p>
                     <div>
-                        <a href="/login" class="btn btn-primary btn-lg">Login</a>
-                        <a href="/register" class="btn btn-outline-secondary btn-lg">Register</a>
+                        <a href="/login" class="btn btn-primary btn-lg mr-2 animated fadeInUp">Login</a>
+                        <a href="/register" class="btn btn-outline-secondary btn-lg animated fadeInUp">Register</a>
                     </div>
                     <p class="mt-3">Learn anytime, anywhere. Enhance your cyber security skills with our self-directed
                         learning modules.</p>

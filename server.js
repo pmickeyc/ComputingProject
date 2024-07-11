@@ -4,8 +4,7 @@ BiggerPhish Educational Platform
 
 TODO:
     Security:
-        Security review of all endpoints/protect against unauthorized access to DB endpoints
-        Enhance logging serverSide - Perhaps add a DB table that could be logged into
+
 
     Functional:
         Connect courses to email portal
@@ -28,6 +27,8 @@ const {
 } = require('mongodb');
 const session = require('express-session');
 const winston = require('winston');
+const { createLogger, format, transports } = winston;
+const { combine, timestamp, printf } = format;
 const bodyParser = require('body-parser');
 const { stringify } = require('querystring');
 const { log } = require('console');
@@ -77,30 +78,57 @@ const mssqlConfig = {
     }
 };
 
+class MSSQLTransport extends winston.Transport {
+    constructor(opts) {
+        super(opts);
+        this.pool = new sql.ConnectionPool(mssqlConfig);
+        this.pool.connect().then(() => {
+            console.log('Connected to MSSQL for logging');
+        }).catch(err => {
+            console.error('Error connecting to MSSQL:', err);
+        });
+    }
 
-//Logger
-const logger = winston.createLogger({
+    log(info, callback) {
+        setImmediate(() => this.emit('logged', info));
+
+        const { timestamp, level, message, sessionId, ...meta } = info;
+
+        const query = `INSERT INTO Log (Timestamp, Level, Message, Meta, SessionId) VALUES (@timestamp, @level, @message, @meta, @sessionId)`;
+        const request = this.pool.request();
+        request.input('timestamp', sql.DateTime, new Date(timestamp));
+        request.input('level', sql.NVarChar(50), level);
+        request.input('message', sql.NVarChar(sql.MAX), message);
+        request.input('meta', sql.NVarChar(sql.MAX), JSON.stringify(meta));
+        request.input('sessionId', sql.NVarChar(100), sessionId || null);
+
+        request.query(query, (err) => {
+            if (err) {
+                console.error('Error logging to MSSQL:', err);
+            }
+            callback();
+        });
+    }
+}
+
+const logger = createLogger({
     level: 'info',
-    format: winston.format.combine(
-        winston.format.timestamp({
+    format: combine(
+        timestamp({
             format: 'YYYY-MM-DD HH:mm:ss'
         }),
-        winston.format.errors({
+        format.errors({
             stack: true
         }),
-        winston.format.printf((info) => {
-            // Start with the standard log message format
+        printf((info) => {
             let msg = `${info.timestamp} ${info.level}: ${info.message}`;
 
-            // Serialize and append any additional metadata objects to the log message
             const additionalInfo = Object.assign({}, info);
-            // Remove standard fields to avoid duplicating them in the output
             delete additionalInfo.message;
             delete additionalInfo.level;
             delete additionalInfo.timestamp;
             delete additionalInfo.stack;
 
-            // Append the serialized metadata, if any, to the message
             if (Object.keys(additionalInfo).length > 0) {
                 msg += ` ${JSON.stringify(additionalInfo)}`;
             }
@@ -109,23 +137,26 @@ const logger = winston.createLogger({
         })
     ),
     transports: [
-        new winston.transports.Console({
-            format: winston.format.combine(
-                winston.format.colorize(),
-                winston.format.printf(info => {
+        new transports.Console({
+            format: combine(
+                format.colorize(),
+                printf(info => {
                     return `${info.timestamp} ${info.level}: ${info.message}`;
                 })
             )
         }),
-        new winston.transports.File({
+        new transports.File({
             filename: 'error.log',
             level: 'error'
         }),
-        new winston.transports.File({
+        new transports.File({
             filename: 'combined.log'
-        })
+        }),
+        new MSSQLTransport()
     ]
 });
+
+module.exports = logger;
 
 // Middleware Functions
 function isAuthenticated(req, res, next) {
@@ -209,6 +240,10 @@ function isAdmin(req, res, next) {
     }
 }
 
+app.use((req, res, next) => {
+    logger.defaultMeta = { sessionId: req.sessionID };
+    next();
+});
 
 
 
@@ -293,18 +328,18 @@ app.get('/user-data', isAuthenticated, async (req, res) => {
 
 
 
-// API Routes - user-Data for all users(API)
-app.get("/users", (request, response) => {
-    // Execute a SELECT query
-    new sql.Request().query("SELECT * FROM Users", (err, result) => {
-        if (err) {
-            console.error("Error executing query:", err);
-        } else {
-            response.send(result.recordset);
-            console.dir(result.recordset);
-        }
-    });
-});
+// // API Routes - user-Data for all users(API)
+// app.get("/users", isAuthenticated, (request, response) => {
+//     // Execute a SELECT query
+//     new sql.Request().query("SELECT * FROM Users", (err, result) => {
+//         if (err) {
+//             console.error("Error executing query:", err);
+//         } else {
+//             response.send(result.recordset);
+//             console.dir(result.recordset);
+//         }
+//     });
+// });
 
 
 // API Routes - register user(API)
@@ -363,7 +398,7 @@ app.post('/register-user', async (req, res) => {
 });
 
 // API Routes - create course
-app.post('/api/create-course', async (req, res) => {
+app.post('/api/create-course', isAuthenticated, isAdmin, async (req, res) => {
     const { title, description } = req.body;
 
     if (!title || !description) {
@@ -529,7 +564,7 @@ async function uploadEmails(collectionName, emailData) {
 
 
 // API Routes - update user email(API)
-app.post('/update-user-email', async (req, res) => {
+app.post('/update-user-email', isAuthenticated, async (req, res) => {
     const {
         oldEmail,
         newEmail
@@ -641,7 +676,7 @@ function handleEmailUpdateErrors(returnValue, newEmail, res) {
 }
 
 // API Routes - update password(API)
-app.post('/update-user-password', async (req, res) => {
+app.post('/update-user-password', isAuthenticated, async (req, res) => {
     const { email, newPassword } = req.body;
 
     if (!email || !newPassword) {
@@ -701,7 +736,7 @@ app.post('/update-user-password', async (req, res) => {
 });
 
 // API Routes - update user name(API)
-app.post('/update-user-name', async (req, res) => {
+app.post('/update-user-name', isAuthenticated, async (req, res) => {
     const { email, newFName } = req.body;
 
     // Log the incoming request body to trace what we received
@@ -1229,7 +1264,7 @@ app.post('/send-reset-link', async (req, res) => {
 
 
 // Handle password reset form submission
-app.post('/reset-password', async (req, res) => {
+app.post('/reset-password', isAuthenticated,async (req, res) => {
     const { email, newPassword } = req.body;
 
     if (!email || !newPassword) {
@@ -1446,7 +1481,7 @@ app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
 
 
 // API Route to get all courses
-app.get('/api/all-courses', async (req, res) => {
+app.get('/api/all-courses', isAuthenticated, async (req, res) => {
     logger.info('Fetching all available courses.');
 
     try {
@@ -1547,7 +1582,7 @@ app.get('/emails', async (req, res) => {
 });
 
 // API Routes - retrieve emails from specified collection (API)
-app.get('/emails/:id', async (req, res) => {
+app.get('/emails/:id', isAuthenticated, async (req, res) => {
     const collectionName = req.params.id;
     
     try {
@@ -1569,7 +1604,7 @@ as a collection into the emails DB with the parsed xlsx file as JSON in my desir
 
 
 // API Route - create a new collection and add entries to it
-app.post('/emails/:collectionName', async (req, res) => {
+app.post('/emails/:collectionName', isAuthenticated, async (req, res) => {
     const collectionName = req.params.collectionName;
     const emailData = req.body;
 
