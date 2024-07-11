@@ -10387,3 +10387,400 @@
 2024-07-11 12:18:12 info: Checking if request is authenticated {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
 2024-07-11 12:18:12 info: Request is authenticated, proceeding to next middleware {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
 2024-07-11 12:18:12 info: User data retrieved successfully: {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:26:08 info: Checking if request is authenticated {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:26:08 info: Request is authenticated, proceeding to next middleware {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:26:08 info: Logout attempt {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:26:08 info: Attempting to destroy session {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:26:08 info: Session cookie cleared {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:26:08 info: User logged out successfully {"sessionId":"7hBVLj1iybwQbwYGIDTv1LKohS-DkkAZ"}
+2024-07-11 12:26:08 info: Received request for root route. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:08 info: User is not authenticated, serving index.html {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:11 info: Serving login.html {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","ip":"::1"}
+2024-07-11 12:26:22 info: Received login request for email: pmickeyc@gmail.com {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:22 info: User isAdmin status: true {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:22 info: Received request for root route. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:22 info: admin = true {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:22 info: Admin check passed, serving admin.html {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","email":"pmickeyc@gmail.com"}
+2024-07-11 12:26:22 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:22 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:23 info: User data retrieved successfully: {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:24 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:24 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:24 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:24 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:25 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:25 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:25 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:25 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:25 info: Admin fetching all available courses. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:25 info: MSSQL connection established for admin fetching all courses. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:25 info: All courses retrieved successfully by admin. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","count":8}
+2024-07-11 12:26:27 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:27 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:27 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:27 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:27 info: Serving admin-course-edit.html for course {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","courseId":"1"}
+2024-07-11 12:26:27 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:27 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:27 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:26:27 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Serving admin-course-edit.html for course {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","courseId":"1"}
+2024-07-11 12:33:47 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:33:47 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Serving admin-course-edit.html for course {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","courseId":"1"}
+2024-07-11 12:34:03 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:34:03 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: Admin fetching all available courses. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: MSSQL connection established for admin fetching all courses. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:11 info: All courses retrieved successfully by admin. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","count":8}
+2024-07-11 12:35:15 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:15 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:15 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:15 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:15 info: Serving admin-course-edit.html for course {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","courseId":"10"}
+2024-07-11 12:35:15 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:15 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:15 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:15 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Checking if request is authenticated {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Request is authenticated, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Checking if request is from an admin {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Admin verified, proceeding to next middleware {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: Admin fetching all available courses. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: MSSQL connection established for admin fetching all courses. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9"}
+2024-07-11 12:35:28 info: All courses retrieved successfully by admin. {"sessionId":"ENyswjMHqJ0rJQ7-fo95ZRm6oZHxt3Z9","count":8}
+2024-07-11 12:43:54 info: Received request for root route. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:54 info: User is not authenticated, serving index.html {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:56 info: Serving login.html {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL","ip":"::1"}
+2024-07-11 12:43:57 info: Received login request for email: pmickeyc@gmail.com {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:57 info: User isAdmin status: true {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:57 info: Received request for root route. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:57 info: admin = true {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:57 info: Admin check passed, serving admin.html {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL","email":"pmickeyc@gmail.com"}
+2024-07-11 12:43:57 info: Checking if request is authenticated {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:57 info: Request is authenticated, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:57 info: User data retrieved successfully: {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:58 info: Checking if request is authenticated {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:58 info: Request is authenticated, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:58 info: Checking if request is from an admin {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:58 info: Admin verified, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:59 info: Checking if request is authenticated {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:59 info: Request is authenticated, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:59 info: Checking if request is from an admin {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:59 info: Admin verified, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:59 info: Admin fetching all available courses. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:59 info: MSSQL connection established for admin fetching all courses. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:43:59 warn: No courses available in the database for admin. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Checking if request is authenticated {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Request is authenticated, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Checking if request is from an admin {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Admin verified, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Checking if request is authenticated {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Request is authenticated, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Checking if request is from an admin {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Admin verified, proceeding to next middleware {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: Admin fetching all available courses. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 info: MSSQL connection established for admin fetching all courses. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:44:13 warn: No courses available in the database for admin. {"sessionId":"VqrAYmneflkmxvk9HfR5vXszdAwVdKOL"}
+2024-07-11 12:48:17 info: Checking if request is authenticated {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:17 warn: Request is not authenticated, redirecting to root {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu","path":"/admin-courses"}
+2024-07-11 12:48:17 info: Received request for root route. {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:17 info: User is not authenticated, serving index.html {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:19 info: Serving login.html {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu","ip":"::1"}
+2024-07-11 12:48:20 info: Received login request for email: pmickeyc@gmail.com {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:20 info: User isAdmin status: true {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:20 info: Received request for root route. {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:20 info: admin = true {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:20 info: Admin check passed, serving admin.html {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu","email":"pmickeyc@gmail.com"}
+2024-07-11 12:48:21 info: Checking if request is authenticated {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:21 info: Request is authenticated, proceeding to next middleware {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:21 info: User data retrieved successfully: {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:21 info: Checking if request is authenticated {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:21 info: Request is authenticated, proceeding to next middleware {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:21 info: Checking if request is from an admin {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:21 info: Admin verified, proceeding to next middleware {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:22 info: Checking if request is authenticated {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:22 info: Request is authenticated, proceeding to next middleware {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:22 info: Checking if request is from an admin {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:22 info: Admin verified, proceeding to next middleware {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:22 info: Admin fetching all available courses. {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:22 info: MSSQL connection established for admin fetching all courses. {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:22 warn: No courses available in the database for admin. {"sessionId":"HyqCCVgv8vTHv_F1Sv0cGT6oT0SphYtu"}
+2024-07-11 12:48:42 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:42 warn: Request is not authenticated, redirecting to root {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","path":"/admin-courses"}
+2024-07-11 12:48:42 info: Received request for root route. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:42 info: User is not authenticated, serving index.html {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:43 info: Serving login.html {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","ip":"::1"}
+2024-07-11 12:48:44 info: Received login request for email: pmickeyc@gmail.com {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:44 info: User isAdmin status: true {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:44 info: Received request for root route. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:44 info: admin = true {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:44 info: Admin check passed, serving admin.html {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","email":"pmickeyc@gmail.com"}
+2024-07-11 12:48:44 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:44 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:44 info: User data retrieved successfully: {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: Admin fetching all available courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: MSSQL connection established for admin fetching all courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:45 info: All courses retrieved successfully by admin. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","count":8}
+2024-07-11 12:48:47 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:47 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:47 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:47 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: Admin fetching all available courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: MSSQL connection established for admin fetching all courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:49 info: All courses retrieved successfully by admin. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","count":7}
+2024-07-11 12:48:51 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:51 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:51 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:51 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:52 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:52 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:52 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:52 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:53 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:53 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:53 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:53 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:53 info: Admin fetching all available courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:53 info: MSSQL connection established for admin fetching all courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:53 info: All courses retrieved successfully by admin. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","count":6}
+2024-07-11 12:48:55 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: Admin fetching all available courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: MSSQL connection established for admin fetching all courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:48:55 info: All courses retrieved successfully by admin. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","count":6}
+2024-07-11 12:49:10 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:10 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:10 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:10 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:10 info: Serving admin-course-edit.html for course {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","courseId":"4"}
+2024-07-11 12:49:11 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:11 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:11 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:11 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: [object Object] {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: [object Object] {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: Received request: {
+  "contentName": "Geovernace slides for testing",
+  "contentDescription": "test content",
+  "contentType": "PDF"
+} {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: Received content upload request: CourseID: 4, ContentData: {"coursePDF":null,"contentName":"Geovernace slides for testing","contentDescription":"test content","contentType":"PDF","emailID":null}, ContentType: PDF {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:35 info: Course content created successfully: CourseID: 4, ContentID: 27 {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:36 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:36 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:36 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:49:36 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:03 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:03 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:03 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:03 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:04 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:04 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:04 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:04 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:04 info: Admin fetching all available courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:04 info: MSSQL connection established for admin fetching all courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:04 info: All courses retrieved successfully by admin. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","count":6}
+2024-07-11 12:50:05 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:05 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:05 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:05 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: Admin fetching all available courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: MSSQL connection established for admin fetching all courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:50:06 info: All courses retrieved successfully by admin. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","count":5}
+2024-07-11 12:51:07 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Checking if request is from an admin {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Admin verified, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: Admin fetching all available courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:07 info: MSSQL connection established for admin fetching all courses. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:08 info: All courses retrieved successfully by admin. {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE","count":5}
+2024-07-11 12:51:15 info: Checking if request is authenticated {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:15 info: Request is authenticated, proceeding to next middleware {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:15 info: Logout attempt {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:15 info: Attempting to destroy session {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:15 info: Session cookie cleared {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:15 info: User logged out successfully {"sessionId":"4YWuq-8GyOJztfX8aX_aG8Sq5F_typQE"}
+2024-07-11 12:51:15 info: Received request for root route. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:15 info: User is not authenticated, serving index.html {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:16 info: Serving login.html {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","ip":"::1"}
+2024-07-11 12:51:27 info: Received login request for email: testEncrypted@email.com {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:27 info: User isAdmin status: false {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:27 info: Received request for root route. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:27 info: admin = false {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:27 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","email":"testEncrypted@email.com"}
+2024-07-11 12:51:27 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:27 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:27 info: User data retrieved successfully: {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Serving courses.html for authenticated user {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Fetching enrolled courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:51:28 info: MSSQL connection established for fetching enrolled courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: Fetching all available courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 info: MSSQL connection established for fetching all courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:28 warn: No courses found for user {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:51:28 error: Error retrieving all courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","error":"Invalid column name 'Staus'."}
+2024-07-11 12:51:57 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:57 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:57 info: Fetching enrolled courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:51:57 info: MSSQL connection established for fetching enrolled courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:57 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:57 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:57 info: Fetching all available courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:57 info: MSSQL connection established for fetching all courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:51:57 warn: No courses found for user {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:51:57 error: Error retrieving all courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","error":"Invalid column name 'Staus'."}
+2024-07-11 12:52:16 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:52:16 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:52:16 info: Fetching enrolled courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:16 info: MSSQL connection established for fetching enrolled courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:52:16 info: Checking if request is authenticated {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:52:16 info: Request is authenticated, proceeding to next middleware {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:52:16 info: Fetching all available courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:52:16 info: MSSQL connection established for fetching all courses. {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa"}
+2024-07-11 12:52:16 warn: No courses found for user {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:16 error: Error retrieving all courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","error":"Invalid column name 'Staus'."}
+2024-07-11 12:52:21 info: Checking if request is authenticated {"sessionId":"tWZbCrc-fIh5uZlMTeeJSFY8Q2bZ7B3L"}
+2024-07-11 12:52:21 warn: Request is not authenticated, redirecting to root {"sessionId":"tWZbCrc-fIh5uZlMTeeJSFY8Q2bZ7B3L","path":"/api/my-enrolled-courses"}
+2024-07-11 12:52:21 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:21 warn: Request is not authenticated, redirecting to root {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","path":"/api/all-courses"}
+2024-07-11 12:52:21 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:21 info: User is not authenticated, serving index.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:22 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:22 info: User is not authenticated, serving index.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:23 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:23 warn: Request is not authenticated, redirecting to root {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","path":"/api/my-enrolled-courses"}
+2024-07-11 12:52:23 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:23 warn: Request is not authenticated, redirecting to root {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","path":"/api/all-courses"}
+2024-07-11 12:52:23 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:23 info: User is not authenticated, serving index.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:23 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:23 info: User is not authenticated, serving index.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:41 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:41 warn: Request is not authenticated, redirecting to root {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","path":"/api/my-enrolled-courses"}
+2024-07-11 12:52:41 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:41 warn: Request is not authenticated, redirecting to root {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","path":"/api/all-courses"}
+2024-07-11 12:52:41 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:41 info: User is not authenticated, serving index.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:41 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:41 info: User is not authenticated, serving index.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:42 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:42 info: User is not authenticated, serving index.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:45 info: Serving login.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","ip":"::1"}
+2024-07-11 12:52:46 info: Received login request for email: testEncrypted@email.com {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:46 info: User isAdmin status: false {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:46 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:46 info: admin = false {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:46 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","email":"testEncrypted@email.com"}
+2024-07-11 12:52:46 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:46 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:46 info: User data retrieved successfully: {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Serving courses.html for authenticated user {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Fetching enrolled courses {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:47 info: MSSQL connection established for fetching enrolled courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Fetching all available courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: MSSQL connection established for fetching all courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 warn: No courses found for user {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:47 info: All courses retrieved successfully. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","count":5}
+2024-07-11 12:52:47 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 info: Fetching enrolled courses {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:47 info: MSSQL connection established for fetching enrolled courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:47 warn: No courses found for user {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:51 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:51 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Fetching enrolled courses {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:52 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Fetching all available courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: MSSQL connection established for fetching enrolled courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: MSSQL connection established for fetching all courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Enrolled courses retrieved successfully. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","count":1}
+2024-07-11 12:52:52 info: All courses retrieved successfully. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","count":5}
+2024-07-11 12:52:52 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Fetching enrolled courses {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","userEmail":"testEncrypted@email.com"}
+2024-07-11 12:52:52 info: MSSQL connection established for fetching enrolled courses. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:52:52 info: Enrolled courses retrieved successfully. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","count":1}
+2024-07-11 12:54:21 info: Received request for root route. {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:54:21 info: admin = false {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:54:21 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK","email":"testEncrypted@email.com"}
+2024-07-11 12:54:21 info: Checking if request is authenticated {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:54:21 info: Request is authenticated, proceeding to next middleware {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}
+2024-07-11 12:54:21 info: User data retrieved successfully: {"sessionId":"CQ6jrGsZGYOr52kRY5U6KTbP6MFnQIOK"}

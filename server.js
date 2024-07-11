@@ -4,16 +4,15 @@ BiggerPhish Educational Platform
 
 TODO:
     Security:
-
+        Review unneeded endpoints
 
     Functional:
-        Connect courses to email portal
-        CRUD operations for Admin
-        Add a content upload mechanism (for teachers/admin) - should be at least a PDF and a set of emails for the email tracker
+        User CRUD operations for Admin
         Add a course progress tracker
         Add a mark as completed button to email portal 
         Add a home/back button to email portal 
         Add a timer mechanism to email portal
+        Refine course edit functionality
 
     Enviroment:
         Migrate to cloud servers
@@ -1494,6 +1493,7 @@ app.get('/api/all-courses', isAuthenticated, async (req, res) => {
         const result = await pool.request().query(`
             SELECT CourseID, Title, Description
             FROM Courses
+            WHERE Status != 'inactive' OR Status Is NULL
         `);
 
         logger.debug('SQL query executed for all courses', { query: result.command });
@@ -1524,6 +1524,7 @@ app.get('/api/admin/all-courses', isAuthenticated, isAdmin, async (req, res) => 
         const result = await pool.request().query(`
             SELECT *
             FROM Courses
+            WHERE Status != 'inactive' OR status is NULL
         `);
 
         logger.debug('SQL query executed for all admin courses', { query: result.command });
@@ -1542,6 +1543,30 @@ app.get('/api/admin/all-courses', isAuthenticated, isAdmin, async (req, res) => 
         res.status(500).send("Error fetching courses for admin");
     }
 });
+
+// API endpoint to delete a course
+app.delete('/api/course/:courseId', isAuthenticated, isAdmin, async (req, res) => {
+    const courseId = req.params.courseId;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('CourseID', sql.Int, courseId);
+
+        const result = await request.execute('sp_SoftDeleteCourse');
+        const returnValue = result.returnValue;
+
+        if (returnValue === -1) {
+            return res.status(404).json({ success: false, message: 'Course not found' });
+        }
+
+        res.json({ success: true });
+    } catch (err) {
+        logger.error('Error deleting course:', err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
 
 // API Route to get all users for admin
 app.get('/api/admin/all-users', isAuthenticated, isAdmin, async (req, res) => {

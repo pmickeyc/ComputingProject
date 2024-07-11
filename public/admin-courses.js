@@ -46,8 +46,26 @@ function editCourse(courseId) {
 
 function deleteCourse(courseId) {
     console.log('Deleting course', courseId);
-    // Implementation for deleting a course
+    fetch(`/api/course/${courseId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Course deleted successfully');
+            location.reload(); // Optionally reload the page or refresh the course list
+        } else {
+            alert('Failed to delete course: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error deleting course:', error);
+    });
 }
+
 
 function closeCreateCourseModal() {
     document.getElementById('createCourseModal').style.display = 'none';

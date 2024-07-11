@@ -132,3 +132,6 @@
 2024-06-01 15:38:16 error: Invalid courseId provided {"courseId":"common.js"}
 2024-06-01 15:38:23 error: Invalid courseId provided {"courseId":"common.js"}
 2024-06-01 15:39:03 error: Invalid courseId provided {"courseId":"common.js"}
+2024-07-11 12:51:28 error: Error retrieving all courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","error":"Invalid column name 'Staus'."}
+2024-07-11 12:51:57 error: Error retrieving all courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","error":"Invalid column name 'Staus'."}
+2024-07-11 12:52:16 error: Error retrieving all courses {"sessionId":"0CI1Ql8g12-UYoGPpjKyPGXMLcndTdLa","error":"Invalid column name 'Staus'."}
