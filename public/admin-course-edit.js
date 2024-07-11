@@ -209,7 +209,7 @@ function submitEditCourse() {
 
 function deleteContent(contentId) {
     const courseId = window.location.pathname.split('/').pop();
-
+    
     fetch(`/api/course/content/${contentId}`, {
         method: 'DELETE'
     })
