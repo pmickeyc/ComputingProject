@@ -3,31 +3,66 @@
 <head>
     <title>Mock Email Portal</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <script src="/email.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/email.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <button class="compose-button">Compose</button>
-            <ul class="nav-items">
-                <li class="active" id="inbox-title">Inbox</li>
-                <!--Aesthetics only-->
-                <li>Starred</li>
-                <li>Snoozed</li>
-            </ul>
-        </div>
-        <div class="main">
-            <div class="tabs">
-                <div class="tab active">Primary</div>
-                <!--Aesthetics only-->
-                <div class="tab">Promotions</div>
-                <div class="tab">Social</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <button class="compose-button">Compose</button>
+                <ul class="nav flex-column nav-items">
+                    <li class="nav-item active" id="inbox-title">Inbox</li>
+                    <!--Aesthetics only-->
+                    <li class="nav-item">Starred</li>
+                    <li class="nav-item">Snoozed</li>
+                    <li class="nav-item" onclick="goBack()">Exit Portal</li>
+                </ul>
             </div>
-            <!-- Email full view container, initially hidden -->
-            <div class="email-full" style="display: none;"></div>
-            <!-- Email list container where email items will be dynamically added -->
-            <div class="email-list">
-                <!-- Email items will be dynamically added here by email.js -->
+            <div class="col-md-10 main">
+                <div class="header">
+                    <div class="tabs">
+                        <div class="tab active">Primary</div>
+                        <!--Aesthetics only-->
+                        <div class="tab">Promotions</div>
+                        <div class="tab">Social</div>
+                    </div>
+                    <div id="timer" class="timer">02:00</div>
+                </div>
+                <!-- Email full view container, initially hidden -->
+                <div class="email-full" style="display: none;"></div>
+                <!-- Email list container where email items will be dynamically added -->
+                <div class="email-list">
+                    <!-- Email items will be dynamically added here by email.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for displaying score and options -->
+    <div id="scoreModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Score</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalMessage"></p>
+                    <div id="perfectScoreOptions" style="display: none;">
+                        <button id="markCompleteBtn" class="btn btn-success">Mark as Complete</button>
+                        <button id="reloadBtn" class="btn btn-secondary">Reload</button>
+                        <button id="exitBtn" class="btn btn-danger">Exit</button>
+                    </div>
+                    <div id="normalScoreOptions" style="display: none;">
+                        <button id="reloadBtn" class="btn btn-secondary">Reload</button>
+                        <button id="exitBtn" class="btn btn-danger">Exit</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

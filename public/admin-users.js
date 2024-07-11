@@ -7,7 +7,7 @@ function fetchAllUsers() {
         .then(response => response.json())
         .then(data => {
             populateUsers(data, '#admin-users-container');
-            console.log(data);
+            console.log("Content fetched successfully");
         })
         .catch(error => {
             console.error('Error fetching all users for admin:', error);
@@ -34,11 +34,79 @@ function populateUsers(users, containerSelector) {
 }
 
 function editUser(userId) {
-    console.log('Editing user', userId);
-    // Placeholder for actual implementation
+    // Fetch user data
+    fetch(`/api/user/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const user = data.user;
+                document.getElementById('edit-user-id').value = user['User-ID'];
+                document.getElementById('edit-user-name').value = user['User-FName'];
+                document.getElementById('edit-user-email').value = user['User-Email'];
+                $('#editUserModal').modal('show');
+            } else {
+                alert('Failed to load user data.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching user data:', error);
+            alert('Failed to load user data.');
+        });
+}
+
+
+function submitEditUser() {
+    const userId = document.getElementById('edit-user-id').value;
+    const userName = document.getElementById('edit-user-name').value;
+    const userEmail = document.getElementById('edit-user-email').value;
+
+    const userData = {
+        firstName: userName,
+        email: userEmail
+    };
+
+    fetch(`/api/user/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('User updated successfully');
+            $('#editUserModal').modal('hide');
+            fetchAllUsers(); // Refresh the user list
+        } else {
+            alert('Failed to update user: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error updating user:', error);
+        alert('Failed to update user.');
+    });
 }
 
 function deleteUser(userId) {
-    console.log('Deleting user', userId);
-    // Placeholder for actual implementation
+    if (!confirm('Are you sure you want to delete this user?')) {
+        return;
+    }
+
+    fetch(`/api/user/${userId}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('User deleted successfully');
+            fetchAllUsers(); // Refresh the user list
+        } else {
+            alert('Failed to delete user: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error deleting user:', error);
+        alert('Failed to delete user.');
+    });
 }

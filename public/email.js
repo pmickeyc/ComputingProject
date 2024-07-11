@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let maxRealEmails = 0;
     let maxEmailsDelivered = 10;
 
+    
+
     // Levels (the index) of real to fake emails 
     const levelRatios = [
         { real: 9, fake: 1 },
@@ -34,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             maxRealEmails = 2;
             maxFakeEmails = 3;
         }
+        console.log(`Max real emails: ${maxRealEmails}, Max fake emails: ${maxFakeEmails}`);
     }
 
     // Example usage ie.HardCoded (will read from DB for this):
@@ -58,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="email-subject">${emailContent.subject}</div>
         <div class="email-snippet">${emailContent.snippet}</div>
         <div class="email-guess-buttons">
-            <button class="guess-fake">Fake</button>
-            <button class="guess-real">Real</button>
+            <button class="guess-fake btn btn-warning">Fake</button>
+            <button class="guess-real btn btn-success">Real</button>
         </div>
     `;
         addEmailClickListener(newEmail);
@@ -99,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             totalGuesses++;
 
+            console.log(`Correct guesses: ${correctGuesses}, Incorrect guesses: ${incorrectGuesses}, Total guesses: ${totalGuesses}`);
+
             // Disable the guess buttons for this email item
             const btnFake = emailElement.querySelector('.guess-fake');
             const btnReal = emailElement.querySelector('.guess-real');
@@ -107,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // If the user has made 5 guesses, display the score
             if (totalGuesses === maxGuesses) {
-                alert(`Your score: ${correctGuesses} correct, ${incorrectGuesses} incorrect.`);
+                console.log('Reached max guesses');
+                showScoreModal();
                 correctGuesses = 0;
                 incorrectGuesses = 0;
                 totalGuesses = 0;
@@ -131,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let emailToDeliver = deliveredEmails.shift(); // Get the next email to deliver
                 document.querySelector('.email-list').prepend(emailToDeliver);
                 deliveryCount++;
+                console.log(`Delivered email count: ${deliveryCount}`);
             } else {
                 clearInterval(emailDeliveryInterval); // Stop the interval after maxEmailsDelivered emails
             }
@@ -155,6 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
+            console.log(`Fetched emails - Fake: ${fakeEmailCount}, Real: ${realEmailCount}`);
             // Shuffle the emails to randomize the order of delivery
             shuffleArray(deliveredEmails);
 
@@ -168,7 +176,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Extract the collection ID from the URL path and fetch emails
     const pathParts = window.location.pathname.split('/');
     const collectionId = pathParts[pathParts.length - 1];
+    const [courseId, contentId] = collectionId.split('_');
+    // Ensure courseId and contentId are available
+    if (courseId && contentId) {
+        console.log(`Fetching emails for course ID: ${courseId}, content ID: ${contentId}`);
+        fetchEmails(collectionId);
+    } else {
+        console.error('No valid course ID and content ID found in the URL path');
+    }
     if (collectionId) {
+        console.log(`Fetching emails for collection ID: ${collectionId}`);
         fetchEmails(collectionId);
     } else {
         console.error('No collection ID found in the URL path');
@@ -202,4 +219,84 @@ document.addEventListener('DOMContentLoaded', function () {
         emailListView.style.display = 'block';
     });
 
+    // Timer code
+    let timeLeft = 120; // Time in seconds
+    const timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timerInterval);
+            if (confirm('Time is up! The game has ended. Do you want to proceed (which will reload the page) or go back? \n\nClick OK to reload the page or Cancel to exit the portal.')) {
+                location.reload();
+            } else {
+                goBack();
+            }
+        }
+    }
+
+    let timerInterval = setInterval(updateTimer, 1000);
+
+    window.goBack = function() {
+        window.history.back();
+    }; 
+
+    // Start the timer as soon as the DOM loads
+    updateTimer();
+
+    function showScoreModal() {
+        console.log('Showing score modal');
+        clearInterval(timerInterval); // Stop the timer when the modal appears
+        const modal = document.getElementById('scoreModal');
+        const modalMessage = document.getElementById('modalMessage');
+        const perfectScoreOptions = document.getElementById('perfectScoreOptions');
+        const normalScoreOptions = document.getElementById('normalScoreOptions');
+
+        const perfectScore = incorrectGuesses === 0;
+        modalMessage.textContent = perfectScore ? 'Perfect score! You got all correct.' : `Your score: ${correctGuesses} correct, ${incorrectGuesses} incorrect.`;
+
+        if (perfectScore) {
+            perfectScoreOptions.style.display = 'block';
+            normalScoreOptions.style.display = 'none';
+        } else {
+            perfectScoreOptions.style.display = 'none';
+            normalScoreOptions.style.display = 'block';
+        }
+
+        $(modal).modal('show');
+    }
+
+    $('#markCompleteBtn').on('click', function() {
+        markContentComplete(contentId, courseId);
+    });
+
+    $('#reloadBtn').on('click', function() {
+        location.reload();
+    });
+
+    $('#exitBtn').on('click', function() {
+        goBack();
+    });
+
+    function markContentComplete(contentId, courseId) {
+        $.ajax({
+            url: `/api/complete-content/${contentId}`,
+            method: 'POST',
+            data: {
+                courseId: courseId
+            },
+            success: function (data) {
+                console.log('Content marked as complete:', data); // Log success response
+                goBack(); // Refresh the page
+            },
+            error: function (xhr, status, error) {
+                console.error("Failed to mark content as complete:", status, error);
+                alert('Failed to mark content as complete.');
+            }
+        });
+    }
 });

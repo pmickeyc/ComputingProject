@@ -5,13 +5,11 @@ BiggerPhish Educational Platform
 TODO:
     Security:
         Review unneeded endpoints
+        Update any queries in server.js to stored procedures
+        Sanitise inputs
 
     Functional:
-        User CRUD operations for Admin
         Add a course progress tracker
-        Add a mark as completed button to email portal 
-        Add a home/back button to email portal 
-        Add a timer mechanism to email portal
 
     Enviroment:
         Migrate to cloud servers
@@ -521,8 +519,7 @@ async function createCourseContent(courseId, content) {
             .input('CoursePDF', sql.NVarChar(sql.MAX), content.coursePDF || null)
             .input('ContentName', sql.NVarChar(255), content.contentName || null)
             .input('ContentDescription', sql.NVarChar(sql.MAX), content.contentDescription || null)
-            .input('ContentType', sql.NVarChar(50), content.contentType || null)
-            .input('EmailID', sql.NVarChar(255), content.emailID || null);
+            .input('ContentType', sql.NVarChar(50), content.contentType || null);
 
         const result = await request.execute('sp_InsertCourseContent');
 
@@ -541,6 +538,7 @@ async function createCourseContent(courseId, content) {
         throw err;
     }
 }
+
 
 // Helper function to upload emails
 async function uploadEmails(collectionName, emailData) {
@@ -1157,18 +1155,39 @@ app.post('/api/complete-content/:contentId', isAuthenticated, async (req, res) =
             .input('ContentID', sql.Int, contentId)
             .input('UserID', sql.Int, userId);
 
-        await request.query(`
-            UPDATE UserCourseContents
-            SET IsCompleted = 1
-            WHERE ContentID = @ContentID AND UserCourseID = (SELECT UserCourseID FROM UserCourses WHERE UserID = @UserID)
-        `);
+        const userCourseIdQuery = `
+            SELECT UserCourseID 
+            FROM UserCourses 
+            WHERE UserID = @UserID AND CourseID = (
+                SELECT CourseID 
+                FROM CourseContent 
+                WHERE ContentID = @ContentID
+            )
+        `;
+        
+        const userCourseIdResult = await request.query(userCourseIdQuery);
 
-        res.json({ success: true });
+        if (userCourseIdResult.recordset.length === 1) {
+            const userCourseId = userCourseIdResult.recordset[0].UserCourseID;
+
+            await request.input('UserCourseID', sql.Int, userCourseId)
+                .query(`
+                    UPDATE UserCourseContents
+                    SET IsCompleted = 1
+                    WHERE ContentID = @ContentID AND UserCourseID = @UserCourseID
+                `);
+
+            res.json({ success: true });
+        } else {
+            logger.error('User is not enrolled in the course associated with this content.');
+            res.status(400).json({ message: 'User is not enrolled in the course associated with this content.' });
+        }
     } catch (err) {
         logger.error('Error marking content as complete:', err);
         res.status(500).json({ message: 'Server error' });
     }
 });
+
 
 
 
@@ -1524,7 +1543,77 @@ app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
     }
 });
 
+// Fetch specific user data by userId
+app.get('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
+    const userId = req.params.userId;
 
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('UserID', sql.Int, userId)
+            .query('SELECT [User-ID], [User-FName], [User-Email] FROM Users WHERE [User-ID] = @UserID');
+
+        if (result.recordset.length > 0) {
+            logger.info(`Successfully fetched user with ID ${userId}`);
+            res.json({ success: true, user: result.recordset[0] });
+        } else {
+            logger.warn(`User with ID ${userId} not found`);
+            res.status(404).json({ success: false, message: 'User not found' });
+        }
+    } catch (err) {
+        logger.error('Error fetching user details:', err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+// Update user data
+app.put('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
+    const userId = req.params.userId;
+    const { firstName, email } = req.body;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('UserID', sql.Int, userId)
+            .input('UserFName', sql.NVarChar(100), firstName)
+            .input('UserEmail', sql.NVarChar(100), email)
+            .query('UPDATE Users SET [User-FName] = @UserFName, [User-Email] = @UserEmail WHERE [User-ID] = @UserID');
+
+        if (result.rowsAffected[0] > 0) {
+            logger.info(`Successfully updated user with ID ${userId}`);
+            res.json({ success: true });
+        } else {
+            logger.warn(`User with ID ${userId} not found for update`);
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (err) {
+        logger.error('Error updating user:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Delete user
+app.delete('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
+    const userId = req.params.userId;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('UserID', sql.Int, userId)
+            .query('DELETE FROM Users WHERE [User-ID] = @UserID');
+
+        if (result.rowsAffected[0] > 0) {
+            logger.info(`Successfully deleted user with ID ${userId}`);
+            res.json({ success: true });
+        } else {
+            logger.warn(`User with ID ${userId} not found for deletion`);
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (err) {
+        logger.error('Error deleting user:', err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
 
 // API Route to get all courses
 app.get('/api/all-courses', isAuthenticated, async (req, res) => {
