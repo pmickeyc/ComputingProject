@@ -9,8 +9,9 @@ TODO:
         Sanitise inputs
 
     Functional:
-        Add a course progress tracker
-
+        Test plans
+        Styling
+        
     Enviroment:
         Migrate to cloud servers
         Add a CI/CD pipeline
@@ -215,8 +216,6 @@ async function isEnrolled(req, res, next) {
     }
 }
 
-
-
 // Admin check middleware
 function isAdmin(req, res, next) {
     logger.info('Checking if request is from an admin');
@@ -226,18 +225,20 @@ function isAdmin(req, res, next) {
         session: req.session
     });
 
-    // Check if user is admin
     if (req.session.user && req.session.user.isAdmin) {
         logger.info('Admin verified, proceeding to next middleware');
         next();  // User is admin, continue with the request
     } else {
         logger.warn('Admin not verified, redirecting to login page', {
             sessionId: req.session.id,
-            path: req.path
+            path: req.path,
+            isAdmin: req.session.user ? req.session.user.isAdmin : 'undefined',
+            user: req.session.user || 'undefined'
         });
         res.redirect('/login');  // Not admin, redirect to login or error page
     }
 }
+
 
 app.use((req, res, next) => {
     logger.defaultMeta = { sessionId: req.sessionID };
@@ -1389,18 +1390,18 @@ app.post('/reset-password', isAuthenticated,async (req, res) => {
 
 
 // API Routes - course(PATH)
-app.get('/settings', isAuthenticated, (req, res) => {
-    if(isAdmin){
-        logger.info('Serving admin-settings.html');
-            ip: req.ip;
+// Route for settings page
+app.get('/settings', isAuthenticated, (req, res, next) => {
+    // Check if user is admin
+    if (req.session.user && req.session.user.isAdmin) {
+        logger.info('Admin verified, serving admin-settings.html', { ip: req.ip });
         res.sendFile(path.join(__dirname, './public/admin-settings.html'));
+    } else {
+        logger.info('Serving settings.html for regular user', { ip: req.ip });
+        res.sendFile(path.join(__dirname, './public/settings.html'));
     }
-    else{
-        logger.info('Serving settings.html', {
-        ip: req.ip
-    });
-    res.sendFile(path.join(__dirname, './public/settings.html'));
-}});
+});
+
 
 // API Routes - course(PATH)
 app.post('/logout', isAuthenticated, (req, res) => {
@@ -1785,6 +1786,34 @@ app.post('/emails/:collectionName', isAuthenticated, async (req, res) => {
     } catch (e) {
         logger.error('Failed to insert emails', { error: e.message, collectionName });
         res.status(500).send(e);
+    }
+});
+
+app.get('/grades', isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, './public/grades.html'));
+});
+
+app.get('/api/user-grades', isAuthenticated, async (req, res) => {
+    const userId = req.session.user.id;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+
+        const result = await pool.request()
+            .input('UserID', sql.Int, userId)
+            .query(`
+                SELECT c.CourseID, c.Title, c.Description,
+                       (SELECT COUNT(*) FROM UserCourseContents ucc WHERE ucc.UserCourseID = uc.UserCourseID AND ucc.IsCompleted = 1) * 100.0 /
+                       (SELECT COUNT(*) FROM UserCourseContents ucc WHERE ucc.UserCourseID = uc.UserCourseID) AS Progress
+                FROM Courses c
+                JOIN UserCourses uc ON uc.CourseID = c.CourseID
+                WHERE uc.UserID = @UserID
+            `);
+
+        res.json(result.recordset);
+    } catch (err) {
+        logger.error('Error fetching user grades:', err);
+        res.status(500).json({ message: 'Server error' });
     }
 });
 
