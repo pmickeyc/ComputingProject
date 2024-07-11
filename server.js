@@ -11,6 +11,9 @@ TODO:
         CRUD operations for Admin
         Add a content upload mechanism (for teachers/admin) - should be at least a PDF and a set of emails for the email tracker
         Add a course progress tracker
+        Add a mark as completed button to email portal 
+        Add a home/back button to email portal 
+        Add a timer mechanism to email portal
 
     Enviroment:
         Migrate to cloud servers
