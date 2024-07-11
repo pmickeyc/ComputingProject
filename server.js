@@ -5,13 +5,12 @@ BiggerPhish Educational Platform
 TODO:
     Security:
         Review unneeded endpoints
-        Update any queries in server.js to stored procedures
         Sanitise inputs
 
     Functional:
         Test plans
         Styling
-        
+
     Enviroment:
         Migrate to cloud servers
         Add a CI/CD pipeline
@@ -199,9 +198,7 @@ async function isEnrolled(req, res, next) {
             .input('UserID', sql.Int, userId)
             .input('CourseID', sql.Int, courseId);
 
-        const result = await request.query(`
-            SELECT 1 FROM UserCourses WHERE UserID = @UserID AND CourseID = @CourseID
-        `);
+        const result = await request.execute(`sp_IsEnrolled`);
 
         if (result.recordset.length > 0) {
             logger.info('User is enrolled in the course', { userId, courseId });
@@ -824,9 +821,7 @@ app.post('/login-user', async (req, res) => {
             .input('UserEmail', sql.NVarChar(100), email);
 
         // Fetch the hashed password from the database
-        const passwordResult = await request.query(`
-            SELECT [User-Password] as Password, [User-ID] as UserId FROM dbo.Users WHERE [User-Email] = @UserEmail
-        `);
+        const passwordResult = await request.execute('sp_FetchUserData');
 
         logger.debug(`Query executed for fetching hashed password with email: ${email}`);
 
@@ -947,30 +942,39 @@ app.get('/api/course/:courseId', isAuthenticated, isAdmin, async (req, res) => {
 
     try {
         let pool = await sql.connect(mssqlConfig);
-        
+        logger.info(`Connected to database to fetch details for course ID: ${courseId}`);
+
         // Fetch course details
         const courseResult = await pool.request()
             .input('CourseID', sql.Int, courseId)
-            .query('SELECT * FROM Courses WHERE CourseID = @CourseID');
+            .execute('sp_FetchCourseInfo');
 
         if (courseResult.recordset.length === 0) {
+            logger.warn(`Course not found for ID: ${courseId}`);
             return res.status(404).json({ message: 'Course not found' });
         }
+
+        logger.info(`Successfully fetched course details for ID: ${courseId}`);
 
         // Fetch course content
         const contentResult = await pool.request()
             .input('CourseID', sql.Int, courseId)
-            .query('SELECT * FROM CourseContent WHERE CourseID = @CourseID');
+            .execute('sp_FetchCourseContent');
+
+        logger.info(`Successfully fetched course content for course ID: ${courseId}`);
 
         res.json({
             course: courseResult.recordset[0],
             content: contentResult.recordset
         });
+
+        logger.info(`Successfully sent response for course ID: ${courseId}`);
     } catch (err) {
-        logger.error('Error fetching course details and content:', err);
+        logger.error(`Error fetching course details and content for course ID: ${courseId}`, err);
         res.status(500).json({ message: 'Server error' });
     }
 });
+
 
 // Update course content
 app.put('/api/course/content/:contentId', isAuthenticated, isAdmin, async (req, res) => {
@@ -983,7 +987,7 @@ app.put('/api/course/content/:contentId', isAuthenticated, isAdmin, async (req, 
             .input('ContentID', sql.Int, contentId)
             .input('ContentName', sql.NVarChar(255), contentName)
             .input('ContentDescription', sql.NVarChar(500), contentDescription)
-            .query('UPDATE CourseContent SET ContentName = @ContentName, ContentDescription = @ContentDescription WHERE ContentID = @ContentID');
+            .execute('sp_UpdateCourseContent');
 
         if (result.rowsAffected[0] > 0) {
             res.json({ success: true });
@@ -1005,7 +1009,7 @@ app.delete('/api/course/content/:contentId', isAuthenticated, async (req, res) =
         let pool = await sql.connect(mssqlConfig);
         await pool.request()
             .input('ContentID', sql.Int, contentId)
-            .query('DELETE FROM CourseContent WHERE ContentID = @ContentID');
+            .execute('sp_DeleteCourseContent');
 
         res.json({ success: true });
     } catch (err) {
@@ -1053,7 +1057,7 @@ app.get('/api/course/:courseId/contents', isAuthenticated, async (req, res) => {
         let pool = await sql.connect(mssqlConfig);
         const result = await pool.request()
             .input('CourseID', sql.Int, courseId)
-            .query('SELECT * FROM CourseContent WHERE CourseID = @CourseID');
+            .execute('sp_FetchCourseContent');
 
         if (result.recordset.length > 0) {
             res.json(result.recordset);
@@ -1078,13 +1082,7 @@ app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
 
         const request = pool.request();
         request.input('UserEmail', sql.NVarChar(100), userEmail);
-        const result = await request.query(`
-            SELECT c.CourseID, c.Title, c.Description 
-            FROM Courses c
-            JOIN UserCourses uc ON uc.CourseID = c.CourseID
-            JOIN Users u ON uc.UserID = u.[User-ID]
-            WHERE u.[User-Email] = @UserEmail
-        `);
+        const result = await request.execute(`sp_MyEnrolledCourses`);
 
         logger.debug('SQL query executed for enrolled courses', { query: request.query });
 
@@ -1132,7 +1130,7 @@ app.get('/api/course/content/:contentId', isAuthenticated, isAdmin, async (req, 
         let pool = await sql.connect(mssqlConfig);
         const result = await pool.request()
             .input('ContentID', sql.Int, contentId)
-            .query('SELECT * FROM CourseContent WHERE ContentID = @ContentID');
+            .execute('sp_FetchCourseContent');
 
         if (result.recordset.length > 0) {
             res.json({ success: true, content: result.recordset[0] });
@@ -1148,43 +1146,36 @@ app.get('/api/course/content/:contentId', isAuthenticated, isAdmin, async (req, 
 // API Route to mark content as complete
 app.post('/api/complete-content/:contentId', isAuthenticated, async (req, res) => {
     const contentId = req.params.contentId;
-    const userId = req.session.user.id; // Assuming user ID is stored in session
+    const userId = req.session.user.id; 
 
     try {
         let pool = await sql.connect(mssqlConfig);
-        const request = pool.request()
+        logger.info(`Connected to database to mark content as complete for content ID: ${contentId} and user ID: ${userId}`);
+
+        const request1 = pool.request()
             .input('ContentID', sql.Int, contentId)
             .input('UserID', sql.Int, userId);
 
-        const userCourseIdQuery = `
-            SELECT UserCourseID 
-            FROM UserCourses 
-            WHERE UserID = @UserID AND CourseID = (
-                SELECT CourseID 
-                FROM CourseContent 
-                WHERE ContentID = @ContentID
-            )
-        `;
-        
-        const userCourseIdResult = await request.query(userCourseIdQuery);
+        const userCourseIdResult = await request1.execute('sp_GetUserCourseID');
+        logger.info(`User course ID query executed for content ID: ${contentId} and user ID: ${userId}`);
 
         if (userCourseIdResult.recordset.length === 1) {
             const userCourseId = userCourseIdResult.recordset[0].UserCourseID;
 
-            await request.input('UserCourseID', sql.Int, userCourseId)
-                .query(`
-                    UPDATE UserCourseContents
-                    SET IsCompleted = 1
-                    WHERE ContentID = @ContentID AND UserCourseID = @UserCourseID
-                `);
+            const request = pool.request()
+            await request
+                .input('UserCourseID', sql.Int, userCourseId)
+                .input('ContentID', sql.Int, contentId)
+                .execute('sp_MarkContentComplete');
 
+            logger.info(`Content marked as complete for content ID: ${contentId}, user ID: ${userId}, and user course ID: ${userCourseId}`);
             res.json({ success: true });
         } else {
-            logger.error('User is not enrolled in the course associated with this content.');
+            logger.error(`User is not enrolled in the course associated with content ID: ${contentId} and user ID: ${userId}`);
             res.status(400).json({ message: 'User is not enrolled in the course associated with this content.' });
         }
     } catch (err) {
-        logger.error('Error marking content as complete:', err);
+        logger.error(`Error marking content as complete for content ID: ${contentId} and user ID: ${userId}`, err);
         res.status(500).json({ message: 'Server error' });
     }
 });
@@ -1287,7 +1278,7 @@ app.post('/send-reset-link', async (req, res) => {
 
         // Fetch email credentials from the database
         const mailerRequest = pool.request();
-        const mailerResult = await mailerRequest.query('SELECT Username, Password FROM MailerDetails');
+        const mailerResult = await mailerRequest.execute('sp_FetchEmails');
         const { Username: gmailUser, Password: gmailPass } = mailerResult.recordset[0];
 
         // Send the temporary password via email
@@ -1481,11 +1472,7 @@ app.get('/files/pdf/:courseId', isAuthenticated, async (req, res) => {
         let pool = await sql.connect(mssqlConfig);
         const request = pool.request();
         request.input('CourseId', sql.Int, courseId);
-        const result = await request.query(`
-            SELECT CoursePDF 
-            FROM CourseContent 
-            WHERE CourseID = @CourseId
-        `);
+        const result = await request.execute(`sp_FetchCoursePDF`);
 
         if (result.recordset.length > 0) {
             const filePath = result.recordset[0].CoursePDF;
@@ -1518,13 +1505,7 @@ app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
 
         const request = pool.request();
         request.input('UserEmail', sql.NVarChar(100), userEmail);
-        const result = await request.query(`
-            SELECT c.CourseID, c.Title, c.Description 
-            FROM Courses c
-            JOIN UserCourses uc ON uc.CourseID = c.CourseID
-            JOIN Users u ON uc.UserID = u.[User-ID]
-            WHERE u.[User-Email] = @UserEmail
-        `);
+        const result = await request.execute(`sp_MyEnrolledCourses`);
 
         logger.debug('SQL query executed for enrolled courses', { query: request.query });
 
@@ -1552,7 +1533,7 @@ app.get('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
         let pool = await sql.connect(mssqlConfig);
         const result = await pool.request()
             .input('UserID', sql.Int, userId)
-            .query('SELECT [User-ID], [User-FName], [User-Email] FROM Users WHERE [User-ID] = @UserID');
+            .execute('sp_FetchUserById');
 
         if (result.recordset.length > 0) {
             logger.info(`Successfully fetched user with ID ${userId}`);
@@ -1578,7 +1559,7 @@ app.put('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
             .input('UserID', sql.Int, userId)
             .input('UserFName', sql.NVarChar(100), firstName)
             .input('UserEmail', sql.NVarChar(100), email)
-            .query('UPDATE Users SET [User-FName] = @UserFName, [User-Email] = @UserEmail WHERE [User-ID] = @UserID');
+            .execute('sp_UpdateUserById');
 
         if (result.rowsAffected[0] > 0) {
             logger.info(`Successfully updated user with ID ${userId}`);
@@ -1601,7 +1582,7 @@ app.delete('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
         let pool = await sql.connect(mssqlConfig);
         const result = await pool.request()
             .input('UserID', sql.Int, userId)
-            .query('DELETE FROM Users WHERE [User-ID] = @UserID');
+            .execute('sp_DeleteUserById');
 
         if (result.rowsAffected[0] > 0) {
             logger.info(`Successfully deleted user with ID ${userId}`);
@@ -1624,11 +1605,7 @@ app.get('/api/all-courses', isAuthenticated, async (req, res) => {
         let pool = await sql.connect(mssqlConfig);
         logger.info('MSSQL connection established for fetching all courses.');
 
-        const result = await pool.request().query(`
-            SELECT CourseID, Title, Description
-            FROM Courses
-            WHERE Status != 'inactive' OR Status Is NULL
-        `);
+        const result = await pool.request().execute(`sp_AllCourses`);
 
         logger.debug('SQL query executed for all courses', { query: result.command });
 
@@ -1655,11 +1632,7 @@ app.get('/api/admin/all-courses', isAuthenticated, isAdmin, async (req, res) => 
         let pool = await sql.connect(mssqlConfig);
         logger.info('MSSQL connection established for admin fetching all courses.');
 
-        const result = await pool.request().query(`
-            SELECT *
-            FROM Courses
-            WHERE Status != 'inactive' OR status is NULL
-        `);
+        const result = await pool.request().execute(`sp_AdminAllCourses`);
 
         logger.debug('SQL query executed for all admin courses', { query: result.command });
 
@@ -1733,15 +1706,15 @@ app.get('/api/admin/all-users', isAuthenticated, isAdmin, async (req, res) => {
 });
 
 // API Routes - retriev emails from DB(API)
-app.get('/emails', async (req, res) => {
-    try {
-        const collection = client.db("emailDB").collection("emails");
-        const emails = await collection.find({}).toArray();
-        res.json(emails);
-    } catch (e) {
-        res.status(500).send(e);
-    }
-});
+// app.get('/emails', async (req, res) => {
+//     try {
+//         const collection = client.db("emailDB").collection("emails");
+//         const emails = await collection.find({}).toArray();
+//         res.json(emails);
+//     } catch (e) {
+//         res.status(500).send(e);
+//     }
+// });
 
 // API Routes - retrieve emails from specified collection (API)
 app.get('/emails/:id', isAuthenticated, async (req, res) => {
@@ -1801,14 +1774,7 @@ app.get('/api/user-grades', isAuthenticated, async (req, res) => {
 
         const result = await pool.request()
             .input('UserID', sql.Int, userId)
-            .query(`
-                SELECT c.CourseID, c.Title, c.Description,
-                       (SELECT COUNT(*) FROM UserCourseContents ucc WHERE ucc.UserCourseID = uc.UserCourseID AND ucc.IsCompleted = 1) * 100.0 /
-                       (SELECT COUNT(*) FROM UserCourseContents ucc WHERE ucc.UserCourseID = uc.UserCourseID) AS Progress
-                FROM Courses c
-                JOIN UserCourses uc ON uc.CourseID = c.CourseID
-                WHERE uc.UserID = @UserID
-            `);
+            .execute(`sp_FetchUserGrades`);
 
         res.json(result.recordset);
     } catch (err) {
