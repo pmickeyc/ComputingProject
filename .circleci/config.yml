@@ -15,19 +15,20 @@ jobs:
             mkdir -p ~/.ssh
             ssh-keyscan ec2-34-229-134-142.compute-1.amazonaws.com >> ~/.ssh/known_hosts
       - run:
-          name: Debug SSH Key
+          name: Decode and Write SSH Key
           command: |
-            echo "$SSH_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+            mkdir -p ~/.ssh
+            echo "$SSH_KEY" | base64 --decode > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
             echo "Contents of id_rsa:"
             cat ~/.ssh/id_rsa
       - run:
           name: Transfer Files to Windows Server
           command: |
-            scp -o StrictHostKeyChecking=no -r ./ CircleCI@34.229.134.142:C:\ComputingProject
+            scp -o StrictHostKeyChecking=no -r ./ CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com:C:\ComputingProject
       - run:
           name: Execute Deployment Script
-          command: ssh -o StrictHostKeyChecking=no CircleCI@34.229.134.142 'powershell -File C:\ComputingProject\deploy.ps1'
+          command: ssh -o StrictHostKeyChecking=no CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com 'powershell -File C:\ComputingProject\deploy.ps1'
 
 workflows:
   version: 2
