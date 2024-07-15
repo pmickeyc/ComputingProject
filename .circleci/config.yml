@@ -17,7 +17,7 @@ jobs:
             - "SHA256:S8lObqbvNteO8HNn2pqWnfNxeYm7s+hmahqe4ZyEyoc"
       - run:
           name: Execute Deployment Script
-          command: ssh -v -T $SSH_USER@$SSH_HOST "cd C:\ComputingProject\ComputingProject && git pull origin main"
+          command: ssh -v -T $SSH_USER@$SSH_HOST "cd C:\ComputingProject\ComputingProject && git reset --hard && git pull origin main"
 workflows:
   build-and-deploy:
     jobs:
