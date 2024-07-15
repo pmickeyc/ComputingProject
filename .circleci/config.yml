@@ -13,11 +13,8 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "powershell -File C:/ComputingProject/deploy.ps1"
 
 workflows:
-  deploy:
     jobs:
       - deploy:
-          requires:
-            - build
           filters:
             branches:
               only: main
