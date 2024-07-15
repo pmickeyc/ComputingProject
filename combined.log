@@ -13733,3 +13733,9 @@
 2024-07-11 19:11:07 info: Connected to database to mark content as complete for content ID: 29 and user ID: 8 {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
 2024-07-11 19:11:07 info: User course ID query executed for content ID: 29 and user ID: 8 {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
 2024-07-11 19:11:07 info: Content marked as complete for content ID: 29, user ID: 8, and user course ID: 4 {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
+2024-07-13 19:50:59 info: Received request for root route. {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
+2024-07-13 19:50:59 info: admin = false {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
+2024-07-13 19:50:59 info: Admin check failed, but user is authenticated, serving user.html {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs","email":"testEncrypted@email.com"}
+2024-07-13 19:51:00 info: Checking if request is authenticated {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
+2024-07-13 19:51:00 info: Request is authenticated, proceeding to next middleware {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
+2024-07-13 19:51:00 info: User data retrieved successfully: {"sessionId":"8YSSwaKRuJodER7se7U4i8JDnMxPzdKs"}
