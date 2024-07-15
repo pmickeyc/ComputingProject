@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST "mkdir -p C:/ComputingProject && rsync -avz --delete ./ C:/ComputingProject/ && powershell -File C:/ComputingProject/deploy.ps1"
+            ssh $SSH_USER@$SSH_HOST "mkdir -p C:/ComputingProject1 && rsync -avz --delete ./ C:/ComputingProject1/ && powershell -File C:/ComputingProject/deploy.ps1"
 
 workflows:
   build-and-deploy:
