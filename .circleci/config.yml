@@ -11,10 +11,3 @@ jobs:
       - run:
           name: Execute Deployment Script
           command: ssh $SSH_USER@$SSH_HOST "powershell -File C:/ComputingProject/deploy.ps1"
-
-workflows:
-    jobs:
-      - deploy:
-          filters:
-            branches:
-              only: main
