@@ -2,7 +2,12 @@ version: 2.1
 
 jobs:
   build:
-  #...
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - run:
+          name: Run Tests
+          command: echo "Run your tests here"
   deploy:
     machine:
       image: ubuntu-2204:2023.07.2
