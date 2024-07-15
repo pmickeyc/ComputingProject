@@ -17,7 +17,7 @@ jobs:
             - "SHA256:S8lObqbvNteO8HNn2pqWnfNxeYm7s+hmahqe4ZyEyoc"
       - run:
           name: Execute Deployment Script
-          command: ssh -T $SSH_USER@$SSH_HOST "powershell -File C:/ComputingProject/deploy.ps1"
+          command: ssh -v -T $SSH_USER@$SSH_HOST "powershell -File C:/ComputingProject/deploy.ps1"
 workflows:
   build-and-deploy:
     jobs:
