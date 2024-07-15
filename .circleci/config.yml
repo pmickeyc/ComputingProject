@@ -18,7 +18,7 @@ jobs:
           name: Decode and Write SSH Key
           command: |
             mkdir -p ~/.ssh
-            echo "$SSH_KEY" | base64 --decode > ~/.ssh/id_rsa
+            echo "$SSH_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
             echo "Contents of id_rsa:"
             cat ~/.ssh/id_rsa
