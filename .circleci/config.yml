@@ -24,10 +24,10 @@ jobs:
       - run:
           name: Transfer Files to Windows Server
           command: |
-            scp -o StrictHostKeyChecking=no -r ./ CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com:C:\ComputingProject
+            scp -o StrictHostKeyChecking=no -r ./ CircleCI@34.229.134.142:C:\ComputingProject
       - run:
           name: Execute Deployment Script
-          command: ssh -o StrictHostKeyChecking=no CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com 'powershell -File C:\ComputingProject\deploy.ps1'
+          command: ssh -o StrictHostKeyChecking=no CircleCI@34.229.134.142 'powershell -File C:\ComputingProject\deploy.ps1'
 
 workflows:
   version: 2
