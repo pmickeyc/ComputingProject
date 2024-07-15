@@ -1,29 +1,16 @@
 version: 2.1
 
 jobs:
-  build:
-    docker:
-      - image: circleci/python:3.7
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: sudo apt-get update && sudo apt-get install -y openssh-client
-      - run:
-          name: Run Tests
-          command: echo "Run your tests here"
-  
   deploy:
     machine:
       image: ubuntu-2204:2023.07.2
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:S8lObqbvNteO8HNn2pqWnfNxeYm7s+hmahqe4ZyEyoc" 
+            - "SHA256:S8lObqbvNteO8HNn2pqWnfNxeYm7s+hmahqe4ZyEyoc"
       - run:
-          name: Deploy Over SSH
-          command: |
-            ssh $SSH_USER@$SSH_HOST "mkdir -p C:/ComputingProject1 && rsync -avz --delete ./ C:/ComputingProject1/ && powershell -File C:/ComputingProject/deploy.ps1"
+          name: Execute Deployment Script
+          command: ssh $SSH_USER@$SSH_HOST "powershell -File C:/ComputingProject/deploy.ps1"
 
 workflows:
   build-and-deploy:
@@ -31,7 +18,7 @@ workflows:
       - build
       - deploy:
           requires:
-            - build # only deploy once build job has completed
+            - build
           filters:
             branches:
-              only: main # only deploy on the main branch
+              only: main
