@@ -7,35 +7,31 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install SSH Client
+          name: Install Dependencies
           command: sudo apt-get update && sudo apt-get install -y openssh-client
       - run:
-          name: Add SSH Host Key
-          command: |
-            mkdir -p ~/.ssh
-            ssh-keyscan ec2-34-229-134-142.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+          name: Run Tests
+          command: echo "Run your tests here"
+  
+  deploy:
+    machine:
+      image: ubuntu-2204:2023.07.2
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:S8lObqbvNteO8HNn2pqWnfNxeYm7s+hmahqe4ZyEyoc" 
       - run:
-          name: Decode and Write SSH Key
+          name: Deploy Over SSH
           command: |
-            mkdir -p ~/.ssh
-            echo "$SSH_KEY" > ~/.ssh/id_rsa
-            chmod 600 ~/.ssh/id_rsa
-            echo "Contents of id_rsa:"
-            cat ~/.ssh/id_rsa
-      - run:
-          name: Transfer Files to Windows Server
-          command: |
-            scp -o StrictHostKeyChecking=no -r ./ CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com:C:\ComputingProject
-      - run:
-          name: Execute Deployment Script
-          command: ssh -o StrictHostKeyChecking=no CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com 'powershell -File C:\ComputingProject\deploy.ps1'
+            ssh $SSH_USER@$SSH_HOST "mkdir -p C:/ComputingProject && rsync -avz --delete ./ C:/ComputingProject/ && powershell -File C:/ComputingProject/deploy.ps1"
 
 workflows:
-  version: 2
-  deploy:
+  build-and-deploy:
     jobs:
-      - build:
+      - build
+      - deploy:
+          requires:
+            - build # only deploy once build job has completed
           filters:
             branches:
-              only:
-                - main
+              only: main # only deploy on the main branch
