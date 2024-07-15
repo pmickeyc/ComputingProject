@@ -10,15 +10,20 @@ jobs:
           name: Install SSH Client
           command: sudo apt-get update && sudo apt-get install -y openssh-client
       - run:
+          name: Add SSH Host Key
+          command: |
+            mkdir -p ~/.ssh
+            ssh-keyscan ec2-34-229-134-142.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+      - run:
           name: Transfer Files to Windows Server
           command: |
             mkdir -p ~/.ssh
             echo "$SSH_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
-            scp -r ./ CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com:C:\ComputingProject
+            scp -r -o StrictHostKeyChecking=no ./ CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com:C:\ComputingProject
       - run:
           name: Execute Deployment Script
-          command: ssh CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com 'powershell -File C:\ComputingProject\deploy.ps1'
+          command: ssh -o StrictHostKeyChecking=no CircleCI@ec2-34-229-134-142.compute-1.amazonaws.com 'powershell -File C:\ComputingProject\deploy.ps1'
 
 workflows:
   version: 2
