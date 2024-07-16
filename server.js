@@ -21,6 +21,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const sql = require('mssql');
 const path = require('path');
+const fs = require('fs');
 const {
     MongoClient,
     ServerApiVersion
@@ -258,6 +259,10 @@ async function initializeDatabases() {
         process.exit(1);
     }
 }
+
+
+const ftpClient = require('ftp-client');
+
 
 
 const uploadDirectory = path.join(__dirname, './public/coursecontent/');
