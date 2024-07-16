@@ -74,7 +74,6 @@ function closeCreateCourseModal() {
 function submitCourse() {
     const title = document.getElementById('course-name').value;
     const description = document.getElementById('course-description').value;
-    const xlsxFile = document.getElementById('xlsx-file').files[0];
 
     // Simple validation
     if (!title || !description) {
@@ -82,37 +81,14 @@ function submitCourse() {
         return;
     }
 
-    // Check if an XLSX file is uploaded
-    if (xlsxFile) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            const data = new Uint8Array(event.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
-            const sheetName = workbook.SheetNames[0];
-            const worksheet = workbook.Sheets[sheetName];
-            const json = XLSX.utils.sheet_to_json(worksheet);
+    // Create course data
+    const courseData = {
+        title: title,
+        description: description
+    };
 
-            // Create course data with parsed JSON
-            const courseData = {
-                title: title,
-                description: description,
-                emails: json
-            };
-
-            sendCourseData(courseData);
-            console.log(courseData);
-        };
-        reader.readAsArrayBuffer(xlsxFile);
-    } else {
-        // If no XLSX file, just send the course title and description
-        const courseData = {
-            title: title,
-            description: description
-        };
-
-        sendCourseData(courseData);
-        console.log(courseData);
-    }
+    sendCourseData(courseData);
+    console.log(courseData);
 }
 
 function sendCourseData(courseData) {

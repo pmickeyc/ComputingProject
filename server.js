@@ -18,6 +18,7 @@ TODO:
 
 // Environment and Package Declarations
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const sql = require('mssql');
 const path = require('path');
 const {
@@ -43,6 +44,7 @@ const port = process.env.PORT || 3000;
 app.set('trust proxy', true);
 
 app.use(bodyParser.json());
+app.use(fileUpload());
 app.use(express.static(path.join(__dirname, 'public'), {
     index: false
 }));
@@ -256,6 +258,43 @@ async function initializeDatabases() {
         process.exit(1);
     }
 }
+
+
+const uploadDirectory = path.join(__dirname, './public/coursecontent/');
+
+// Ensure the upload directory exists
+if (!fs.existsSync(uploadDirectory)) {
+    fs.mkdirSync(uploadDirectory, { recursive: true });
+    logger.info(`Created upload directory at ${uploadDirectory}`);
+}
+
+app.post('/api/upload-pdf', (req, res) => {
+    logger.info('Received request to upload PDF');
+
+    if (!req.files || !req.files.file) {
+        logger.error('No file uploaded');
+        return res.status(400).json({ success: false, message: 'No file uploaded' });
+    }
+
+    const pdfFile = req.files.file;
+    logger.info(`File details: ${JSON.stringify(pdfFile)}`);
+
+    const uploadPath = path.join(uploadDirectory, pdfFile.name);
+    logger.info(`Upload path: ${uploadPath}`);
+
+    pdfFile.mv(uploadPath, (err) => {
+        if (err) {
+            logger.error(`Error moving file to upload path: ${err}`);
+            return res.status(500).json({ success: false, message: 'Error uploading file' });
+        }
+
+        logger.info('File successfully moved to upload path');
+        let filePath = path.join('/coursecontent', pdfFile.name);
+        filePath = filePath.replace(/\\/g, '/');  // Ensure the path uses forward slashes
+        logger.info(`File available at: ${filePath}`);
+        res.json({ success: true, filePath: filePath });
+    });
+});
 
 //function to get user data
 async function fetchUserData(email) {
@@ -483,14 +522,14 @@ app.post('/api/course/:courseId/content', isAuthenticated, isAdmin, async (req, 
         let pool = await sql.connect(mssqlConfig);
 
         const contentData = {
-            coursePDF: pdfFile ? `/path/to/pdf/${pdfFile}` : null,
+            coursePDF: pdfFile ? `${pdfFile}` : null,
             contentName: contentName,
             contentDescription: contentDescription,
             contentType: contentType,
             emailID: null // This will be updated after emails are uploaded
         };
 
-        logger.info(`Received content upload request: CourseID: ${courseId}, ContentData: ${JSON.stringify(contentData)}, ContentType: ${contentType}`);
+        //logger.info(`Received content upload request: CourseID: ${courseId}, ContentData: ${JSON.stringify(contentData)}, ContentType: ${contentType}`);
 
         const result = await createCourseContent(courseId, contentData);
 
@@ -1030,7 +1069,7 @@ app.post('/api/course/:courseId/content', isAuthenticated, isAdmin, async (req, 
         let pool = await sql.connect(mssqlConfig);
 
         const contentData = {
-            coursePDF: pdfFile ? `/path/to/pdf/${pdfFile.name}` : null,
+            coursePDF: pdfFile ? `${pdfFile.name}` : null,
             courseVideo: null,
             emailLevel: null,
             contentType: contentType

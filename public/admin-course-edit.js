@@ -49,12 +49,18 @@ function submitCourseContent() {
     const courseId = window.location.pathname.split('/').pop();
     const contentName = document.getElementById('content-name').value;
     const contentDescription = document.getElementById('content-description').value;
+    const pdfFile = document.getElementById('pdf-file').files[0];
     const xlsxFile = document.getElementById('xlsx-file').files[0];
-    
+
+    if (!contentName || !contentDescription) {
+        alert("All fields are required.");
+        return;
+    }
+
     const contentData = {
         contentName: contentName,
         contentDescription: contentDescription,
-        contentType: xlsxFile ? 'Email' : 'PDF'
+        contentType: ''
     };
 
     if (xlsxFile) {
@@ -67,19 +73,49 @@ function submitCourseContent() {
             const json = XLSX.utils.sheet_to_json(worksheet);
 
             contentData.xlsxData = JSON.stringify(json);
+            contentData.contentType = 'Email';
 
-            // Log the contentData
-            console.log('Sending content data:', contentData);
-
-            sendCourseContent(courseId, contentData);
+            if (pdfFile) {
+                uploadPDF(pdfFile, (filePath) => {
+                    contentData.pdfFile = filePath;
+                    sendCourseContent(courseId, contentData);
+                });
+            } else {
+                sendCourseContent(courseId, contentData);
+            }
         };
         reader.readAsArrayBuffer(xlsxFile);
+    } else if (pdfFile) {
+        uploadPDF(pdfFile, (filePath) => {
+            contentData.pdfFile = filePath;
+            contentData.contentType = 'PDF';
+            sendCourseContent(courseId, contentData);
+        });
     } else {
-        // Log the contentData
-        console.log('Sending content data:', contentData);
-
+        // No file uploaded
         sendCourseContent(courseId, contentData);
     }
+}
+
+function uploadPDF(file, callback) {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    fetch('/api/upload-pdf', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            callback(data.filePath);
+        } else {
+            alert('Failed to upload PDF: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error uploading PDF:', error);
+    });
 }
 
 function sendCourseContent(courseId, contentData) {
@@ -108,6 +144,7 @@ function sendCourseContent(courseId, contentData) {
         console.error('Error uploading course content:', error);
     });
 }
+
 
 function editContent(contentId) {
     currentContentId = contentId;
