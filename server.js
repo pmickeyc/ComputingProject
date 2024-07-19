@@ -10,10 +10,10 @@ TODO:
     Functional:
         Test plans
         Styling
+        Set contents as inactive if alocated to a user already -
 
     Enviroment:
-        Migrate to cloud servers
-        Add a CI/CD pipeline
+
 */
 
 // Environment and Package Declarations
@@ -259,10 +259,6 @@ async function initializeDatabases() {
         process.exit(1);
     }
 }
-
-
-const ftpClient = require('ftp-client');
-
 
 
 const uploadDirectory = path.join(__dirname, './public/coursecontent/');
@@ -1093,15 +1089,49 @@ app.post('/api/course/:courseId/content', isAuthenticated, isAdmin, async (req, 
     }
 });
 
+//API - UserCourseStatus
+app.get('/api/my-courses-with-status', isAuthenticated, async (req, res) => {
+    const userId = req.session.user.id;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const result = await pool.request()
+            .input('UserID', sql.Int, userId)
+            .query(`
+                SELECT 
+                    uc.UserCourseID, 
+                    uc.UserID, 
+                    uc.CourseID, 
+                    uc.EnrollDate, 
+                    uc.CompletedDate, 
+                    CASE WHEN ucc.IsCompleted = 1 THEN 'Completed' ELSE 'Not Completed' END AS CompletionStatus
+                FROM 
+                    BiggerPhish.dbo.UserCourses uc
+                LEFT JOIN 
+                    BiggerPhish.dbo.UserCourseContents ucc ON uc.UserCourseID = ucc.UserCourseID
+                WHERE 
+                    uc.UserID = @UserID
+            `);
+
+        res.json(result.recordset);
+    } catch (err) {
+        logger.error('Error fetching user courses with status:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
 // API Routes - retrieve course contents
 app.get('/api/course/:courseId/contents', isAuthenticated, async (req, res) => {
     const courseId = req.params.courseId;
+    const userId = req.session.user.id;
 
     try {
         let pool = await sql.connect(mssqlConfig);
         const result = await pool.request()
             .input('CourseID', sql.Int, courseId)
-            .execute('sp_FetchCourseContent');
+            .input('UserID', sql.Int, userId)
+            .execute('sp_FetchUserCourseContent');
 
         if (result.recordset.length > 0) {
             res.json(result.recordset);
@@ -1114,7 +1144,7 @@ app.get('/api/course/:courseId/contents', isAuthenticated, async (req, res) => {
     }
 });
 
-// Define your routes after the session and JSON middleware
+
 app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
     const userEmail = req.session.user?.email;
 

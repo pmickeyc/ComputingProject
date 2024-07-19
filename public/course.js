@@ -23,10 +23,10 @@ $(document).ready(function () {
 
     function fetchCourseContents(courseId) {
         $.ajax({
-            url: `/api/course/${courseId}/contents`, // Update this URL based on your actual endpoint
+            url: `/api/course/${courseId}/contents`, 
             method: 'GET',
             success: function (data) {
-                console.log('Course contents data:', data); // Log the retrieved data
+                console.log('Course contents data:', data); 
                 populateCourseContentTable(data);
             },
             error: function (xhr, status, error) {
@@ -39,7 +39,7 @@ $(document).ready(function () {
     function populateCourseContentTable(contents) {
         const tableBody = document.getElementById('course-content-table');
         tableBody.innerHTML = '';
-
+    
         contents.forEach(content => {
             console.log(`Content ID: ${content.ContentID}, Content Type: ${content.ContentType}`);
             const row = document.createElement('tr');
@@ -50,32 +50,31 @@ $(document).ready(function () {
                 <td>${content.CoursePDF ? 'PDF Available' : 'N/A'}</td>
                 <td>${content.EmailID || 'N/A'}</td>
                 <td>${content.ContentType || 'N/A'}</td>
+                <td>${content.CompletionStatus}</td>
                 <td>
                     <button class="btn btn-secondary view-content" data-id="${content.ContentID}" data-type="${content.ContentType}" data-pdf="${content.CoursePDF}" data-email-id="${content.EmailID}">View</button>
                 </td>
             `;
             tableBody.appendChild(row);
         });
-
+    
         document.querySelectorAll('.view-content').forEach(button => {
             button.addEventListener('click', function () {
                 selectedContentId = this.getAttribute('data-id');
                 console.log(`Selected Content ID: ${selectedContentId}`);
                 const contentType = this.getAttribute('data-type');
-                const pdfPath = this.getAttribute('data-pdf') ? this.getAttribute('data-pdf').replace('./public/', '/') : null; // Correcting the path
+                const pdfPath = this.getAttribute('data-pdf') ? this.getAttribute('data-pdf').replace('./public/', '/') : null;
                 const emailId = this.getAttribute('data-email-id');
-                console.log(`Button clicked: Content ID: ${selectedContentId}, Content Type: ${contentType}, PDF Path: ${pdfPath}, Email ID: ${emailId}`); // Log button click event
+                console.log(`Button clicked: Content ID: ${selectedContentId}, Content Type: ${contentType}, PDF Path: ${pdfPath}, Email ID: ${emailId}`);
                 if (contentType === 'PDF') {
-                    // Load PDF content
-                    console.log(`Loading PDF: ${pdfPath}`); // Log the PDF path
                     loadPDF(pdfPath);
                 } else if (contentType === 'Email') {
-                    // Redirect to email content
                     window.location.href = `/email/${emailId}`;
                 }
             });
         });
     }
+    
 
     function loadPDF(pdfPath) {
         console.log(`Loading PDF from path: ${pdfPath}`); // Log the PDF path

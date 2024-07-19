@@ -13,11 +13,12 @@
     <div class="container-fluid h-100">
         <div class="row h-100">
             <!-- Sidebar -->
-            <div class="col-md-3 sidebar">
+            <div class="col-md-3 sidebar d-flex flex-column align-items-center justify-content-center">
                 <!-- Logo or Branding -->
                 <div class="sidebar-header text-center py-4">
                     <a href="/" class="navbar-brand">
-                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid"
+                            style="max-height: 50px;">
                     </a>
                 </div>
                 <div id="user-nav-menu">
@@ -27,9 +28,9 @@
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item  active">
                             <a class="nav-link" href="/courses">
-                                <i class="fas fa-book-open"></i>Courses
+                                <i class="fas fa-book-open"></i> Courses
                             </a>
                         </li>
                         <li class="nav-item">
@@ -42,6 +43,7 @@
                                 <i class="fas fa-cog"></i> User Settings
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a id="logout-link" href="#" class="nav-link">
                                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -62,6 +64,7 @@
                                 <th>Video</th>
                                 <th>Email Level</th>
                                 <th>Type</th>
+                                <th>Status</th> 
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -69,6 +72,7 @@
                             <!-- Content rows will be populated here -->
                         </tbody>
                     </table>
+                    
                 </div>
 
                 <div id="pdf-viewer" style="display: none; position: relative; height: 100vh;">
