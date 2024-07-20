@@ -39,7 +39,7 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const { v4: uuidv4 } = require('uuid');
 const helmet = require('helmet');
-
+const https = require("https");
 require('dotenv').config();
 
 
@@ -1931,8 +1931,19 @@ app.get('/api/user-grades', isAuthenticated, async (req, res) => {
 
 
 
+// initializeDatabases().then(() => {
+//     app.listen(port, () => {
+//         console.log(`Server running on port ${port}`);
+//     });
+// }).catch(err => {
+//     console.error('Initialization failed:', err);
+// });
+
 initializeDatabases().then(() => {
-    app.listen(port, () => {
+    https.createServer({
+        key: fs.readFileSync('server.key'),
+        cert: fs.readFileSync('server.cert')
+    }, app).listen(port, () => {
         console.log(`Server running on port ${port}`);
     });
 }).catch(err => {
