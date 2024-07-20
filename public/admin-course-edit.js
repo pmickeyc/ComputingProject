@@ -2,6 +2,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const courseId = window.location.pathname.split('/').pop();
     fetchCourseDetails(courseId);
     let currentContentId = null;
+
+    document.getElementById('submit-edit-course-btn').addEventListener('click', function (event) {
+        event.preventDefault();
+        submitEditCourse();
+    });
+
+    document.getElementById('submit-course-content-btn').addEventListener('click', function (event) {
+        event.preventDefault();
+        submitCourseContent();
+    });
+
+    document.getElementById('submit-edit-content-btn').addEventListener('click', function (event) {
+        event.preventDefault();
+        submitEditContent();
+    });
 });
 
 function fetchCourseDetails(courseId) {
@@ -30,11 +45,19 @@ function fetchCourseDetails(courseId) {
                         <td>${content.EmailID || 'null'}</td>
                         <td>${content.ContentType || 'null'}</td>
                         <td>
-                            <button class="btn btn-secondary btn-sm" onclick="editContent(${content.ContentID})">Edit</button>
-                            <button class="btn btn-danger btn-sm" onclick="deleteContent(${content.ContentID})">Delete</button>
+                            <button class="btn btn-secondary btn-sm" id="edit-btn-${content.ContentID}">Edit</button>
+                            <button class="btn btn-danger btn-sm" id="delete-btn-${content.ContentID}">Delete</button>
                         </td>
                     `;
                     contentTable.appendChild(row);
+
+                    document.getElementById(`edit-btn-${content.ContentID}`).addEventListener('click', function() {
+                        editContent(content.ContentID);
+                    });
+
+                    document.getElementById(`delete-btn-${content.ContentID}`).addEventListener('click', function() {
+                        deleteContent(content.ContentID);
+                    });
                 });
             } else {
                 console.error('Course not found');
@@ -145,10 +168,9 @@ function sendCourseContent(courseId, contentData) {
     });
 }
 
-
 function editContent(contentId) {
     currentContentId = contentId;
-    
+
     fetch(`/api/course/content/${contentId}`)
         .then(response => {
             if (!response.ok) {
@@ -169,7 +191,7 @@ function editContent(contentId) {
 function submitEditContent() {
     const contentName = document.getElementById('edit-content-name').value;
     const contentDescription = document.getElementById('edit-content-description').value;
-    
+
     const contentData = {
         contentName: contentName,
         contentDescription: contentDescription
@@ -246,7 +268,7 @@ function submitEditCourse() {
 
 function deleteContent(contentId) {
     const courseId = window.location.pathname.split('/').pop();
-    
+
     fetch(`/api/course/content/${contentId}`, {
         method: 'DELETE'
     })

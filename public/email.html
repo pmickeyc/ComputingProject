@@ -18,7 +18,7 @@
                     <!--Aesthetics only-->
                     <li class="nav-item">Starred</li>
                     <li class="nav-item">Snoozed</li>
-                    <li class="nav-item" onclick="goBack()">Exit Portal</li>
+                    <li class="nav-item" id="exit-portal">Exit Portal</li>
                 </ul>
             </div>
             <div class="col-md-10 main">
@@ -32,7 +32,7 @@
                     <div id="timer" class="timer">02:00</div>
                 </div>
                 <!-- Email full view container, initially hidden -->
-                <div class="email-full" style="display: none;"></div>
+                <div class="email-full"></div>
                 <!-- Email list container where email items will be dynamically added -->
                 <div class="email-list">
                     <!-- Email items will be dynamically added here by email.js -->
@@ -53,12 +53,12 @@
                 </div>
                 <div class="modal-body">
                     <p id="modalMessage"></p>
-                    <div id="perfectScoreOptions" style="display: none;">
+                    <div id="perfectScoreOptions" >
                         <button id="markCompleteBtn" class="btn btn-success">Mark as Complete</button>
                         <button id="reloadBtn" class="btn btn-secondary">Reload</button>
                         <button id="exitBtn" class="btn btn-danger">Exit</button>
                     </div>
-                    <div id="normalScoreOptions" style="display: none;">
+                    <div id="normalScoreOptions" >
                         <button id="reloadBtn" class="btn btn-secondary">Reload</button>
                         <button id="exitBtn" class="btn btn-danger">Exit</button>
                     </div>

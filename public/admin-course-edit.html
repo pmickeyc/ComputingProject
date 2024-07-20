@@ -17,7 +17,7 @@
                 <!-- Logo or Branding -->
                 <div class="sidebar-header text-center py-4">
                     <a href="/" class="navbar-brand">
-                        <img src="/assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
+                        <img src="/assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" >
                     </a>
                 </div>
                 <div id="user-nav-menu">
@@ -71,7 +71,7 @@
                                 <textarea class="form-control" id="course-description" rows="3" required></textarea>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="submitEditCourse()">Save Changes</button>
+                        <button type="button" class="btn btn-primary" id="submit-edit-course-btn">Save Changes</button>
                     </form>
 
                     <h2 class="mt-5">Course Content</h2>
@@ -92,8 +92,7 @@
                         </tbody>
                     </table>
                     <!-- Edit Content Modal -->
-                    <div class="modal fade" id="editContentModal" tabindex="-1" aria-labelledby="editContentModalLabel"
-                        aria-hidden="true">
+                    <div class="modal fade" id="editContentModal" tabindex="-1" aria-labelledby="editContentModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -110,17 +109,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="edit-content-description">Content Description</label>
-                                            <textarea class="form-control" id="edit-content-description" rows="3"
-                                                required></textarea>
+                                            <textarea class="form-control" id="edit-content-description" rows="3" required></textarea>
                                         </div>
-                                        <button type="button" class="btn btn-primary" onclick="submitEditContent()">Save
-                                            Changes</button>
+                                        <button type="button" class="btn btn-primary" id="submit-edit-content-btn">Save Changes</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <form id="upload-course-content-form">
                         <div class="form-group">
@@ -139,10 +135,8 @@
                             <label for="xlsx-file">Email XLSX File</label>
                             <input type="file" class="form-control-file" id="xlsx-file">
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="submitCourseContent()">Upload
-                            Content</button>
+                        <button type="button" class="btn btn-primary" id="submit-course-content-btn">Upload Content</button>
                     </form>
-
                 </div>
             </div>
         </div>

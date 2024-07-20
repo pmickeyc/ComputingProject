@@ -7,6 +7,22 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('createCourseModal').style.display = 'block';
         });
     }
+    const submitCourseBtn = document.getElementById('submit-course-btn');
+    if (submitCourseBtn) {
+        submitCourseBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            submitCourse();
+        });
+    }
+
+    const closeCreateCourseModalBtn = document.getElementById('close-create-course-modal-btn');
+    if (closeCreateCourseModalBtn) {
+        closeCreateCourseModalBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            closeCreateCourseModal();
+        });
+    }
+
 });
 
 function fetchAllCourses() {
@@ -31,11 +47,19 @@ function populateCourses(courses, containerSelector) {
             <div class="course-tile">
                 <h4>${course.Title}</h4>
                 <p>${course.Description}</p>
-                <button onclick="editCourse(${course.CourseID})" class="btn btn-secondary">Edit</button>
-                <button onclick="deleteCourse(${course.CourseID})" class="btn btn-danger">Delete</button>
+                 <button class="btn btn-secondary" id="edit-btn-${course.CourseID}">Edit</button>
+                <button class="btn btn-danger" id="delete-btn-${course.CourseID}">Delete</button>
             </div>
         `;
         container.appendChild(courseElement);
+
+        document.getElementById(`edit-btn-${course.CourseID}`).addEventListener('click', function () {
+            editCourse(course.CourseID);
+        });
+
+        document.getElementById(`delete-btn-${course.CourseID}`).addEventListener('click', function () {
+            deleteCourse(course.CourseID);
+        });
     });
 }
 
@@ -56,7 +80,7 @@ function deleteCourse(courseId) {
     .then(data => {
         if (data.success) {
             alert('Course deleted successfully');
-            location.reload(); // Optionally reload the page or refresh the course list
+            location.reload(); 
         } else {
             alert('Failed to delete course: ' + data.message);
         }

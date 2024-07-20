@@ -17,7 +17,7 @@
                 <!-- Logo or Branding -->
                 <div class="sidebar-header text-center py-4">
                     <a href="/" class="navbar-brand">
-                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" style="max-height: 50px;">
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" >
                     </a>
                 </div>
                 <div id="user-nav-menu">
@@ -52,13 +52,12 @@
                 </div>
             </div>
 
-
             <!-- Main Content for Admin User Page -->
             <div class="col-md-9">
                 <div class="admin-users-section pt-5">
                     <h2>Admin User Management</h2>
                     <div class="row" id="admin-users-container">
-                        <!-- Admin Courses will be populated here dynamically -->
+                        <!-- Admin Users will be populated here dynamically -->
                     </div>
                 </div>
             </div>
@@ -86,7 +85,7 @@
                             <label for="edit-user-email">Email</label>
                             <input type="email" class="form-control" id="edit-user-email" required>
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="submitEditUser()">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="submit-edit-user-btn">Save changes</button>
                     </form>
                 </div>
             </div>

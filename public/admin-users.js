@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     fetchAllUsers();
+
+    document.getElementById('submit-edit-user-btn').addEventListener('click', function (event) {
+        event.preventDefault();
+        submitEditUser();
+    });
 });
 
 function fetchAllUsers() {
@@ -7,7 +12,7 @@ function fetchAllUsers() {
         .then(response => response.json())
         .then(data => {
             populateUsers(data, '#admin-users-container');
-            console.log("Content fetched successfully");
+            //onsole.log("Content fetched successfully");
         })
         .catch(error => {
             console.error('Error fetching all users for admin:', error);
@@ -25,16 +30,27 @@ function populateUsers(users, containerSelector) {
             <div class="user-tile">
                 <h4>${user['User-FName']}</h4> <!-- Adjusted for potentially correct property names -->
                 <p>Email: ${user['User-Email']}</p> <!-- Adjusted for potentially correct property names -->
-                <button onclick="editUser(${user['User-ID']})" class="btn btn-secondary">Edit</button>
-                <button onclick="deleteUser(${user['User-ID']})" class="btn btn-danger">Delete</button>
+                <button class="btn btn-secondary edit-user-btn" data-user-id="${user['User-ID']}">Edit</button>
+                <button class="btn btn-danger delete-user-btn" data-user-id="${user['User-ID']}">Delete</button>
             </div>
         `;
         container.appendChild(userElement);
     });
+
+    document.querySelectorAll('.edit-user-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            editUser(this.getAttribute('data-user-id'));
+        });
+    });
+
+    document.querySelectorAll('.delete-user-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            deleteUser(this.getAttribute('data-user-id'));
+        });
+    });
 }
 
 function editUser(userId) {
-    // Fetch user data
     fetch(`/api/user/${userId}`)
         .then(response => response.json())
         .then(data => {
@@ -53,7 +69,6 @@ function editUser(userId) {
             alert('Failed to load user data.');
         });
 }
-
 
 function submitEditUser() {
     const userId = document.getElementById('edit-user-id').value;

@@ -4,17 +4,18 @@ BiggerPhish Educational Platform
 
 TODO:
     Security:
-        Review unneeded endpoints
-        Sanitise inputs
+        Run ZAP testing
 
     Functional:
         Test plans
         Styling
+        Help section/instructions on uses - admin
+        Help section/instructions on uses - User
+        content creation for courses
 
     Enviroment:
         Static IP
         Control traffic
-
 */
 
 // Environment and Package Declarations
@@ -37,6 +38,8 @@ const { log } = require('console');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const { v4: uuidv4 } = require('uuid');
+const helmet = require('helmet');
+
 require('dotenv').config();
 
 
@@ -55,6 +58,46 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
+}));
+
+
+// Helmet setup
+const scriptSources = [
+    "'self'", 
+    'https://code.jquery.com',
+    'https://cdn.jsdelivr.net',
+    'https://stackpath.bootstrapcdn.com',
+    'https://cdnjs.cloudflare.com'
+    //"'unsafe-inline'"
+];
+
+const styleSources = [
+    "'self'",
+    'https://stackpath.bootstrapcdn.com',
+    'https://cdnjs.cloudflare.com',
+    'https://cdn.jsdelivr.net'
+    //"'unsafe-inline'"
+];
+
+const workerSources = [
+    "'self'",
+    'blob:'
+];
+
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: scriptSources,
+            styleSrc: styleSources,
+            workerSrc: workerSources,
+            // Optionally allow unsafe-inline for event handlers
+            //'script-src-attr': ["'self'", "'unsafe-inline'"]
+        }
+    },
+    crossOriginEmbedderPolicy: false,
+    crossOriginOpenerPolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 
 
@@ -163,12 +206,13 @@ module.exports = logger;
 
 // Middleware Functions
 function isAuthenticated(req, res, next) {
-    logger.info('Checking if request is authenticated');
+    if (req.isAuthenticatedChecked) {
+        return next();
+    }
+    req.isAuthenticatedChecked = true;
 
-    // Log the session object for debugging
-    logger.debug('Session details:', {
-        session: req.session
-    });
+    logger.info('Checking if request is authenticated');
+    logger.debug('Session details:', { session: req.session });
 
     if (req.session.isAuthenticated) {
         logger.info('Request is authenticated, proceeding to next middleware');
@@ -178,8 +222,30 @@ function isAuthenticated(req, res, next) {
             sessionId: req.session.id,
             path: req.path
         });
+        res.redirect('/');
+    }
+}
 
-        res.redirect('/'); // This will redirect the user to the root path
+function isAdmin(req, res, next) {
+    if (req.isAdminChecked) {
+        return next();
+    }
+    req.isAdminChecked = true;
+
+    logger.info('Checking if request is from an admin');
+    logger.debug('Session details:', { session: req.session });
+
+    if (req.session.user && req.session.user.isAdmin) {
+        logger.info('Admin verified, proceeding to next middleware');
+        next();
+    } else {
+        logger.warn('Admin not verified, redirecting to login page', {
+            sessionId: req.session.id,
+            path: req.path,
+            isAdmin: req.session.user ? req.session.user.isAdmin : 'undefined',
+            user: req.session.user || 'undefined'
+        });
+        res.redirect('/login');
     }
 }
 
@@ -217,29 +283,6 @@ async function isEnrolled(req, res, next) {
     }
 }
 
-// Admin check middleware
-function isAdmin(req, res, next) {
-    logger.info('Checking if request is from an admin');
-
-    // Log session details for debugging
-    logger.debug('Session details:', {
-        session: req.session
-    });
-
-    if (req.session.user && req.session.user.isAdmin) {
-        logger.info('Admin verified, proceeding to next middleware');
-        next();  // User is admin, continue with the request
-    } else {
-        logger.warn('Admin not verified, redirecting to login page', {
-            sessionId: req.session.id,
-            path: req.path,
-            isAdmin: req.session.user ? req.session.user.isAdmin : 'undefined',
-            user: req.session.user || 'undefined'
-        });
-        res.redirect('/login');  // Not admin, redirect to login or error page
-    }
-}
-
 
 app.use((req, res, next) => {
     logger.defaultMeta = { sessionId: req.sessionID };
@@ -261,7 +304,7 @@ async function initializeDatabases() {
     }
 }
 
-
+//For PDF file uploading
 const uploadDirectory = path.join(__dirname, './public/coursecontent/');
 
 // Ensure the upload directory exists
@@ -270,6 +313,7 @@ if (!fs.existsSync(uploadDirectory)) {
     logger.info(`Created upload directory at ${uploadDirectory}`);
 }
 
+//Endpoing for file uplaod
 app.post('/api/upload-pdf', (req, res) => {
     logger.info('Received request to upload PDF');
 
@@ -314,8 +358,6 @@ async function fetchUserData(email) {
     return result.recordset.length > 0 ? result.recordset[0] : null;
 }
 
-
-
 // API Routes - root
 app.get('/', (req, res) => {
     logger.info('Received request for root route.');
@@ -344,11 +386,6 @@ app.get('/', (req, res) => {
     }
 });
 
-
-
-
-
-
 // API Routes - user-Data for logged-in user(API)
 app.get('/user-data', isAuthenticated, async (req, res) => {
     const userEmail = req.session.user.email;
@@ -362,23 +399,6 @@ app.get('/user-data', isAuthenticated, async (req, res) => {
         res.status(404).send('User not found');
     }
 });
-
-
-
-
-// // API Routes - user-Data for all users(API)
-// app.get("/users", isAuthenticated, (request, response) => {
-//     // Execute a SELECT query
-//     new sql.Request().query("SELECT * FROM Users", (err, result) => {
-//         if (err) {
-//             console.error("Error executing query:", err);
-//         } else {
-//             response.send(result.recordset);
-//             console.dir(result.recordset);
-//         }
-//     });
-// });
-
 
 // API Routes - register user(API)
 app.post('/register-user', async (req, res) => {
@@ -490,7 +510,7 @@ app.put('/api/course/:courseId', isAuthenticated, isAdmin, async (req, res) => {
             .input('CourseID', sql.Int, courseId)
             .input('Title', sql.NVarChar(255), title)
             .input('Description', sql.NVarChar(500), description)
-            .query('UPDATE Courses SET Title = @Title, Description = @Description WHERE CourseID = @CourseID');
+            .execute('sp_UpdateCourse');
 
         if (result.rowsAffected[0] > 0) {
             res.json({ success: true });
@@ -518,7 +538,7 @@ app.post('/api/course/:courseId/content', isAuthenticated, isAdmin, async (req, 
     const contentDescription = req.body.contentDescription;
 
     // Log the parsed request body
-    logger.info(`Received request: ${JSON.stringify(req.body, null, 2)}`);
+    //logger.info(`Received request: ${JSON.stringify(req.body, null, 2)}`);
 
     try {
         let pool = await sql.connect(mssqlConfig);
@@ -601,19 +621,12 @@ async function uploadEmails(collectionName, emailData) {
 
 
 
-// API Routes - update user email(API)
 app.post('/update-user-email', isAuthenticated, async (req, res) => {
-    const {
-        oldEmail,
-        newEmail
-    } = req.body;
+    const { oldEmail, newEmail } = req.body;
 
     // Validate that both old and new emails are provided
     if (!oldEmail || !newEmail) {
-        logger.error('Update user email attempt with incomplete form data', {
-            oldEmail,
-            newEmail
-        });
+        logger.error('Update user email attempt with incomplete form data', { oldEmail, newEmail });
         return res.status(400).json({
             success: false,
             message: 'Incomplete form data'
@@ -629,25 +642,18 @@ app.post('/update-user-email', isAuthenticated, async (req, res) => {
 
         // Execute the stored procedure
         const result = await request.execute('sp_UpdateUserEmail');
-        const returnValue = result.returnValue; 
+        const returnValue = result.returnValue;
 
         // Check if the stored procedure completed successfully
         if (returnValue === 0) {
-            logger.info('User email updated successfully', {
-                oldEmail,
-                newEmail
-            });
+            logger.info('User email updated successfully', { oldEmail, newEmail });
 
             // Update the email in the session if the user updating the email is the same as the one logged in
             if (req.session.user && req.session.user.email === oldEmail) {
                 req.session.user.email = newEmail;
                 req.session.save(err => {
                     if (err) {
-                        logger.error('Error saving session after email update', {
-                            error: err.message,
-                            oldEmail,
-                            newEmail
-                        });
+                        logger.error('Error saving session after email update', { error: err.message, oldEmail, newEmail });
                         return res.status(500).json({
                             success: false,
                             message: 'Failed to update session.'
@@ -666,21 +672,35 @@ app.post('/update-user-email', isAuthenticated, async (req, res) => {
             }
         } else {
             // Handle specific error based on return value from stored procedure
-            handleEmailUpdateErrors(returnValue, newEmail, res);
+            let errorMessage = 'Unknown error occurred';
+            if (returnValue === 1) {
+                errorMessage = 'User not found';
+                logger.warn('Failed to update email - User not found', { oldEmail, newEmail });
+            } else if (returnValue === 2) {
+                errorMessage = 'New email is already in use';
+                logger.warn('Failed to update email - New email already in use', { oldEmail, newEmail });
+            }
+            res.status(400).json({
+                success: false,
+                message: errorMessage
+            });
         }
     } catch (err) {
-        // Generic SQL error or network/db connection issue
-        logger.error('Error occurred during updating user email:', {
-            error: err.message,
-            oldEmail,
-            newEmail
-        });
+        let errorMessage = 'Server error';
+
+        // Specific error handling for unique constraint violation
+        if (err.message.includes('unique constraint') || err.message.includes('duplicate key')) {
+            errorMessage = 'Cannot use the same email for updating';
+        }
+
+        logger.error('Error occurred during updating user email:', { error: err.message, oldEmail, newEmail });
         res.status(500).json({
             success: false,
-            message: 'Server error'
+            message: errorMessage
         });
     }
 });
+
 
 
 //function for error handling
@@ -808,7 +828,7 @@ app.post('/update-user-name', isAuthenticated, async (req, res) => {
 
             // Update the first name in the session if the user updating the name is the same as the one logged in
             if (req.session.user && req.session.user.email === email) {
-                req.session.user.firstName = newFName; // assuming session stores firstName
+                req.session.user.firstName = newFName; 
                 req.session.save(err => {
                     if (err) {
                         logger.error('Error saving session after name update', { error: err.message, email, newFName });
@@ -1059,7 +1079,7 @@ app.delete('/api/course/content/:contentId', isAuthenticated, async (req, res) =
     }
 });
 
-
+//API - Create Course Content
 app.post('/api/course/:courseId/content', isAuthenticated, isAdmin, async (req, res) => {
     const courseId = req.params.courseId;
     const { contentType } = req.body;
@@ -1122,7 +1142,7 @@ app.get('/api/my-courses-with-status', isAuthenticated, async (req, res) => {
 });
 
 
-// API Routes - retrieve course contents
+// API Routes - retrieve users course contents
 app.get('/api/course/:courseId/contents', isAuthenticated, async (req, res) => {
     const courseId = req.params.courseId;
     const userId = req.session.user.id;
@@ -1145,7 +1165,7 @@ app.get('/api/course/:courseId/contents', isAuthenticated, async (req, res) => {
     }
 });
 
-
+//API - Get users enrolled courses
 app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
     const userEmail = req.session.user?.email;
 
@@ -1177,7 +1197,7 @@ app.get('/api/my-enrolled-courses', isAuthenticated, async (req, res) => {
     }
 });
 
-//api: enroll student
+//API - enroll student in a course
 app.post('/api/enroll-course/:courseId', isAuthenticated, async (req, res) => {
     const userId = req.session.user.id;
     const courseId = req.params.courseId;
@@ -1205,7 +1225,7 @@ app.get('/api/course/content/:contentId', isAuthenticated, isAdmin, async (req, 
         let pool = await sql.connect(mssqlConfig);
         const result = await pool.request()
             .input('ContentID', sql.Int, contentId)
-            .execute('sp_FetchCourseContent');
+            .execute('sp_FetchCourseContentByID');
 
         if (result.recordset.length > 0) {
             res.json({ success: true, content: result.recordset[0] });
@@ -1470,7 +1490,7 @@ app.get('/settings', isAuthenticated, (req, res, next) => {
 
 
 // API Routes - course(PATH)
-app.post('/logout', isAuthenticated, (req, res) => {
+app.post('/logout', (req, res) => {
     logger.info('Logout attempt', {
         sessionId: req.session ?.id,userId: req.session ?.userId
     });
@@ -1649,7 +1669,65 @@ app.put('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
     }
 });
 
-// Delete user
+//helper for logging out a deleted user
+async function handleLogout(req, res) {
+    if (req.session) {
+        const sessionId = req.session.id;
+        const userId = req.session.user.id;
+
+        logger.info('Attempting to destroy session', { sessionId, userId });
+
+        req.session.destroy(err => {
+            if (err) {
+                logger.error('Failed to destroy session during logout.', { error: err, sessionId, userId });
+                return res.status(500).send('Could not log out, please try again');
+            }
+
+            res.clearCookie('connect.sid');
+            logger.info('Session cookie cleared', { sessionId, userId });
+            logger.info('User logged out successfully', { sessionId, userId });
+
+            res.json({ success: true });
+        });
+    } else {
+        logger.warn('Logout called but no session found');
+        res.status(401).json({ success: false, message: "No session found" });
+    }
+}
+
+// Delete user - admin
+app.delete('/api/user', isAuthenticated, async (req, res) => {
+    const userId = req.session.user.id;
+
+    try {
+        let pool = await sql.connect(mssqlConfig);
+        const request = pool.request()
+            .input('UserID', sql.Int, userId);
+
+        const result = await request.execute('sp_DeleteUserById');
+        const returnValue = result.returnValue;
+
+        if (returnValue === 0) {
+            logger.info(`Successfully deleted user with ID ${userId}`);
+            await handleLogout(req, res);
+        } else if (returnValue === 1) {
+            logger.info(`User with ID ${userId} set to inactive`);
+            await handleLogout(req, res);
+        } else if (returnValue === 2) {
+            logger.warn(`User with ID ${userId} not found for deletion`);
+            res.status(404).json({ message: 'User not found' });
+        } else {
+            logger.error(`Unknown error occurred with return value ${returnValue}`);
+            res.status(500).json({ message: 'An unknown error occurred' });
+        }
+    } catch (err) {
+        logger.error('Error deleting user:', err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+
+// Delete user - admin
 app.delete('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
     const userId = req.params.userId;
 
@@ -1658,11 +1736,19 @@ app.delete('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
         const result = await pool.request()
             .input('UserID', sql.Int, userId)
             .execute('sp_DeleteUserById');
+            const returnValue = result.returnValue;
 
-        if (result.rowsAffected[0] > 0) {
-            logger.info(`Successfully deleted user with ID ${userId}`);
-            res.json({ success: true });
-        } else {
+            if (returnValue === 0) {
+                logger.info(`Successfully deleted user with ID ${userId}`);
+                await handleLogout(req, res);
+            } else if (returnValue === 1) {
+                logger.info(`User with ID ${userId} set to inactive`);
+                await handleLogout(req, res);
+            } else if (returnValue === 2) {
+                logger.warn(`User with ID ${userId} not found for deletion`);
+                res.status(404).json({ message: 'User not found' });
+            } 
+            else {
             logger.warn(`User with ID ${userId} not found for deletion`);
             res.status(404).json({ message: 'User not found' });
         }
@@ -1761,6 +1847,7 @@ app.get('/api/admin/all-users', isAuthenticated, isAdmin, async (req, res) => {
         const result = await pool.request().query(`
             SELECT *
             FROM Users
+            WHERE active = 1
         `);
 
         logger.debug('SQL query executed for all admin users', { query: result.command });
@@ -1780,16 +1867,6 @@ app.get('/api/admin/all-users', isAuthenticated, isAdmin, async (req, res) => {
     }
 });
 
-// API Routes - retriev emails from DB(API)
-// app.get('/emails', async (req, res) => {
-//     try {
-//         const collection = client.db("emailDB").collection("emails");
-//         const emails = await collection.find({}).toArray();
-//         res.json(emails);
-//     } catch (e) {
-//         res.status(500).send(e);
-//     }
-// });
 
 // API Routes - retrieve emails from specified collection (API)
 app.get('/emails/:id', isAuthenticated, async (req, res) => {
@@ -1804,13 +1881,6 @@ app.get('/emails/:id', isAuthenticated, async (req, res) => {
         res.status(500).send(e);
     }
 });
-
-
-/*
-TODO: XLSX parse and post into Mongo and MSSQL
-Need to post into the MSSQL Db first to create the revelant Ids, then I'll post the IDs (course+ContentID) 
-as a collection into the emails DB with the parsed xlsx file as JSON in my desired format
-*/
 
 
 // API Route - create a new collection and add entries to it

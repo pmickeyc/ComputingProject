@@ -56,10 +56,10 @@ body, html {
 }
 
 /* Custom Modal Styles */
-.modal {
+ .modal {
     display: none; 
     position: fixed; 
-    z-index: 1; 
+     z-index: 999999999; /*https://stackoverflow.com/questions/41292673/bootstrap-modal-opens-but-stays-in-gray-background-and-cannot-close-or-interact */
     left: 0;
     top: 0;
     width: 100%; 
@@ -80,7 +80,7 @@ body, html {
 
 .modal-content button {
     margin: 10px;
-}
+} 
 
 
 .main {
@@ -122,8 +122,37 @@ h1.animated {
     }
 }
 
+#createCourseModal {
+    display: none;
+}
+
+.create-course-modal-content {
+    background: white;
+    width: 300px;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 5px;
+}
+
+#email-content {
+    display: none;
+}
+
+.email-content {
+    display: none;
+}
+
+.perfectScoreOptions{
+    display: none;
+}
+
+.normalScoreOptions{
+    display: none;
+}
+
 /* Existing styles */
 #pdf-viewer {
+    display:none;
     width: 100%;
     height: calc(100vh - 60px); /* Full height minus control height */
     overflow: auto;

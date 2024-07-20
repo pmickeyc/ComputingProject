@@ -46,4 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Error: Failed to login. Please try again later.');
         });
     });
+
+
+    const forgotPasswordLink = document.getElementById('forgot-password-link');
+    forgotPasswordLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = '/forgottenPassword';
+    });
 });

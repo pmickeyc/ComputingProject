@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     fetchUserCourses();
     fetchAllCourses();
-    initPDFViewer();
+    // initPDFViewer();
 });
 
 function fetchUserCourses() {
@@ -95,12 +95,23 @@ function populateAllCourses(courses) {
                     <div class="course-tile">
                         <h4>${course.Title}</h4>
                         <p>${course.Description}</p>
-                        <a href="${isEnrolled ? '/course/' + course.CourseID : '#'}" class="btn btn-primary" ${isEnrolled ? '' : `onclick="enroll(${course.CourseID})"`}>
+                        <a href="${isEnrolled ? '/course/' + course.CourseID : '#'}" class="btn btn-primary" data-course-id="${course.CourseID}">
                             ${isEnrolled ? 'Go to Course' : 'Enroll'}
                         </a>
                     </div>
                 `;
                 container.appendChild(courseElement);
+            });
+
+            // Add event listeners for enroll buttons
+            container.querySelectorAll('a.btn-primary').forEach(button => {
+                if (!button.href.includes('/course/')) {
+                    button.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const courseId = button.getAttribute('data-course-id');
+                        enroll(courseId);
+                    });
+                }
             });
         })
         .catch(error => {
@@ -133,87 +144,88 @@ function enroll(courseId) {
     });
 }
 
-let pdfDoc = null,
-    pageNum = 1,
-    pageRendering = false,
-    pageNumPending = null,
-    scale = 1.5,
-    canvas = document.getElementById('pdf-canvas'),
-    ctx = canvas.getContext('2d');
+// let pdfDoc = null,
+//     pageNum = 1,
+//     pageRendering = false,
+//     pageNumPending = null,
+//     scale = 1.5,
+//     canvas = document.getElementById('pdf-canvas'),
+//     ctx = canvas.getContext('2d');
 
-function initPDFViewer() {
-    document.getElementById('prev').addEventListener('click', onPrevPage);
-    document.getElementById('next').addEventListener('click', onNextPage);
+// function initPDFViewer() {
+//     document.getElementById('prev').addEventListener('click', onPrevPage);
+//     document.getElementById('next').addEventListener('click', onNextPage);
 
-    // Load the initial PDF (assuming the URL is provided in the global context or passed as a parameter)
-    const urlPath = window.location.pathname;
-    const courseId = urlPath.substring(urlPath.lastIndexOf('/') + 1);
-    $.ajax({
-        url: `/files/pdf/${courseId}`,
-        method: 'GET',
-        xhrFields: {
-            responseType: 'blob' // Set response type as blob
-        },
-        success: function (blob) {
-            const pdfUrl = URL.createObjectURL(blob);
-            loadPDF(pdfUrl);
-        },
-        error: function (xhr, status, error) {
-            console.error("Failed to retrieve PDF:", status, error);
-            alert('Failed to retrieve PDF URL.');
-        }
-    });
-}
+//     // Load the initial PDF (assuming the URL is provided in the global context or passed as a parameter)
+//     const urlPath = window.location.pathname;
+//     const courseId = urlPath.substring(urlPath.lastIndexOf('/') + 1);
+//     $.ajax({
+//         url: `/files/pdf/${courseId}`,
+//         method: 'GET',
+//         xhrFields: {
+//             responseType: 'blob' // Set response type as blob
+//         },
+//         success: function (blob) {
+//             const pdfUrl = URL.createObjectURL(blob);
+//             loadPDF(pdfUrl);
+//         },
+//         error: function (xhr, status, error) {
+//             console.error("Failed to retrieve PDF:", status, error);
+//             alert('Failed to retrieve PDF URL.');
+//         }
+//     });
+// }
 
-// Load PDF document
-function loadPDF(url) {
-    pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-        pdfDoc = pdfDoc_;
-        document.getElementById('page_count').textContent = pdfDoc.numPages;
-        renderPage(pageNum);
-    });
-}
+// // Load PDF document
+// function loadPDF(url) {
+//     pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+//         pdfDoc = pdfDoc_;
+//         document.getElementById('page_count').textContent = pdfDoc.numPages;
+//         renderPage(pageNum);
+//     });
+// }
 
-// Render the page
-function renderPage(num) {
-    pageRendering = true;
-    pdfDoc.getPage(num).then(function (page) {
-        var viewport = page.getViewport({ scale: scale });
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+// // Render the page
+// function renderPage(num) {
+//     pageRendering = true;
+//     pdfDoc.getPage(num).then(function (page) {
+//         var viewport = page.getViewport({ scale: scale });
+//         canvas.height = viewport.height;
+//         canvas.width = viewport.width;
 
-        var renderContext = {
-            canvasContext: ctx,
-            viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
+//         var renderContext = {
+//             canvasContext: ctx,
+//             viewport: viewport
+//         };
+//         var renderTask = page.render(renderContext);
 
-        renderTask.promise.then(function () {
-            pageRendering = false;
-            if (pageNumPending !== null) {
-                renderPage(pageNumPending);
-                pageNumPending = null;
-            }
-        });
-    });
+//         renderTask.promise.then(function () {
+//             pageRendering = false;
+//             if (pageNumPending !== null) {
+//                 renderPage(pageNumPending);
+//                 pageNumPending = null;
+//             }
+//         });
+//     });
 
-    document.getElementById('page_num').textContent = num;
-}
+//     document.getElementById('page_num').textContent = num;
+// }
 
-// Go to previous page
-function onPrevPage() {
-    if (pageNum <= 1) {
-        return;
-    }
-    pageNum--;
-    renderPage(pageNum);
-}
+// // Go to previous page
+// function onPrevPage() {
+//     if (pageNum <= 1) {
+//         return;
+//     }
+//     pageNum--;
+//     renderPage(pageNum);
+// }
 
-// Go to next page
-function onNextPage() {
-    if (pageNum >= pdfDoc.numPages) {
-        return;
-    }
-    pageNum++;
-    renderPage(pageNum);
-}
+// // Go to next page
+// function onNextPage() {
+//     if (pageNum >= pdfDoc.numPages) {
+//         return;
+//     }
+//     pageNum++;
+//     renderPage(pageNum);
+// }
+
