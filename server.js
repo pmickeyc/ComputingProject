@@ -91,6 +91,7 @@ app.use(helmet({
             scriptSrc: scriptSources,
             styleSrc: styleSources,
             workerSrc: workerSources,
+            upgradeInsecureRequests: [],
             // Optionally allow unsafe-inline for event handlers
             //'script-src-attr': ["'self'", "'unsafe-inline'"]
         }
