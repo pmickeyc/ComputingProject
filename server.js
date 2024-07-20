@@ -10,9 +10,10 @@ TODO:
     Functional:
         Test plans
         Styling
-        Set contents as inactive if alocated to a user already -
 
     Enviroment:
+        Static IP
+        Control traffic
 
 */
 

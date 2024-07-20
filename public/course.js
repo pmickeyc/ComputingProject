@@ -47,8 +47,6 @@ $(document).ready(function () {
                 <td>${content.ContentID}</td>
                 <td>${content.ContentName || 'N/A'}</td>
                 <td>${content.ContentDescription || 'N/A'}</td>
-                <td>${content.CoursePDF ? 'PDF Available' : 'N/A'}</td>
-                <td>${content.EmailID || 'N/A'}</td>
                 <td>${content.ContentType || 'N/A'}</td>
                 <td>${content.CompletionStatus}</td>
                 <td>
