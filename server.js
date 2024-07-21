@@ -14,8 +14,7 @@ TODO:
         content creation for courses
 
     Enviroment:
-        Static IP
-        Control traffic
+
 */
 
 // Environment and Package Declarations
