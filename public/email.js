@@ -312,22 +312,34 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#exitBtn').on('click', function () {
         goBack();
     });
-
     function markContentComplete(contentId, courseId) {
-        $.ajax({
-            url: `/api/complete-content/${contentId}`,
-            method: 'POST',
-            data: {
-                courseId: courseId
-            },
-            success: function (data) {
-                //console.log('Content marked as complete:', data); // Log success response
-                goBack(); // Refresh the page
-            },
-            error: function (xhr, status, error) {
-                console.error("Failed to mark content as complete:", status, error);
-                alert('Failed to mark content as complete.');
-            }
-        });
+        fetch('/csrf-token')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const csrfToken = data.csrfToken; // Set the CSRF token value
+    
+                $.ajax({
+                    url: `/api/complete-content/${contentId}`,
+                    method: 'POST',
+                    headers: {
+                        'CSRF-Token': csrfToken // Include CSRF token in the headers
+                    },
+                    data: JSON.stringify({ courseId: courseId }), // Convert data to JSON string
+                    contentType: 'application/json', // Set content type to application/json
+                    success: function (data) {
+                        console.log('Content marked as complete:', data); // Log success response
+                        goBack(); // Refresh the page
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Failed to mark content as complete:", status, error);
+                        alert('Failed to mark content as complete.');
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Failed to fetch CSRF token', error);
+            });
     }
+    
 });

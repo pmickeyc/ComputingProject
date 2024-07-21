@@ -14,6 +14,7 @@
         <div class="card-body">
             <h3 class="card-title mb-4 text-center">Login to Your Account</h3>
             <form id="login-form">
+                <input type="hidden" name="_csrf" id="csrf-token">
                 <div class="form-group">
                     <label for="inputEmail">Email address</label>
                     <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
@@ -22,7 +23,7 @@
                     <label for="inputPassword">Password</label>
                     <input type="password" class="form-control" id="inputPassword" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" name="loginBtn" class="btn btn-primary w-100">Login</button>
             </form>
             <div class="text-center mt-3">
                 <a href="/forgottenPassword" id="forgot-password-link">Forgot my password</a>

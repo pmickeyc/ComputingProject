@@ -4,10 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const email = document.getElementById('inputEmail').value;
 
+        fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('csrf-token').value = data.csrfToken; // Set the CSRF token value
+        })
+        .catch(error => console.error('Error fetching CSRF token:', error));
+
         fetch('/send-reset-link', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'CSRF-Token': csrfToken // Include CSRF token in the headers
             },
             body: JSON.stringify({ email: email })
         })

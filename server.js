@@ -4,14 +4,15 @@ BiggerPhish Educational Platform
 
 TODO:
     Security:
-        Run ZAP testing
+        Cache setup
 
     Functional:
         Test plans
         Styling
         Help section/instructions on uses - admin
         Help section/instructions on uses - User
-        content creation for courses
+        Create content for courses
+        comment code more thoroughly
 
     Enviroment:
 
@@ -23,51 +24,55 @@ const fileUpload = require('express-fileupload');
 const sql = require('mssql');
 const path = require('path');
 const fs = require('fs');
-const {
-    MongoClient,
-    ServerApiVersion
-} = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const session = require('express-session');
 const winston = require('winston');
 const { createLogger, format, transports } = winston;
 const { combine, timestamp, printf } = format;
 const bodyParser = require('body-parser');
-const { stringify } = require('querystring');
-const { log } = require('console');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const { v4: uuidv4 } = require('uuid');
 const helmet = require('helmet');
 const https = require("https");
-require('dotenv').config();
+const csurf = require('csurf');
+const cookieParser = require('cookie-parser');
 
+require('dotenv').config();
 
 // App Instance and Middleware Setup
 const app = express();
 const port = process.env.PORT || 3000;
-app.set('trust proxy', true);
 
+// Middleware setup
+app.set('trust proxy', true);
+app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // Ensure URL-encoded body parsing
 app.use(fileUpload());
 app.use(express.static(path.join(__dirname, 'public'), {
     index: false
 }));
 
+// Session management
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        secure: true, 
+        httpOnly: true, 
+        sameSite: 'strict' 
+    }
 }));
 
-
-// Helmet setup
+// Helmet security setup
 const scriptSources = [
-    "'self'", 
+    "'self'",
     'https://code.jquery.com',
     'https://cdn.jsdelivr.net',
     'https://stackpath.bootstrapcdn.com',
     'https://cdnjs.cloudflare.com'
-    //"'unsafe-inline'"
 ];
 
 const styleSources = [
@@ -75,7 +80,12 @@ const styleSources = [
     'https://stackpath.bootstrapcdn.com',
     'https://cdnjs.cloudflare.com',
     'https://cdn.jsdelivr.net'
-    //"'unsafe-inline'"
+];
+
+const fontSources = [
+    "'self'",
+    'https://fonts.gstatic.com',
+    'https://cdnjs.cloudflare.com'
 ];
 
 const workerSources = [
@@ -89,10 +99,14 @@ app.use(helmet({
             defaultSrc: ["'self'"],
             scriptSrc: scriptSources,
             styleSrc: styleSources,
+            fontSrc: fontSources,
+            imgSrc: ["'self'"],
+            connectSrc: ["'self'"],
+            objectSrc: ["'none'"],
+            mediaSrc: ["'self'"],
+            frameAncestors: ["'none'"],
             workerSrc: workerSources,
             upgradeInsecureRequests: [],
-            // Optionally allow unsafe-inline for event handlers
-            //'script-src-attr': ["'self'", "'unsafe-inline'"]
         }
     },
     crossOriginEmbedderPolicy: false,
@@ -100,7 +114,27 @@ app.use(helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 
+// Additional security headers
+app.use(helmet.hsts({ maxAge: 31536000 }));
+app.use(helmet.noSniff());
+app.use(helmet.frameguard({ action: 'deny' }));
+app.use(helmet.xssFilter());
+app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
+app.disable('x-powered-by');
 
+// CSRF protection
+const csrfProtection = csurf({ cookie: true });
+app.use(csrfProtection);
+
+// Middleware to set the CSRF token cookie
+app.use((req, res, next) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken(), { 
+        secure: true, 
+        httpOnly: true, 
+        sameSite: 'strict'  
+    });
+    next();
+});
 
 // MongoDB Connection
 const uri = process.env.MONGODB_URI;
@@ -111,7 +145,6 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     }
 });
-
 
 // MSSQL Connection Configuration
 const mssqlConfig = {
@@ -205,6 +238,33 @@ const logger = createLogger({
 module.exports = logger;
 
 // Middleware Functions
+
+// // Middleware to set Cache-Control headers for dynamic content (HTML pages)
+// app.use((req, res, next) => {
+//     if (req.path.endsWith('.html') || req.path === '/' || req.path.startsWith('/api/')) {
+//         res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+//         res.setHeader('Pragma', 'no-cache');
+//         res.setHeader('Expires', '0');
+//     }
+//     next();
+// });
+
+// // Set Cache-Control headers for static assets
+// const oneYear = 365 * 24 * 60 * 60 * 1000; // One year in milliseconds
+// app.use(express.static(path.join(__dirname, 'public'), {
+//     maxAge: oneYear,
+//     setHeaders: (res, path) => {
+//         if (path.endsWith('.html')) {
+//             res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+//             res.setHeader('Pragma', 'no-cache');
+//             res.setHeader('Expires', '0');
+//         } else {
+//             res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+//         }
+//     }
+// }));
+
+// Authentication middlewares
 function isAuthenticated(req, res, next) {
     if (req.isAuthenticatedChecked) {
         return next();
@@ -251,13 +311,12 @@ function isAdmin(req, res, next) {
 
 //Enrolled check
 async function isEnrolled(req, res, next) {
-    const userId = req.session.user ? req.session.user.id : null; // Assuming session stores user ID
+    const userId = req.session.user ? req.session.user.id : null;
     const courseId = req.params.courseId;
     logger.info(JSON.stringify(req.session));
     logger.info(`userId: ${userId}, courseId: ${courseId}`);
 
     if (!userId || !courseId) {
-
         logger.warn('User ID or Course ID not provided');
         return res.status(400).json({ message: 'User ID or Course ID not provided' });
     }
@@ -272,10 +331,10 @@ async function isEnrolled(req, res, next) {
 
         if (result.recordset.length > 0) {
             logger.info('User is enrolled in the course', { userId, courseId });
-            next(); // User is enrolled, proceed to the next middleware or route handler
+            next();
         } else {
             logger.info('User is not enrolled in the course', { userId, courseId });
-            res.redirect('/courses'); // Redirect to the courses page
+            res.redirect('/courses');
         }
     } catch (err) {
         logger.error('Error checking enrollment:', err);
@@ -283,15 +342,13 @@ async function isEnrolled(req, res, next) {
     }
 }
 
-
+// Attach session ID to logger metadata
 app.use((req, res, next) => {
     logger.defaultMeta = { sessionId: req.sessionID };
     next();
 });
 
-
-
-// Server Initialization
+// Initialize databases
 async function initializeDatabases() {
     try {
         await client.connect();
@@ -401,7 +458,7 @@ app.get('/user-data', isAuthenticated, async (req, res) => {
 });
 
 // API Routes - register user(API)
-app.post('/register-user', async (req, res) => {
+app.post('/register-user', csrfProtection, async (req, res) => {
     const {
         firstName,
         email,
@@ -858,9 +915,9 @@ app.post('/update-user-name', isAuthenticated, async (req, res) => {
 });
 
 // API Routes - login user(API)
-app.post('/login-user', async (req, res) => {
+app.post('/login-user', csrfProtection, async (req, res) => {
     let email;
-
+    logger.info('CSRF Token in POST:', req.body._csrf);
     try {
         const { email: reqEmail, password } = req.body;
         email = reqEmail;
@@ -1303,6 +1360,11 @@ app.get('/courses', isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, './public/courses.html'));
 });
 
+app.get('/csrf-token', csrfProtection, (req, res) => {
+    const csrfToken = req.csrfToken();
+    logger.info(csrfToken );
+    res.json({ csrfToken });
+});
 
 // API Routes - course(PATH)
 app.get('/login', (req, res) => {
@@ -1330,7 +1392,7 @@ app.get('/forgottenPassword', (req, res) => {
 });
 
 //Handle the PW reset and the mailing of the PW
-app.post('/send-reset-link', async (req, res) => {
+app.post('/send-reset-link', csrfProtection, async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
@@ -1490,7 +1552,7 @@ app.get('/settings', isAuthenticated, (req, res, next) => {
 
 
 // API Routes - course(PATH)
-app.post('/logout', (req, res) => {
+app.post('/logout', csrfProtection, (req, res) => {
     logger.info('Logout attempt', {
         sessionId: req.session ?.id,userId: req.session ?.userId
     });
@@ -1740,10 +1802,12 @@ app.delete('/api/user/:userId', isAuthenticated, isAdmin, async (req, res) => {
 
             if (returnValue === 0) {
                 logger.info(`Successfully deleted user with ID ${userId}`);
-                await handleLogout(req, res);
+                res.json({ success: true });
+                //await handleLogout(req, res);
             } else if (returnValue === 1) {
                 logger.info(`User with ID ${userId} set to inactive`);
-                await handleLogout(req, res);
+                res.json({ success: true });
+                //await handleLogout(req, res);
             } else if (returnValue === 2) {
                 logger.warn(`User with ID ${userId} not found for deletion`);
                 res.status(404).json({ message: 'User not found' });

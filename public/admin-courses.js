@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
             closeCreateCourseModal();
         });
     }
-
 });
 
 function fetchAllCourses() {
@@ -47,7 +46,7 @@ function populateCourses(courses, containerSelector) {
             <div class="course-tile">
                 <h4>${course.Title}</h4>
                 <p>${course.Description}</p>
-                 <button class="btn btn-secondary" id="edit-btn-${course.CourseID}">Edit</button>
+                <button class="btn btn-secondary" id="edit-btn-${course.CourseID}">Edit</button>
                 <button class="btn btn-danger" id="delete-btn-${course.CourseID}">Delete</button>
             </div>
         `;
@@ -69,27 +68,36 @@ function editCourse(courseId) {
 }
 
 function deleteCourse(courseId) {
-    console.log('Deleting course', courseId);
-    fetch(`/api/course/${courseId}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Course deleted successfully');
-            location.reload(); 
-        } else {
-            alert('Failed to delete course: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error deleting course:', error);
-    });
-}
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken; // Set the CSRF token value
 
+            console.log('Deleting course', courseId);
+            fetch(`/api/course/${courseId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Course deleted successfully');
+                    location.reload(); 
+                } else {
+                    alert('Failed to delete course: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting course:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
+}
 
 function closeCreateCourseModal() {
     document.getElementById('createCourseModal').style.display = 'none';
@@ -116,29 +124,39 @@ function submitCourse() {
 }
 
 function sendCourseData(courseData) {
-    fetch('/api/create-course', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(courseData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.statusText}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            alert('Course created successfully');
-            location.reload(); // Optionally reload the page or refresh the course list
-            closeCreateCourseModal();
-        } else {
-            alert('Failed to create course: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error creating course:', error);
-    });
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken; // Set the CSRF token value
+
+            fetch('/api/create-course', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify(courseData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Course created successfully');
+                    location.reload(); // Optionally reload the page or refresh the course list
+                    closeCreateCourseModal();
+                } else {
+                    alert('Failed to create course: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error creating course:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }

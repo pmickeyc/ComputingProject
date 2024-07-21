@@ -115,57 +115,78 @@ function submitCourseContent() {
             sendCourseContent(courseId, contentData);
         });
     } else {
-        // No file uploaded
         sendCourseContent(courseId, contentData);
     }
 }
 
 function uploadPDF(file, callback) {
-    const formData = new FormData();
-    formData.append('file', file);
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken;
 
-    fetch('/api/upload-pdf', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            callback(data.filePath);
-        } else {
-            alert('Failed to upload PDF: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error uploading PDF:', error);
-    });
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/api/upload-pdf', {
+                method: 'POST',
+                headers: {
+                    'CSRF-Token': csrfToken
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    callback(data.filePath);
+                } else {
+                    alert('Failed to upload PDF: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error uploading PDF:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }
 
 function sendCourseContent(courseId, contentData) {
-    fetch(`/api/course/${courseId}/content`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(contentData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            alert('Course content uploaded successfully');
-            fetchCourseDetails(courseId);  // Refresh the content table
-        } else {
-            alert('Failed to upload course content: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error uploading course content:', error);
-    });
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken;
+
+            fetch(`/api/course/${courseId}/content`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify(contentData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Course content uploaded successfully');
+                    location.reload();  // Refresh the page
+                } else {
+                    alert('Failed to upload course content: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error uploading course content:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }
 
 function editContent(contentId) {
@@ -189,104 +210,136 @@ function editContent(contentId) {
 }
 
 function submitEditContent() {
-    const contentName = document.getElementById('edit-content-name').value;
-    const contentDescription = document.getElementById('edit-content-description').value;
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken;
 
-    const contentData = {
-        contentName: contentName,
-        contentDescription: contentDescription
-    };
+            const contentName = document.getElementById('edit-content-name').value;
+            const contentDescription = document.getElementById('edit-content-description').value;
 
-    fetch(`/api/course/content/${currentContentId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(contentData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            alert('Content updated successfully');
-            $('#editContentModal').modal('hide');
-            fetchCourseDetails(window.location.pathname.split('/').pop());  // Refresh the content table
-        } else {
-            alert('Failed to update content: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error updating content:', error);
-    });
+            const contentData = {
+                contentName: contentName,
+                contentDescription: contentDescription
+            };
+
+            fetch(`/api/course/content/${currentContentId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify(contentData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Content updated successfully');
+                    $('#editContentModal').modal('hide');
+                    fetchCourseDetails(window.location.pathname.split('/').pop());  // Refresh the content table
+                } else {
+                    alert('Failed to update content: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating content:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }
 
 function submitEditCourse() {
-    const courseId = window.location.pathname.split('/').pop();
-    const title = document.getElementById('course-title').value;
-    const description = document.getElementById('course-description').value;
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken;
 
-    // Validation (if necessary)
-    if (!title || !description) {
-        alert('Both title and description are required.');
-        return;
-    }
+            const courseId = window.location.pathname.split('/').pop();
+            const title = document.getElementById('course-title').value;
+            const description = document.getElementById('course-description').value;
 
-    const courseData = {
-        title: title,
-        description: description
-    };
+            // Validation (if necessary)
+            if (!title || !description) {
+                alert('Both title and description are required.');
+                return;
+            }
 
-    fetch(`/api/course/${courseId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(courseData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            alert('Course updated successfully');
-            window.location.href = '/admin-courses'; // Redirect to courses list
-        } else {
-            alert('Failed to update course: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error updating course:', error);
-    });
+            const courseData = {
+                title: title,
+                description: description
+            };
+
+            fetch(`/api/course/${courseId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify(courseData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Course updated successfully');
+                    window.location.href = '/admin-courses'; // Redirect to courses list
+                } else {
+                    alert('Failed to update course: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating course:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }
 
 function deleteContent(contentId) {
-    const courseId = window.location.pathname.split('/').pop();
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken;
 
-    fetch(`/api/course/content/${contentId}`, {
-        method: 'DELETE'
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            alert('Content deleted successfully');
-            fetchCourseDetails(courseId);  // Refresh the content table
-        } else {
-            alert('Failed to delete content: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error deleting content:', error);
-    });
+            const courseId = window.location.pathname.split('/').pop();
+
+            fetch(`/api/course/content/${contentId}`, {
+                method: 'DELETE',
+                headers: {
+                    'CSRF-Token': csrfToken
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Content deleted successfully');
+                    fetchCourseDetails(courseId);  // Refresh the content table
+                } else {
+                    alert('Failed to delete content: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting content:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }

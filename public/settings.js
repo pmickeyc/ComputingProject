@@ -50,32 +50,40 @@ function setupUpdateEmailButton() {
 }
 
 function updateEmail() {
-    var newEmail = document.getElementById('user-email').value;
-    fetch('/update-user-email', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            oldEmail: email,
-            newEmail: newEmail
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken; // Set the CSRF token value
+            var newEmail = document.getElementById('user-email').value;
+            fetch('/update-user-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify({
+                    oldEmail: email,
+                    newEmail: newEmail
+                })
+            })
+            .then(response => response.json().then(data => ({status: response.status, body: data}))) // Parse both status and body
+            .then(({status, body}) => {
+                if (status === 200) {
+                    alert(body.message);
+                    location.reload(); // Reload the page
+                } else {
+                    alert('Failed to update email: ' + body.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating email:', error);
+                alert('Failed to update email due to network error.');
+            });
         })
-    })
-    .then(response => response.json().then(data => ({status: response.status, body: data}))) // Parse both status and body
-    .then(({status, body}) => {
-        if (status === 200) {
-            alert(body.message);
-            location.reload(); // Reload the page
-        } else {
-            alert('Failed to update email: ' + body.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error updating email:', error);
-        alert('Failed to update email due to network error.');
-    });
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }
-
 
 function setupUpdatePasswordButton() {
     var updatePasswordBtn = document.getElementById('update-password-btn');
@@ -110,47 +118,57 @@ function removeReadOnlyAttributes() {
 }
 
 function updatePassword() {
-    var currentPassword = document.getElementById('current-password').value;
-    var newPassword = document.getElementById('new-password').value;
-    var confirmNewPassword = document.getElementById('confirm-new-password').value;
-
-    if (!currentPassword || !newPassword || !confirmNewPassword) {
-        alert("All fields are required.");
-        return;
-    }
-
-    if (newPassword !== confirmNewPassword) {
-        alert("The new passwords do not match.");
-        return;
-    }
-
-    fetch('/update-user-password', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            currentPassword: currentPassword,
-            newPassword: newPassword
-        })
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.statusText}`);
-            }
-            return response.json();
-        })
+    fetch('/csrf-token')
+        .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                alert('Password updated successfully');
-                location.reload(); // Optionally reload the page or close the modal
-                $('#passwordModal').modal('hide');
-            } else {
-                alert('Failed to update password: ' + data.message);
+            const csrfToken = data.csrfToken; // Set the CSRF token value
+
+            var currentPassword = document.getElementById('current-password').value;
+            var newPassword = document.getElementById('new-password').value;
+            var confirmNewPassword = document.getElementById('confirm-new-password').value;
+
+            if (!currentPassword || !newPassword || !confirmNewPassword) {
+                alert("All fields are required.");
+                return;
             }
+
+            if (newPassword !== confirmNewPassword) {
+                alert("The new passwords do not match.");
+                return;
+            }
+
+            fetch('/update-user-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify({
+                    currentPassword: currentPassword,
+                    newPassword: newPassword
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Password updated successfully');
+                    location.reload(); // Optionally reload the page or close the modal
+                    $('#passwordModal').modal('hide');
+                } else {
+                    alert('Failed to update password: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating password:', error);
+            });
         })
         .catch(error => {
-            console.error('Error updating password:', error);
+            console.error('Error fetching CSRF token:', error);
         });
 }
 
@@ -165,33 +183,43 @@ function setupUpdateNameButton() {
 }
 
 function updateName() {
-    var newName = document.getElementById('user-name').value;
-    fetch('/update-user-name', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email,
-            newFName: newName
-        })
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.statusText}`);
-            }
-            return response.json();
-        })
+    fetch('/csrf-token')
+        .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                alert('Name updated successfully');
-                location.reload(); // Reload the page
-            } else {
-                alert('Failed to update name: ' + data.message);
-            }
+            const csrfToken = data.csrfToken; // Set the CSRF token value
+
+            var newName = document.getElementById('user-name').value;
+            fetch('/update-user-name', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify({
+                    email: email,
+                    newFName: newName
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Name updated successfully');
+                    location.reload(); // Reload the page
+                } else {
+                    alert('Failed to update name: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating name:', error);
+            });
         })
         .catch(error => {
-            console.error('Error updating name:', error);
+            console.error('Error fetching CSRF token:', error);
         });
 }
 
@@ -206,27 +234,36 @@ function setupDeleteAccountButton() {
 }
 
 function deleteAccount() {
-    if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
-        fetch('/api/user', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+    fetch('/csrf-token')
         .then(response => response.json())
         .then(data => {
-            console.log('Account deletion requested:', data);
-            if (data.success) {
-                alert('Account deleted successfully');
-                window.location.href = '/';
-            } else {
-                alert('Failed to delete account: ' + data.message);
+            const csrfToken = data.csrfToken; // Set the CSRF token value
+
+            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                fetch('/api/user', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'CSRF-Token': csrfToken
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Account deletion requested:', data);
+                    if (data.success) {
+                        alert('Account deleted successfully');
+                        window.location.href = '/';
+                    } else {
+                        alert('Failed to delete account: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error requesting account deletion:', error);
+                    alert('Failed to delete account');
+                });
             }
         })
         .catch(error => {
-            console.error('Error requesting account deletion:', error);
-            alert('Failed to delete account');
+            console.error('Error fetching CSRF token:', error);
         });
-    }
 }
-

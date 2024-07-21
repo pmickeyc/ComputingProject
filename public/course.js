@@ -23,10 +23,10 @@ $(document).ready(function () {
 
     function fetchCourseContents(courseId) {
         $.ajax({
-            url: `/api/course/${courseId}/contents`, 
+            url: `/api/course/${courseId}/contents`,
             method: 'GET',
             success: function (data) {
-                console.log('Course contents data:', data); 
+                console.log('Course contents data:', data);
                 populateCourseContentTable(data);
             },
             error: function (xhr, status, error) {
@@ -39,7 +39,7 @@ $(document).ready(function () {
     function populateCourseContentTable(contents) {
         const tableBody = document.getElementById('course-content-table');
         tableBody.innerHTML = '';
-    
+
         contents.forEach(content => {
             console.log(`Content ID: ${content.ContentID}, Content Type: ${content.ContentType}`);
             const row = document.createElement('tr');
@@ -55,7 +55,7 @@ $(document).ready(function () {
             `;
             tableBody.appendChild(row);
         });
-    
+
         document.querySelectorAll('.view-content').forEach(button => {
             button.addEventListener('click', function () {
                 selectedContentId = this.getAttribute('data-id');
@@ -72,7 +72,7 @@ $(document).ready(function () {
             });
         });
     }
-    
+
 
     function loadPDF(pdfPath) {
         console.log(`Loading PDF from path: ${pdfPath}`); // Log the PDF path
@@ -107,8 +107,12 @@ $(document).ready(function () {
             pdfDoc.getPage(num).then(function (page) {
                 const canvas = document.getElementById('pdf-canvas');
                 const context = canvas.getContext('2d');
-                const scale = canvas.parentElement.offsetWidth / page.getViewport({ scale: 1 }).width;
-                const viewport = page.getViewport({ scale: scale });
+                const scale = canvas.parentElement.offsetWidth / page.getViewport({
+                    scale: 1
+                }).width;
+                const viewport = page.getViewport({
+                    scale: scale
+                });
 
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
@@ -164,20 +168,37 @@ $(document).ready(function () {
     }
 
     function markContentComplete(contentId, courseId) {
-        $.ajax({
-            url: `/api/complete-content/${contentId}`,
-            method: 'POST',
-            data: {
-                courseId: courseId
-            },
-            success: function (data) {
-                console.log('Content marked as complete:', data); // Log success response
-                location.reload(); // Refresh the page
-            },
-            error: function (xhr, status, error) {
-                console.error("Failed to mark content as complete:", status, error);
-                alert('Failed to mark content as complete.');
-            }
-        });
+        // Fetch CSRF token
+        fetch('/csrf-token')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const csrfToken = data.csrfToken; // Set the CSRF token value
+
+                // Proceed with marking content complete only after fetching the CSRF token
+                return $.ajax({
+                    url: `/api/complete-content/${contentId}`,
+                    method: 'POST',
+                    headers: {
+                        'CSRF-Token': csrfToken // Include CSRF token in the headers
+                    },
+                    data: JSON.stringify({
+                        courseId: courseId
+                    }), // Convert data to JSON string
+                    contentType: 'application/json', // Set content type to application/json
+                    success: function (data) {
+                        console.log('Content marked as complete:', data); // Log success response
+                        location.reload(); // Refresh the page
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Failed to mark content as complete:", status, error);
+                        alert('Failed to mark content as complete.');
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Failed to fetch CSRF token', error);
+            });
     }
+
 });

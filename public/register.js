@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('csrf-token').value = data.csrfToken; // Set the CSRF token value
+        })
+        .catch(error => console.error('Error fetching CSRF token:', error));
+
     registerForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -13,9 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const inputEmail = document.getElementById('inputEmail');
         const inputPassword = document.getElementById('inputPassword');
         const inputConfirmPassword = document.getElementById('inputConfirmPassword');
+        const csrfToken = document.getElementById('csrf-token').value; // Get the CSRF token value
 
         // Check if all fields are filled
-        if (!inputFullName.value || !inputEmail.value || !inputPassword.value || !inputConfirmPassword.value) {
+        if (!inputFullName.value || !inputEmail.value || !inputPassword.value || !inputConfirmPassword.value || !csrfToken) {
             alert('Please fill in all fields.');
             return;
         }
@@ -45,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'CSRF-Token': csrfToken // Include CSRF token in the headers
             },
             body: JSON.stringify(formData),
         })

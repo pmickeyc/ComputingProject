@@ -12,7 +12,6 @@ function fetchAllUsers() {
         .then(response => response.json())
         .then(data => {
             populateUsers(data, '#admin-users-container');
-            //onsole.log("Content fetched successfully");
         })
         .catch(error => {
             console.error('Error fetching all users for admin:', error);
@@ -80,27 +79,37 @@ function submitEditUser() {
         email: userEmail
     };
 
-    fetch(`/api/user/${userId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('User updated successfully');
-            $('#editUserModal').modal('hide');
-            fetchAllUsers(); // Refresh the user list
-        } else {
-            alert('Failed to update user: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error updating user:', error);
-        alert('Failed to update user.');
-    });
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken;
+
+            fetch(`/api/user/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('User updated successfully');
+                    $('#editUserModal').modal('hide');
+                    fetchAllUsers(); // Refresh the user list
+                } else {
+                    alert('Failed to update user: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating user:', error);
+                alert('Failed to update user.');
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }
 
 function deleteUser(userId) {
@@ -108,20 +117,32 @@ function deleteUser(userId) {
         return;
     }
 
-    fetch(`/api/user/${userId}`, {
-        method: 'DELETE'
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('User deleted successfully');
-            fetchAllUsers(); // Refresh the user list
-        } else {
-            alert('Failed to delete user: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error deleting user:', error);
-        alert('Failed to delete user.');
-    });
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken;
+
+            fetch(`/api/user/${userId}`, {
+                method: 'DELETE',
+                headers: {
+                    'CSRF-Token': csrfToken
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('User deleted successfully');
+                    fetchAllUsers(); // Refresh the user list
+                } else {
+                    alert('Failed to delete user: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting user:', error);
+                alert('Failed to delete user.');
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching CSRF token:', error);
+        });
 }

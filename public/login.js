@@ -6,12 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data);
+            document.getElementById('csrf-token').value = data.csrfToken; // Set the CSRF token value
+        })
+        .catch(error => console.error('Error fetching CSRF token:', error));
+
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const email = document.getElementById('inputEmail').value;
         const password = document.getElementById('inputPassword').value;
-        if (!email || !password) {
-            console.error("Error: Email or password is missing.");
+        const csrfToken = document.getElementById('csrf-token').value; // Get the CSRF token value
+
+        if (!email || !password || !csrfToken) {
+            console.error("Error: Email, password, or CSRF token is missing.");
             return;
         }
 
@@ -24,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'CSRF-Token': csrfToken // Include CSRF token in the headers
             },
             body: JSON.stringify(formData),
         })
@@ -34,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            console.log("Server response:", data);
+            //console.log("Server response:", data);
             if (data.success) {
                 window.location.href = '/';
             } else {
@@ -46,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Error: Failed to login. Please try again later.');
         });
     });
-
 
     const forgotPasswordLink = document.getElementById('forgot-password-link');
     forgotPasswordLink.addEventListener('click', function(e) {
