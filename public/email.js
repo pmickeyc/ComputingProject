@@ -73,8 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
         //.log(`Max real emails: ${maxRealEmails}, Max fake emails: ${maxFakeEmails}`);
     }
 
-    // Example usage ie.HardCoded (will read from DB for this):
-    let userLevel = 3; // You can change this to the user's actual level
+
+    let userLevel = Math.floor(Math.random() * 10) + 1; // This will give a random number between 1 and 100
+ // You can change this to the user's actual level
     calculateEmailLimits(userLevel);
 
     // Function to add event listener to an email item

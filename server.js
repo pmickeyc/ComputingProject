@@ -4,16 +4,11 @@ BiggerPhish Educational Platform
 
 TODO:
     Security:
-        Cache setup
 
     Functional:
-        Test plans
-        Styling
-        Help section/instructions on uses - admin
-        Help section/instructions on uses - User
         Create content for courses
-        comment code more thoroughly
-
+        Comment code more thoroughly
+        
     Enviroment:
 
 */
@@ -37,7 +32,6 @@ const helmet = require('helmet');
 const https = require("https");
 const csurf = require('csurf');
 const cookieParser = require('cookie-parser');
-
 require('dotenv').config();
 
 // App Instance and Middleware Setup
@@ -347,6 +341,8 @@ app.use((req, res, next) => {
     logger.defaultMeta = { sessionId: req.sessionID };
     next();
 });
+
+
 
 // Initialize databases
 async function initializeDatabases() {
@@ -2002,8 +1998,10 @@ app.get('/api/user-grades', isAuthenticated, async (req, res) => {
 //     console.error('Initialization failed:', err);
 // });
 
+let server;
+
 initializeDatabases().then(() => {
-    https.createServer({
+    server = https.createServer({
         key: fs.readFileSync('server.key'),
         cert: fs.readFileSync('server.cert')
     }, app).listen(port, () => {
@@ -2012,3 +2010,5 @@ initializeDatabases().then(() => {
 }).catch(err => {
     console.error('Initialization failed:', err);
 });
+
+module.exports = { app, server, initializeDatabases, client, sql };

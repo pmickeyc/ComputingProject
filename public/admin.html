@@ -11,14 +11,14 @@
 
 <body>
 
-    <div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
             <!-- Sidebar -->
-            <div class="col-md-3 sidebar">
+            <div class="col-md-3 sidebar d-flex flex-column align-items-center justify-content-center">
                 <!-- Logo or Branding -->
-                <<div class="sidebar-header text-center py-4">
+                <div class="sidebar-header text-center py-4">
                     <a href="/" class="navbar-brand">
-                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid" >
+                        <img src="./assets/logo.png" alt="BiggerPhish Logo" class="img-fluid">
                     </a>
                 </div>
                 <div id="user-nav-menu">
@@ -56,11 +56,17 @@
             <!-- Main Content -->
             <div class="col-md-9">
                 <div class="main-content">
-                    <div class="user-welcome">
-                        <h2>Welcome, <span id="user-name"></span>!</h2>
-                        <p>This is the admin portal. Manage courses, users and your profile here.</p>
+                    <div class="align-items-center justify-content-between">
+                        <div>
+                            <h2>Welcome, <span id="user-name"></span>!</h2>
+                            <p>This is the admin portal. Manage courses, users and your profile here.</p>
+                        </div>
+                        <div id="stats-dashboard" class="stats-dashboard">
+                            <h3>User Stats</h3>
+                            <p>Time Since Account Created: <span id="time-since-created"></span></p>
+                            <p>Time Since Last Modified: <span id="time-since-modified"></span></p>
+                        </div>
                     </div>
-                    <!-- TDC -->
                 </div>
             </div>
         </div>

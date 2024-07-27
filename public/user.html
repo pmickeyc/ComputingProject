@@ -56,19 +56,30 @@
             <!-- Main Content -->
             <div class="col-md-9">
                 <div class="main-content">
-                    <div class="user-welcome">
-                        <h2>Welcome, <span id="user-name"></span>!</h2>
-                        <p>This is your dashboard. From here, you can access all of your courses, progress, and more.</p>
+                    <div class="align-items-center justify-content-between">
+                        <div>
+                            <h2>Welcome, <span id="user-name"></span>!</h2>
+                            <p>This is your dashboard. From here, you can access all of your courses, progress, and more.</p>
+                        </div>
+                        <div id="stats-dashboard" class="stats-dashboard">
+                            <h3>User Stats</h3>
+                            <p>Time Since Account Created: <span id="time-since-created"></span></p>
+                            <p>Time Since Last Modified: <span id="time-since-modified"></span></p>
+                        </div>
                     </div>
-                    <!-- TDC -->
                 </div>
             </div>
+            
+            
+            
+            
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <script src="user.js"></script>
     <script src="common.js" defer></script>
 </body>
