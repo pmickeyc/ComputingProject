@@ -1988,6 +1988,36 @@ app.get('/api/user-grades', isAuthenticated, async (req, res) => {
     }
 });
 
+// route for downloading the template xlsx emails
+app.get('/download-email-template', (req, res) => {
+    const filePath = path.join(__dirname, './public/assets/Email Upload Template.xlsx');
+
+    // Log the request details
+    logger.info('Download request received for Email Upload Template.xlsx', {
+        ip: req.ip,
+        userAgent: req.get('User-Agent')
+    });
+
+    res.download(filePath, (err) => {
+        if (err) {
+            // Log the error if the download fails
+            logger.error('Error downloading Email Upload Template.xlsx', {
+                error: err.message,
+                ip: req.ip,
+                userAgent: req.get('User-Agent')
+            });
+            res.status(500).send('Error downloading the file');
+        } else {
+            // Log the successful download
+            logger.info('Successfully downloaded Email Upload Template.xlsx', {
+                ip: req.ip,
+                userAgent: req.get('User-Agent')
+            });
+        }
+    });
+});
+
+
 
 let server;
 

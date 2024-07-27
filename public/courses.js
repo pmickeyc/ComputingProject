@@ -131,25 +131,37 @@ function populateAllCourses(courses) {
 
 // function to enroll in a course
 function enroll(courseId) {
-    fetch(`/api/enroll-course/${courseId}`, {
-        method: 'POST'
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('network response was not ok for enrolling in course.');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            alert('successfully enrolled in the course!');
-            fetchUserCourses();
-            fetchAllCourses(); // refresh both sections to reflect the change
-        } else {
-            alert('failed to enroll in the course: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('error enrolling in course:', error);
-    });
+    // Fetch CSRF token
+    fetch('/csrf-token')
+        .then(response => response.json())
+        .then(data => {
+            const csrfToken = data.csrfToken; // Set the CSRF token value
+
+            // Proceed with enrollment only after fetching the CSRF token
+            return fetch(`/api/enroll-course/${courseId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'CSRF-Token': csrfToken // Include CSRF token in the headers
+                }
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('network response was not ok for enrolling in course.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                alert('successfully enrolled in the course!');
+                fetchUserCourses();
+                fetchAllCourses(); // Refresh both sections to reflect the change
+            } else {
+                alert('failed to enroll in the course: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('error enrolling in course:', error);
+        });
 }

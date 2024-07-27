@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         submitEditContent();
     });
+
+    // add click event listener to the download template button
+    document.getElementById('download-template-btn').addEventListener('click', function (event) {
+        event.preventDefault();
+        downloadTemplate();
+    });
 });
 
 // function to fetch course details
@@ -373,5 +379,29 @@ function deleteContent(contentId) {
         })
         .catch(error => {
             console.error('error fetching csrf token:', error);
+        });
+}
+
+// function to download the template
+function downloadTemplate() {
+    fetch('/download-email-template')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`http error! status: ${response.status}`);
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'Email Upload Template.xlsx';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            console.error('error downloading template:', error);
         });
 }
