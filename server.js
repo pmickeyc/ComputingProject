@@ -7,7 +7,6 @@ TODO:
 
     Functional:
         Create content for courses
-        Comment code more thoroughly
         
     Enviroment:
 
@@ -1967,6 +1966,7 @@ app.post('/emails/:collectionName', isAuthenticated, async (req, res) => {
     }
 });
 
+// api route to get all grades
 app.get('/grades', isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, './public/grades.html'));
 });
@@ -1988,15 +1988,6 @@ app.get('/api/user-grades', isAuthenticated, async (req, res) => {
     }
 });
 
-
-
-// initializeDatabases().then(() => {
-//     app.listen(port, () => {
-//         console.log(`Server running on port ${port}`);
-//     });
-// }).catch(err => {
-//     console.error('Initialization failed:', err);
-// });
 
 let server;
 

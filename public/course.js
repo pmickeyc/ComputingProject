@@ -1,47 +1,53 @@
+// add event listener for when the document is fully loaded
 $(document).ready(function () {
+    // get url path and extract courseId from it
     const urlPath = window.location.pathname;
-    const courseId = urlPath.substring(urlPath.lastIndexOf('/') + 1); // Extract courseId from URL
-    console.log(`Course ID: ${courseId}`); // Log course ID
+    const courseId = urlPath.substring(urlPath.lastIndexOf('/') + 1); // extract courseId from url
+    console.log(`course id: ${courseId}`); // log course id
 
-    let selectedContentId = null; // Variable to store the selected ContentID
+    let selectedContentId = null; // variable to store the selected contentid
 
+    // fetch course contents
     fetchCourseContents(courseId);
 
-    // Event listener for the Back button
+    // event listener for the back button
     document.getElementById('back-button').addEventListener('click', function () {
         location.reload();
     });
 
-    // Event listener for the Complete button
+    // event listener for the complete button
     document.getElementById('complete-button').addEventListener('click', function () {
         if (selectedContentId) {
             markContentComplete(selectedContentId, courseId);
         } else {
-            alert('Please select content to complete.');
+            alert('please select content to complete.');
         }
     });
 
+    // function to fetch course contents
     function fetchCourseContents(courseId) {
         $.ajax({
             url: `/api/course/${courseId}/contents`,
             method: 'GET',
             success: function (data) {
-                console.log('Course contents data:', data);
+                console.log('course contents data:', data);
                 populateCourseContentTable(data);
             },
             error: function (xhr, status, error) {
-                console.error("Failed to retrieve course contents:", status, error);
-                alert('Failed to retrieve course contents.');
+                console.error("failed to retrieve course contents:", status, error);
+                alert('failed to retrieve course contents.');
             }
         });
     }
 
+    // function to populate course content table
     function populateCourseContentTable(contents) {
         const tableBody = document.getElementById('course-content-table');
-        tableBody.innerHTML = '';
+        tableBody.innerHTML = ''; // clear previous contents
 
+        // iterate over contents array
         contents.forEach(content => {
-            console.log(`Content ID: ${content.ContentID}, Content Type: ${content.ContentType}`);
+            console.log(`content id: ${content.ContentID}, content type: ${content.ContentType}`);
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${content.ContentID}</td>
@@ -50,20 +56,22 @@ $(document).ready(function () {
                 <td>${content.ContentType || 'N/A'}</td>
                 <td>${content.CompletionStatus}</td>
                 <td>
-                    <button class="btn btn-secondary view-content" data-id="${content.ContentID}" data-type="${content.ContentType}" data-pdf="${content.CoursePDF}" data-email-id="${content.EmailID}">View</button>
+                    <button class="btn btn-secondary view-content" data-id="${content.ContentID}" data-type="${content.ContentType}" data-pdf="${content.CoursePDF}" data-email-id="${content.EmailID}">view</button>
                 </td>
             `;
+            // append row to table body
             tableBody.appendChild(row);
         });
 
+        // add click event listeners to view content buttons
         document.querySelectorAll('.view-content').forEach(button => {
             button.addEventListener('click', function () {
                 selectedContentId = this.getAttribute('data-id');
-                console.log(`Selected Content ID: ${selectedContentId}`);
+                console.log(`selected content id: ${selectedContentId}`);
                 const contentType = this.getAttribute('data-type');
                 const pdfPath = this.getAttribute('data-pdf') ? this.getAttribute('data-pdf').replace('./public/', '/') : null;
                 const emailId = this.getAttribute('data-email-id');
-                console.log(`Button clicked: Content ID: ${selectedContentId}, Content Type: ${contentType}, PDF Path: ${pdfPath}, Email ID: ${emailId}`);
+                console.log(`button clicked: content id: ${selectedContentId}, content type: ${contentType}, pdf path: ${pdfPath}, email id: ${emailId}`);
                 if (contentType === 'PDF') {
                     loadPDF(pdfPath);
                 } else if (contentType === 'Email') {
@@ -73,28 +81,29 @@ $(document).ready(function () {
         });
     }
 
-
+    // function to load pdf
     function loadPDF(pdfPath) {
-        console.log(`Loading PDF from path: ${pdfPath}`); // Log the PDF path
+        console.log(`loading pdf from path: ${pdfPath}`); // log the pdf path
 
         const courseContent = $('#course-content');
         const emailContent = $('#email-content');
         const pdfViewer = $('#pdf-viewer');
 
+        // hide course content and email content, show pdf viewer
         if (courseContent.length) {
-            console.log("Hiding #course-content");
+            console.log("hiding #course-content");
             courseContent.hide();
         } else {
             console.error("#course-content not found");
         }
         if (emailContent.length) {
-            console.log("Hiding #email-content");
+            console.log("hiding #email-content");
             emailContent.hide();
         } else {
             console.error("#email-content not found");
         }
         if (pdfViewer.length) {
-            console.log("Showing #pdf-viewer");
+            console.log("showing #pdf-viewer");
             pdfViewer.show();
         } else {
             console.error("#pdf-viewer not found");
@@ -103,16 +112,13 @@ $(document).ready(function () {
         let pdfDoc = null,
             pageNum = 1;
 
+        // function to render page
         function renderPage(num) {
             pdfDoc.getPage(num).then(function (page) {
                 const canvas = document.getElementById('pdf-canvas');
                 const context = canvas.getContext('2d');
-                const scale = canvas.parentElement.offsetWidth / page.getViewport({
-                    scale: 1
-                }).width;
-                const viewport = page.getViewport({
-                    scale: scale
-                });
+                const scale = canvas.parentElement.offsetWidth / page.getViewport({ scale: 1 }).width;
+                const viewport = page.getViewport({ scale: scale });
 
                 canvas.width = viewport.width;
                 canvas.height = viewport.height;
@@ -123,21 +129,23 @@ $(document).ready(function () {
                 };
 
                 page.render(renderContext).promise.then(() => {
-                    console.log(`Rendered page number ${num}`);
+                    console.log(`rendered page number ${num}`);
                 }).catch(error => {
-                    console.error(`Error rendering page ${num}:`, error);
+                    console.error(`error rendering page ${num}:`, error);
                 });
             });
 
             document.getElementById('page_num').textContent = num;
         }
 
+        // function to queue render page
         function queueRenderPage(num) {
             if (pdfDoc !== null) {
                 renderPage(num);
             }
         }
 
+        // function to handle previous page button click
         function onPrevPage() {
             if (pageNum <= 1) {
                 return;
@@ -146,6 +154,7 @@ $(document).ready(function () {
             queueRenderPage(pageNum);
         }
 
+        // function to handle next page button click
         function onNextPage() {
             if (pageNum >= pdfDoc.numPages) {
                 return;
@@ -154,51 +163,51 @@ $(document).ready(function () {
             queueRenderPage(pageNum);
         }
 
+        // add event listeners to previous and next page buttons
         document.getElementById('prev').addEventListener('click', onPrevPage);
         document.getElementById('next').addEventListener('click', onNextPage);
 
+        // load pdf document
         pdfjsLib.getDocument(pdfPath).promise.then(function (pdfDoc_) {
             pdfDoc = pdfDoc_;
             document.getElementById('page_count').textContent = pdfDoc.numPages;
             renderPage(pageNum);
         }).catch(function (error) {
-            console.error('Error loading PDF:', error);
-            alert('Failed to load PDF.');
+            console.error('error loading pdf:', error);
+            alert('failed to load pdf.');
         });
     }
 
+    // function to mark content complete
     function markContentComplete(contentId, courseId) {
-        // Fetch CSRF token
+        // fetch csrf token
         fetch('/csrf-token')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                const csrfToken = data.csrfToken; // Set the CSRF token value
+                const csrfToken = data.csrfToken; // set the csrf token value
 
-                // Proceed with marking content complete only after fetching the CSRF token
+                // proceed with marking content complete only after fetching the csrf token
                 return $.ajax({
                     url: `/api/complete-content/${contentId}`,
                     method: 'POST',
                     headers: {
-                        'CSRF-Token': csrfToken // Include CSRF token in the headers
+                        'CSRF-Token': csrfToken // include csrf token in the headers
                     },
-                    data: JSON.stringify({
-                        courseId: courseId
-                    }), // Convert data to JSON string
-                    contentType: 'application/json', // Set content type to application/json
+                    data: JSON.stringify({ courseId: courseId }), // convert data to json string
+                    contentType: 'application/json', // set content type to application/json
                     success: function (data) {
-                        console.log('Content marked as complete:', data); // Log success response
-                        location.reload(); // Refresh the page
+                        console.log('content marked as complete:', data); // log success response
+                        location.reload(); // refresh the page
                     },
                     error: function (xhr, status, error) {
-                        console.error("Failed to mark content as complete:", status, error);
-                        alert('Failed to mark content as complete.');
+                        console.error("failed to mark content as complete:", status, error);
+                        alert('failed to mark content as complete.');
                     }
                 });
             })
             .catch(error => {
-                console.error('Failed to fetch CSRF token', error);
+                console.error('failed to fetch csrf token', error);
             });
     }
-
 });

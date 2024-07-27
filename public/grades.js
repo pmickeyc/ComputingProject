@@ -1,10 +1,13 @@
+// add event listener for when the document is fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
-    const gradesTableBody = document.querySelector('#grades-table tbody');
+    const gradesTableBody = document.querySelector('#grades-table tbody'); // get the grades table body
 
     try {
+        // fetch user grades from the api
         const response = await fetch('/api/user-grades');
         const courses = await response.json();
 
+        // iterate over courses array
         courses.forEach(course => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -12,9 +15,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <td>${course.Description}</td>
                 <td>${course.Progress}%</td>
             `;
+            // append row to grades table body
             gradesTableBody.appendChild(row);
         });
     } catch (error) {
-        console.error('Error fetching course grades:', error);
+        console.error('error fetching course grades:', error);
     }
 });

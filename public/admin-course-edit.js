@@ -1,41 +1,53 @@
+// add event listener for when the document is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // get the course id from the url
     const courseId = window.location.pathname.split('/').pop();
+    // fetch details for the course
     fetchCourseDetails(courseId);
     let currentContentId = null;
 
+    // add click event listener to the submit edit course button
     document.getElementById('submit-edit-course-btn').addEventListener('click', function (event) {
         event.preventDefault();
         submitEditCourse();
     });
 
+    // add click event listener to the submit course content button
     document.getElementById('submit-course-content-btn').addEventListener('click', function (event) {
         event.preventDefault();
         submitCourseContent();
     });
 
+    // add click event listener to the submit edit content button
     document.getElementById('submit-edit-content-btn').addEventListener('click', function (event) {
         event.preventDefault();
         submitEditContent();
     });
 });
 
+// function to fetch course details
 function fetchCourseDetails(courseId) {
     fetch(`/api/course/${courseId}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(`http error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
+            // check if data exists
             if (data) {
+                // set course title and description
                 document.getElementById('course-title').value = data.course.Title;
                 document.getElementById('course-description').value = data.course.Description;
 
+                // get the content table element
                 const contentTable = document.getElementById('course-content-table');
                 contentTable.innerHTML = '';
 
+                // iterate over the content array
                 data.content.forEach(content => {
+                    // create a new table row
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${content.ContentID}</td>
@@ -49,43 +61,53 @@ function fetchCourseDetails(courseId) {
                             <button class="btn btn-danger btn-sm" id="delete-btn-${content.ContentID}">Delete</button>
                         </td>
                     `;
+                    // append the row to the content table
                     contentTable.appendChild(row);
 
+                    // add click event listener to edit button
                     document.getElementById(`edit-btn-${content.ContentID}`).addEventListener('click', function() {
                         editContent(content.ContentID);
                     });
 
+                    // add click event listener to delete button
                     document.getElementById(`delete-btn-${content.ContentID}`).addEventListener('click', function() {
                         deleteContent(content.ContentID);
                     });
                 });
             } else {
-                console.error('Course not found');
+                console.error('course not found');
             }
         })
         .catch(error => {
-            console.error('Error fetching course details:', error);
+            console.error('error fetching course details:', error);
         });
 }
 
+// function to submit course content
 function submitCourseContent() {
+    // get course id from url
     const courseId = window.location.pathname.split('/').pop();
+    // get content name and description
     const contentName = document.getElementById('content-name').value;
     const contentDescription = document.getElementById('content-description').value;
+    // get pdf and xlsx files
     const pdfFile = document.getElementById('pdf-file').files[0];
     const xlsxFile = document.getElementById('xlsx-file').files[0];
 
+    // check if content name and description are provided
     if (!contentName || !contentDescription) {
-        alert("All fields are required.");
+        alert("all fields are required.");
         return;
     }
 
+    // create content data object
     const contentData = {
         contentName: contentName,
         contentDescription: contentDescription,
         contentType: ''
     };
 
+    // if xlsx file is provided
     if (xlsxFile) {
         const reader = new FileReader();
         reader.onload = (event) => {
@@ -98,6 +120,7 @@ function submitCourseContent() {
             contentData.xlsxData = JSON.stringify(json);
             contentData.contentType = 'Email';
 
+            // if pdf file is also provided
             if (pdfFile) {
                 uploadPDF(pdfFile, (filePath) => {
                     contentData.pdfFile = filePath;
@@ -109,16 +132,19 @@ function submitCourseContent() {
         };
         reader.readAsArrayBuffer(xlsxFile);
     } else if (pdfFile) {
+        // if only pdf file is provided
         uploadPDF(pdfFile, (filePath) => {
             contentData.pdfFile = filePath;
             contentData.contentType = 'PDF';
             sendCourseContent(courseId, contentData);
         });
     } else {
+        // if no file is provided
         sendCourseContent(courseId, contentData);
     }
 }
 
+// function to upload a pdf
 function uploadPDF(file, callback) {
     fetch('/csrf-token')
         .then(response => response.json())
@@ -140,18 +166,19 @@ function uploadPDF(file, callback) {
                 if (data.success) {
                     callback(data.filePath);
                 } else {
-                    alert('Failed to upload PDF: ' + data.message);
+                    alert('failed to upload pdf: ' + data.message);
                 }
             })
             .catch(error => {
-                console.error('Error uploading PDF:', error);
+                console.error('error uploading pdf:', error);
             });
         })
         .catch(error => {
-            console.error('Error fetching CSRF token:', error);
+            console.error('error fetching csrf token:', error);
         });
 }
 
+// function to send course content
 function sendCourseContent(courseId, contentData) {
     fetch('/csrf-token')
         .then(response => response.json())
@@ -168,47 +195,50 @@ function sendCourseContent(courseId, contentData) {
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`http error! status: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
                 if (data.success) {
-                    alert('Course content uploaded successfully');
-                    location.reload();  // Refresh the page
+                    alert('course content uploaded successfully');
+                    location.reload();  // refresh the page
                 } else {
-                    alert('Failed to upload course content: ' + data.message);
+                    alert('failed to upload course content: ' + data.message);
                 }
             })
             .catch(error => {
-                console.error('Error uploading course content:', error);
+                console.error('error uploading course content:', error);
             });
         })
         .catch(error => {
-            console.error('Error fetching CSRF token:', error);
+            console.error('error fetching csrf token:', error);
         });
 }
 
+// function to edit content
 function editContent(contentId) {
     currentContentId = contentId;
 
     fetch(`/api/course/content/${contentId}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(`http error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
+            // set content name and description in the edit form
             document.getElementById('edit-content-name').value = data.content.ContentName || '';
             document.getElementById('edit-content-description').value = data.content.ContentDescription || '';
             $('#editContentModal').modal('show');
         })
         .catch(error => {
-            console.error('Error fetching content details:', error);
+            console.error('error fetching content details:', error);
         });
 }
 
+// function to submit edited content
 function submitEditContent() {
     fetch('/csrf-token')
         .then(response => response.json())
@@ -233,28 +263,29 @@ function submitEditContent() {
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`http error! status: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
                 if (data.success) {
-                    alert('Content updated successfully');
+                    alert('content updated successfully');
                     $('#editContentModal').modal('hide');
-                    fetchCourseDetails(window.location.pathname.split('/').pop());  // Refresh the content table
+                    fetchCourseDetails(window.location.pathname.split('/').pop());  // refresh the content table
                 } else {
-                    alert('Failed to update content: ' + data.message);
+                    alert('failed to update content: ' + data.message);
                 }
             })
             .catch(error => {
-                console.error('Error updating content:', error);
+                console.error('error updating content:', error);
             });
         })
         .catch(error => {
-            console.error('Error fetching CSRF token:', error);
+            console.error('error fetching csrf token:', error);
         });
 }
 
+// function to submit edited course
 function submitEditCourse() {
     fetch('/csrf-token')
         .then(response => response.json())
@@ -265,9 +296,9 @@ function submitEditCourse() {
             const title = document.getElementById('course-title').value;
             const description = document.getElementById('course-description').value;
 
-            // Validation (if necessary)
+            // validation (if necessary)
             if (!title || !description) {
-                alert('Both title and description are required.');
+                alert('both title and description are required.');
                 return;
             }
 
@@ -286,27 +317,28 @@ function submitEditCourse() {
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`http error! status: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
                 if (data.success) {
-                    alert('Course updated successfully');
-                    window.location.href = '/admin-courses'; // Redirect to courses list
+                    alert('course updated successfully');
+                    window.location.href = '/admin-courses'; // redirect to courses list
                 } else {
-                    alert('Failed to update course: ' + data.message);
+                    alert('failed to update course: ' + data.message);
                 }
             })
             .catch(error => {
-                console.error('Error updating course:', error);
+                console.error('error updating course:', error);
             });
         })
         .catch(error => {
-            console.error('Error fetching CSRF token:', error);
+            console.error('error fetching csrf token:', error);
         });
 }
 
+// function to delete content
 function deleteContent(contentId) {
     fetch('/csrf-token')
         .then(response => response.json())
@@ -323,23 +355,23 @@ function deleteContent(contentId) {
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`http error! status: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
                 if (data.success) {
-                    alert('Content deleted successfully');
-                    fetchCourseDetails(courseId);  // Refresh the content table
+                    alert('content deleted successfully');
+                    fetchCourseDetails(courseId);  // refresh the content table
                 } else {
-                    alert('Failed to delete content: ' + data.message);
+                    alert('failed to delete content: ' + data.message);
                 }
             })
             .catch(error => {
-                console.error('Error deleting content:', error);
+                console.error('error deleting content:', error);
             });
         })
         .catch(error => {
-            console.error('Error fetching CSRF token:', error);
+            console.error('error fetching csrf token:', error);
         });
 }

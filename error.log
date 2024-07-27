@@ -192,3 +192,4 @@
 2024-07-20 20:02:48 error: Error occurred during updating user email: {"sessionId":"u-3YV6hUDppNz8El_3HPxsjBiMshvoUh","error":"The new email is already in use.","oldEmail":"pmickeyc@gmail.com","newEmail":"pmickeyc@gmail.com"}
 2024-07-21 15:42:45 error: Error occurred during updating user email: {"sessionId":"ZtcTZn1Y5PR7J4GXxJXz31Dn2jdn_rOu","error":"The new email is already in use.","oldEmail":"testEncrypted@email.com","newEmail":"testEncrypted@email.com"}
 2024-07-21 16:05:23 error: Error occurred during updating user email: {"sessionId":"cPhu3Tr0q_V6NpgXmrz2RiEdwgHGwT_M","error":"The new email is already in use.","oldEmail":"pmickeyc@gmail.com","newEmail":"pmickeyc@gmail.com"}
+yyyy-24-00 12:24:31 error: exception occurred during login attempt for email: pmickeyc@gmail.com {"sessionId":"KAc3ylLkwiLpSRscgGzshXSZPOUFl0SF","error":"data and hash arguments required"}

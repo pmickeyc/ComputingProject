@@ -1,19 +1,22 @@
+// add event listener for when the document is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    const registerForm = document.getElementById('register-form');
+    const registerForm = document.getElementById('register-form'); // get the register form element
 
     if (!registerForm) {
-        console.error("Error: Couldn't find the register form element.");
+        console.error("error: couldn't find the register form element.");
         return;
     }
 
+    // fetch csrf token
     fetch('/csrf-token')
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            document.getElementById('csrf-token').value = data.csrfToken; // Set the CSRF token value
+            document.getElementById('csrf-token').value = data.csrfToken; // set the csrf token value
         })
-        .catch(error => console.error('Error fetching CSRF token:', error));
+        .catch(error => console.error('error fetching csrf token:', error));
 
+    // add submit event listener to the register form
     registerForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -21,24 +24,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const inputEmail = document.getElementById('inputEmail');
         const inputPassword = document.getElementById('inputPassword');
         const inputConfirmPassword = document.getElementById('inputConfirmPassword');
-        const csrfToken = document.getElementById('csrf-token').value; // Get the CSRF token value
+        const csrfToken = document.getElementById('csrf-token').value; // get the csrf token value
 
-        // Check if all fields are filled
+        // check if all fields are filled
         if (!inputFullName.value || !inputEmail.value || !inputPassword.value || !inputConfirmPassword.value || !csrfToken) {
-            alert('Please fill in all fields.');
+            alert('please fill in all fields.');
             return;
         }
 
-        // Check if passwords match
+        // check if passwords match
         if (inputPassword.value !== inputConfirmPassword.value) {
-            alert('Passwords do not match.');
+            alert('passwords do not match.');
             return;
         }
 
-        // Email validation regex
+        // email validation regex
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(inputEmail.value)) {
-            alert('Please enter a valid email address.');
+            alert('please enter a valid email address.');
             return;
         }
 
@@ -48,33 +51,34 @@ document.addEventListener('DOMContentLoaded', function() {
             password: inputPassword.value,
         };
 
-        console.log("Form data:", formData);
+        console.log("form data:", formData);
 
+        // send registration request
         fetch('/register-user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'CSRF-Token': csrfToken // Include CSRF token in the headers
+                'CSRF-Token': csrfToken // include csrf token in the headers
             },
             body: JSON.stringify(formData),
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('network response was not ok');
             }
             return response.json();
         })
         .then(data => {
-            console.log("Server response:", data);
+            console.log("server response:", data);
             if (data.success) {
                 window.location.href = '/login.html';
             } else {
-                alert('Registration failed: ' + data.message);
+                alert('registration failed: ' + data.message);
             }
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Error: Failed to register. Please try again later.');
+            console.error('error:', error);
+            alert('error: failed to register. please try again later.');
         });
     });
 });
