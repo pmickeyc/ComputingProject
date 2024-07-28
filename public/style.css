@@ -301,7 +301,6 @@ h1.animated {
 /* Email full view styles */
 .email-full {
     display: none;
-
     background-color: #fff;
     overflow-y: auto;
     max-height: calc(100vh - 100px); /* Adjust this value as needed */
@@ -327,6 +326,11 @@ h1.animated {
     display: flex;
     justify-content: space-between;
     width: 100px;
+}
+
+.email-guess-buttons button {
+    margin: 1 5px; 
+    padding: 7px; 
 }
 
 .header {
