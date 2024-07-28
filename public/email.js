@@ -13,10 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('exit-portal').addEventListener('click', function () {
         goBack();
-        
     });
-
-
 
     // Levels (the index) of real to fake emails 
     const levelRatios = [{
@@ -70,18 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
             maxRealEmails = 2;
             maxFakeEmails = 3;
         }
-        //.log(`Max real emails: ${maxRealEmails}, Max fake emails: ${maxFakeEmails}`);
+        console.log(`Max real emails: ${maxRealEmails}, Max fake emails: ${maxFakeEmails}`);
     }
 
-
-    let userLevel = Math.floor(Math.random() * 10) + 1; // This will give a random number between 1 and 100
- // You can change this to the user's actual level
+    let userLevel = Math.floor(Math.random() * 10) + 1; // This will give a random number between 1 and 10
     calculateEmailLimits(userLevel);
 
     // Function to add event listener to an email item
-    function addEmailClickListener(emailItem) {
+    function addEmailClickListener(emailItem, fullContent) {
         emailItem.addEventListener('click', function () {
-            document.querySelector('.email-list').innerHTML = `<div class="email-full">${this.querySelector('.email-snippet').innerHTML}</div>`;
+            showEmailContent(this.innerHTML, fullContent);
         });
     }
 
@@ -91,16 +86,28 @@ document.addEventListener('DOMContentLoaded', function () {
         newEmail.className = 'email-item';
         newEmail.dataset.id = emailContent._id; // Set the data-id attribute
         newEmail.dataset.fake = emailContent.fake;
+
+        // Log the full email content before truncating
+        console.log('Full email content:', emailContent.snippet);
+
+        // Shorten the email snippet for the list view
+        let emailSnippet = emailContent.snippet;
+        if (emailSnippet.length > 100) { // Adjust the length as needed
+            emailSnippet = emailSnippet.substring(0, 100) + '...';
+        }
+
+        console.log('Truncated email snippet:', emailSnippet);
+
         newEmail.innerHTML = `
-        <div class="email-sender">${emailContent.sender}</div>
-        <div class="email-subject">${emailContent.subject}</div>
-        <div class="email-snippet">${emailContent.snippet}</div>
-        <div class="email-guess-buttons">
-            <button class="guess-fake btn btn-warning">Fake</button>
-            <button class="guess-real btn btn-success">Real</button>
-        </div>
-    `;
-        addEmailClickListener(newEmail);
+            <div class="email-sender">${emailContent.sender}</div>
+            <div class="email-subject">${emailContent.subject}</div>
+            <div class="email-snippet">${emailSnippet}</div>
+            <div class="email-guess-buttons">
+                <button class="guess-fake btn btn-warning">Fake</button>
+                <button class="guess-real btn btn-success">Real</button>
+            </div>
+        `;
+        addEmailClickListener(newEmail, emailContent.snippet);
         addGuessingListeners(newEmail, emailContent._id);
         return newEmail;
     }
@@ -137,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             totalGuesses++;
 
-            //console.log(`Correct guesses: ${correctGuesses}, Incorrect guesses: ${incorrectGuesses}, Total guesses: ${totalGuesses}`);
+            console.log(`Correct guesses: ${correctGuesses}, Incorrect guesses: ${incorrectGuesses}, Total guesses: ${totalGuesses}`);
 
             // Disable the guess buttons for this email item
             const btnFake = emailElement.querySelector('.guess-fake');
@@ -147,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // If the user has made 5 guesses, display the score
             if (totalGuesses === maxGuesses) {
-                //console.log('Reached max guesses');
+                console.log('Reached max guesses');
                 showScoreModal();
                 correctGuesses = 0;
                 incorrectGuesses = 0;
@@ -172,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let emailToDeliver = deliveredEmails.shift(); // Get the next email to deliver
                 document.querySelector('.email-list').prepend(emailToDeliver);
                 deliveryCount++;
-                //console.log(`Delivered email count: ${deliveryCount}`);
+                console.log(`Delivered email count: ${deliveryCount}`);
             } else {
                 clearInterval(emailDeliveryInterval); // Stop the interval after maxEmailsDelivered emails
             }
@@ -186,8 +193,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             let emailData = await response.json();
+            console.log('Fetched email data:', emailData);
+
             // Sort and count fake and real emails from the fetched data
             emailData.forEach(email => {
+                console.log('Processing email:', email);
                 if (email.fake === true && fakeEmailCount < maxFakeEmails) {
                     deliveredEmails.push(createEmail(email));
                     fakeEmailCount++;
@@ -197,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            //console.log(`Fetched emails - Fake: ${fakeEmailCount}, Real: ${realEmailCount}`);
+            console.log(`Fetched emails - Fake: ${fakeEmailCount}, Real: ${realEmailCount}`);
             // Shuffle the emails to randomize the order of delivery
             shuffleArray(deliveredEmails);
 
@@ -214,31 +224,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const [courseId, contentId] = collectionId.split('_');
     // Ensure courseId and contentId are available and collectionId is valid
     if (courseId && contentId && collectionId) {
-        //console.log(`Fetching emails for course ID: ${courseId}, content ID: ${contentId}`);
+        console.log(`Fetching emails for course ID: ${courseId}, content ID: ${contentId}`);
         fetchEmails(collectionId);
     } else {
         console.error('No valid course ID, content ID, or collection ID found in the URL path');
     }
 
-
     // Function to show the full email content
-    function showEmailContent(emailContentHTML) {
+    function showEmailContent(emailContentHTML, fullContent) {
         const emailFullView = document.querySelector('.email-full');
         const emailListView = document.querySelector('.email-list');
-        const emailContentWithoutButtons = emailContentHTML.replace(/<div class="email-guess-buttons">[\s\S]*?<\/div>/, '');
+
+        // Replace the buttons with an empty div
+        const emailContentWithoutButtons = `
+            <div class="email-sender">${emailContentHTML.match(/<div class="email-sender">([^<]+)<\/div>/)[1]}</div>
+            <div class="email-subject">${emailContentHTML.match(/<div class="email-subject">([^<]+)<\/div>/)[1]}</div>
+            <div class="email-snippet">${fullContent}</div>
+        `;
+
+        console.log('Original email content HTML:', emailContentHTML);
+        console.log('Email content without buttons:', emailContentWithoutButtons);
+
+        // Set the content and display it
         emailFullView.innerHTML = emailContentWithoutButtons;
         emailFullView.style.display = 'block';
         emailListView.style.display = 'none';
-    }
 
-    // Function to add event listener to an email item
-    function addEmailClickListener(emailItem) {
-        emailItem.addEventListener('click', function (event) {
-            if (event.target === emailItem || event.target.className === 'email-snippet') {
-                const emailContentHTML = this.innerHTML;
-                showEmailContent(emailContentHTML);
-            }
-        });
+        console.log('Full view content:', emailFullView.innerHTML);
     }
 
     // Event listener for the Inbox title click, using the ID
@@ -248,8 +260,6 @@ document.addEventListener('DOMContentLoaded', function () {
         emailFullView.style.display = 'none';
         emailListView.style.display = 'block';
     });
-
-    
 
     // Timer code
     let timeLeft = 120; // Time in seconds
@@ -281,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateTimer();
 
     function showScoreModal() {
-        //console.log('Showing score modal');
+        console.log('Showing score modal');
         clearInterval(timerInterval); // Stop the timer when the modal appears
         const modal = document.getElementById('scoreModal');
         const modalMessage = document.getElementById('modalMessage');
@@ -302,24 +312,28 @@ document.addEventListener('DOMContentLoaded', function () {
         $(modal).modal('show');
     }
 
-    $('#markCompleteBtn').on('click', function () {
+    document.getElementById('markCompleteBtn').addEventListener('click', function () {
+        console.log('Mark complete button clicked');
         markContentComplete(contentId, courseId);
     });
 
-    $('#reloadBtn').on('click', function () {
+    document.getElementById('reloadBtn').addEventListener('click', function () {
+        console.log('Reload button clicked');
         location.reload();
     });
 
-    $('#exitBtn').on('click', function () {
+    document.getElementById('exitBtn').addEventListener('click', function () {
+        console.log('Exit button clicked');
         goBack();
     });
+
     function markContentComplete(contentId, courseId) {
         fetch('/csrf-token')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 const csrfToken = data.csrfToken; // Set the CSRF token value
-    
+
                 $.ajax({
                     url: `/api/complete-content/${contentId}`,
                     method: 'POST',
@@ -342,5 +356,4 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Failed to fetch CSRF token', error);
             });
     }
-    
 });

@@ -59,7 +59,7 @@ body, html {
  .modal {
     display: none; 
     position: fixed; 
-     z-index: 999999999; /*https://stackoverflow.com/questions/41292673/bootstrap-modal-opens-but-stays-in-gray-background-and-cannot-close-or-interact */
+    z-index: 999999999; /*https://stackoverflow.com/questions/41292673/bootstrap-modal-opens-but-stays-in-gray-background-and-cannot-close-or-interact */
     left: 0;
     top: 0;
     width: 100%; 
@@ -81,7 +81,6 @@ body, html {
 .modal-content button {
     margin: 10px;
 } 
-
 
 .main {
     flex: 1;
@@ -142,7 +141,6 @@ h1.animated {
     color: #555;
 }
 
-
 #createCourseModal {
     display: none;
 }
@@ -163,17 +161,17 @@ h1.animated {
     display: none;
 }
 
-.perfectScoreOptions{
+.perfectScoreOptions {
     display: none;
 }
 
-.normalScoreOptions{
+.normalScoreOptions {
     display: none;
 }
 
 /* Existing styles */
 #pdf-viewer {
-    display:none;
+    display: none;
     width: 100%;
     height: calc(100vh - 60px); /* Full height minus control height */
     overflow: auto;
@@ -266,8 +264,10 @@ h1.animated {
 }
 
 .email-list {
-    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
     overflow-y: auto;
+    max-height: calc(100vh - 100px); /* Adjust this value as needed */
 }
 
 .email-item {
@@ -289,21 +289,51 @@ h1.animated {
 }
 
 .email-subject {
-    color: #5f6368;
+    font-weight: bold;
+    color: #333;
 }
 
 .email-snippet {
     color: #5f6368;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: pre-wrap; /* Ensure white spaces and line breaks are respected */
 }
 
-/* .header {
+/* Email full view styles */
+.email-full {
+    display: none;
+
+    background-color: #fff;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px); /* Adjust this value as needed */
+    margin-top: 20px;
+}
+
+.email-sender, .email-subject, .email-snippet {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.email-full p {
+    white-space: normal; /* Ensure normal wrapping of text */
+}
+
+/* Email list styles */
+.email-list {
+    max-height: calc(100vh - 120px); /* Ensure the list doesn't run off the page */
+    overflow-y: auto; /* Scrollbar for the list */
+}
+
+.email-guess-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-} */
+}
 
 .timer {
     font-size: 20px;

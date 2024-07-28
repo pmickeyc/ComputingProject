@@ -4,9 +4,6 @@
     <title>Mock Email Portal</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="/email.js"></script>
 </head>
 <body>
     <div class="container-fluid h-100">
@@ -53,18 +50,21 @@
                 </div>
                 <div class="modal-body">
                     <p id="modalMessage"></p>
+                    <button id="reloadBtn" class="btn btn-secondary">Reload</button>
+                    <button id="exitBtn" class="btn btn-danger">Exit</button>
                     <div id="perfectScoreOptions" >
                         <button id="markCompleteBtn" class="btn btn-success">Mark as Complete</button>
-                        <button id="reloadBtn" class="btn btn-secondary">Reload</button>
-                        <button id="exitBtn" class="btn btn-danger">Exit</button>
                     </div>
                     <div id="normalScoreOptions" >
-                        <button id="reloadBtn" class="btn btn-secondary">Reload</button>
-                        <button id="exitBtn" class="btn btn-danger">Exit</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/email.js"></script>
+
 </body>
 </html>
