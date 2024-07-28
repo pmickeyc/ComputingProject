@@ -1,3 +1,11 @@
+/*
+Author: Padraig McCauley - 20123744
+BiggerPhish Educational Platform
+Computing Project (BSCCYBE4)
+Due: 05/8/2024
+
+*/
+
 // add event listener for when the document is fully loaded
 $(document).ready(function () {
     // get url path and extract courseId from it
@@ -113,7 +121,7 @@ $(document).ready(function () {
             pageNum = 1;
 
         // function to render page
-        function renderPage(num) {
+         function renderPage(num) {  //inspired by content here https://mozilla.github.io/pdf.js/examples/
             pdfDoc.getPage(num).then(function (page) {
                 const canvas = document.getElementById('pdf-canvas');
                 const context = canvas.getContext('2d');

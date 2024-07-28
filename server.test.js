@@ -1,3 +1,11 @@
+/*
+Author: Padraig McCauley - 20123744
+BiggerPhish Educational Platform
+Computing Project (BSCCYBE4)
+Due: 05/8/2024
+
+*/
+
 const request = require('supertest');
 const { app, initializeDatabases, client, sql } = require('./server');
 const https = require('https');

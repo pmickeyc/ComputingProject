@@ -1,3 +1,8 @@
+/* Author: Padraig McCauley - 20123744
+BiggerPhish Educational Platform
+Computing Project (BSCCYBE4)
+Due: 05/8/2024 */
+
 body, html {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -169,7 +174,7 @@ h1.animated {
     display: none;
 }
 
-/* Existing styles */
+
 #pdf-viewer {
     display: none;
     width: 100%;
@@ -267,7 +272,7 @@ h1.animated {
     padding: 20px;
     background-color: #f9f9f9;
     overflow-y: auto;
-    max-height: calc(100vh - 100px); /* Adjust this value as needed */
+    max-height: calc(100vh - 100px); 
 }
 
 .email-item {
@@ -303,7 +308,7 @@ h1.animated {
     display: none;
     background-color: #fff;
     overflow-y: auto;
-    max-height: calc(100vh - 100px); /* Adjust this value as needed */
+    max-height: calc(100vh - 100px);
     margin-top: 20px;
 }
 

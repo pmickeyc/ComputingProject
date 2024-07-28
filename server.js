@@ -1,12 +1,15 @@
 /*
 Author: Padraig McCauley - 20123744
 BiggerPhish Educational Platform
+Computing Project (BSCCYBE4)
+Due: 05/8/2024
 
+*/
+/*
 TODO:
     Security:
 
     Functional:
-        Create content for courses
         
     Enviroment:
 

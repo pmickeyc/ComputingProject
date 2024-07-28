@@ -1,3 +1,11 @@
+/*
+Author: Padraig McCauley - 20123744
+BiggerPhish Educational Platform
+Computing Project (BSCCYBE4)
+Due: 05/8/2024
+
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
     let deliveredEmails = []; // Array to store emails to be delivered
     let fakeEmailCount = 0;

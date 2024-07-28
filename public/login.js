@@ -1,3 +1,11 @@
+/*
+Author: Padraig McCauley - 20123744
+BiggerPhish Educational Platform
+Computing Project (BSCCYBE4)
+Due: 05/8/2024
+
+*/
+
 // add event listener for when the document is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('login-form'); // get the login form element
