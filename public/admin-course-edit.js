@@ -125,7 +125,7 @@ function submitCourseContent() {
     if (xlsxFile) {
         const reader = new FileReader();
         reader.onload = (event) => {
-            const data = new Uint8Array(event.target.result);
+             const data = new Uint8Array(event.target.result); // https://docs.sheetjs.com/docs/api/utilities/
             const workbook = XLSX.read(data, { type: 'array' });
             const sheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[sheetName];
