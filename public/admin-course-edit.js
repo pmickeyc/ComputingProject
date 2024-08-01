@@ -137,6 +137,22 @@ function submitCourseContent() {
         return;
     }
 
+    if (xlsxFile && xlsxFile.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+        alert("Invalid file type for XLSX. Please upload an XLSX file.");
+        return;
+    }
+
+        // Check for spaces in file names
+    if (pdfFile && pdfFile.name.includes(' ')) {
+        alert("The PDF file name should not contain spaces. Please rename the file and try again.");
+        return;
+    }
+
+    if (xlsxFile && xlsxFile.name.includes(' ')) {
+        alert("The XLSX file name should not contain spaces. Please rename the file and try again.");
+        return;
+    }
+
     // create content data object
     const contentData = {
         contentName: contentName,
