@@ -108,9 +108,32 @@ function submitCourseContent() {
     const pdfFile = document.getElementById('pdf-file').files[0];
     const xlsxFile = document.getElementById('xlsx-file').files[0];
 
-    // check if content name and description are provided
+    // Check if content name and description are provided
     if (!contentName || !contentDescription) {
-        alert("all fields are required.");
+        alert("All fields are required - please add a content name and description.");
+        return;
+    }
+
+    // Check if both files are provided
+    if (!pdfFile && !xlsxFile) {
+        alert("Please upload either a PDF or an XLSX file.");
+        return;
+    }
+
+    // Check if both files are provided
+    if (pdfFile && xlsxFile) {
+        alert("Only one file type can be uploaded at a time.");
+        return;
+    }
+
+    // Check the file types
+    if (pdfFile && pdfFile.type !== 'application/pdf') {
+        alert("Invalid file type for PDF. Please upload a PDF file.");
+        return;
+    }
+
+    if (xlsxFile && xlsxFile.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+        alert("Invalid file type for XLSX. Please upload an XLSX file.");
         return;
     }
 
